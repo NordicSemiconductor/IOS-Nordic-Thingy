@@ -1,0 +1,1099 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		300517841EC06B7400E3A64E /* ukulele_8kHz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 300517831EC06B7400E3A64E /* ukulele_8kHz.wav */; };
+		3007EEFB1DA4F7CA003F844B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3007EEFA1DA4F7CA003F844B /* UIColorExtension.swift */; };
+		301157E81DD6187900137C41 /* EnvironmentControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301157E71DD6187900137C41 /* EnvironmentControlViewController.swift */; };
+		301157EA1DD618B600137C41 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301157E91DD618B600137C41 /* MainNavigationViewController.swift */; };
+		301157FB1DD61B8F00137C41 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301157F91DD61B8F00137C41 /* TutorialPageViewController.swift */; };
+		301157FC1DD61B8F00137C41 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301157FA1DD61B8F00137C41 /* TutorialViewController.swift */; };
+		30170A9F1EBCB93100176728 /* evil_laugh_8kHz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 30170A9C1EBCB93100176728 /* evil_laugh_8kHz.wav */; };
+		30170AA01EBCB93100176728 /* grapevine_8kHz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 30170A9D1EBCB93100176728 /* grapevine_8kHz.wav */; };
+		3029F9A71DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3029F9A61DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift */; };
+		3039CCB21DD0D07000DA1C55 /* MotionModelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3039CCB11DD0D07000DA1C55 /* MotionModelScene.swift */; };
+		308D1A921DE84A2B009138DE /* MainEmptyConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D1A911DE84A2B009138DE /* MainEmptyConfigurationViewController.swift */; };
+		308D1A951DE851DD009138DE /* SetRootViewSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D1A941DE851DD009138DE /* SetRootViewSegue.swift */; };
+		30919A211E01784900E74F5D /* GraphDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30919A201E01784900E74F5D /* GraphDataHandler.swift */; };
+		309AE7F31E9BAEB9003FEB8F /* CloudGuidePageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309AE7F21E9BAEB9003FEB8F /* CloudGuidePageContentViewController.swift */; };
+		309AE7F51E9BAF88003FEB8F /* CloudGuidePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309AE7F41E9BAF88003FEB8F /* CloudGuidePageViewController.swift */; };
+		309E4E481DA68F1E00C90FDF /* ThingyConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E4E471DA68F1E00C90FDF /* ThingyConfigurationViewController.swift */; };
+		309E4E4F1DA68F6900C90FDF /* ThingyMotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E4E4E1DA68F6900C90FDF /* ThingyMotionViewController.swift */; };
+		309E4E511DA68F7B00C90FDF /* EnvironmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E4E501DA68F7B00C90FDF /* EnvironmentViewController.swift */; };
+		309E4E531DA68F9400C90FDF /* ThingyUserInterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E4E521DA68F9400C90FDF /* ThingyUserInterfaceViewController.swift */; };
+		309E4E581DA6900700C90FDF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E4E561DA6900700C90FDF /* RootViewController.swift */; };
+		309E4E5A1DA6903D00C90FDF /* SwipableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E4E591DA6903D00C90FDF /* SwipableViewController.swift */; };
+		309E4E631DA6904C00C90FDF /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E4E5C1DA6904C00C90FDF /* MainMenuViewController.swift */; };
+		309E4E641DA6904C00C90FDF /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E4E5E1DA6904C00C90FDF /* MenuItemTableViewCell.swift */; };
+		309E4E651DA6904C00C90FDF /* ThingeePeripheralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E4E5F1DA6904C00C90FDF /* ThingeePeripheralTableViewCell.swift */; };
+		309E4E661DA6904C00C90FDF /* ExpandableTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E4E611DA6904C00C90FDF /* ExpandableTableHeaderView.swift */; };
+		309E4E671DA6904C00C90FDF /* ExpandableTableHeaderViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E4E621DA6904C00C90FDF /* ExpandableTableHeaderViewDelegate.swift */; };
+		30AAB3081DED8A310034B303 /* SetKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAB3071DED8A310034B303 /* SetKeyView.swift */; };
+		30AC20091ECDD8DD00236FF6 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC20081ECDD8DD00236FF6 /* StringExtension.swift */; };
+		30BD60731E1D27EB00A91368 /* Thingy3DControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD606E1E1D27EB00A91368 /* Thingy3DControlViewController.swift */; };
+		30BD60741E1D27EB00A91368 /* ThingyGravityVectorControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD606F1E1D27EB00A91368 /* ThingyGravityVectorControlViewController.swift */; };
+		30BD60751E1D27EB00A91368 /* ThingyMotionControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD60701E1D27EB00A91368 /* ThingyMotionControlDelegate.swift */; };
+		30BD60761E1D27EB00A91368 /* ThingyMotionControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD60711E1D27EB00A91368 /* ThingyMotionControlViewController.swift */; };
+		30BE4C161DA5334100D9A946 /* MenuExpandableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30BE4C151DA5334100D9A946 /* MenuExpandableHeaderView.xib */; };
+		30C0C9551E926FD70016C41C /* ThingyCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C0C9541E926FD70016C41C /* ThingyCloudViewController.swift */; };
+		30E2A4131E003E6600A77164 /* MotionSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2A4121E003E6600A77164 /* MotionSettingsViewController.swift */; };
+		30EB9C971EBCB9E000218D29 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB9C961EBCB9E000218D29 /* AboutViewController.swift */; };
+		30F342141DF5918B003E9119 /* ThingySDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 30F342131DF5918B003E9119 /* ThingySDK.podspec */; };
+		30F342191DF5943E003E9119 /* AO_MDL Obj_AE9A38A7-6603-4DFF-99F5-C005F8D65F58.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F342161DF5943E003E9119 /* AO_MDL Obj_AE9A38A7-6603-4DFF-99F5-C005F8D65F58.png */; };
+		30F3421A1DF5943E003E9119 /* AO_MDL Obj_FEFAB2C1-D28B-4C56-94F9-ECD73E858414.png in Resources */ = {isa = PBXBuildFile; fileRef = 30F342171DF5943E003E9119 /* AO_MDL Obj_FEFAB2C1-D28B-4C56-94F9-ECD73E858414.png */; };
+		30F3421B1DF5943E003E9119 /* thingy_obj.scn in Resources */ = {isa = PBXBuildFile; fileRef = 30F342181DF5943E003E9119 /* thingy_obj.scn */; };
+		30F342211DF5A0F8003E9119 /* ThingyCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F3421E1DF5A0F8003E9119 /* ThingyCreatorViewController.swift */; };
+		30F342221DF5A0F8003E9119 /* ThingyInitialConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F3421F1DF5A0F8003E9119 /* ThingyInitialConfigurationViewController.swift */; };
+		52073C721DC0CB72006748C3 /* HasThingyTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52073C711DC0CB72006748C3 /* HasThingyTarget.swift */; };
+		5218BD781E77FBB300BAB1A2 /* CenterAlignedCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5218BD771E77FBB300BAB1A2 /* CenterAlignedCollectionFlowLayout.swift */; };
+		5218BD7A1E77FC2500BAB1A2 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5218BD791E77FC2500BAB1A2 /* ColorCollectionViewCell.swift */; };
+		521CA45A1E7053C4006B5221 /* SoundGraphDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521CA4591E7053C4006B5221 /* SoundGraphDataHandler.swift */; };
+		522E89FD1DFAFC0E00D0A048 /* EnvironmentSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522E89FC1DFAFC0E00D0A048 /* EnvironmentSettingsViewController.swift */; };
+		522E89FF1DFAFD7600D0A048 /* ThingyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522E89FE1DFAFD7600D0A048 /* ThingyNavigationController.swift */; };
+		5244F3991E2530D1007153B4 /* SoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5244F3981E2530D1007153B4 /* SoundViewController.swift */; };
+		5271A3FB1DEEF7380025E6B7 /* ThingyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271A3FA1DEEF7380025E6B7 /* ThingyViewController.swift */; };
+		5271A3FD1DEEF7800025E6B7 /* ThingyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5271A3FC1DEEF7800025E6B7 /* ThingyTableViewController.swift */; };
+		52921BC41DEDDB3F0050DC17 /* SwipableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52921BC31DEDDB3F0050DC17 /* SwipableTableViewController.swift */; };
+		529886441EC30B8600E66715 /* DFUScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298863D1EC30B8600E66715 /* DFUScannerViewController.swift */; };
+		529886461EC30B8600E66715 /* DFUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298863F1EC30B8600E66715 /* DFUViewController.swift */; };
+		529886511EC30BFE00E66715 /* DFUTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298864C1EC30BFE00E66715 /* DFUTutorialViewController.swift */; };
+		529886521EC30BFE00E66715 /* FilePreselectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298864D1EC30BFE00E66715 /* FilePreselectionDelegate.swift */; };
+		529886531EC30BFE00E66715 /* FileSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298864E1EC30BFE00E66715 /* FileSelectionDelegate.swift */; };
+		529886541EC30BFE00E66715 /* FolderFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298864F1EC30BFE00E66715 /* FolderFilesViewController.swift */; };
+		529886551EC30BFE00E66715 /* UserFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529886501EC30BFE00E66715 /* UserFilesViewController.swift */; };
+		529EA7541E0421F900E33E2C /* PopupHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529EA7531E0421F900E33E2C /* PopupHelper.swift */; };
+		52C6A1741E0185D600D05300 /* ConfigurationPresetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6A1731E0185D600D05300 /* ConfigurationPresetTableViewController.swift */; };
+		52CA964F1EC1E62C00A2F01F /* learning_computer_8kHz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 52CA964E1EC1E62C00A2F01F /* learning_computer_8kHz.wav */; };
+		52D28DD01EB8C6F70097BDD3 /* CloudGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D28DCF1EB8C6F70097BDD3 /* CloudGuideViewController.swift */; };
+		52D40EAC1EC9C214000E52AE /* thingy_dfu_pkg_app_v1.0.0.zip in Resources */ = {isa = PBXBuildFile; fileRef = 52D40EAB1EC9C214000E52AE /* thingy_dfu_pkg_app_v1.0.0.zip */; };
+		52FB2F831E13EC920025218E /* NewThingyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB2F821E13EC920025218E /* NewThingyDelegate.swift */; };
+		52FB2F851E13ED850025218E /* ThingyCreatorNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB2F841E13ED850025218E /* ThingyCreatorNavigationController.swift */; };
+		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
+		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
+		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
+		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		81D5731E0EC4E7BE5B10FF82 /* Pods_ThingySDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413D600C308F170A5844354A /* Pods_ThingySDK_Example.framework */; };
+		AA7852007DCC447AEED53BA3 /* Pods_ThingySDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C617A152E789FA122EF2B4D2 /* Pods_ThingySDK_Tests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = ThingeeSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0BA16CB0A88CD7AB9B460019 /* Pods-ThingySDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThingySDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThingySDK_Example/Pods-ThingySDK_Example.release.xcconfig"; sourceTree = "<group>"; };
+		300517831EC06B7400E3A64E /* ukulele_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ukulele_8kHz.wav; sourceTree = "<group>"; };
+		3007EEFA1DA4F7CA003F844B /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		301157E71DD6187900137C41 /* EnvironmentControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentControlViewController.swift; sourceTree = "<group>"; };
+		301157E91DD618B600137C41 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
+		301157F91DD61B8F00137C41 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
+		301157FA1DD61B8F00137C41 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		30170A9C1EBCB93100176728 /* evil_laugh_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = evil_laugh_8kHz.wav; sourceTree = "<group>"; };
+		30170A9D1EBCB93100176728 /* grapevine_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grapevine_8kHz.wav; sourceTree = "<group>"; };
+		3029F9A61DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyConfigurationItemTableViewCell.swift; sourceTree = "<group>"; };
+		3039CCB11DD0D07000DA1C55 /* MotionModelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionModelScene.swift; sourceTree = "<group>"; };
+		308D1A911DE84A2B009138DE /* MainEmptyConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainEmptyConfigurationViewController.swift; sourceTree = "<group>"; };
+		308D1A941DE851DD009138DE /* SetRootViewSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetRootViewSegue.swift; sourceTree = "<group>"; };
+		30919A201E01784900E74F5D /* GraphDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphDataHandler.swift; sourceTree = "<group>"; };
+		309AE7F21E9BAEB9003FEB8F /* CloudGuidePageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudGuidePageContentViewController.swift; sourceTree = "<group>"; };
+		309AE7F41E9BAF88003FEB8F /* CloudGuidePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudGuidePageViewController.swift; sourceTree = "<group>"; };
+		309E4E471DA68F1E00C90FDF /* ThingyConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyConfigurationViewController.swift; sourceTree = "<group>"; };
+		309E4E4E1DA68F6900C90FDF /* ThingyMotionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyMotionViewController.swift; sourceTree = "<group>"; };
+		309E4E501DA68F7B00C90FDF /* EnvironmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentViewController.swift; sourceTree = "<group>"; };
+		309E4E521DA68F9400C90FDF /* ThingyUserInterfaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyUserInterfaceViewController.swift; sourceTree = "<group>"; };
+		309E4E561DA6900700C90FDF /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		309E4E591DA6903D00C90FDF /* SwipableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipableViewController.swift; sourceTree = "<group>"; };
+		309E4E5C1DA6904C00C90FDF /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		309E4E5E1DA6904C00C90FDF /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
+		309E4E5F1DA6904C00C90FDF /* ThingeePeripheralTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingeePeripheralTableViewCell.swift; sourceTree = "<group>"; };
+		309E4E611DA6904C00C90FDF /* ExpandableTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTableHeaderView.swift; sourceTree = "<group>"; };
+		309E4E621DA6904C00C90FDF /* ExpandableTableHeaderViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTableHeaderViewDelegate.swift; sourceTree = "<group>"; };
+		30AAB3071DED8A310034B303 /* SetKeyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetKeyView.swift; sourceTree = "<group>"; };
+		30AC20081ECDD8DD00236FF6 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		30BD606E1E1D27EB00A91368 /* Thingy3DControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thingy3DControlViewController.swift; sourceTree = "<group>"; };
+		30BD606F1E1D27EB00A91368 /* ThingyGravityVectorControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyGravityVectorControlViewController.swift; sourceTree = "<group>"; };
+		30BD60701E1D27EB00A91368 /* ThingyMotionControlDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyMotionControlDelegate.swift; sourceTree = "<group>"; };
+		30BD60711E1D27EB00A91368 /* ThingyMotionControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyMotionControlViewController.swift; sourceTree = "<group>"; };
+		30BE4C151DA5334100D9A946 /* MenuExpandableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuExpandableHeaderView.xib; sourceTree = "<group>"; };
+		30C0C9541E926FD70016C41C /* ThingyCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyCloudViewController.swift; sourceTree = "<group>"; };
+		30E2A4121E003E6600A77164 /* MotionSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionSettingsViewController.swift; sourceTree = "<group>"; };
+		30EB9C961EBCB9E000218D29 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		30F342131DF5918B003E9119 /* ThingySDK.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ThingySDK.podspec; path = ../ThingySDK.podspec; sourceTree = "<group>"; };
+		30F342161DF5943E003E9119 /* AO_MDL Obj_AE9A38A7-6603-4DFF-99F5-C005F8D65F58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AO_MDL Obj_AE9A38A7-6603-4DFF-99F5-C005F8D65F58.png"; sourceTree = "<group>"; };
+		30F342171DF5943E003E9119 /* AO_MDL Obj_FEFAB2C1-D28B-4C56-94F9-ECD73E858414.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AO_MDL Obj_FEFAB2C1-D28B-4C56-94F9-ECD73E858414.png"; sourceTree = "<group>"; };
+		30F342181DF5943E003E9119 /* thingy_obj.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = thingy_obj.scn; sourceTree = "<group>"; };
+		30F3421E1DF5A0F8003E9119 /* ThingyCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyCreatorViewController.swift; sourceTree = "<group>"; };
+		30F3421F1DF5A0F8003E9119 /* ThingyInitialConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyInitialConfigurationViewController.swift; sourceTree = "<group>"; };
+		413D600C308F170A5844354A /* Pods_ThingySDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThingySDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52073C711DC0CB72006748C3 /* HasThingyTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasThingyTarget.swift; sourceTree = "<group>"; };
+		5218BD771E77FBB300BAB1A2 /* CenterAlignedCollectionFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CenterAlignedCollectionFlowLayout.swift; path = ColorCollectionViewCell/CenterAlignedCollectionFlowLayout.swift; sourceTree = "<group>"; };
+		5218BD791E77FC2500BAB1A2 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorCollectionViewCell.swift; path = ColorCollectionViewCell/ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		521CA4591E7053C4006B5221 /* SoundGraphDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundGraphDataHandler.swift; sourceTree = "<group>"; };
+		522E89FC1DFAFC0E00D0A048 /* EnvironmentSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentSettingsViewController.swift; sourceTree = "<group>"; };
+		522E89FE1DFAFD7600D0A048 /* ThingyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyNavigationController.swift; sourceTree = "<group>"; };
+		5244F3981E2530D1007153B4 /* SoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundViewController.swift; path = SoundView/SoundViewController.swift; sourceTree = "<group>"; };
+		5271A3FA1DEEF7380025E6B7 /* ThingyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyViewController.swift; sourceTree = "<group>"; };
+		5271A3FC1DEEF7800025E6B7 /* ThingyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyTableViewController.swift; sourceTree = "<group>"; };
+		52921BC31DEDDB3F0050DC17 /* SwipableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipableTableViewController.swift; sourceTree = "<group>"; };
+		5298863D1EC30B8600E66715 /* DFUScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFUScannerViewController.swift; sourceTree = "<group>"; };
+		5298863F1EC30B8600E66715 /* DFUViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFUViewController.swift; sourceTree = "<group>"; };
+		5298864C1EC30BFE00E66715 /* DFUTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFUTutorialViewController.swift; sourceTree = "<group>"; };
+		5298864D1EC30BFE00E66715 /* FilePreselectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePreselectionDelegate.swift; sourceTree = "<group>"; };
+		5298864E1EC30BFE00E66715 /* FileSelectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSelectionDelegate.swift; sourceTree = "<group>"; };
+		5298864F1EC30BFE00E66715 /* FolderFilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderFilesViewController.swift; sourceTree = "<group>"; };
+		529886501EC30BFE00E66715 /* UserFilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFilesViewController.swift; sourceTree = "<group>"; };
+		529EA7531E0421F900E33E2C /* PopupHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupHelper.swift; sourceTree = "<group>"; };
+		52C6A1731E0185D600D05300 /* ConfigurationPresetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationPresetTableViewController.swift; sourceTree = "<group>"; };
+		52CA964E1EC1E62C00A2F01F /* learning_computer_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = learning_computer_8kHz.wav; sourceTree = "<group>"; };
+		52D28DCF1EB8C6F70097BDD3 /* CloudGuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudGuideViewController.swift; sourceTree = "<group>"; };
+		52D40EAB1EC9C214000E52AE /* thingy_dfu_pkg_app_v1.0.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = thingy_dfu_pkg_app_v1.0.0.zip; sourceTree = "<group>"; };
+		52FB2F821E13EC920025218E /* NewThingyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewThingyDelegate.swift; sourceTree = "<group>"; };
+		52FB2F841E13ED850025218E /* ThingyCreatorNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyCreatorNavigationController.swift; sourceTree = "<group>"; };
+		5843732F48FEAA61CBA13DE4 /* Pods-ThingySDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThingySDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThingySDK_Example/Pods-ThingySDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		607FACD01AFB9204008FA782 /* ThingySDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThingySDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		607FACE51AFB9204008FA782 /* ThingySDK_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThingySDK_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		977F29455A0F677BE32899DA /* Pods-ThingySDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThingySDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThingySDK_Tests/Pods-ThingySDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		C617A152E789FA122EF2B4D2 /* Pods_ThingySDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThingySDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA6CEF6C224C5808D1DC80E2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		DFF558D146FD01E03D48B56E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		F16036E6C1391B18D32CEB3F /* Pods-ThingySDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThingySDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThingySDK_Tests/Pods-ThingySDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		607FACCD1AFB9204008FA782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81D5731E0EC4E7BE5B10FF82 /* Pods_ThingySDK_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607FACE21AFB9204008FA782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA7852007DCC447AEED53BA3 /* Pods_ThingySDK_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3007EEF41DA4F1EB003F844B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				309E4E541DA6900700C90FDF /* BaseViews */,
+				301157F81DD61B8F00137C41 /* TutorialView */,
+				30F3421C1DF5A0F8003E9119 /* ThingyCreatorView */,
+				309E4E5B1DA6904C00C90FDF /* MainMenu */,
+				309E4E461DA68EFB00C90FDF /* EnvironmentView */,
+				309E4E451DA68EFB00C90FDF /* UserInterfaceView */,
+				309E4E4D1DA68F6900C90FDF /* MotionView */,
+				5244F3971E25309D007153B4 /* SoundView */,
+				30C0C9531E926FB80016C41C /* CloudView */,
+				309E4E421DA68EFB00C90FDF /* ConfigurationView */,
+				5298863B1EC30B8600E66715 /* DFUView */,
+				30EB9C951EBCB9C800218D29 /* AboutView */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3007EEF91DA4F794003F844B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3007EEFA1DA4F7CA003F844B /* UIColorExtension.swift */,
+				30AC20081ECDD8DD00236FF6 /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3007EEFC1DA4FBD1003F844B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				30BE4C151DA5334100D9A946 /* MenuExpandableHeaderView.xib */,
+			);
+			name = UI;
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		301157F81DD61B8F00137C41 /* TutorialView */ = {
+			isa = PBXGroup;
+			children = (
+				301157F91DD61B8F00137C41 /* TutorialPageViewController.swift */,
+				301157FA1DD61B8F00137C41 /* TutorialViewController.swift */,
+			);
+			path = TutorialView;
+			sourceTree = "<group>";
+		};
+		30170A9B1EBCB93100176728 /* AudioSamples */ = {
+			isa = PBXGroup;
+			children = (
+				30170A9C1EBCB93100176728 /* evil_laugh_8kHz.wav */,
+				300517831EC06B7400E3A64E /* ukulele_8kHz.wav */,
+				30170A9D1EBCB93100176728 /* grapevine_8kHz.wav */,
+				52CA964E1EC1E62C00A2F01F /* learning_computer_8kHz.wav */,
+			);
+			path = AudioSamples;
+			sourceTree = "<group>";
+		};
+		3029F9A51DAF9E7F00998C27 /* ConfigurationCell */ = {
+			isa = PBXGroup;
+			children = (
+				3029F9A61DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift */,
+			);
+			path = ConfigurationCell;
+			sourceTree = "<group>";
+		};
+		308D1A931DE8517A009138DE /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				308D1A941DE851DD009138DE /* SetRootViewSegue.swift */,
+				30AAB3071DED8A310034B303 /* SetKeyView.swift */,
+			);
+			path = Segues;
+			sourceTree = "<group>";
+		};
+		309AE7F11E9BAEA0003FEB8F /* CloudGuide */ = {
+			isa = PBXGroup;
+			children = (
+				309AE7F21E9BAEB9003FEB8F /* CloudGuidePageContentViewController.swift */,
+				309AE7F41E9BAF88003FEB8F /* CloudGuidePageViewController.swift */,
+				52D28DCF1EB8C6F70097BDD3 /* CloudGuideViewController.swift */,
+			);
+			path = CloudGuide;
+			sourceTree = "<group>";
+		};
+		309E4E421DA68EFB00C90FDF /* ConfigurationView */ = {
+			isa = PBXGroup;
+			children = (
+				30D82A651DBE274F005FD71C /* PopupViews */,
+				3029F9A51DAF9E7F00998C27 /* ConfigurationCell */,
+				309E4E471DA68F1E00C90FDF /* ThingyConfigurationViewController.swift */,
+				308D1A911DE84A2B009138DE /* MainEmptyConfigurationViewController.swift */,
+			);
+			path = ConfigurationView;
+			sourceTree = "<group>";
+		};
+		309E4E451DA68EFB00C90FDF /* UserInterfaceView */ = {
+			isa = PBXGroup;
+			children = (
+				5218BD751E77FB8A00BAB1A2 /* ColorCollectionViewCell */,
+				309E4E521DA68F9400C90FDF /* ThingyUserInterfaceViewController.swift */,
+			);
+			path = UserInterfaceView;
+			sourceTree = "<group>";
+		};
+		309E4E461DA68EFB00C90FDF /* EnvironmentView */ = {
+			isa = PBXGroup;
+			children = (
+				301157E71DD6187900137C41 /* EnvironmentControlViewController.swift */,
+				309E4E501DA68F7B00C90FDF /* EnvironmentViewController.swift */,
+				522E89FC1DFAFC0E00D0A048 /* EnvironmentSettingsViewController.swift */,
+			);
+			name = EnvironmentView;
+			path = WeatherView;
+			sourceTree = "<group>";
+		};
+		309E4E4D1DA68F6900C90FDF /* MotionView */ = {
+			isa = PBXGroup;
+			children = (
+				30BD606D1E1D27EB00A91368 /* MotionConfigurationViews */,
+				309E4E4E1DA68F6900C90FDF /* ThingyMotionViewController.swift */,
+				3039CCB11DD0D07000DA1C55 /* MotionModelScene.swift */,
+				30E2A4121E003E6600A77164 /* MotionSettingsViewController.swift */,
+			);
+			path = MotionView;
+			sourceTree = "<group>";
+		};
+		309E4E541DA6900700C90FDF /* BaseViews */ = {
+			isa = PBXGroup;
+			children = (
+				30919A201E01784900E74F5D /* GraphDataHandler.swift */,
+				521CA4591E7053C4006B5221 /* SoundGraphDataHandler.swift */,
+				309E4E561DA6900700C90FDF /* RootViewController.swift */,
+				301157E91DD618B600137C41 /* MainNavigationViewController.swift */,
+				52073C711DC0CB72006748C3 /* HasThingyTarget.swift */,
+				5271A3FA1DEEF7380025E6B7 /* ThingyViewController.swift */,
+				5271A3FC1DEEF7800025E6B7 /* ThingyTableViewController.swift */,
+				522E89FE1DFAFD7600D0A048 /* ThingyNavigationController.swift */,
+				309E4E591DA6903D00C90FDF /* SwipableViewController.swift */,
+				52921BC31DEDDB3F0050DC17 /* SwipableTableViewController.swift */,
+			);
+			path = BaseViews;
+			sourceTree = "<group>";
+		};
+		309E4E5B1DA6904C00C90FDF /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				309E4E5D1DA6904C00C90FDF /* MenuItemCells */,
+				309E4E601DA6904C00C90FDF /* MenuItemHeader */,
+				309E4E5C1DA6904C00C90FDF /* MainMenuViewController.swift */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		309E4E5D1DA6904C00C90FDF /* MenuItemCells */ = {
+			isa = PBXGroup;
+			children = (
+				309E4E5E1DA6904C00C90FDF /* MenuItemTableViewCell.swift */,
+				309E4E5F1DA6904C00C90FDF /* ThingeePeripheralTableViewCell.swift */,
+			);
+			path = MenuItemCells;
+			sourceTree = "<group>";
+		};
+		309E4E601DA6904C00C90FDF /* MenuItemHeader */ = {
+			isa = PBXGroup;
+			children = (
+				309E4E611DA6904C00C90FDF /* ExpandableTableHeaderView.swift */,
+				309E4E621DA6904C00C90FDF /* ExpandableTableHeaderViewDelegate.swift */,
+			);
+			path = MenuItemHeader;
+			sourceTree = "<group>";
+		};
+		30BD606D1E1D27EB00A91368 /* MotionConfigurationViews */ = {
+			isa = PBXGroup;
+			children = (
+				30BD60701E1D27EB00A91368 /* ThingyMotionControlDelegate.swift */,
+				30BD606E1E1D27EB00A91368 /* Thingy3DControlViewController.swift */,
+				30BD606F1E1D27EB00A91368 /* ThingyGravityVectorControlViewController.swift */,
+				30BD60711E1D27EB00A91368 /* ThingyMotionControlViewController.swift */,
+			);
+			path = MotionConfigurationViews;
+			sourceTree = "<group>";
+		};
+		30C0C9531E926FB80016C41C /* CloudView */ = {
+			isa = PBXGroup;
+			children = (
+				30C0C9541E926FD70016C41C /* ThingyCloudViewController.swift */,
+				309AE7F11E9BAEA0003FEB8F /* CloudGuide */,
+			);
+			path = CloudView;
+			sourceTree = "<group>";
+		};
+		30D82A651DBE274F005FD71C /* PopupViews */ = {
+			isa = PBXGroup;
+			children = (
+				52C6A1731E0185D600D05300 /* ConfigurationPresetTableViewController.swift */,
+				529EA7531E0421F900E33E2C /* PopupHelper.swift */,
+			);
+			path = PopupViews;
+			sourceTree = "<group>";
+		};
+		30EB9C951EBCB9C800218D29 /* AboutView */ = {
+			isa = PBXGroup;
+			children = (
+				30EB9C961EBCB9E000218D29 /* AboutViewController.swift */,
+			);
+			path = AboutView;
+			sourceTree = "<group>";
+		};
+		30F342151DF5943E003E9119 /* Thingy_model */ = {
+			isa = PBXGroup;
+			children = (
+				30F342161DF5943E003E9119 /* AO_MDL Obj_AE9A38A7-6603-4DFF-99F5-C005F8D65F58.png */,
+				30F342171DF5943E003E9119 /* AO_MDL Obj_FEFAB2C1-D28B-4C56-94F9-ECD73E858414.png */,
+				30F342181DF5943E003E9119 /* thingy_obj.scn */,
+			);
+			path = Thingy_model;
+			sourceTree = "<group>";
+		};
+		30F3421C1DF5A0F8003E9119 /* ThingyCreatorView */ = {
+			isa = PBXGroup;
+			children = (
+				52FB2F841E13ED850025218E /* ThingyCreatorNavigationController.swift */,
+				30F3421E1DF5A0F8003E9119 /* ThingyCreatorViewController.swift */,
+				30F3421F1DF5A0F8003E9119 /* ThingyInitialConfigurationViewController.swift */,
+				52FB2F821E13EC920025218E /* NewThingyDelegate.swift */,
+			);
+			path = ThingyCreatorView;
+			sourceTree = "<group>";
+		};
+		30F87B6E1DDDCCD400A46A74 /* BundledFirmwares */ = {
+			isa = PBXGroup;
+			children = (
+				52D40EAB1EC9C214000E52AE /* thingy_dfu_pkg_app_v1.0.0.zip */,
+			);
+			path = BundledFirmwares;
+			sourceTree = "<group>";
+		};
+		5218BD751E77FB8A00BAB1A2 /* ColorCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5218BD791E77FC2500BAB1A2 /* ColorCollectionViewCell.swift */,
+				5218BD771E77FBB300BAB1A2 /* CenterAlignedCollectionFlowLayout.swift */,
+			);
+			name = ColorCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		5244F3971E25309D007153B4 /* SoundView */ = {
+			isa = PBXGroup;
+			children = (
+				5244F3981E2530D1007153B4 /* SoundViewController.swift */,
+			);
+			name = SoundView;
+			sourceTree = "<group>";
+		};
+		5298863B1EC30B8600E66715 /* DFUView */ = {
+			isa = PBXGroup;
+			children = (
+				5298863C1EC30B8600E66715 /* DFUScannerView */,
+				5298864B1EC30BFE00E66715 /* DFUFileSelection */,
+				5298863F1EC30B8600E66715 /* DFUViewController.swift */,
+			);
+			path = DFUView;
+			sourceTree = "<group>";
+		};
+		5298863C1EC30B8600E66715 /* DFUScannerView */ = {
+			isa = PBXGroup;
+			children = (
+				5298863D1EC30B8600E66715 /* DFUScannerViewController.swift */,
+			);
+			path = DFUScannerView;
+			sourceTree = "<group>";
+		};
+		5298864B1EC30BFE00E66715 /* DFUFileSelection */ = {
+			isa = PBXGroup;
+			children = (
+				5298864C1EC30BFE00E66715 /* DFUTutorialViewController.swift */,
+				5298864D1EC30BFE00E66715 /* FilePreselectionDelegate.swift */,
+				5298864E1EC30BFE00E66715 /* FileSelectionDelegate.swift */,
+				5298864F1EC30BFE00E66715 /* FolderFilesViewController.swift */,
+				529886501EC30BFE00E66715 /* UserFilesViewController.swift */,
+			);
+			path = DFUFileSelection;
+			sourceTree = "<group>";
+		};
+		607FACC71AFB9204008FA782 = {
+			isa = PBXGroup;
+			children = (
+				607FACF51AFB993E008FA782 /* Podspec Metadata */,
+				607FACD21AFB9204008FA782 /* Example for ThingySDK */,
+				607FACE81AFB9204008FA782 /* Tests */,
+				607FACD11AFB9204008FA782 /* Products */,
+				A3C341216DC17D64328295CE /* Pods */,
+				9BAB7295CF32AEB8255DCF7B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		607FACD11AFB9204008FA782 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD01AFB9204008FA782 /* ThingySDK_Example.app */,
+				607FACE51AFB9204008FA782 /* ThingySDK_Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		607FACD21AFB9204008FA782 /* Example for ThingySDK */ = {
+			isa = PBXGroup;
+			children = (
+				30F342151DF5943E003E9119 /* Thingy_model */,
+				30170A9B1EBCB93100176728 /* AudioSamples */,
+				30F87B6E1DDDCCD400A46A74 /* BundledFirmwares */,
+				308D1A931DE8517A009138DE /* Segues */,
+				3007EEF41DA4F1EB003F844B /* ViewControllers */,
+				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				3007EEFC1DA4FBD1003F844B /* UI */,
+				3007EEF91DA4F794003F844B /* Extensions */,
+				607FACD31AFB9204008FA782 /* Supporting Files */,
+			);
+			name = "Example for ThingySDK";
+			path = ThingySDK;
+			sourceTree = "<group>";
+		};
+		607FACD31AFB9204008FA782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD41AFB9204008FA782 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		607FACE81AFB9204008FA782 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				607FACE91AFB9204008FA782 /* Supporting Files */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		607FACE91AFB9204008FA782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				607FACEA1AFB9204008FA782 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				30F342131DF5918B003E9119 /* ThingySDK.podspec */,
+				DFF558D146FD01E03D48B56E /* README.md */,
+				DA6CEF6C224C5808D1DC80E2 /* LICENSE */,
+			);
+			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		9BAB7295CF32AEB8255DCF7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				413D600C308F170A5844354A /* Pods_ThingySDK_Example.framework */,
+				C617A152E789FA122EF2B4D2 /* Pods_ThingySDK_Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3C341216DC17D64328295CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5843732F48FEAA61CBA13DE4 /* Pods-ThingySDK_Example.debug.xcconfig */,
+				0BA16CB0A88CD7AB9B460019 /* Pods-ThingySDK_Example.release.xcconfig */,
+				977F29455A0F677BE32899DA /* Pods-ThingySDK_Tests.debug.xcconfig */,
+				F16036E6C1391B18D32CEB3F /* Pods-ThingySDK_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		607FACCF1AFB9204008FA782 /* ThingySDK_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ThingySDK_Example" */;
+			buildPhases = (
+				7BC4F1B5F5833C5A8EC723D9 /* [CP] Check Pods Manifest.lock */,
+				607FACCC1AFB9204008FA782 /* Sources */,
+				607FACCD1AFB9204008FA782 /* Frameworks */,
+				607FACCE1AFB9204008FA782 /* Resources */,
+				A8DDE136DC2E6FC9C55DBFF1 /* [CP] Embed Pods Frameworks */,
+				1C1F0E012E32374258BED274 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ThingySDK_Example;
+			productName = ThingeeSDK;
+			productReference = 607FACD01AFB9204008FA782 /* ThingySDK_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		607FACE41AFB9204008FA782 /* ThingySDK_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ThingySDK_Tests" */;
+			buildPhases = (
+				850DE5F361BA5D89044B4B0C /* [CP] Check Pods Manifest.lock */,
+				607FACE11AFB9204008FA782 /* Sources */,
+				607FACE21AFB9204008FA782 /* Frameworks */,
+				607FACE31AFB9204008FA782 /* Resources */,
+				88FE9C00EF06C93DF40813C8 /* [CP] Embed Pods Frameworks */,
+				21AFDB4C3316886C93765068 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
+			);
+			name = ThingySDK_Tests;
+			productName = Tests;
+			productReference = 607FACE51AFB9204008FA782 /* ThingySDK_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		607FACC81AFB9204008FA782 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = CocoaPods;
+				TargetAttributes = {
+					607FACCF1AFB9204008FA782 = {
+						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = P3R8YQEV4L;
+						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
+					};
+					607FACE41AFB9204008FA782 = {
+						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = P3R8YQEV4L;
+						LastSwiftMigration = 0800;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+				};
+			};
+			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "ThingySDK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 607FACC71AFB9204008FA782;
+			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				607FACCF1AFB9204008FA782 /* ThingySDK_Example */,
+				607FACE41AFB9204008FA782 /* ThingySDK_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		607FACCE1AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F342141DF5918B003E9119 /* ThingySDK.podspec in Resources */,
+				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				30F3421B1DF5943E003E9119 /* thingy_obj.scn in Resources */,
+				30170AA01EBCB93100176728 /* grapevine_8kHz.wav in Resources */,
+				30F342191DF5943E003E9119 /* AO_MDL Obj_AE9A38A7-6603-4DFF-99F5-C005F8D65F58.png in Resources */,
+				30170A9F1EBCB93100176728 /* evil_laugh_8kHz.wav in Resources */,
+				52D40EAC1EC9C214000E52AE /* thingy_dfu_pkg_app_v1.0.0.zip in Resources */,
+				52CA964F1EC1E62C00A2F01F /* learning_computer_8kHz.wav in Resources */,
+				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				30F3421A1DF5943E003E9119 /* AO_MDL Obj_FEFAB2C1-D28B-4C56-94F9-ECD73E858414.png in Resources */,
+				30BE4C161DA5334100D9A946 /* MenuExpandableHeaderView.xib in Resources */,
+				300517841EC06B7400E3A64E /* ukulele_8kHz.wav in Resources */,
+				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607FACE31AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C1F0E012E32374258BED274 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThingySDK_Example/Pods-ThingySDK_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		21AFDB4C3316886C93765068 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThingySDK_Tests/Pods-ThingySDK_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BC4F1B5F5833C5A8EC723D9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		850DE5F361BA5D89044B4B0C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		88FE9C00EF06C93DF40813C8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThingySDK_Tests/Pods-ThingySDK_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8DDE136DC2E6FC9C55DBFF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThingySDK_Example/Pods-ThingySDK_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		607FACCC1AFB9204008FA782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				529EA7541E0421F900E33E2C /* PopupHelper.swift in Sources */,
+				30BD60741E1D27EB00A91368 /* ThingyGravityVectorControlViewController.swift in Sources */,
+				301157FB1DD61B8F00137C41 /* TutorialPageViewController.swift in Sources */,
+				529886531EC30BFE00E66715 /* FileSelectionDelegate.swift in Sources */,
+				309E4E631DA6904C00C90FDF /* MainMenuViewController.swift in Sources */,
+				309E4E5A1DA6903D00C90FDF /* SwipableViewController.swift in Sources */,
+				309E4E511DA68F7B00C90FDF /* EnvironmentViewController.swift in Sources */,
+				301157E81DD6187900137C41 /* EnvironmentControlViewController.swift in Sources */,
+				52FB2F831E13EC920025218E /* NewThingyDelegate.swift in Sources */,
+				30BD60731E1D27EB00A91368 /* Thingy3DControlViewController.swift in Sources */,
+				5218BD781E77FBB300BAB1A2 /* CenterAlignedCollectionFlowLayout.swift in Sources */,
+				52FB2F851E13ED850025218E /* ThingyCreatorNavigationController.swift in Sources */,
+				529886441EC30B8600E66715 /* DFUScannerViewController.swift in Sources */,
+				30AAB3081DED8A310034B303 /* SetKeyView.swift in Sources */,
+				301157FC1DD61B8F00137C41 /* TutorialViewController.swift in Sources */,
+				30919A211E01784900E74F5D /* GraphDataHandler.swift in Sources */,
+				52D28DD01EB8C6F70097BDD3 /* CloudGuideViewController.swift in Sources */,
+				30BD60761E1D27EB00A91368 /* ThingyMotionControlViewController.swift in Sources */,
+				309AE7F51E9BAF88003FEB8F /* CloudGuidePageViewController.swift in Sources */,
+				309E4E481DA68F1E00C90FDF /* ThingyConfigurationViewController.swift in Sources */,
+				3029F9A71DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift in Sources */,
+				5218BD7A1E77FC2500BAB1A2 /* ColorCollectionViewCell.swift in Sources */,
+				309E4E651DA6904C00C90FDF /* ThingeePeripheralTableViewCell.swift in Sources */,
+				309E4E531DA68F9400C90FDF /* ThingyUserInterfaceViewController.swift in Sources */,
+				309E4E581DA6900700C90FDF /* RootViewController.swift in Sources */,
+				52073C721DC0CB72006748C3 /* HasThingyTarget.swift in Sources */,
+				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				30F342221DF5A0F8003E9119 /* ThingyInitialConfigurationViewController.swift in Sources */,
+				309E4E641DA6904C00C90FDF /* MenuItemTableViewCell.swift in Sources */,
+				30C0C9551E926FD70016C41C /* ThingyCloudViewController.swift in Sources */,
+				522E89FD1DFAFC0E00D0A048 /* EnvironmentSettingsViewController.swift in Sources */,
+				3039CCB21DD0D07000DA1C55 /* MotionModelScene.swift in Sources */,
+				308D1A921DE84A2B009138DE /* MainEmptyConfigurationViewController.swift in Sources */,
+				529886521EC30BFE00E66715 /* FilePreselectionDelegate.swift in Sources */,
+				308D1A951DE851DD009138DE /* SetRootViewSegue.swift in Sources */,
+				30AC20091ECDD8DD00236FF6 /* StringExtension.swift in Sources */,
+				522E89FF1DFAFD7600D0A048 /* ThingyNavigationController.swift in Sources */,
+				30EB9C971EBCB9E000218D29 /* AboutViewController.swift in Sources */,
+				309AE7F31E9BAEB9003FEB8F /* CloudGuidePageContentViewController.swift in Sources */,
+				529886461EC30B8600E66715 /* DFUViewController.swift in Sources */,
+				5271A3FB1DEEF7380025E6B7 /* ThingyViewController.swift in Sources */,
+				5271A3FD1DEEF7800025E6B7 /* ThingyTableViewController.swift in Sources */,
+				52921BC41DEDDB3F0050DC17 /* SwipableTableViewController.swift in Sources */,
+				529886541EC30BFE00E66715 /* FolderFilesViewController.swift in Sources */,
+				30BD60751E1D27EB00A91368 /* ThingyMotionControlDelegate.swift in Sources */,
+				309E4E4F1DA68F6900C90FDF /* ThingyMotionViewController.swift in Sources */,
+				309E4E671DA6904C00C90FDF /* ExpandableTableHeaderViewDelegate.swift in Sources */,
+				309E4E661DA6904C00C90FDF /* ExpandableTableHeaderView.swift in Sources */,
+				5244F3991E2530D1007153B4 /* SoundViewController.swift in Sources */,
+				301157EA1DD618B600137C41 /* MainNavigationViewController.swift in Sources */,
+				529886551EC30BFE00E66715 /* UserFilesViewController.swift in Sources */,
+				521CA45A1E7053C4006B5221 /* SoundGraphDataHandler.swift in Sources */,
+				3007EEFB1DA4F7CA003F844B /* UIColorExtension.swift in Sources */,
+				529886511EC30BFE00E66715 /* DFUTutorialViewController.swift in Sources */,
+				30F342211DF5A0F8003E9119 /* ThingyCreatorViewController.swift in Sources */,
+				52C6A1741E0185D600D05300 /* ConfigurationPresetTableViewController.swift in Sources */,
+				30E2A4131E003E6600A77164 /* MotionSettingsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607FACE11AFB9204008FA782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* ThingySDK_Example */;
+			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				607FACDA1AFB9204008FA782 /* Base */,
+			);
+			name = Main.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				607FACDF1AFB9204008FA782 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		607FACED1AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		607FACEE1AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		607FACF01AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5843732F48FEAA61CBA13DE4 /* Pods-ThingySDK_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = P3R8YQEV4L;
+				INFOPLIST_FILE = ThingySDK/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = no.nordicsemi.ios.thingy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		607FACF11AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BA16CB0A88CD7AB9B460019 /* Pods-ThingySDK_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = P3R8YQEV4L;
+				INFOPLIST_FILE = ThingySDK/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = no.nordicsemi.ios.thingy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		607FACF31AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 977F29455A0F677BE32899DA /* Pods-ThingySDK_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = P3R8YQEV4L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/System/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		607FACF41AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F16036E6C1391B18D32CEB3F /* Pods-ThingySDK_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = P3R8YQEV4L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/System/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "ThingySDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACED1AFB9204008FA782 /* Debug */,
+				607FACEE1AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ThingySDK_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACF01AFB9204008FA782 /* Debug */,
+				607FACF11AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ThingySDK_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACF31AFB9204008FA782 /* Debug */,
+				607FACF41AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 607FACC81AFB9204008FA782 /* Project object */;
+}
