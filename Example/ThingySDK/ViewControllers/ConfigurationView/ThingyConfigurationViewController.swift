@@ -42,7 +42,7 @@
 //
 
 import UIKit
-import ThingySDK
+import IOSThingyLibrary
 import CoreLocation
 
 class ThingyConfigurationViewController: SwipableViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate {

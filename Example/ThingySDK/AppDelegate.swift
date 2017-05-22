@@ -43,7 +43,7 @@
 
 import UIKit
 import CoreBluetooth
-import ThingySDK
+import IOSThingyLibrary
 
 let kViewedMenuTooltip      = "viewed_menu_tooltip"
 let kViewedSensorsTooltip   = "viewed_sensors_tooltip"

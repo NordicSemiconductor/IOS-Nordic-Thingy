@@ -43,7 +43,7 @@
 //
 
 import UIKit
-import ThingySDK
+import IOSThingyLibrary
 
 class DFUScannerViewController: ThingyViewController, UITableViewDelegate, UITableViewDataSource, ThingyManagerDelegate {
 

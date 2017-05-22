@@ -42,7 +42,7 @@
 //
 
 import UIKit
-import ThingySDK
+import IOSThingyLibrary
 
 fileprivate let tableHeaderIdentifier       = "ExpandableMenuHeaderView"
 fileprivate let tableCellIdentifier         = "MenuItemCell"
