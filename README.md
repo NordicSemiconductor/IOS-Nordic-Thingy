@@ -11,8 +11,8 @@
 
 ```
 target 'YourAppTargetName' do
-use_frameworks!
-pod 'IOSThingyLibrary'. '~> 1.0' #Replace 1.0 with your required version
+    use_frameworks!
+    pod 'IOSThingyLibrary'. '~> 1.0'
 end
 ```
 
@@ -32,13 +32,13 @@ pod install
 - Create a new **Cartfile** in your project's root with the following contents
 
 ```
-github "NordicSemiconductor/NordicSemiconductor/IOS-Nordic-Thingy" ~> 1.0 //Replace 1.0 with your required version
+github "NordicSemiconductor/NordicSemiconductor/IOS-Nordic-Thingy" ~> 1.0
 ```
 
 - Build with carthage
 
 ```
-carthage update --platform iOS //also OSX platform is available for macOS builds
+carthage update --platform iOS
 ```
 
 - Carthage will build the **IOSThingyLibrary.framework**, **iOSDFULibrary.framework** and **Zip.framework** files in **Carthag/Build/**, you may now copy all those files to your project and use the library, additionally, carthage also builds **\*.dsym** files if you need to resymbolicate crash logs. you may want to keep those files bundled with your builds for future use.
@@ -47,7 +47,9 @@ carthage update --platform iOS //also OSX platform is available for macOS builds
 
 ### Trying with the example app
 
-This library comes with a very powerful opensource example app that you may download on the app store or try it directly using cocoapods, to try the Thingy App right now, go to your favorite terminal and type `pod try IOSThingyLibrary`, Xcode will launch with the example app, simply build and run!
+This library comes with a very powerful opensource example app that you may download on the app store or try it directly using cocoapods, to try the Thingy App right now, go to your favorite terminal and type
+    pod try IOSThingyLibrary
+Xcode will launch with the example app, simply build and run!
 
 ---
 
@@ -55,10 +57,15 @@ This library comes with a very powerful opensource example app that you may down
 
 **Note**: This Library is built with Swift 3.0, even though Obj-C is compatible out of the box, we prefer to put all our focus forward into Swift 3.0 and above.
     - A Thingy Device
+
     - iOS 8.0 and above
+
         - iPhone compatibility: iPhone 4s and above
+
         - iPad compatibility: 3rd generation iPad and above, iPad Mini and above, iPad Air and above, iPad pro
+
         - iPod compatibility: 5th Generation iPod and above
+
     - Xcode: Xcode 8 and above support Swift 3.0
 
 ---
