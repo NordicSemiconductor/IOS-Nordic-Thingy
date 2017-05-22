@@ -1,59 +1,68 @@
-Thingy SDK for iOS
+# Thingy SDK for iOS
+
+[![Version](http://img.shields.io/cocoapods/v/IOSThingyLibrary.svg)](http://cocoapods.org/pods/IOSThingyLibrary)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
+## Installation
+
+**For Cocoapods(Swift):**
+
+- Create/Update your **Podfile** with the following contents
+
+```
+target 'YourAppTargetName' do
+use_frameworks!
+pod 'IOSThingyLibrary'. '~> 1.0' #Replace 1.0 with your required version
+end
+```
+
+- Install dependencies
+
+```
+pod install
+```
+
+- Open the newly created `.xcworkspace`
+
+- Import the library to any of your classes by using `import IOSThingyLibrary` and begin working on your project
+
+
+**For Carthage:**
+
+- Create a new **Cartfile** in your project's root with the following contents
+
+```
+github "NordicSemiconductor/NordicSemiconductor/IOS-Nordic-Thingy" ~> 1.0 //Replace 1.0 with your required version
+```
+
+- Build with carthage
+
+```
+carthage update --platform iOS //also OSX platform is available for macOS builds
+```
+
+- Carthage will build the **IOSThingyLibrary.framework**, **iOSDFULibrary.framework** and **Zip.framework** files in **Carthag/Build/**, you may now copy all those files to your project and use the library, additionally, carthage also builds **\*.dsym** files if you need to resymbolicate crash logs. you may want to keep those files bundled with your builds for future use.
+
 ---
 
-#### About Project
+### Trying with the example app
 
-Thingy SDK for iOS aims to ease managing, exploring, programming and developing applications on the Thingy platform.
+This library comes with a very powerful opensource example app that you may download on the app store or try it directly using cocoapods, to try the Thingy App right now, go to your favorite terminal and type `pod try IOSThingyLibrary`, Xcode will launch with the example app, simply build and run!
 
-#### Installation instructions
+---
 
-Thingy SDK will be available via Cocoapods and Carthage builds, the SDK is currently in development so it's not publicly available yet.
-##### Cocoapods installation instructions:
- 1) Create a Podfile in the root of your project with the Thingy pod dependency
- 
-        //Example podfile TBD
-2) In your terminal run the `pod install` command
+### Requirements
 
-        $pod install
-3) Cocoapods will generate a new workspace, you should close the current open project and use the newly created workspace and begin using the SDK!
+**Note**: This Library is built with Swift 3.0, even though Obj-C is compatible out of the box, we prefer to put all our focus forward into Swift 3.0 and above.
+    - A Thingy Device
+    - iOS 8.0 and above
+        - iPhone compatibility: iPhone 4s and above
+        - iPad compatibility: 3rd generation iPad and above, iPad Mini and above, iPad Air and above, iPad pro
+        - iPod compatibility: 5th Generation iPod and above
+    - Xcode: Xcode 8 and above support Swift 3.0
 
-##### Carthage installation instructions:
+---
 
-1) Setup your cartfile with the Thingy SDK as a denpendncy
+#### Changelog
 
-        //Example cartfile contents TBD
-        
-2) Run the `cart update` command
-
-        $carthage update --platform iOS
-
-3) Other platforms are supported too, for example `macOS`, `tvOS`, `watchOS` and `all`
-
-4) Carthage will generate a Build directory with a framework file inside
-
-5) Copy the newly generated framework into your new project and begin using the SDK!
-
-#### Using the SDK
-
- 1) Install the SDK into your project with any tool of your choice, we currently support both `Carthage` and `Cocoapods`. see Installation instructions for an expample
- 2) In your `AppDelegate`, initialize the Thingy SDK
- 
-        //Initialization example TBD
- 3) Start interacting by finding a Thingy using the following code
- 
-        //Discovery Code example TBD
- 
- 4) After conneccting, you may query any of the sensor data as follows, let's read the temperature as an example
- 
-        //Sensor querying example TBD
-#### Requirements
-
-- A Thingy device.
-- Xcode 8 or above.
-- A device to run your compiled code on
-  - iOS >= 8.0
-  - Mac computers with Bluetooth 4 support (Can be found in the system report menu)
-
-#### Example app
-
-The Pod also bundles an example application that showcases many of the use cases for the Thingy, to get a hold of the example app, simply run `pod try ThingySDK` and an ew projcet will automatically launch in Xcode
+* **Version 1.0** - Initial release of the Thingy SDK and Example app

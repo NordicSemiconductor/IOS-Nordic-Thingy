@@ -1,0 +1,1 @@
+1.0 - Initial release of the Thingy SDK and Example app.
