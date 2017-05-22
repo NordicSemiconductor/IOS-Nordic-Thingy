@@ -42,7 +42,7 @@
 //
 
 import UIKit
-import ThingySDK
+import IOSThingyLibrary
 import iOSDFULibrary
 import CoreBluetooth
 

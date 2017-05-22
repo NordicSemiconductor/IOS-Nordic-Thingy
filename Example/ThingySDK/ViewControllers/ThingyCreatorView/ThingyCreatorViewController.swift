@@ -43,7 +43,7 @@
 
 import UIKit
 import SWRevealViewController
-import ThingySDK
+import IOSThingyLibrary
 
 class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     

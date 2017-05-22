@@ -42,7 +42,7 @@
 //
 
 import UIKit
-import ThingySDK
+import IOSThingyLibrary
 import SWRevealViewController
 
 class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyPeripheralDelegate, NewThingyDelegate {

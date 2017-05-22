@@ -41,7 +41,7 @@
 //  Created by Aleksander Nowakowski on 28/12/2016.
 //
 
-import ThingySDK
+import IOSThingyLibrary
 
 protocol NewThingyDelegate {
     var targetPeripheral: ThingyPeripheral? { get set }

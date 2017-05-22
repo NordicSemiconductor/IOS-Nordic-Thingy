@@ -25,7 +25,7 @@ github "NordicSemiconductor/NordicSemiconductor/IOS-Nordic-Thingy" ~> 1.0
 ```
 
 - Build with carthage
-
+ 
 ```
 carthage update --platform iOS
 ```

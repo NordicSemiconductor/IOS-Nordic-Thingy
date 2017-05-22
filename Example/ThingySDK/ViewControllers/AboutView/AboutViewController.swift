@@ -50,9 +50,8 @@ class AboutViewController: SwipableTableViewController {
             URL(string:"https://www.nordicsemi.com/thingy")!
         ],
         [
-            URL(string: "https://github.com/NordicSemiconductor/thingyFirmware")!,
-            URL(string: "https://github.com/NordicSemiconductor/ThingySDK/")!,
-            URL(string: "https://cocoapods.org/thingysdk")!
+            URL(string: "https://github.com/NordicSemiconductor/IOS-Nordic-Thingy/")!,
+            URL(string: "https://cocoapods.org/pods/IOSThingyLibrary")!
         ],
         [
             URL(string: "https://www.nordicsemi.com/eng/About-us/Privacy-Policy")!
@@ -60,7 +59,8 @@ class AboutViewController: SwipableTableViewController {
         [
             URL(string: "https://github.com/danielgindi/Charts")!,
             URL(string: "https://github.com/sberrevoets/SDCAlertView")!,
-            URL(string: "https://github.com/John-Lluch/SWRevealViewController")!
+            URL(string: "https://github.com/John-Lluch/SWRevealViewController")!,
+            URL(string: "https://github.com/pkrll/Keychain")!
         ]
     ]
     @IBAction func menuButtonTapped(_ sender: Any) {

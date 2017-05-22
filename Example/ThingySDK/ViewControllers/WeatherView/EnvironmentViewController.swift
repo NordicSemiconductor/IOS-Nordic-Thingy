@@ -43,7 +43,7 @@
 
 import UIKit
 import Charts
-import ThingySDK
+import IOSThingyLibrary
 
 class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentationControllerDelegate, EnvironmentControlDelegate {
     

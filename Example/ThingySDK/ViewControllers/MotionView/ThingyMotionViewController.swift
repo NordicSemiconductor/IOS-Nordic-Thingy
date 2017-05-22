@@ -44,7 +44,7 @@
 import UIKit
 import CoreMotion
 import Charts
-import ThingySDK
+import IOSThingyLibrary
 
 class ThingyMotionViewController: SwipableTableViewController, ThingyMotionControlDelegate, UIPopoverPresentationControllerDelegate {
 

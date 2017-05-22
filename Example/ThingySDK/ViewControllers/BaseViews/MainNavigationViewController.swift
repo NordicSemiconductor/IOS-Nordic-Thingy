@@ -43,7 +43,7 @@
 
 import Foundation
 import UIKit
-import ThingySDK
+import IOSThingyLibrary
 
 class MainNavigationViewController: UINavigationController, ThingyPeripheralDelegate {
     
