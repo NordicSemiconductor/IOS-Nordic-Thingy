@@ -164,7 +164,7 @@ internal class ThingyEnvironmentService: ThingyService {
         }
     }
     
-    internal func setConfiguration(temperatureInterval: UInt16, pressureInterval: UInt16, humidityInterval: UInt16, lightIntensityInterval: UInt16, gasMode: ThingyEnvironmentGasModeConfiguration) throws {
+    internal func setConfiguration(temperatureInterval: UInt16, pressureInterval: UInt16, humidityInterval: UInt16, lightIntensityInterval: UInt16, gasMode: ThingyEnvironmentGasModeConfiguration, redCalibration: UInt8, greenCalibration: UInt8, blueCalibration: UInt8) throws {
         if let configurationCharacteristic = getConfigurationCharacteristic() {
             var dataArray = [UInt8]()
             dataArray.append(UInt8(temperatureInterval & 0x00FF))
@@ -177,6 +177,14 @@ internal class ThingyEnvironmentService: ThingyService {
             dataArray.append(UInt8(lightIntensityInterval >> 8))
             dataArray.append(gasMode.rawValue)
             
+            //TODO: This is a quick workaround to avoid version conflicts, next update will include a proper fix.
+            if configurationCharacteristic.value?.count == 12 {
+                //Thingy Firmware 1.1
+                dataArray.append(redCalibration)
+                dataArray.append(greenCalibration)
+                dataArray.append(blueCalibration)
+            }
+            
             let data = Data(bytes: dataArray)
             configurationCharacteristic.writeValue(withData: data)
         } else {
@@ -184,10 +192,10 @@ internal class ThingyEnvironmentService: ThingyService {
         }
     }
     
-    internal func readConfiguration() -> (temperatureInterval: UInt16, pressureInterval: UInt16, humidityInterval: UInt16, lightIntensityInterval: UInt16, gasMode: ThingyEnvironmentGasModeConfiguration) {
+    internal func readConfiguration() -> (temperatureInterval: UInt16, pressureInterval: UInt16, humidityInterval: UInt16, lightIntensityInterval: UInt16, gasMode: ThingyEnvironmentGasModeConfiguration, redCalibration: UInt8, greenCalibration: UInt8, blueCalibration: UInt8) {
         if let environmentConfigurationCharacteristic = getConfigurationCharacteristic() {
             let environmentConfigurationData = environmentConfigurationCharacteristic.value
-            
+
             if environmentConfigurationData != nil {
                 let byteArray = [UInt8](environmentConfigurationData!)
                 let tempInterval           : UInt16 = UInt16(byteArray[0]) | UInt16(byteArray[1]) << 8
@@ -195,11 +203,24 @@ internal class ThingyEnvironmentService: ThingyService {
                 let humidityInterval       : UInt16 = UInt16(byteArray[4]) | UInt16(byteArray[5]) << 8
                 let lightIntensityInterval : UInt16 = UInt16(byteArray[6]) | UInt16(byteArray[7]) << 8
                 let gasMode                : ThingyEnvironmentGasModeConfiguration = ThingyEnvironmentGasModeConfiguration(rawValue: byteArray[8]) ?? .unknown
-                
-                return (tempInterval, pressureInterval, humidityInterval, lightIntensityInterval, gasMode)
+                var redCalibration         : UInt8  = 103
+                var greenCalibration       : UInt8  = 78
+                var blueCalibration        : UInt8  = 29
+                if environmentConfigurationData!.count == 12 {
+                    if byteArray[9] > 0 {
+                        redCalibration   = byteArray[9]
+                    }
+                    if byteArray[10] > 0 {
+                        greenCalibration = byteArray[10]
+                    }
+                    if byteArray[11] > 0 {
+                        blueCalibration  = byteArray[11]
+                    }
+                }
+                return (tempInterval, pressureInterval, humidityInterval, lightIntensityInterval, gasMode, redCalibration, greenCalibration, blueCalibration)
             }
         }
-        return (0, 0, 0, 0, .unknown)
+        return (0, 0, 0, 0, .unknown, 0, 0, 0)
     }
 
     //MARK: - Convenince methods
