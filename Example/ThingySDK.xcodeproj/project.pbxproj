@@ -13,6 +13,7 @@
 		301157EA1DD618B600137C41 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301157E91DD618B600137C41 /* MainNavigationViewController.swift */; };
 		301157FB1DD61B8F00137C41 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301157F91DD61B8F00137C41 /* TutorialPageViewController.swift */; };
 		301157FC1DD61B8F00137C41 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301157FA1DD61B8F00137C41 /* TutorialViewController.swift */; };
+		30145C511EDC3B61006D6F1A /* thingy_dfu_pkg_app_v1.1.0.zip in Resources */ = {isa = PBXBuildFile; fileRef = 30145C501EDC3B61006D6F1A /* thingy_dfu_pkg_app_v1.1.0.zip */; };
 		30170A9F1EBCB93100176728 /* evil_laugh_8kHz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 30170A9C1EBCB93100176728 /* evil_laugh_8kHz.wav */; };
 		30170AA01EBCB93100176728 /* grapevine_8kHz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 30170A9D1EBCB93100176728 /* grapevine_8kHz.wav */; };
 		3025576D1ED2EB0500EB7227 /* IOSThingyLibrary.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3025576C1ED2EB0500EB7227 /* IOSThingyLibrary.podspec */; };
@@ -71,7 +72,6 @@
 		52C6A1741E0185D600D05300 /* ConfigurationPresetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6A1731E0185D600D05300 /* ConfigurationPresetTableViewController.swift */; };
 		52CA964F1EC1E62C00A2F01F /* learning_computer_8kHz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 52CA964E1EC1E62C00A2F01F /* learning_computer_8kHz.wav */; };
 		52D28DD01EB8C6F70097BDD3 /* CloudGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D28DCF1EB8C6F70097BDD3 /* CloudGuideViewController.swift */; };
-		52D40EAC1EC9C214000E52AE /* thingy_dfu_pkg_app_v1.0.0.zip in Resources */ = {isa = PBXBuildFile; fileRef = 52D40EAB1EC9C214000E52AE /* thingy_dfu_pkg_app_v1.0.0.zip */; };
 		52FB2F831E13EC920025218E /* NewThingyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB2F821E13EC920025218E /* NewThingyDelegate.swift */; };
 		52FB2F851E13ED850025218E /* ThingyCreatorNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB2F841E13ED850025218E /* ThingyCreatorNavigationController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -98,6 +98,7 @@
 		301157E91DD618B600137C41 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		301157F91DD61B8F00137C41 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		301157FA1DD61B8F00137C41 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		30145C501EDC3B61006D6F1A /* thingy_dfu_pkg_app_v1.1.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = thingy_dfu_pkg_app_v1.1.0.zip; sourceTree = "<group>"; };
 		30170A9C1EBCB93100176728 /* evil_laugh_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = evil_laugh_8kHz.wav; sourceTree = "<group>"; };
 		30170A9D1EBCB93100176728 /* grapevine_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grapevine_8kHz.wav; sourceTree = "<group>"; };
 		3025576C1ED2EB0500EB7227 /* IOSThingyLibrary.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = IOSThingyLibrary.podspec; path = ../IOSThingyLibrary.podspec; sourceTree = "<group>"; };
@@ -156,7 +157,6 @@
 		52C6A1731E0185D600D05300 /* ConfigurationPresetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationPresetTableViewController.swift; sourceTree = "<group>"; };
 		52CA964E1EC1E62C00A2F01F /* learning_computer_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = learning_computer_8kHz.wav; sourceTree = "<group>"; };
 		52D28DCF1EB8C6F70097BDD3 /* CloudGuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudGuideViewController.swift; sourceTree = "<group>"; };
-		52D40EAB1EC9C214000E52AE /* thingy_dfu_pkg_app_v1.0.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = thingy_dfu_pkg_app_v1.0.0.zip; sourceTree = "<group>"; };
 		52FB2F821E13EC920025218E /* NewThingyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewThingyDelegate.swift; sourceTree = "<group>"; };
 		52FB2F841E13ED850025218E /* ThingyCreatorNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyCreatorNavigationController.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ThingySDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThingySDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -441,7 +441,7 @@
 		30F87B6E1DDDCCD400A46A74 /* BundledFirmwares */ = {
 			isa = PBXGroup;
 			children = (
-				52D40EAB1EC9C214000E52AE /* thingy_dfu_pkg_app_v1.0.0.zip */,
+				30145C501EDC3B61006D6F1A /* thingy_dfu_pkg_app_v1.1.0.zip */,
 			);
 			path = BundledFirmwares;
 			sourceTree = "<group>";
@@ -679,8 +679,8 @@
 				30170AA01EBCB93100176728 /* grapevine_8kHz.wav in Resources */,
 				30F342191DF5943E003E9119 /* AO_MDL Obj_AE9A38A7-6603-4DFF-99F5-C005F8D65F58.png in Resources */,
 				30170A9F1EBCB93100176728 /* evil_laugh_8kHz.wav in Resources */,
-				52D40EAC1EC9C214000E52AE /* thingy_dfu_pkg_app_v1.0.0.zip in Resources */,
 				52CA964F1EC1E62C00A2F01F /* learning_computer_8kHz.wav in Resources */,
+				30145C511EDC3B61006D6F1A /* thingy_dfu_pkg_app_v1.1.0.zip in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				30F3421A1DF5943E003E9119 /* AO_MDL Obj_FEFAB2C1-D28B-4C56-94F9-ECD73E858414.png in Resources */,
 				30BE4C161DA5334100D9A946 /* MenuExpandableHeaderView.xib in Resources */,

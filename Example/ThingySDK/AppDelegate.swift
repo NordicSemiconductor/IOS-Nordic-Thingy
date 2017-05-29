@@ -47,7 +47,7 @@ import IOSThingyLibrary
 
 let kViewedMenuTooltip      = "viewed_menu_tooltip"
 let kViewedSensorsTooltip   = "viewed_sensors_tooltip"
-let kCurrentDfuVersion      = "1.0.0"
+let kCurrentDfuVersion      = "1.1.0"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
