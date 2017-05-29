@@ -535,7 +535,7 @@ class ThingyCloudViewController: SwipableTableViewController {
         } else if state == .ready {
             cloudToken = loadToken(forPeripheral: targetPeripheral!)
             cloudTokenLabel.text = cloudToken ?? "None, tap to add"
-            let (temperatureInterval, pressureInterval, _, _, _) = (targetPeripheral?.readEnvironmentConfiguration())!
+            let (temperatureInterval, pressureInterval, _, _, _, _, _, _) = (targetPeripheral?.readEnvironmentConfiguration())!
             self.temperatureIntervalValueLabel.text = String.init(format:"%d", temperatureInterval)
             self.pressureIntervalValueLabel.text = String.init(format: "%d", pressureInterval)
             if cloudToken != nil {

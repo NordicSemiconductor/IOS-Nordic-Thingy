@@ -80,13 +80,16 @@ class EnvironmentSettingsViewController: ThingyTableViewController, Configuratio
     private var humidityInterval       : UInt16 = 0
     private var lightIntensityInterval : UInt16 = 0
     private var airQualityInterval     : ThingyEnvironmentGasModeConfiguration = .interval1Sec
+    private var redCalibration         : UInt8 = 0
+    private var greenCalibration       : UInt8 = 0
+    private var blueCalibration        : UInt8 = 0
     private var temperatureUnitIsFahrenheit: Bool = EnvironmentSettingsViewController.isFahrenheit()
     
     //MARK: - UIViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Environment service must exist if Settings screen is opened
-        (tempInterval, pressureInterval, humidityInterval, lightIntensityInterval, airQualityInterval) = targetPeripheral!.readEnvironmentConfiguration()!
+        (tempInterval, pressureInterval, humidityInterval, lightIntensityInterval, airQualityInterval, redCalibration, greenCalibration, blueCalibration) = targetPeripheral!.readEnvironmentConfiguration()!
         temperatureIntervalLabel.text = "\(tempInterval) ms"
         pressureIntervalLabel.text = "\(pressureInterval) ms"
         humidityIntervalLabel.text = "\(humidityInterval) ms"
@@ -185,12 +188,17 @@ class EnvironmentSettingsViewController: ThingyTableViewController, Configuratio
     
     //MARK: - Implementation
     private func handleSave() {
-        let (tempInterval, pressureInterval, humidityInterval, lightIntensityInterval, airQualityInterval) = targetPeripheral!.readEnvironmentConfiguration()!
+        let (tempInterval, pressureInterval, humidityInterval, lightIntensityInterval, airQualityInterval, redCalibration, greenCalibration, blueCalibration) = targetPeripheral!.readEnvironmentConfiguration()!
+        
         let dataChanged = tempInterval != self.tempInterval ||
             pressureInterval != self.pressureInterval ||
             humidityInterval != self.humidityInterval ||
             lightIntensityInterval != self.lightIntensityInterval ||
-            airQualityInterval != self.airQualityInterval
+            airQualityInterval != self.airQualityInterval ||
+            redCalibration != self.redCalibration ||
+            greenCalibration != self.greenCalibration ||
+            blueCalibration != self.blueCalibration
+        
         
         // Save the unit
         EnvironmentSettingsViewController.saveUnit(fahrenheit: temperatureUnitIsFahrenheit)
@@ -199,7 +207,7 @@ class EnvironmentSettingsViewController: ThingyTableViewController, Configuratio
         if dataChanged {
             let loadingView = UIAlertController(title: "Configuring Thingy", message: "Sending configuration...", preferredStyle: .alert)
             present(loadingView, animated: true) {
-                self.targetPeripheral!.setEnvironmentConfiguration(temperatureInterval: self.tempInterval, pressureInterval: self.pressureInterval, humidityInterval: self.humidityInterval, lightIntensityInterval: self.lightIntensityInterval, gasMode: self.airQualityInterval, withCompletionHandler: { (success) -> (Void) in
+                self.targetPeripheral!.setEnvironmentConfiguration(temperatureInterval: self.tempInterval, pressureInterval: self.pressureInterval, humidityInterval: self.humidityInterval, lightIntensityInterval: self.lightIntensityInterval, gasMode: self.airQualityInterval, redCalibration: self.redCalibration, greenCalibration: self.greenCalibration, blueCalbiration: self.blueCalibration, withCompletionHandler: { (success) -> (Void) in
                     if success {
                         loadingView.message = "Done!"
                         loadingView.dismiss(animated: true, completion: {
