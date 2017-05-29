@@ -105,12 +105,11 @@ class EnvironmentSettingsViewController: ThingyTableViewController, Configuratio
             view.title = "Air Quality Sample Rate"
             view.requestId = airQualityRequestId
             view.keys = [
-                //ThingyEnvironmentGasModeConfiguration.interval250Millisec,
                 ThingyEnvironmentGasModeConfiguration.interval1Sec,
                 ThingyEnvironmentGasModeConfiguration.interval10Sec,
                 ThingyEnvironmentGasModeConfiguration.interval60Sec
             ]
-            view.values = [ /*"250 ms",*/ "1 second", "10 seconds", "1 minute"]
+            view.values = ["1 second", "10 seconds", "1 minute"]
             view.selectedKey = airQualityInterval
         } else if segue.identifier == "temperatureUnit" {
             let view = segue.destination as! ConfigurationPresetTableViewController
@@ -227,8 +226,6 @@ class EnvironmentSettingsViewController: ThingyTableViewController, Configuratio
     private func airQualitySampleRateSelected(value: ThingyEnvironmentGasModeConfiguration) {
         airQualityInterval = value
         switch value {
-        //case .interval250Millisec:
-        //    airQualityIntervalLabel.text = "250 ms"
         case .interval1Sec:
             airQualityIntervalLabel.text = "1 second"
         case .interval10Sec:
