@@ -406,6 +406,9 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
                                             humidityInterval: UInt16,
                                             lightIntensityInterval: UInt16,
                                             gasMode: ThingyEnvironmentGasModeConfiguration,
+                                            redCalibration: UInt8,
+                                            greenCalibration: UInt8,
+                                            blueCalbiration: UInt8,
                                             withCompletionHandler aHandler: CompletionCallback?) {
         // Has the service been found?
         if environmentService == nil {
@@ -420,7 +423,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
                                                      pressureInterval: pressureInterval,
                                                      humidityInterval: humidityInterval,
                                                      lightIntensityInterval: lightIntensityInterval,
-                                                     gasMode: gasMode)
+                                                     gasMode: gasMode, redCalibration: redCalibration, greenCalibration: greenCalibration, blueCalibration: blueCalbiration)
         } catch {
             print(error)
             aHandler?(false)
@@ -428,7 +431,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
     
-    public func readEnvironmentConfiguration() -> (temperatureInterval: UInt16, pressureInterval: UInt16, humidityInterval: UInt16, lightIntensityInterval: UInt16, gasMode: ThingyEnvironmentGasModeConfiguration)? {
+    public func readEnvironmentConfiguration() -> (temperatureInterval: UInt16, pressureInterval: UInt16, humidityInterval: UInt16, lightIntensityInterval: UInt16, gasMode: ThingyEnvironmentGasModeConfiguration, redCalibration: UInt8, greenCalibration: UInt8, blueCalibration: UInt8)? {
         return environmentService?.readConfiguration()
     }
     

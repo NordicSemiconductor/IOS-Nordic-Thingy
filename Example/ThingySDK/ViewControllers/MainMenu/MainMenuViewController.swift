@@ -183,18 +183,17 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         }
 
         let configFirmwareVersion = targetPeripheral?.readFirmwareVersion() ?? "0.0.0"
+        if configFirmwareVersion == "0.0.0" {
+            return
+        }
         if configFirmwareVersion.versionToInt().lexicographicallyPrecedes(kCurrentDfuVersion.versionToInt()) {
             var message: String
-            if let name = targetPeripheral?.name {
-                message = "Newer firmware version is available for \(name) (v(\(kCurrentDfuVersion))) . Do you want to update it now?"
-            } else {
-                message = "Newer firmware version is available for your Thingy (v(\(kCurrentDfuVersion))) . Do you want to update it now?"
-            }
-            let dfuAlert = UIAlertController(title: "Firmware Update", message: message, preferredStyle: .alert)
-            dfuAlert.addAction(UIAlertAction(title: "Update", style: .default, handler: { (action) in
+            message = "\r\nUpdating is recommended as it ensures full compatibilty with the Thingy app and includes all the latest features and bug fixes."
+            let dfuAlert = UIAlertController(title: "Firmware update available for \((targetPeripheral?.name)!)", message: message, preferredStyle: .alert)
+            dfuAlert.addAction(UIAlertAction(title: "Update to \(kCurrentDfuVersion)", style: .default, handler: { (action) in
                 self.targetNavigationController.showDFUView()
             }))
-            dfuAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            dfuAlert.addAction(UIAlertAction(title: "Not now", style: .cancel))
                 present(dfuAlert, animated: true)
         }
     }
