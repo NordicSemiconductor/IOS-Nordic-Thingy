@@ -443,7 +443,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
         // Save the notification callback. This may overwrite the old one if such existed
         valueCallbackHandlers[getTemperatureCharacteristicUUID()] = { (temperatureData) -> (Void) in
-            let digit        = Int8(temperatureData[0])
+            let digit        = Int8(truncatingBitPattern: Int(temperatureData[0]))
             let remainder    = UInt8(temperatureData[1])
             var temp = Float(digit)
             temp += Float(remainder) / 100
