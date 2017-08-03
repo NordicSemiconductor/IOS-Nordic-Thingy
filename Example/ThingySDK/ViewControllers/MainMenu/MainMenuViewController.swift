@@ -328,12 +328,16 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: UItableViewDelegate methods
     //MARK: -
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return ("Forget           .") // These spaces and dot at the end ensure that Forget is visible (left aligned)
+        return ("Forget")
     }
-
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.delete
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(section) {
-        
+            
         case 0:
             if mainHeaderIsExpanded {
                 let count = menuPeripherals.count
@@ -350,7 +354,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             } else {
                 return serviceMenuItems.count
             }
-        
+            
         case 2:
             return moreMenuItems.count
         
@@ -436,18 +440,18 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             //We are deleting a thingy
             let peripheralToRemove = menuPeripherals[indexPath.row]
             
-            if peripheralToRemove.state == .disconnected {
-                removePeripheral(peripheralToRemove, at: indexPath)
+            var message: String
+            if peripheralToRemove.state == .connected {
+                message = "Are you sure you want to forget this Thingy?\nThis Thingy will also be disconnected."
             } else {
-                let alert = UIAlertController(title: "Do you want to proceed?", message: "You are connected to this Thingy.\nDo you want to disconnect and forget it?", preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                    tableView.reloadRows(at: [indexPath], with: .right)
-                })
-                alert.addAction(UIAlertAction(title: "Forget", style: .destructive) { (action) in
-                    self.removePeripheral(peripheralToRemove, at: indexPath)
-                })
-                present(alert, animated: true)
+                message = "Are you sure you want to forget this Thingy?"
             }
+            let alert = UIAlertController(title: "Do you want to proceed?", message: message, preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel)) //NOOP
+            alert.addAction(UIAlertAction(title: "Forget", style: .destructive) { (action) in
+                self.removePeripheral(peripheralToRemove, at: indexPath)
+            })
+            present(alert, animated: true)
         }
     }
     

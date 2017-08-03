@@ -166,7 +166,7 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
     }
     
     private func updateRearViewSize(targetSize : CGSize) {
-
+        rearViewRevealOverdraw = 0
         switch (UIDevice.current.userInterfaceIdiom) {
             case .pad:
                 rearViewRevealWidth = targetSize.width * 0.35
