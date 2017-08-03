@@ -41,6 +41,8 @@
 	<string>7</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NFCReaderUsageDescription</key>
+	<string>The app will pair your Thingy device using NFC</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>The app will comunicate with your Thingy device over Bluetooth low energy</string>
 	<key>NSMicrophoneUsageDescription</key>

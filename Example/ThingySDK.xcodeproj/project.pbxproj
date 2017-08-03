@@ -122,6 +122,7 @@
 		309E4E621DA6904C00C90FDF /* ExpandableTableHeaderViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTableHeaderViewDelegate.swift; sourceTree = "<group>"; };
 		30AAB3071DED8A310034B303 /* SetKeyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetKeyView.swift; sourceTree = "<group>"; };
 		30AC20081ECDD8DD00236FF6 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		30AE0E6A1F333D430097A80E /* ThingySDK_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ThingySDK_Example.entitlements; sourceTree = "<group>"; };
 		30BD606E1E1D27EB00A91368 /* Thingy3DControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thingy3DControlViewController.swift; sourceTree = "<group>"; };
 		30BD606F1E1D27EB00A91368 /* ThingyGravityVectorControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyGravityVectorControlViewController.swift; sourceTree = "<group>"; };
 		30BD60701E1D27EB00A91368 /* ThingyMotionControlDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyMotionControlDelegate.swift; sourceTree = "<group>"; };
@@ -496,6 +497,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				30AE0E6A1F333D430097A80E /* ThingySDK_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for ThingySDK */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -639,6 +641,9 @@
 							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
+							};
+							com.apple.NearFieldCommunicationTagReading = {
+								enabled = 1;
 							};
 						};
 					};
@@ -989,6 +994,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ThingySDK_Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = P3R8YQEV4L;
 				INFOPLIST_FILE = ThingySDK/Info.plist;
@@ -1008,6 +1014,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ThingySDK_Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = P3R8YQEV4L;
 				INFOPLIST_FILE = ThingySDK/Info.plist;
