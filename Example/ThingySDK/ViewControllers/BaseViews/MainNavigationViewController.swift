@@ -130,6 +130,10 @@ class MainNavigationViewController: UINavigationController, ThingyPeripheralDele
         showRootViewSegue(withIdentifier: "show_configuration_view")
     }
 
+    public func showInitialNFCConfigurationView() {
+        showRootViewSegue(withIdentifier: "show_initial_nfc_configuration_view")
+    }
+
     public func showInitialConfigurationView() {
         showRootViewSegue(withIdentifier: "show_initial_configuration_view")
     }
@@ -141,7 +145,7 @@ class MainNavigationViewController: UINavigationController, ThingyPeripheralDele
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "show_initial_configuration_view" {
+        if segue.identifier == "show_initial_configuration_view" || segue.identifier == "show_initial_nfc_configuration_view" {
             let navigationViewController = segue.destination as! ThingyCreatorNavigationController
             navigationViewController.newThingyDelegate = revealViewController() as? NewThingyDelegate
             navigationViewController.setTargetPeripheral(nil, andManager: targetManager)

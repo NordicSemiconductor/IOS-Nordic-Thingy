@@ -43,25 +43,23 @@
 
 import UIKit
 import IOSThingyLibrary
+import CoreNFC
 
 class MainEmptyConfigurationViewController: SwipableViewController {
 
     @IBOutlet weak var addThingyButton: UIButton!
+    @IBOutlet weak var addThingyNFCButton: UIButton!
     
     //MARK: - Outlets
     @IBAction func menuButtontapped(_ sender: AnyObject) {
         toggleRevealView()
     }
-    @IBAction func addButtonPressed(_ sender: Any) {
-        addThingyButton.layer.shadowRadius = 3
+
+    @IBAction func addNFCButtonTapped(_ sender: AnyObject) {
+        addButtonNFCTappedHandler()
     }
-    @IBAction func addButtonReleased(_ sender: Any) {
-        // Released outside
-        addThingyButton.layer.shadowRadius = 4
-    }
+
     @IBAction func addButtonTapped(_ sender: AnyObject) {
-        // Released inside
-        addThingyButton.layer.shadowRadius = 4
         addButonTappedHandler()
     }
     @IBAction func linkTapped(_ sender: UIButton) {
@@ -77,10 +75,26 @@ class MainEmptyConfigurationViewController: SwipableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addThingyButton.layer.shadowOffset = CGSize.zero
-        addThingyButton.layer.shadowColor = UIColor.darkGray.cgColor
-        addThingyButton.layer.shadowOpacity = 1
-        addThingyButton.layer.shadowRadius = 4
+
+        //Rounded corners
+        addThingyNFCButton.layer.cornerRadius = 4
+        addThingyNFCButton.layer.masksToBounds = true
+
+        addThingyButton.layer.cornerRadius = 4
+        addThingyButton.layer.masksToBounds = true
+        
+        if #available(iOS 11.0, *) {
+            if NFCNDEFReaderSession.readingAvailable {
+                addThingyNFCButton.isHidden = false
+                print("iOS 11, device suppors reading!")
+            } else {
+                addThingyNFCButton.isHidden = true
+                print("iOS 11, device does not suppor reading!")
+            }
+        } else {
+            addThingyNFCButton.isHidden = true
+            print("iOS Version before 11, no NFC Support")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -98,6 +112,10 @@ class MainEmptyConfigurationViewController: SwipableViewController {
     }
     
     //MARK: - Implementation
+    private func addButtonNFCTappedHandler() {
+        mainNavigationContorller.showInitialNFCConfigurationView()
+    }
+
     private func addButonTappedHandler() {
         mainNavigationContorller.showInitialConfigurationView()
     }
