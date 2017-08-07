@@ -219,7 +219,10 @@ class ThingyInitialConfigurationViewController: ThingyViewController, UITableVie
     }
     
     func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral) {
-        // This will never be called
+        self.thingyManager(manager, didDiscoverPeripheral: peripheral, withPairingCode: nil)
+    }
+
+    func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral, withPairingCode: String?) {
     }
 
     //MARK: - ThingyPeripheralDelegate

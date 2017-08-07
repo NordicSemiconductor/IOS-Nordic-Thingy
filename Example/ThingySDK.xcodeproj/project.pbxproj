@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		300517841EC06B7400E3A64E /* ukulele_8kHz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 300517831EC06B7400E3A64E /* ukulele_8kHz.wav */; };
 		3007EEFB1DA4F7CA003F844B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3007EEFA1DA4F7CA003F844B /* UIColorExtension.swift */; };
+		30098B1E1F3359FC00F20A83 /* ThingyNFCCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30098B1D1F3359FB00F20A83 /* ThingyNFCCreatorViewController.swift */; };
 		301157E81DD6187900137C41 /* EnvironmentControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301157E71DD6187900137C41 /* EnvironmentControlViewController.swift */; };
 		301157EA1DD618B600137C41 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301157E91DD618B600137C41 /* MainNavigationViewController.swift */; };
 		301157FB1DD61B8F00137C41 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301157F91DD61B8F00137C41 /* TutorialPageViewController.swift */; };
@@ -94,6 +95,7 @@
 /* Begin PBXFileReference section */
 		300517831EC06B7400E3A64E /* ukulele_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ukulele_8kHz.wav; sourceTree = "<group>"; };
 		3007EEFA1DA4F7CA003F844B /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		30098B1D1F3359FB00F20A83 /* ThingyNFCCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyNFCCreatorViewController.swift; sourceTree = "<group>"; };
 		301157E71DD6187900137C41 /* EnvironmentControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentControlViewController.swift; sourceTree = "<group>"; };
 		301157E91DD618B600137C41 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		301157F91DD61B8F00137C41 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 		30F3421C1DF5A0F8003E9119 /* ThingyCreatorView */ = {
 			isa = PBXGroup;
 			children = (
+				30098B1D1F3359FB00F20A83 /* ThingyNFCCreatorViewController.swift */,
 				52FB2F841E13ED850025218E /* ThingyCreatorNavigationController.swift */,
 				30F3421E1DF5A0F8003E9119 /* ThingyCreatorViewController.swift */,
 				30F3421F1DF5A0F8003E9119 /* ThingyInitialConfigurationViewController.swift */,
@@ -820,6 +823,7 @@
 				30919A211E01784900E74F5D /* GraphDataHandler.swift in Sources */,
 				52D28DD01EB8C6F70097BDD3 /* CloudGuideViewController.swift in Sources */,
 				30BD60761E1D27EB00A91368 /* ThingyMotionControlViewController.swift in Sources */,
+				30098B1E1F3359FC00F20A83 /* ThingyNFCCreatorViewController.swift in Sources */,
 				309AE7F51E9BAF88003FEB8F /* CloudGuidePageViewController.swift in Sources */,
 				309E4E481DA68F1E00C90FDF /* ThingyConfigurationViewController.swift in Sources */,
 				3029F9A71DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift in Sources */,

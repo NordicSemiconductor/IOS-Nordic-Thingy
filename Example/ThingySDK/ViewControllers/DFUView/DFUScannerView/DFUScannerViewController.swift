@@ -117,7 +117,12 @@ class DFUScannerViewController: ThingyViewController, UITableViewDelegate, UITab
         }
     }
     
-    func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral) {// This should not be needed, scanning is done without duplicates
+    func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral) {
+        self.thingyManager(manager, didDiscoverPeripheral: peripheral, withPairingCode: nil)
+    }
+
+    func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral, withPairingCode: String?) {
+        // This should not be needed, scanning is done without duplicates
         guard discoveredThingies.contains(peripheral) == false else {
             //Ignore duplicates
             return

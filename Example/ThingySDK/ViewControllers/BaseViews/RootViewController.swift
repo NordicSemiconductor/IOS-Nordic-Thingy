@@ -46,7 +46,7 @@ import IOSThingyLibrary
 import SWRevealViewController
 
 class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyPeripheralDelegate, NewThingyDelegate {
-    
+
     private var menuViewController       : MainMenuViewController!
     private var mainNavigationController : MainNavigationViewController!
     private var thingyManager            : ThingyManager?
@@ -97,7 +97,8 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
     }
     
     func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral) {
-        // Never called
+    }
+    func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral, withPairingCode: String?) {   
     }
     
     // MARK: - Thingy Peripheral Delegate
