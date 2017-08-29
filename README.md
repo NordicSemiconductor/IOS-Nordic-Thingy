@@ -8,7 +8,7 @@ Thingy SDK for iOS
 ```
 target 'YourAppTargetName' do
     use_frameworks!
-    pod 'IOSThingyLibrary'. '~> 1.0'
+    pod 'IOSThingyLibrary'. '~> 1.1'
 end
 ```
 - Install dependencies
@@ -21,7 +21,7 @@ pod install
 **For Carthage:**
 - Create a new **Cartfile** in your project's root with the following contents
 ```
-github "NordicSemiconductor/NordicSemiconductor/IOS-Nordic-Thingy" ~> 1.0
+github "NordicSemiconductor/NordicSemiconductor/IOS-Nordic-Thingy" ~> 1.1
 ```
 
 - Build with carthage
@@ -55,4 +55,13 @@ Xcode will launch with the example app, simply build and run!
         - 5th Generation iPod and above
 ---
 #### Changelog
-* **Version 1.0** - Initial release of the Thingy SDK and Example app
+
+* **Version 1.1**
+    - Bugfix: Temperature values below 0 overflow fixed.
+    - Improvement: Updated maximum time interval to 1 minute for Temperature, Humidity and Pressure notificaitons.
+    - Improvement: Updated minimum motion processing frequency to 5Hz as this is the minimum supported by the MPU.
+    - Improvement: Updated minimum LED breathe delay to 50 ms.
+    - Improvement: Fixed LED delay interval text field on iPad where hitting the done button on the keyboard had no effect.
+
+* **Version 1.0**
+    - Initial release of the Thingy SDK and Example app.
