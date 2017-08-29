@@ -361,15 +361,23 @@ class ThingyUserInterfaceViewController: SwipableTableViewController, UICollecti
     }
 
     func resignTextField() {
-        breatheDelayTextField.resignFirstResponder()
         if let parsedDelay = UInt16(breatheDelayTextField.text!) {
-            ledBreatheDelayChanged(newValue: parsedDelay)
+            if parsedDelay >= 50 && parsedDelay <= 10000 {
+                breatheDelayTextField.resignFirstResponder()
+                ledBreatheDelayChanged(newValue: parsedDelay)
+            } else {
+                showBreatheDelayLimitsAlert()
+            }
         } else {
-            //Default fallback
-            ledBreatheDelayChanged(newValue: 3500)
+            showBreatheDelayLimitsAlert()
         }
     }
 
+    func showBreatheDelayLimitsAlert() {
+        let alertView = UIAlertView(title: "Invalid LED breathe delay", message: "Only values between 50 ms and 10,000 ms are accepted", delegate: nil, cancelButtonTitle: "Ok")
+        alertView.show()
+        
+    }
     //MARK: - UITextFieldDelegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let screenWidth = Int(UIScreen.main.bounds.width)
@@ -397,6 +405,7 @@ class ThingyUserInterfaceViewController: SwipableTableViewController, UICollecti
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        resignTextField()
         return false
     }
 
