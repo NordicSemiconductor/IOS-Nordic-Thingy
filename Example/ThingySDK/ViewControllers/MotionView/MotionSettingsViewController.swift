@@ -95,8 +95,8 @@ class MotionSettingsViewController: ThingyTableViewController, UIPopoverPresenta
                                                 self.pedometerLabel.text = "\(value) ms"
                                               })
             case 1: // Motion processing unit interval
-                PopupHelper.showIntervalInput(withTitle: "Motion processing unit freq.", subtitle: "Range: 1 Hz - 200 Hz",
-                                              value: Int(motionProcessingFrequency), availableRange: NSMakeRange(1, 200 - 1 + 1), unitInMs: 1.0,
+                PopupHelper.showIntervalInput(withTitle: "Motion processing unit freq.", subtitle: "Range: 5 Hz - 200 Hz",
+                                              value: Int(motionProcessingFrequency), availableRange: NSMakeRange(5, 200 - 1 + 1), unitInMs: 1.0,
                                               andPlaceholderValue: "Frequency",
                                               completion: { (value) -> (Void) in
                                                 self.motionProcessingFrequency = UInt16(value)

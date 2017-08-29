@@ -141,8 +141,8 @@ class EnvironmentSettingsViewController: ThingyTableViewController, Configuratio
                                                 self.temperatureIntervalLabel.text = "\(value) ms"
                                               })
             case 1: // Pressure
-                PopupHelper.showIntervalInput(withTitle: "Pressure interval", subtitle: "Range: 50 ms - 5000 ms",
-                                              value: Int(pressureInterval), availableRange: NSMakeRange(50, 5000 - 50 + 1), unitInMs: 1.0,
+                PopupHelper.showIntervalInput(withTitle: "Pressure interval", subtitle: "Range: 50 ms - 60000 ms",
+                                              value: Int(pressureInterval), availableRange: NSMakeRange(50, 60000 - 50 + 1), unitInMs: 1.0,
                                               andPlaceholderValue: "Interval",
                                               completion: { (value: Int) -> (Void) in
                                                 self.pressureInterval = UInt16(value)

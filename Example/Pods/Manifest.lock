@@ -2,12 +2,12 @@ PODS:
   - Charts (3.0.2):
     - Charts/Core (= 3.0.2)
   - Charts/Core (3.0.2)
-  - iOSDFULibrary (3.1.0):
+  - iOSDFULibrary (3.2.0):
     - Zip (~> 0.7)
-  - IOSThingyLibrary (1.0):
+  - IOSThingyLibrary (1.1):
     - iOSDFULibrary (~> 3.0)
   - Keychain (0.3.1)
-  - Nimble (7.0.0)
+  - Nimble (7.0.1)
   - Quick (1.1.0)
   - SDCAlertView (7.1.2)
   - SWRevealViewController (2.3.0)
@@ -28,10 +28,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
-  iOSDFULibrary: 3b8a3014e3e4d1bec99b634b2f79fa856e28e556
-  IOSThingyLibrary: 269fe96a5fea017ddfded0244951f6e3d970b555
+  iOSDFULibrary: fff77c63f0237f8567d0978d541300120113ad31
+  IOSThingyLibrary: de5fd45e587215a670acb4a6b71ac3e22973b9b5
   Keychain: ef812eafcf6593fe4409b07cfecc00b95fb373ed
-  Nimble: 874982b605d4d752fcac6be695d13c502de84b1b
+  Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   SDCAlertView: c39fa91a3aeb5eeba58fe9cea648263b131ff2bf
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
@@ -39,4 +39,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 72be2ad003188d9a7f7cdab71dd29a25b8d1c59b
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1
