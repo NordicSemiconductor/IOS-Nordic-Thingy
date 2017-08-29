@@ -133,8 +133,8 @@ class EnvironmentSettingsViewController: ThingyTableViewController, Configuratio
         case 0:
             switch indexPath.row {
             case 0: // Temperature
-                PopupHelper.showIntervalInput(withTitle: "Temperature interval", subtitle: "Range: 100 ms - 5000 ms",
-                                              value: Int(tempInterval), availableRange: NSMakeRange(100, 5000 - 100 + 1), unitInMs: 1.0,
+                PopupHelper.showIntervalInput(withTitle: "Temperature interval", subtitle: "Range: 100 ms - 60000 ms",
+                                              value: Int(tempInterval), availableRange: NSMakeRange(100, 60000 - 100 + 1), unitInMs: 1.0,
                                               andPlaceholderValue: "Interval",
                                               completion: { (value: Int) -> (Void) in
                                                 self.tempInterval = UInt16(value)
