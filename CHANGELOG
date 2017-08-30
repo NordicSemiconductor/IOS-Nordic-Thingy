@@ -1,0 +1,13 @@
+* **Version 1.1.1**
+    - Improvement: Updated maximum time interval to 1 minute for Temperature and Humidity notificaitons.
+    - Improvement: Updated maximum light intensity measurement interval to 1 minute
+
+* **Version 1.1**
+    - Bugfix: Temperature values below 0 overflow fixed.
+    - Improvement: Updated maximum time interval to 1 minute for Pressure notificaitons.
+    - Improvement: Updated minimum motion processing frequency to 5Hz as this is the minimum supported by the MPU.
+    - Improvement: Updated minimum LED breathe delay to 50 ms.
+    - Improvement: Fixed LED delay interval text field on iPad where hitting the done button on the keyboard had no effect.
+
+* **Version 1.0**
+    - Initial release of the Thingy SDK and Example app.

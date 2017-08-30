@@ -11,6 +11,6 @@ target 'ThingySDK_Example' do
   target 'ThingySDK_Tests' do
     inherit! :search_paths
   pod 'Quick'
-  pod 'Nimble', '~>7'
+  pod 'Nimble', '~> 7'
   end
 end
