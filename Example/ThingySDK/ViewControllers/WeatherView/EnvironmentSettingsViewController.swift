@@ -149,8 +149,8 @@ class EnvironmentSettingsViewController: ThingyTableViewController, Configuratio
                                                 self.pressureIntervalLabel.text = "\(value) ms"
                                               })
             case 2: // Humidity
-                PopupHelper.showIntervalInput(withTitle: "Humidity interval", subtitle: "Range: 100 ms - 5000 ms",
-                                              value: Int(humidityInterval), availableRange: NSMakeRange(100, 5000 - 100 + 1), unitInMs: 1.0,
+                PopupHelper.showIntervalInput(withTitle: "Humidity interval", subtitle: "Range: 100 ms - 60000 ms",
+                                              value: Int(humidityInterval), availableRange: NSMakeRange(100, 60000 - 100 + 1), unitInMs: 1.0,
                                               andPlaceholderValue: "Interval",
                                               completion: { (value: Int) -> (Void) in
                                                 self.humidityInterval = UInt16(value)
