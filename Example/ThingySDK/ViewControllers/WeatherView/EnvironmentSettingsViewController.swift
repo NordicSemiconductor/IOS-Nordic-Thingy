@@ -133,8 +133,8 @@ class EnvironmentSettingsViewController: ThingyTableViewController, Configuratio
         case 0:
             switch indexPath.row {
             case 0: // Temperature
-                PopupHelper.showIntervalInput(withTitle: "Temperature interval", subtitle: "Range: 100 ms - 5000 ms",
-                                              value: Int(tempInterval), availableRange: NSMakeRange(100, 5000 - 100 + 1), unitInMs: 1.0,
+                PopupHelper.showIntervalInput(withTitle: "Temperature interval", subtitle: "Range: 100 ms - 60000 ms",
+                                              value: Int(tempInterval), availableRange: NSMakeRange(100, 60000 - 100 + 1), unitInMs: 1.0,
                                               andPlaceholderValue: "Interval",
                                               completion: { (value: Int) -> (Void) in
                                                 self.tempInterval = UInt16(value)
@@ -149,16 +149,16 @@ class EnvironmentSettingsViewController: ThingyTableViewController, Configuratio
                                                 self.pressureIntervalLabel.text = "\(value) ms"
                                               })
             case 2: // Humidity
-                PopupHelper.showIntervalInput(withTitle: "Humidity interval", subtitle: "Range: 100 ms - 5000 ms",
-                                              value: Int(humidityInterval), availableRange: NSMakeRange(100, 5000 - 100 + 1), unitInMs: 1.0,
+                PopupHelper.showIntervalInput(withTitle: "Humidity interval", subtitle: "Range: 100 ms - 60000 ms",
+                                              value: Int(humidityInterval), availableRange: NSMakeRange(100, 60000 - 100 + 1), unitInMs: 1.0,
                                               andPlaceholderValue: "Interval",
                                               completion: { (value: Int) -> (Void) in
                                                 self.humidityInterval = UInt16(value)
                                                 self.humidityIntervalLabel.text = "\(value) ms"
                                               })
             case 3: // Light intensity
-                PopupHelper.showIntervalInput(withTitle: "Light intensity interval", subtitle: "Range: 200 ms - 5000 ms",
-                                              value: Int(lightIntensityInterval), availableRange: NSMakeRange(200, 5000 - 200 + 1), unitInMs: 1.0,
+                PopupHelper.showIntervalInput(withTitle: "Light intensity interval", subtitle: "Range: 200 ms - 60000 ms",
+                                              value: Int(lightIntensityInterval), availableRange: NSMakeRange(200, 60000 - 200 + 1), unitInMs: 1.0,
                                               andPlaceholderValue: "Interval",
                                               completion: { (value: Int) -> (Void) in
                                                 self.lightIntensityInterval = UInt16(value)
