@@ -12,6 +12,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
         <array key="HelveticaNeueLights.ttc">
             <string>HelveticaNeue-Light</string>
         </array>
@@ -1863,7 +1866,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Menu Item Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnw-HO-rCN">
-                                                    <rect key="frame" x="40" y="8" width="109.66666666666666" height="28"/>
+                                                    <rect key="frame" x="40" y="8" width="110" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <color key="highlightedColor" red="0.25882352939999997" green="0.53725490200000003" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1926,7 +1929,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lKd-kc-wac">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="113" width="414" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Kyu-Bw-zdd" userLabel="Footer">
@@ -2007,13 +2010,48 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
                                     <constraint firstItem="2d0-pC-P14" firstAttribute="centerX" secondItem="pUA-tt-fpe" secondAttribute="centerX" id="kwO-I1-nzQ"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0U7-BY-g2Z">
+                                <rect key="frame" x="0.0" y="64" width="414" height="49"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new thingy using NFC ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6W-Dg-60L">
+                                        <rect key="frame" x="8" y="14" width="217.33333333333334" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SvQ-I2-nVQ">
+                                        <rect key="frame" x="308" y="9" width="98" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="98" id="je2-aR-1bD"/>
+                                        </constraints>
+                                        <state key="normal" title="Use NFC"/>
+                                        <connections>
+                                            <action selector="nfcButtonTapped:" destination="B3E-VF-7Mu" eventType="touchUpInside" id="Qoh-q6-O5n"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.34509803919999998" green="0.59999999999999998" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="BVk-FU-Ti6"/>
+                                    <constraint firstAttribute="trailing" secondItem="SvQ-I2-nVQ" secondAttribute="trailing" constant="8" id="Myw-Xf-jtp"/>
+                                    <constraint firstItem="SvQ-I2-nVQ" firstAttribute="top" secondItem="0U7-BY-g2Z" secondAttribute="top" constant="9" id="NiL-dh-vql"/>
+                                    <constraint firstItem="D6W-Dg-60L" firstAttribute="leading" secondItem="0U7-BY-g2Z" secondAttribute="leading" constant="8" id="Ube-Mk-o9U"/>
+                                    <constraint firstItem="D6W-Dg-60L" firstAttribute="top" secondItem="0U7-BY-g2Z" secondAttribute="top" constant="14" id="gCF-HG-RrB"/>
+                                    <constraint firstAttribute="bottom" secondItem="D6W-Dg-60L" secondAttribute="bottom" constant="14" id="kqy-Bj-1fT"/>
+                                    <constraint firstAttribute="bottom" secondItem="SvQ-I2-nVQ" secondAttribute="bottom" constant="10" id="tpp-Va-zBt"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="R0G-7E-LbU" firstAttribute="top" secondItem="lKd-kc-wac" secondAttribute="bottom" id="7i0-I4-RHi"/>
                             <constraint firstItem="pUA-tt-fpe" firstAttribute="centerY" secondItem="zRz-OS-8wd" secondAttribute="centerY" multiplier="1.2" priority="750" id="89t-dH-k5T"/>
-                            <constraint firstItem="lKd-kc-wac" firstAttribute="top" secondItem="M5l-JT-EtY" secondAttribute="bottom" id="R6u-Qm-SDN"/>
+                            <constraint firstItem="0U7-BY-g2Z" firstAttribute="leading" secondItem="zRz-OS-8wd" secondAttribute="leading" id="HK3-NV-dwj"/>
                             <constraint firstAttribute="trailing" secondItem="lKd-kc-wac" secondAttribute="trailing" id="dge-vG-nTH"/>
+                            <constraint firstItem="0U7-BY-g2Z" firstAttribute="top" secondItem="M5l-JT-EtY" secondAttribute="bottom" id="eSP-hm-c9h"/>
+                            <constraint firstItem="lKd-kc-wac" firstAttribute="top" secondItem="0U7-BY-g2Z" secondAttribute="bottom" id="ezU-Q3-ljA"/>
+                            <constraint firstAttribute="trailing" secondItem="0U7-BY-g2Z" secondAttribute="trailing" id="g6f-du-eQr"/>
                             <constraint firstItem="lKd-kc-wac" firstAttribute="leading" secondItem="zRz-OS-8wd" secondAttribute="leading" id="qIE-br-JZd"/>
                             <constraint firstItem="R0G-7E-LbU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pUA-tt-fpe" secondAttribute="bottom" constant="16" id="uGu-dW-JrP"/>
                             <constraint firstItem="pUA-tt-fpe" firstAttribute="centerX" secondItem="zRz-OS-8wd" secondAttribute="centerX" id="uNA-Ph-CbK"/>
@@ -2030,13 +2068,16 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="emptyView" destination="pUA-tt-fpe" id="ZSi-aZ-CbE"/>
+                        <outlet property="nfcToastView" destination="0U7-BY-g2Z" id="pWL-zw-59Q"/>
+                        <outlet property="nfcToastViewButton" destination="SvQ-I2-nVQ" id="KoL-Qz-lSc"/>
+                        <outlet property="nfcToastViewTopConstraint" destination="eSP-hm-c9h" id="Wk2-Gn-B9S"/>
                         <outlet property="scannedPeripheralsTableView" destination="lKd-kc-wac" id="XTB-Dn-R46"/>
                         <segue destination="iZk-Gi-BXA" kind="show" identifier="show_initial_configure_view" id="Gvw-7F-Lau"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7v-4F-FZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2301" y="-216"/>
+            <point key="canvasLocation" x="2298.5507246376815" y="-216.03260869565219"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="REX-Gw-NFf">
@@ -6202,7 +6243,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <segue reference="bLd-6N-Q8d"/>
         <segue reference="DG9-AK-cg4"/>
         <segue reference="OYE-Sp-oIC"/>
-        <segue reference="m1f-As-b6R"/>
+        <segue reference="Gvw-7F-Lau"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.60392159219999997" blue="0.85490196939999996" alpha="1" colorSpace="calibratedRGB"/>
 </document>
