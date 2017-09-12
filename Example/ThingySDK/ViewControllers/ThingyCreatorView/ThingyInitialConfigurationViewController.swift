@@ -43,8 +43,6 @@
 
 import UIKit
 import IOSThingyLibrary
-//This disables location
-//import CoreLocation
 
 class ThingyInitialConfigurationViewController: ThingyViewController, UITableViewDataSource, UITableViewDelegate, ThingyManagerDelegate {
 
