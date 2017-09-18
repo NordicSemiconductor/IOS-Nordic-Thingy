@@ -118,7 +118,7 @@ class ThingyUserInterfaceViewController: SwipableTableViewController, UICollecti
     }
 
     //MARK: - UITapGestureRecognizer
-    func didTapSlider(recognizer: UITapGestureRecognizer) {
+    @objc func didTapSlider(recognizer: UITapGestureRecognizer) {
         if let tappedView = recognizer.view as? UISlider {
             if tappedView.isHighlighted {
                 // System is already handling an event
@@ -360,7 +360,7 @@ class ThingyUserInterfaceViewController: SwipableTableViewController, UICollecti
         ledModeChanged(to: currentMode)
     }
 
-    func resignTextField() {
+    @objc func resignTextField() {
         breatheDelayTextField.resignFirstResponder()
         if let parsedDelay = UInt16(breatheDelayTextField.text!) {
             ledBreatheDelayChanged(newValue: parsedDelay)

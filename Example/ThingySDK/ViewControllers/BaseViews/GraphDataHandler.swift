@@ -133,7 +133,7 @@ class GraphDataHandler: NSObject, IAxisValueFormatter, ChartViewDelegate, UIGest
         targetChartView.addGestureRecognizer(clickRecognizer)
     }
 
-    func clearGraphData() {
+    @objc func clearGraphData() {
         for aDataset in lineChartData.dataSets {
             aDataset.clear()
             _ = aDataset.addEntry(ChartDataEntry(x: 0, y: 0))
@@ -190,7 +190,7 @@ class GraphDataHandler: NSObject, IAxisValueFormatter, ChartViewDelegate, UIGest
         clearGraphButton?.isEnabled = true
     }
     
-    func scrollToEnd() {
+    @objc func scrollToEnd() {
         targetChartView.moveViewToAnimated(xValue: xPosition + 1, yValue: 0, axis: .left, duration: 0.3)
         // Hide the Scroll to end button
         scrollGraphButton?.isEnabled = false
@@ -198,7 +198,7 @@ class GraphDataHandler: NSObject, IAxisValueFormatter, ChartViewDelegate, UIGest
     
     //MARK: - Gesture handlers
     /// Method called when user touches the graph. Handles touchDown and touchUp events to set the graphIsTouched flag. 
-    func didLongPress(gesture: UITapGestureRecognizer) {
+    @objc func didLongPress(gesture: UITapGestureRecognizer) {
         if gesture.state == .began {
             graphIsTouched = true
         } else if gesture.state == .ended {

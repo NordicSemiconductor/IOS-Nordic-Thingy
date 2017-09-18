@@ -149,7 +149,7 @@ class SoundViewController: SwipableTableViewController {
     private var lastToneRecordTime: CFAbsoluteTime?
     
     //MARK: - UITapGestureRecognizer
-    func didTapSlider(recognizer: UITapGestureRecognizer) {
+    @objc func didTapSlider(recognizer: UITapGestureRecognizer) {
         if let tappedView = recognizer.view as? UISlider {
             if tappedView.isHighlighted {
                 // System is already handling an event
@@ -449,7 +449,7 @@ class SoundViewController: SwipableTableViewController {
         let format = AVAudioFormat(commonFormat: .pcmFormatInt16, sampleRate: 8000, channels: 1, interleaved: true)
         
         engine = AVAudioEngine()
-        let inputNode = engine!.inputNode!
+        let inputNode = engine!.inputNode
         if inputNode.outputFormat(forBus: 0).sampleRate == 0 {
             // On iOS 8 the 8 KHz sampling is not supported
             return false
@@ -494,7 +494,7 @@ class SoundViewController: SwipableTableViewController {
     
     private func stopRecording() {
         // Remove the tap and stop recording.
-        engine?.inputNode!.removeTap(onBus: 0)
+        engine?.inputNode.removeTap(onBus: 0)
         engine?.stop()
         engine?.reset()
         engine = nil
@@ -527,17 +527,17 @@ class SoundViewController: SwipableTableViewController {
         }
         
         let buffer = AVAudioPCMBuffer(pcmFormat: engine.mainMixerNode.inputFormat(forBus: 0), frameCapacity: AVAudioFrameCount(pcm16Data.count))
-        buffer.frameLength = buffer.frameCapacity
+        buffer?.frameLength = (buffer?.frameCapacity)!
         
         var graphData = [Double]()
         for i in 0 ..< pcm16Data.count {
-            buffer.floatChannelData![0 /* channel 1 */][i] = Float32(pcm16Data[i]) / Float32(Int16.max) // TODO: 32 - increases volume, this should be done on Thingy
+            buffer?.floatChannelData![0 /* channel 1 */][i] = Float32(pcm16Data[i]) / Float32(Int16.max) // TODO: 32 - increases volume, this should be done on Thingy
             // print("Value \(i): \(pcm16Data[i]) => \(buffer.floatChannelData![0][i])")
             
             // Unfortunatelly we can't show all samples on the graph, it would be too slow.
             // We show only every n-th sample from whole 800 samples in the buffer keeping the same precission as when sending sound.
             if i % (800 / self.soundGraphHandler.maximumVisiblePoints) == 0 {
-                graphData.append((Double(buffer.floatChannelData![0][i])))
+                graphData.append((Double((buffer?.floatChannelData![0][i])!)))
             }
         }
         DispatchQueue.main.async {
@@ -547,7 +547,7 @@ class SoundViewController: SwipableTableViewController {
             self.soundGraphHandler.addPoints(withValues: graphData)
         }
         
-        player!.scheduleBuffer(buffer, completionHandler: nil)
+        player!.scheduleBuffer(buffer!, completionHandler: nil)
     }
     
     private func stopPlaying() {
