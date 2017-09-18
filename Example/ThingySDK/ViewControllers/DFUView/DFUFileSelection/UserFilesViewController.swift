@@ -91,13 +91,13 @@ class UserFilesViewController: UIViewController, FilePreselectionDelegate, UITab
         }
     }
     
-    func doneButtonTapped() {
+    @objc func doneButtonTapped() {
         dismiss(animated: true, completion: nil)
         fileDelegate?.onFileSelected(withURL: selectedPath!)
         UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
     }
     
-    func cancelButtonTapped() {
+    @objc func cancelButtonTapped() {
         dismiss(animated: true, completion: nil)
         UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
     }

@@ -237,7 +237,13 @@ public class ThingyManager: NSObject, CBCentralManagerDelegate, CBPeripheralDele
         } else {
             aPeripheral = ThingyPeripheral(withPeripheral: peripheral, andDelegate: nil)
         }
-        delegate.thingyManager(self, didDiscoverPeripheral: aPeripheral)
+        if let manufacturerData = advertisementData[CBAdvertisementDataManufacturerDataKey] as? Data {
+            let data = Data(manufacturerData.dropFirst(2))
+            let pairingCode = data.hexEncodedString()
+            delegate.thingyManager(self, didDiscoverPeripheral: aPeripheral, withPairingCode: pairingCode)
+        } else {
+            delegate.thingyManager(self, didDiscoverPeripheral: aPeripheral, withPairingCode: nil)
+        }
     }
 
     public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {

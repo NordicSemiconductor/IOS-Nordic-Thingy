@@ -1,8 +1,8 @@
 PODS:
-  - Charts (3.0.2):
-    - Charts/Core (= 3.0.2)
-  - Charts/Core (3.0.2)
-  - iOSDFULibrary (3.2.0):
+  - Charts (3.0.3):
+    - Charts/Core (= 3.0.3)
+  - Charts/Core (3.0.3)
+  - iOSDFULibrary (3.2.1):
     - Zip (~> 0.7)
   - IOSThingyLibrary (1.1.1):
     - iOSDFULibrary (~> 3.0)
@@ -27,9 +27,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
-  iOSDFULibrary: fff77c63f0237f8567d0978d541300120113ad31
-  IOSThingyLibrary: f731f460356cf7904cbb7855b6faf34086f48130
+  Charts: bcde37724c161958c1438dd4883971fcb2d50c06
+  iOSDFULibrary: f9544a7099c914eb5f1002dc58a5ff8c67dbc86d
+  IOSThingyLibrary: 269fe96a5fea017ddfded0244951f6e3d970b555
   Keychain: ef812eafcf6593fe4409b07cfecc00b95fb373ed
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d

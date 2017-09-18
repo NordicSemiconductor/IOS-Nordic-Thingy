@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,7 +26,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_drop_down_circle_24pt" translatesAutoresizingMaskIntoConstraints="NO" id="BmU-P2-kaA">
-                            <rect key="frame" x="215" y="8" width="44" height="44"/>
+                            <rect key="frame" x="277" y="8" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="1bA-g7-yGn"/>
                             </constraints>
@@ -37,11 +37,10 @@
                     <constraints>
                         <constraint firstItem="oHg-Wr-SW9" firstAttribute="leading" secondItem="j7Z-0h-4tH" secondAttribute="leading" constant="12" id="BbB-xh-ZBV"/>
                         <constraint firstAttribute="bottom" secondItem="oHg-Wr-SW9" secondAttribute="bottom" constant="8" id="O6B-j9-pdy"/>
-                        <constraint firstAttribute="trailing" secondItem="BmU-P2-kaA" secondAttribute="trailing" constant="70" id="W33-KX-Rmm"/>
+                        <constraint firstAttribute="trailing" secondItem="BmU-P2-kaA" secondAttribute="trailing" constant="8" id="W33-KX-Rmm"/>
                         <constraint firstItem="oHg-Wr-SW9" firstAttribute="top" secondItem="j7Z-0h-4tH" secondAttribute="top" constant="8" id="XNb-zH-ugn"/>
                         <constraint firstAttribute="bottom" secondItem="BmU-P2-kaA" secondAttribute="bottom" constant="8" id="fb2-3C-PlT"/>
                         <constraint firstItem="BmU-P2-kaA" firstAttribute="top" secondItem="j7Z-0h-4tH" secondAttribute="top" constant="8" id="phk-KN-nBq"/>
-                        <constraint firstItem="BmU-P2-kaA" firstAttribute="top" secondItem="j7Z-0h-4tH" secondAttribute="top" constant="8" id="vRF-yL-v1e"/>
                     </constraints>
                 </view>
             </subviews>

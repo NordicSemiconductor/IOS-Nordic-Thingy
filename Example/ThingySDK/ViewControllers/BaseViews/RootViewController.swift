@@ -46,7 +46,7 @@ import IOSThingyLibrary
 import SWRevealViewController
 
 class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyPeripheralDelegate, NewThingyDelegate {
-    
+
     private var menuViewController       : MainMenuViewController!
     private var mainNavigationController : MainNavigationViewController!
     private var thingyManager            : ThingyManager?
@@ -97,7 +97,8 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
     }
     
     func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral) {
-        // Never called
+    }
+    func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral, withPairingCode: String?) {   
     }
     
     // MARK: - Thingy Peripheral Delegate
@@ -166,7 +167,7 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
     }
     
     private func updateRearViewSize(targetSize : CGSize) {
-
+        rearViewRevealOverdraw = 0
         switch (UIDevice.current.userInterfaceIdiom) {
             case .pad:
                 rearViewRevealWidth = targetSize.width * 0.35
