@@ -1,3 +1,6 @@
+* **Version 1.2.0**
+    - Update: Adedd new DFU progress delegate method that reports back current FW part being uploaded
+
 * **Version 1.1.2**
     - Bugfix: Cloud view will only report errors on error HTTP Codes PR #16
     - Update: Updated bundled Thingy FW to 2.0.0
