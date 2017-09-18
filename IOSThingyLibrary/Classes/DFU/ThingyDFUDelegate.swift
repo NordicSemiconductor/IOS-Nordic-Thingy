@@ -58,5 +58,5 @@ public protocol ThingyDFUDelegate {
     func dfuDidComplete(thingy: ThingyPeripheral?)
     func dfuDidAbort()
     func dfuDidFail(withError anError: Error, andMessage aMessage: String)
-    func dfuDidProgress(withCompletion aCompletion: Int, andAverageSpeed aSpeed: Double)
+    func dfuDidProgress(withCompletion aCompletion: Int, forPart aPart: Int, outOf totalParts: Int, andAverageSpeed aSpeed: Double)
 }

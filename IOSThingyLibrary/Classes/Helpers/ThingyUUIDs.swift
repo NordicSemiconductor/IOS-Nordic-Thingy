@@ -57,6 +57,10 @@ func getSecureDFUServiceUUID() -> CBUUID {
 
 //MARK: - Jump to bootloader
 
+func getNewJumpToBootloaderCharacteristicUUID() -> CBUUID {
+    return CBUUID(string:"8EC90003-F315-4F60-9FB8-838830DAEA50")
+}
+
 func getJumpToBootloaderCharacteristicUUID() -> CBUUID {
     return CBUUID(string:"8EC90001-F315-4F60-9FB8-838830DAEA50")
 }

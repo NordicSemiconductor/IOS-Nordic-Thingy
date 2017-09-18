@@ -211,7 +211,7 @@ public class ThingyDFUController: NSObject, DFUProgressDelegate, DFUServiceDeleg
     //MARK: - DFUProgressDelegate
     public func dfuProgressDidChange(for part: Int, outOf totalParts: Int, to progress: Int,
                                      currentSpeedBytesPerSecond: Double, avgSpeedBytesPerSecond: Double) {
-        thingyDFUDelegate?.dfuDidProgress(withCompletion: progress, andAverageSpeed: avgSpeedBytesPerSecond)
+        thingyDFUDelegate?.dfuDidProgress(withCompletion: progress, forPart: part, outOf: totalParts, andAverageSpeed: avgSpeedBytesPerSecond)
     }
 
     //MARK: - DFUServiceDelegate
@@ -317,14 +317,18 @@ public class ThingyDFUController: NSObject, DFUProgressDelegate, DFUServiceDeleg
         switch service.characteristics!.count {
         case 1:
             //We have an application mode, jump to bootloader
-            for aCharcaterstic in service.characteristics! {
-                if aCharcaterstic.uuid == getJumpToBootloaderCharacteristicUUID() {
-                    dfuControlPointCharacteristic = aCharcaterstic
+            for aCharacterstic in service.characteristics! {
+                if aCharacterstic.uuid == getJumpToBootloaderCharacteristicUUID() {
+                    dfuControlPointCharacteristic = aCharacterstic
+                } else if aCharacterstic.uuid == getNewJumpToBootloaderCharacteristicUUID() {
+                    dfuControlPointCharacteristic = aCharacterstic
                 }
+                sendJumpToBootloaderCommand()
             }
-            sendJumpToBootloaderCommand()
         case 2:
             //We are in bootloader start DFU process
+            //First attempt: Start with merged SD/BL/APP bundled firmware
+            //If we get an error, try only ApplicationFirmware
             didDiscoverDFUPeripheral(aPeripheral: peripheral)
         default:
             print("Unknown state")
