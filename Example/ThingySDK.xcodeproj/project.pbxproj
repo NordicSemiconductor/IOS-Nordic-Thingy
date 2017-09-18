@@ -14,7 +14,6 @@
 		301157EA1DD618B600137C41 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301157E91DD618B600137C41 /* MainNavigationViewController.swift */; };
 		301157FB1DD61B8F00137C41 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301157F91DD61B8F00137C41 /* TutorialPageViewController.swift */; };
 		301157FC1DD61B8F00137C41 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301157FA1DD61B8F00137C41 /* TutorialViewController.swift */; };
-		30145C511EDC3B61006D6F1A /* thingy_dfu_pkg_app_v1.1.0.zip in Resources */ = {isa = PBXBuildFile; fileRef = 30145C501EDC3B61006D6F1A /* thingy_dfu_pkg_app_v1.1.0.zip */; };
 		30170A9F1EBCB93100176728 /* evil_laugh_8kHz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 30170A9C1EBCB93100176728 /* evil_laugh_8kHz.wav */; };
 		30170AA01EBCB93100176728 /* grapevine_8kHz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 30170A9D1EBCB93100176728 /* grapevine_8kHz.wav */; };
 		3025576D1ED2EB0500EB7227 /* IOSThingyLibrary.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3025576C1ED2EB0500EB7227 /* IOSThingyLibrary.podspec */; };
@@ -36,6 +35,8 @@
 		309E4E651DA6904C00C90FDF /* ThingeePeripheralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E4E5F1DA6904C00C90FDF /* ThingeePeripheralTableViewCell.swift */; };
 		309E4E661DA6904C00C90FDF /* ExpandableTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E4E611DA6904C00C90FDF /* ExpandableTableHeaderView.swift */; };
 		309E4E671DA6904C00C90FDF /* ExpandableTableHeaderViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E4E621DA6904C00C90FDF /* ExpandableTableHeaderViewDelegate.swift */; };
+		30A69F0E1F6FAC770080A6FE /* thingy_dfu_pkg_sd_bl_app_v2.0.0.zip in Resources */ = {isa = PBXBuildFile; fileRef = 30A69F0D1F6FAC770080A6FE /* thingy_dfu_pkg_sd_bl_app_v2.0.0.zip */; };
+		30A69F101F6FACF50080A6FE /* thingy_dfu_pkg_app_v2.0.0.zip in Resources */ = {isa = PBXBuildFile; fileRef = 30A69F0F1F6FACF40080A6FE /* thingy_dfu_pkg_app_v2.0.0.zip */; };
 		30AAB3081DED8A310034B303 /* SetKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAB3071DED8A310034B303 /* SetKeyView.swift */; };
 		30AC20091ECDD8DD00236FF6 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC20081ECDD8DD00236FF6 /* StringExtension.swift */; };
 		30BD60731E1D27EB00A91368 /* Thingy3DControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD606E1E1D27EB00A91368 /* Thingy3DControlViewController.swift */; };
@@ -100,7 +101,6 @@
 		301157E91DD618B600137C41 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		301157F91DD61B8F00137C41 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		301157FA1DD61B8F00137C41 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
-		30145C501EDC3B61006D6F1A /* thingy_dfu_pkg_app_v1.1.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = thingy_dfu_pkg_app_v1.1.0.zip; sourceTree = "<group>"; };
 		30170A9C1EBCB93100176728 /* evil_laugh_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = evil_laugh_8kHz.wav; sourceTree = "<group>"; };
 		30170A9D1EBCB93100176728 /* grapevine_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grapevine_8kHz.wav; sourceTree = "<group>"; };
 		3025576C1ED2EB0500EB7227 /* IOSThingyLibrary.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = IOSThingyLibrary.podspec; path = ../IOSThingyLibrary.podspec; sourceTree = "<group>"; };
@@ -122,6 +122,8 @@
 		309E4E5F1DA6904C00C90FDF /* ThingeePeripheralTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingeePeripheralTableViewCell.swift; sourceTree = "<group>"; };
 		309E4E611DA6904C00C90FDF /* ExpandableTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTableHeaderView.swift; sourceTree = "<group>"; };
 		309E4E621DA6904C00C90FDF /* ExpandableTableHeaderViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTableHeaderViewDelegate.swift; sourceTree = "<group>"; };
+		30A69F0D1F6FAC770080A6FE /* thingy_dfu_pkg_sd_bl_app_v2.0.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = thingy_dfu_pkg_sd_bl_app_v2.0.0.zip; sourceTree = "<group>"; };
+		30A69F0F1F6FACF40080A6FE /* thingy_dfu_pkg_app_v2.0.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = thingy_dfu_pkg_app_v2.0.0.zip; sourceTree = "<group>"; };
 		30AAB3071DED8A310034B303 /* SetKeyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetKeyView.swift; sourceTree = "<group>"; };
 		30AC20081ECDD8DD00236FF6 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		30AE0E6A1F333D430097A80E /* ThingySDK_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ThingySDK_Example.entitlements; sourceTree = "<group>"; };
@@ -445,7 +447,8 @@
 		30F87B6E1DDDCCD400A46A74 /* BundledFirmwares */ = {
 			isa = PBXGroup;
 			children = (
-				30145C501EDC3B61006D6F1A /* thingy_dfu_pkg_app_v1.1.0.zip */,
+				30A69F0F1F6FACF40080A6FE /* thingy_dfu_pkg_app_v2.0.0.zip */,
+				30A69F0D1F6FAC770080A6FE /* thingy_dfu_pkg_sd_bl_app_v2.0.0.zip */,
 			);
 			path = BundledFirmwares;
 			sourceTree = "<group>";
@@ -682,15 +685,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30A69F0E1F6FAC770080A6FE /* thingy_dfu_pkg_sd_bl_app_v2.0.0.zip in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				30F3421B1DF5943E003E9119 /* thingy_obj.scn in Resources */,
 				30170AA01EBCB93100176728 /* grapevine_8kHz.wav in Resources */,
 				30F342191DF5943E003E9119 /* AO_MDL Obj_AE9A38A7-6603-4DFF-99F5-C005F8D65F58.png in Resources */,
 				30170A9F1EBCB93100176728 /* evil_laugh_8kHz.wav in Resources */,
 				52CA964F1EC1E62C00A2F01F /* learning_computer_8kHz.wav in Resources */,
-				30145C511EDC3B61006D6F1A /* thingy_dfu_pkg_app_v1.1.0.zip in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				30F3421A1DF5943E003E9119 /* AO_MDL Obj_FEFAB2C1-D28B-4C56-94F9-ECD73E858414.png in Resources */,
+				30A69F101F6FACF50080A6FE /* thingy_dfu_pkg_app_v2.0.0.zip in Resources */,
 				30BE4C161DA5334100D9A946 /* MenuExpandableHeaderView.xib in Resources */,
 				300517841EC06B7400E3A64E /* ukulele_8kHz.wav in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,

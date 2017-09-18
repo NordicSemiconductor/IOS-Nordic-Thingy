@@ -52,12 +52,17 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
     private var selectedFirmware : DFUFirmware?
     private var selectedFileURL  : URL?
     private var dfuController    : ThingyDFUController!
+    /// Workaround: This ensures the app will retry in case user attemps to flash the same softdevice again
+    /// This is only required for merged zip files that contain sd/bl + app, in all other cases, app only is
+    /// updated unless we are doing a DFU update with an app that requires a newer sd/bl version.
+    private var isAttemptingSDCheck: Bool = false
+
     /// Flag set to true when the target row has been tapped. In that case the target name will not be cleard.
     private var changingTarget   : Bool = false
     
     @IBOutlet weak var startButton: UIBarButtonItem!
     @IBAction func startButtonTapped(_ sender: UIBarButtonItem) {
-        startDFUTapped()
+        startDFUProcess()
     }
     @IBAction func menuButtonTapped(_ sender: UIBarButtonItem) {
         toggleRevealView()
@@ -112,7 +117,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
     //MARK: - UIViewController lifecycle
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        loadOriginalFirmware()
+        loadOriginalFirmware(withSoftDeviceBootloader: false)
         selectedFirmware = originalFirmware
     }
     
@@ -121,6 +126,15 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
         
         if let targetPeripheral = targetPeripheral {
             deviceName.text = targetPeripheral.name
+            if let fwVersion = targetPeripheral.readFirmwareVersion() {
+                if fwVersion == "1.1.0" || fwVersion == "1.0.0" {
+                    self.loadOriginalFirmware(withSoftDeviceBootloader: true)
+                } else {
+                    self.loadOriginalFirmware(withSoftDeviceBootloader: false)
+                }
+            } else {
+                
+            }
         }
         
         // Reset the flag
@@ -189,10 +203,19 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
     }
     
     //MARK: - Implementation
-    private func loadOriginalFirmware() {
-        originalFirmware = DFUFirmware(urlToZipFile: getExampleFirmwareURL())
+    private func loadOriginalFirmware(withSoftDeviceBootloader: Bool) {
+        if withSoftDeviceBootloader {
+            originalFirmware = DFUFirmware(urlToZipFile: getExampleMergedFirmwareURL())
+        } else {
+            originalFirmware = DFUFirmware(urlToZipFile: getExampleFirmwareURL())
+        }
+        selectedFirmware = originalFirmware
     }
     
+    private func getExampleMergedFirmwareURL() -> URL {
+        return Bundle.main.url(forResource: "thingy_dfu_pkg_sd_bl_app_v\(kCurrentDfuVersion)", withExtension: "zip")!
+    }
+
     private func getExampleFirmwareURL() -> URL {
         return Bundle.main.url(forResource: "thingy_dfu_pkg_app_v\(kCurrentDfuVersion)", withExtension: "zip")!
     }
@@ -263,7 +286,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
     }
     
     //MARK: - ThingyDFUDelegate
-    private func startDFUTapped() {
+    private func startDFUProcess() {
         guard targetPeripheral != nil else {
             print("DFU Target not set")
             return
@@ -287,6 +310,16 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
         completedLabel.alpha          = 0.2
         completedLabel.text           = "Completed"
         
+        if targetPeripheral!.name.lowercased() == "thingydfu" {
+            if selectedFirmware == originalFirmware {
+                if isAttemptingSDCheck == false {
+                    isAttemptingSDCheck = true
+                    self.loadOriginalFirmware(withSoftDeviceBootloader: true)
+                } else {
+                    self.loadOriginalFirmware(withSoftDeviceBootloader: false)
+                }
+            }
+        }
         let centralManager = thingyManager!.centralManager!
         dfuController = ThingyDFUController(withPeripheral: targetPeripheral!, centralManager: centralManager, firmware: selectedFirmware!, andDelegate: self)
         dfuController.startDFUProcess()
@@ -303,6 +336,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
     }
 
     func dfuDidComplete(thingy: ThingyPeripheral?) {
+        isAttemptingSDCheck = false
         dfuActivityIndicator.isHidden = true
         startButton.isEnabled = true
         abortButton.isHidden = true
@@ -310,7 +344,6 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
         progressIndicator.setProgress(0, animated: true)
         changeAlpha(of: completedLabel, to: 1)
         changeAlpha(of: completedIcon, to: 1)
-        
         if thingy != nil {
             targetPeripheral = thingy
             thingyManager!.connect(toDevice: thingy!)
@@ -350,9 +383,19 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
         // only way to unlock the bootloader is by flashing user's own secure DFU bootloader with user's own public key
         // using USB. Unlocking the bootloader Over-The-Air is not supported yet.
         // TODO: This comment needs to be updated when NonSecure DFU or other way to unlock the Bootloader is implemented for Thingy.
-        let nsError = anError as NSError
-        if nsError.code == DFUError.remoteSecureDFUInvalidObject.rawValue {
+        let error = anError as NSError
+        if error.code == DFUError.remoteSecureDFUInvalidObject.rawValue {
             errorHelpButton.isHidden = false
+        }
+
+        if error.code == DFUError.remoteSecureDFUExtendedError.rawValue {
+            if isAttemptingSDCheck == true {
+                errorHelpButton.isHidden = true
+                self.startDFUProcess()
+                return
+            } else {
+                errorHelpButton.isHidden = false
+            }
         }
     }
     
@@ -365,6 +408,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
         changeAlpha(of: completedIcon, to: 0)
         changeAlpha(of: errorIcon, to: 1)
         changeAlpha(of: completedLabel, to: 1)
+        isAttemptingSDCheck = false
     }
 
     func dfuDidStartUploading() {
@@ -373,7 +417,12 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
         changeAlpha(of: speedLabel, to: 1)
     }
 
-    func dfuDidProgress(withCompletion aCompletion: Int, andAverageSpeed aSpeed: Double) {
+    func dfuDidProgress(withCompletion aCompletion: Int, forPart aPart: Int, outOf totalParts: Int, andAverageSpeed aSpeed: Double) {
+        if totalParts > 1 {
+            uploadingFirmwareLabel.text = "Uploading Firmware (\(aPart)/\(totalParts))"
+        } else {
+            uploadingFirmwareLabel.text = "Uploading firmware"
+        }
         speedLabel.text = String(format: "%0.1f kB/s", aSpeed / 1024.0)
         progressIndicator.setProgress(Float(aCompletion) / 100.0, animated: true)
         uploadingFirmwareIcon.alpha = 0.2 + 0.8 * CGFloat(aCompletion) / 100.0
