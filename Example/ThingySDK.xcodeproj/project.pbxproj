@@ -19,7 +19,6 @@
 		3025576D1ED2EB0500EB7227 /* IOSThingyLibrary.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3025576C1ED2EB0500EB7227 /* IOSThingyLibrary.podspec */; };
 		3029F9A71DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3029F9A61DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift */; };
 		3039CCB21DD0D07000DA1C55 /* MotionModelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3039CCB11DD0D07000DA1C55 /* MotionModelScene.swift */; };
-		3086A13F1F5FD7BA003917B6 /* thingy_dfu_pkg_app_v2.0.0.zip in Resources */ = {isa = PBXBuildFile; fileRef = 3086A13E1F5FD7BA003917B6 /* thingy_dfu_pkg_app_v2.0.0.zip */; };
 		308D1A921DE84A2B009138DE /* MainEmptyConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D1A911DE84A2B009138DE /* MainEmptyConfigurationViewController.swift */; };
 		308D1A951DE851DD009138DE /* SetRootViewSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D1A941DE851DD009138DE /* SetRootViewSegue.swift */; };
 		30919A211E01784900E74F5D /* GraphDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30919A201E01784900E74F5D /* GraphDataHandler.swift */; };
@@ -107,7 +106,6 @@
 		3025576C1ED2EB0500EB7227 /* IOSThingyLibrary.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = IOSThingyLibrary.podspec; path = ../IOSThingyLibrary.podspec; sourceTree = "<group>"; };
 		3029F9A61DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyConfigurationItemTableViewCell.swift; sourceTree = "<group>"; };
 		3039CCB11DD0D07000DA1C55 /* MotionModelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionModelScene.swift; sourceTree = "<group>"; };
-		3086A13E1F5FD7BA003917B6 /* thingy_dfu_pkg_app_v2.0.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = thingy_dfu_pkg_app_v2.0.0.zip; sourceTree = "<group>"; };
 		308D1A911DE84A2B009138DE /* MainEmptyConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainEmptyConfigurationViewController.swift; sourceTree = "<group>"; };
 		308D1A941DE851DD009138DE /* SetRootViewSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetRootViewSegue.swift; sourceTree = "<group>"; };
 		30919A201E01784900E74F5D /* GraphDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphDataHandler.swift; sourceTree = "<group>"; };
