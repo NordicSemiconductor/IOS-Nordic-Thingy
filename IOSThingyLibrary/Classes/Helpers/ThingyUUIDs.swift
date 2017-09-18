@@ -133,6 +133,10 @@ func getEnvironmentConfigurationCharacteristicUUID() -> CBUUID {
     return getUUIDString(withBaseFormat: baseUUIDFormat, andIdentifier: "0206")
 }
 //MARK: -
+//MARK: - Battery UUIDs
+func getBatteryServiceUUID() -> CBUUID {
+    return CBUUID(string: "180F")
+}
 
 //MARK: - UserInterfaceService UUIDs
 func getUIServiceUUID() -> CBUUID {
