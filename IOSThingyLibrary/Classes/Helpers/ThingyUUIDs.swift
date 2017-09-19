@@ -133,6 +133,14 @@ func getEnvironmentConfigurationCharacteristicUUID() -> CBUUID {
     return getUUIDString(withBaseFormat: baseUUIDFormat, andIdentifier: "0206")
 }
 //MARK: -
+//MARK: - Battery UUIDs
+func getBatteryServiceUUID() -> CBUUID {
+    return CBUUID(string: "180F")
+}
+
+func getBatteryLevelCharacteristicUUID() -> CBUUID {
+    return CBUUID(string: "2A19")
+}
 
 //MARK: - UserInterfaceService UUIDs
 func getUIServiceUUID() -> CBUUID {
@@ -225,6 +233,9 @@ fileprivate func getUUIDString(withBaseFormat aBaseFormat: String, andIdentifier
 
 //MARK: - ReadableName helper
 func getReadableName(forUUID aUUID : CBUUID) -> String {
+    if aUUID == getBatteryServiceUUID() {
+        return "Thingy Battery Service"
+    }
     if aUUID == getUIServiceUUID() {
         return "Thingy UI Service"
     }
@@ -261,6 +272,7 @@ func getAllThingyServices() -> [CBUUID] {
         getUIServiceUUID(),
         getMotionServiceUUID(),
         getSoundServiceUUID(),
-        getSecureDFUServiceUUID()
+        getSecureDFUServiceUUID(),
+        getBatteryServiceUUID()
     ]
 }

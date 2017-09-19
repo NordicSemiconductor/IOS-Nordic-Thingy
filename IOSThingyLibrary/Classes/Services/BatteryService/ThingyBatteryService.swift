@@ -36,68 +36,48 @@
  OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 //
-//  MenuItemTableViewCell.swift
+//  ThingyBatteryService.swift
 //
-//  Created by Mostafa Berg on 05/10/16.
-//
+//  Created by Mostafa Berg on 18/09/17.
 //
 
-import UIKit
+import CoreBluetooth
 
-class MenuItemTableViewCell: UITableViewCell {
+public typealias batteryNotificationCallback = (_ state: UInt8) -> (Void)
 
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var batteryLevelLabel: UILabel!
-    @IBOutlet weak var batteryIcon: UIImageView!
+public enum ThingyBatteryError: Error {
+    case charactersticNotDiscovered(characteristicName: String)
+}
+
+internal class ThingyBatteryService: ThingyService {
+    internal var batteryNotificationsEnabled: Bool {
+        return getBatteryCharacteristic()?.isNotifying ?? false
+    }
     
-    public func updateCell(withTitle aTitle: String?, andIcon anIcon: UIImage?, isActive: Bool? = nil, isTransparent: Bool = false, batteryLevel aLevel: UInt8?) {
-        label.text = aTitle
-        icon.image = anIcon
-        
-        if aLevel == nil {
-            batteryLevelLabel.isHidden = true
-            batteryIcon.isHidden = true
-        } else {
-            batteryLevelLabel.isHidden = false
-            batteryIcon.isHidden = false
-            batteryLevelLabel.text = "\(aLevel!)%"
-        }
+    //MARK: - Initialization
+    required internal init(withService aService: CBService) {
+        super.init(withName: "Battery service", andService: aService)
+    }
 
-        if isActive == true {
-            icon.image = #imageLiteral(resourceName: "ic_developer_board_blue_24pt")
-            label.textColor = UIColor.nordicBlue
-            if batteryLevelLabel.isHidden == false {
-                batteryLevelLabel.textColor = UIColor.black
-            }
-            if batteryIcon.isHidden == false {
-                batteryIcon.alpha = 1
-            }
+    //MARK: - Battery service implementation
+    internal func beginBatteryNotifications() throws {
+        if let batteryCharacteristic = getBatteryCharacteristic() {
+            batteryCharacteristic.startNotifications()
         } else {
-            icon.image = anIcon
-            label.textColor = UIColor.black
-            if batteryLevelLabel.isHidden == false {
-                batteryLevelLabel.textColor = UIColor.gray
-            }
-            if batteryIcon.isHidden == false {
-                batteryIcon.alpha = 0.5
-            }
+            throw ThingyBatteryError.charactersticNotDiscovered(characteristicName: "Battery")
         }
-        
-        if isTransparent {
-            label.alpha = 0.2
-            icon.alpha = 0.2
+    }
+    
+    internal func stopBatteryNotifications() throws {
+        if let batteryCharacteristic = getBatteryCharacteristic() {
+            batteryCharacteristic.stopNotifications()
         } else {
-            label.alpha = 1
-            icon.alpha = 1
+            throw ThingyBatteryError.charactersticNotDiscovered(characteristicName: "Battery")
         }
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        label.text = nil
-        icon.image = nil
-        icon.alpha = 1
+    //MARK: - Convenince methods
+    private func getBatteryCharacteristic() -> ThingyCharacteristic? {
+        return getThingyCharacteristicFromList(withIdentifier: getBatteryLevelCharacteristicUUID())
     }
 }
