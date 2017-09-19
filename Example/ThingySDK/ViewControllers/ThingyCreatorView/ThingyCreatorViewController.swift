@@ -44,9 +44,10 @@
 import UIKit
 import SWRevealViewController
 import IOSThingyLibrary
+import CoreNFC
 
 class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, UITableViewDelegate, UITableViewDataSource {
-    
+
     //MARK: - Class properties
     private var discoveredThingies = [ThingyPeripheral]()
     private var loadingView: UIAlertController?
@@ -54,15 +55,24 @@ class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, 
     //MARK: - Outlets and Actions
     @IBOutlet weak var scannedPeripheralsTableView: UITableView!
     @IBOutlet weak var emptyView: UIView!
-    
+    @IBOutlet weak var nfcToastViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var nfcToastView: UIView!
+    @IBOutlet weak var nfcToastViewButton: UIButton!
+    @IBAction func nfcButtonTapped(_ sender: Any) {
+        self.cancelScanningAndPresentNFC()
+    }
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
-        let parentView = self.parent as! ThingyNavigationController
-        parentView.dismiss(animated: true, completion: nil)
+        self.cancelScanning()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        nfcToastViewButton.layer.cornerRadius = 5
+        nfcToastViewButton.layer.masksToBounds = true
+        
+        //Hide NFC View until the iOS device confirms having the capability
+        hideNFCView(animated: false)
         discoveredThingies.removeAll()
         scannedPeripheralsTableView.isHidden = discoveredThingies.isEmpty
         emptyView.alpha = discoveredThingies.isEmpty ? 1 : 0
@@ -78,6 +88,9 @@ class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, 
         super.viewDidAppear(animated)
         thingyManager!.delegate = self
         thingyManager!.discoverDevices()
+        if self.deviceHasNFCCapabilities() {
+            showNFCView(animated: true)
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -90,11 +103,14 @@ class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, 
         print("Thingy Manager state changed to: \(state)")
     }
     
-    func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral) {
+    func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral, withPairingCode: String?) {
         hideEmptyView()
         discoveredThingies.append(peripheral)
         scannedPeripheralsTableView.reloadData()
         scannedPeripheralsTableView.isHidden = false
+    }
+    func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral) {
+        self.thingyManager(manager, didDiscoverPeripheral: peripheral, withPairingCode: nil)
     }
 
     //MARK: - UITableViewDataSource
@@ -140,6 +156,63 @@ class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, 
     }
     
     //MARK: - Implementation
+    private func cancelScanningAndPresentNFC() {
+        let parentView = self.parent as! ThingyNavigationController
+        parentView.dismiss(animated: true, completion: nil)
+        let rootView = parentView.presentingViewController as? RootViewController
+        if let childViews = rootView?.childViewControllers {
+            for aChildView in childViews {
+                if aChildView is MainNavigationViewController {
+                    let mainNavigationView = (aChildView as? MainNavigationViewController)
+                    mainNavigationView?.showInitialNFCConfigurationView()
+                    break
+                }
+            }
+        }
+    }
+
+    private func cancelScanning() {
+        let parentView = self.parent as! ThingyNavigationController
+        parentView.dismiss(animated: true, completion: nil)
+    }
+
+    private func deviceHasNFCCapabilities() -> Bool {
+        if #available(iOS 11.0, *) {
+            if NFCNDEFReaderSession.readingAvailable {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+
+    private func hideNFCView(animated: Bool) {
+        if nfcToastViewTopConstraint.constant == 0 {
+            nfcToastViewTopConstraint.constant = -nfcToastView.frame.size.height
+            if animated {
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.view.layoutIfNeeded()
+                })
+            } else {
+                view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    private func showNFCView(animated: Bool) {
+        if nfcToastViewTopConstraint.constant < 0 {
+            self.nfcToastViewTopConstraint.constant = 0
+            if animated {
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.view.layoutIfNeeded()
+                })
+            } else {
+                view.layoutIfNeeded()
+            }
+        }
+    }
     private func didSelectPeripheral(aPeripheral: ThingyPeripheral) {
         //Stop scanning and cnonect to the selected peripheral
         thingyManager!.stopScan()

@@ -63,8 +63,9 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             newThingyDelegate?.targetPeripheral = newValue
         }
     }
-    private var mainHeaderIsExpanded       : Bool
-    private var menuPeripherals            : [ThingyPeripheral]
+    private var mainHeaderIsExpanded    : Bool
+    private var menuPeripherals         : [ThingyPeripheral]
+    private var menuBatteryIndicators   : [UInt8]
 
     //MARK: Menu Content
     private let menuSections = [
@@ -112,6 +113,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: UIView implementation
     required init?(coder aDecoder: NSCoder) {
         menuPeripherals = [ThingyPeripheral]()
+        menuBatteryIndicators = [UInt8]()
         mainHeaderIsExpanded = true
         super.init(coder: aDecoder)
     }
@@ -143,7 +145,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             print("No manager set")
             return
         }
-        
+
         menuPeripherals.removeAll()
         if activeOnly {
             if let activePeripherals = thingyManager!.activePeripherals() {
@@ -161,7 +163,22 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
-        print("Menu: Peripheral state changed to \(state)")
+        if state == .ready {
+            peripheral.beginBatteryLevelNotifications(withCompletionHandler: { (success) -> (Void) in
+                //Noop
+            }, andNotificationHandler: { (level) -> (Void) in
+                if let index = self.menuPeripherals.index(of: peripheral) {
+                    while self.menuBatteryIndicators.count < index + 1 {
+                        self.menuBatteryIndicators.append(0)
+                    }
+                    self.menuBatteryIndicators[index] = level
+                    DispatchQueue.main.async {
+                        self.menuTableView.reloadData()
+                    }
+                }
+            })
+        }
+
         reloadPeripherals(activeOnly: !mainHeaderIsExpanded)
         // This callback may be called before the view is loaded when first device was added using Add Thingy button on the main screen
         // before the menu was opened
@@ -328,12 +345,16 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: UItableViewDelegate methods
     //MARK: -
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return ("Forget           .") // These spaces and dot at the end ensure that Forget is visible (left aligned)
+        return ("Forget")
     }
-
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.delete
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(section) {
-        
+            
         case 0:
             if mainHeaderIsExpanded {
                 let count = menuPeripherals.count
@@ -350,7 +371,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             } else {
                 return serviceMenuItems.count
             }
-        
+            
         case 2:
             return moreMenuItems.count
         
@@ -365,22 +386,26 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         switch (indexPath.section) {
             case 0:
                 if menuPeripherals.isEmpty {
-                    aCell.updateCell(withTitle: "No Thingy configured", andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isTransparent: true)
+                    aCell.updateCell(withTitle: "No Thingy configured", andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isTransparent: true, batteryLevel: nil)
                 } else {
                     let aPeripheral = menuPeripherals[indexPath.row]
-                    aCell.updateCell(withTitle: aPeripheral.name, andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isActive: aPeripheral == targetPeripheral, isTransparent: aPeripheral.state != .ready)
+                    var aBatteryLevel: UInt8?
+                    if menuBatteryIndicators.count > indexPath.row {
+                        aBatteryLevel = menuBatteryIndicators[indexPath.row]
+                    }
+                    aCell.updateCell(withTitle: aPeripheral.name, andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isActive: aPeripheral == targetPeripheral, isTransparent: aPeripheral.state != .ready, batteryLevel: aBatteryLevel)
                 }
 
             case 1:
                 if connectedPeripheralCount() > 0 {
-                    aCell.updateCell(withTitle: serviceMenuItems[indexPath.row], andIcon: serviceMenuIcons[indexPath.row])
+                    aCell.updateCell(withTitle: serviceMenuItems[indexPath.row], andIcon: serviceMenuIcons[indexPath.row], batteryLevel: nil)
                 }
 
             case 2:
-                aCell.updateCell(withTitle: moreMenuItems[indexPath.row], andIcon: moreMenuIcons[indexPath.row])
+                aCell.updateCell(withTitle: moreMenuItems[indexPath.row], andIcon: moreMenuIcons[indexPath.row], batteryLevel: nil)
 
             default:
-                aCell.updateCell(withTitle: "Menu", andIcon: nil)
+                aCell.updateCell(withTitle: "Menu", andIcon: nil, batteryLevel: nil)
         }
 
         return aCell
@@ -436,18 +461,18 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             //We are deleting a thingy
             let peripheralToRemove = menuPeripherals[indexPath.row]
             
-            if peripheralToRemove.state == .disconnected {
-                removePeripheral(peripheralToRemove, at: indexPath)
+            var message: String
+            if peripheralToRemove.state == .connected {
+                message = "Are you sure you want to forget this Thingy?\nThis Thingy will also be disconnected."
             } else {
-                let alert = UIAlertController(title: "Do you want to proceed?", message: "You are connected to this Thingy.\nDo you want to disconnect and forget it?", preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                    tableView.reloadRows(at: [indexPath], with: .right)
-                })
-                alert.addAction(UIAlertAction(title: "Forget", style: .destructive) { (action) in
-                    self.removePeripheral(peripheralToRemove, at: indexPath)
-                })
-                present(alert, animated: true)
+                message = "Are you sure you want to forget this Thingy?"
             }
+            let alert = UIAlertController(title: "Do you want to proceed?", message: message, preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel)) //NOOP
+            alert.addAction(UIAlertAction(title: "Forget", style: .destructive) { (action) in
+                self.removePeripheral(peripheralToRemove, at: indexPath)
+            })
+            present(alert, animated: true)
         }
     }
     

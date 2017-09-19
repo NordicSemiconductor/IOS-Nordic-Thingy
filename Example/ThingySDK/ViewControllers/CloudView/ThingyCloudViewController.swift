@@ -371,33 +371,32 @@ class ThingyCloudViewController: SwipableTableViewController {
                 return
             }
             
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+            if let httpStatus = response as? HTTPURLResponse, !(200...299 ~= httpStatus.statusCode) {
                 self.disableNotifications()
                 self.setUIState(enabled: false)
-            }
-            
-            var errorMessages: String = ""
-            if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                if let root = json?["errors"] {
-                    if let errorArray = root as? NSArray {
-                        for anError in errorArray {
-                            if let errorObject = anError as? NSDictionary {
-                                if let errorMessage = errorObject["message"] {
-                                    errorMessages.append("\r\n\(errorMessage)")
+                
+                var errorMessages: String = ""
+                if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    if let root = json?["errors"] {
+                        if let errorArray = root as? NSArray {
+                            for anError in errorArray {
+                                if let errorObject = anError as? NSDictionary {
+                                    if let errorMessage = errorObject["message"] {
+                                        errorMessages.append("\r\n\(errorMessage)")
+                                    }
                                 }
                             }
                         }
                     }
-                }
-                DispatchQueue.main.async {
-                    UIAlertView(title: "Error", message: errorMessages, delegate: nil, cancelButtonTitle: "Ok").show()
-                }
-            } else {
-                DispatchQueue.main.async {
-                    UIAlertView(title: "Error", message: "Something went wrong, please try again", delegate: nil, cancelButtonTitle: "Ok").show()
+                    DispatchQueue.main.async {
+                        UIAlertView(title: "Error", message: errorMessages, delegate: nil, cancelButtonTitle: "Ok").show()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        UIAlertView(title: "Error", message: "Something went wrong, please try again", delegate: nil, cancelButtonTitle: "Ok").show()
+                    }
                 }
             }
-            
 
             DispatchQueue.main.async {
                 if let uploadedBytes = request.httpBody?.count {

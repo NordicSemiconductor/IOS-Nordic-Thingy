@@ -242,7 +242,7 @@ class PopupHelper: NSObject {
     private static weak var gloabalLabel: UILabel?
     private static var globalUnit: Float? // unit in ms
     
-    class func intervalDidChange(textField: UITextField) {
+    @objc class func intervalDidChange(textField: UITextField) {
         if textField.text != nil && textField.text!.characters.count > 0 {
             let aValue = Int(textField.text!)
             if let aValue = aValue {
@@ -255,7 +255,7 @@ class PopupHelper: NSObject {
         }
     }
 
-    class func urlTextFieldDidChange(textField: UITextField) {
+    @objc class func urlTextFieldDidChange(textField: UITextField) {
         if textField.text?.contains(" ") == true {
             textField.text = textField.text?.replacingOccurrences(of: " ", with: "")
         }

@@ -77,7 +77,7 @@ class ExpandableTableHeaderView: UITableViewHeaderFooterView {
     }
 
     //MARK: Implementation
-    func handleSingleTap(_ sender: UITapGestureRecognizer) {
+    @objc func handleSingleTap(_ sender: UITapGestureRecognizer) {
         if isExpandable {
             toggle()
         }

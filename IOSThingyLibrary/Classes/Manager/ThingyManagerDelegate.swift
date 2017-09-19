@@ -44,5 +44,7 @@
 
 public protocol ThingyManagerDelegate {
     func thingyManager(_ manager: ThingyManager, didChangeStateTo state: ThingyManagerState)
+    @available(*, deprecated, message: "This method is deprecated in favor of `thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral, withPairingCode: String?)`")
     func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral)
+    func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral, withPairingCode: String?)
 }

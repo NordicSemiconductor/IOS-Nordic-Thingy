@@ -1,6 +1,19 @@
+* **Version 1.2.0**
+    - Update: NFC Pairing support in example application.
+    - Update: Thingy battery service implemented in SDK and example app.
+    - Update: iOS 11 Support in example app.
+    - Improvement: Added new DFU progress delegate method that reports back current FW part being uploaded.
+    - Improvement: iOS 11 support, and iPhone X UI improvements in example application.
+    - Improvement: Confirmation before removing peripherals.
+    - Improvement: Removing peripherals on iOS 11 can now be done by swiping further to the right on main menu.
+
+* **Version 1.1.2**
+    - Bugfix: Cloud view will only report errors on error HTTP Codes PR #16.
+    - Update: Updated bundled Thingy FW to 2.0.0.
+
 * **Version 1.1.1**
-    - Improvement: Updated maximum time interval to 1 minute for Temperature and Humidity notificaitons.
-    - Improvement: Updated maximum light intensity measurement interval to 1 minute
+    - Improvement: Updated maximum time interval to 1 minute for Temperature and Humidity notifications.
+    - Improvement: Updated maximum light intensity measurement interval to 1 minute.
 
 * **Version 1.1**
     - Bugfix: Temperature values below 0 overflow fixed.
