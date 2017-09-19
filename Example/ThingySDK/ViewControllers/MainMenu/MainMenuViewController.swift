@@ -63,8 +63,9 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             newThingyDelegate?.targetPeripheral = newValue
         }
     }
-    private var mainHeaderIsExpanded       : Bool
-    private var menuPeripherals            : [ThingyPeripheral]
+    private var mainHeaderIsExpanded    : Bool
+    private var menuPeripherals         : [ThingyPeripheral]
+    private var menuBatteryIndicators   : [UInt8]
 
     //MARK: Menu Content
     private let menuSections = [
@@ -112,6 +113,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: UIView implementation
     required init?(coder aDecoder: NSCoder) {
         menuPeripherals = [ThingyPeripheral]()
+        menuBatteryIndicators = [UInt8]()
         mainHeaderIsExpanded = true
         super.init(coder: aDecoder)
     }
@@ -143,7 +145,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             print("No manager set")
             return
         }
-        
+
         menuPeripherals.removeAll()
         if activeOnly {
             if let activePeripherals = thingyManager!.activePeripherals() {
@@ -161,7 +163,22 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
-        print("Menu: Peripheral state changed to \(state)")
+        if state == .ready {
+            peripheral.beginBatteryLevelNotifications(withCompletionHandler: { (success) -> (Void) in
+                //Noop
+            }, andNotificationHandler: { (level) -> (Void) in
+                if let index = self.menuPeripherals.index(of: peripheral) {
+                    while self.menuBatteryIndicators.count < index + 1 {
+                        self.menuBatteryIndicators.append(0)
+                    }
+                    self.menuBatteryIndicators[index] = level
+                    DispatchQueue.main.async {
+                        self.menuTableView.reloadData()
+                    }
+                }
+            })
+        }
+
         reloadPeripherals(activeOnly: !mainHeaderIsExpanded)
         // This callback may be called before the view is loaded when first device was added using Add Thingy button on the main screen
         // before the menu was opened
@@ -369,22 +386,26 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         switch (indexPath.section) {
             case 0:
                 if menuPeripherals.isEmpty {
-                    aCell.updateCell(withTitle: "No Thingy configured", andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isTransparent: true)
+                    aCell.updateCell(withTitle: "No Thingy configured", andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isTransparent: true, batteryLevel: nil)
                 } else {
                     let aPeripheral = menuPeripherals[indexPath.row]
-                    aCell.updateCell(withTitle: aPeripheral.name, andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isActive: aPeripheral == targetPeripheral, isTransparent: aPeripheral.state != .ready)
+                    var aBatteryLevel: UInt8?
+                    if menuBatteryIndicators.count > indexPath.row {
+                        aBatteryLevel = menuBatteryIndicators[indexPath.row]
+                    }
+                    aCell.updateCell(withTitle: aPeripheral.name, andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isActive: aPeripheral == targetPeripheral, isTransparent: aPeripheral.state != .ready, batteryLevel: aBatteryLevel)
                 }
 
             case 1:
                 if connectedPeripheralCount() > 0 {
-                    aCell.updateCell(withTitle: serviceMenuItems[indexPath.row], andIcon: serviceMenuIcons[indexPath.row])
+                    aCell.updateCell(withTitle: serviceMenuItems[indexPath.row], andIcon: serviceMenuIcons[indexPath.row], batteryLevel: nil)
                 }
 
             case 2:
-                aCell.updateCell(withTitle: moreMenuItems[indexPath.row], andIcon: moreMenuIcons[indexPath.row])
+                aCell.updateCell(withTitle: moreMenuItems[indexPath.row], andIcon: moreMenuIcons[indexPath.row], batteryLevel: nil)
 
             default:
-                aCell.updateCell(withTitle: "Menu", andIcon: nil)
+                aCell.updateCell(withTitle: "Menu", andIcon: nil, batteryLevel: nil)
         }
 
         return aCell

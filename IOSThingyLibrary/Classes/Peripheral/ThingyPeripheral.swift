@@ -88,6 +88,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
     //Service method accessors
     private var configurationService    : ThingyConfigurationService?
     private var userInterfaceService    : ThingyUserInterfaceService?
+    private var batteryService          : ThingyBatteryService?
     private var environmentService      : ThingyEnvironmentService?
     private var motionService           : ThingyMotionService?
     private var soundService            : ThingySoundService?
@@ -1425,7 +1426,58 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
             _ = operationCallbackHandlers.removeLast()
         }
     }
+    //MARK: - Battery service implementation
+    public func beginBatteryLevelNotifications(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: batteryNotificationCallback?) {
+        // Has the service been found?
+        if batteryService == nil {
+            aHandler?(false)
+            return
+        }
+        // Save the notification callback. This may overwrite the old one if such existed
+        valueCallbackHandlers[getBatteryLevelCharacteristicUUID()] = { (batteryData) -> (Void) in
+            let batteryValue    = UInt8(batteryData[0])
+            aNotificationHandler?(batteryValue)
+        }
+        
+        // Were notifications already enabled?
+        if batteryService!.batteryNotificationsEnabled {
+            aHandler?(true)
+            return
+        }
+        
+        // If not, save the completion callback
+        operationCallbackHandlers.append(aHandler ?? doNothing)
+        // and try to enable notifications
+        do {
+            try batteryService!.beginBatteryNotifications()
+        } catch {
+            print(error)
+            aHandler?(false)
+            _ = operationCallbackHandlers.removeLast()
+            valueCallbackHandlers.removeValue(forKey: getBatteryServiceUUID())
+        }
+    }
     
+    public func stopBatteryLevelUpdates(withCompletionHandler aHandler: CompletionCallback?) {
+        // Forget the notification callback
+        valueCallbackHandlers.removeValue(forKey: getBatteryServiceUUID())
+        // Has the service been found?
+        if batteryService == nil {
+            aHandler?(false)
+            return
+        }
+        // Save he completion callback
+        operationCallbackHandlers.append(aHandler ?? doNothing)
+        // and try to disable notifications
+        do {
+            try batteryService!.stopBatteryNotifications()
+        } catch {
+            print(error)
+            aHandler?(false)
+            _ = operationCallbackHandlers.removeLast()
+        }
+    }
+
     //MARK: - Discovery
     public func discoverServices() {
         if basePeripheral.services?.isEmpty ?? true {
@@ -1482,6 +1534,11 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
             } else if aService.uuid == getSecureDFUServiceUUID() {
                 thingyService = ThingyJumpToBootloaderService(withService: aService)
                 jumpToBootloaderService = thingyService as? ThingyJumpToBootloaderService
+                discoverCharacteristics(forService: thingyService)
+                services.append(thingyService)
+            } else if aService.uuid == getBatteryServiceUUID() {
+                thingyService = ThingyBatteryService(withService: aService)
+                batteryService = thingyService as? ThingyBatteryService
                 discoverCharacteristics(forService: thingyService)
                 services.append(thingyService)
             }

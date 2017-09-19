@@ -43,6 +43,8 @@
 
 import CoreBluetooth
 
+public typealias batteryNotificationCallback = (_ state: UInt8) -> (Void)
+
 public enum ThingyBatteryError: Error {
     case charactersticNotDiscovered(characteristicName: String)
 }
@@ -62,20 +64,20 @@ internal class ThingyBatteryService: ThingyService {
         if let batteryCharacteristic = getBatteryCharacteristic() {
             batteryCharacteristic.startNotifications()
         } else {
-            throw ThingyBatteryError.charactersticNotDiscovered(characteristicName: "Button")
+            throw ThingyBatteryError.charactersticNotDiscovered(characteristicName: "Battery")
         }
     }
     
-    internal func stopButtonNotifications() throws {
-        if let buttonCharacteristic = getBatteryCharacteristic() {
-            getBatteryCharacteristic.stopNotifications()
+    internal func stopBatteryNotifications() throws {
+        if let batteryCharacteristic = getBatteryCharacteristic() {
+            batteryCharacteristic.stopNotifications()
         } else {
-            throw ThingyBatteryError.charactersticNotDiscovered(characteristicName: "Button")
+            throw ThingyBatteryError.charactersticNotDiscovered(characteristicName: "Battery")
         }
     }
 
     //MARK: - Convenince methods
     private func getBatteryCharacteristic() -> ThingyCharacteristic? {
-        return getThingyCharacteristicFromList(withIdentifier: getBatteryServiceUUID())
+        return getThingyCharacteristicFromList(withIdentifier: getBatteryLevelCharacteristicUUID())
     }
 }
