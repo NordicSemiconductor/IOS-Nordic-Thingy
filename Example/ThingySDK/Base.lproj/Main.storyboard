@@ -310,7 +310,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mC2-g0-pHe">
-                                <rect key="frame" x="64.5" y="321" width="246" height="25"/>
+                                <rect key="frame" x="64" y="321" width="247" height="25"/>
                                 <string key="text" base64-UTF8="YES">
 V2VsY29tZSB0bwMgTm9yZGljIFRoaW5neQ
 </string>
@@ -586,7 +586,7 @@ V2VsY29tZSB0bwMgTm9yZGljIFRoaW5neQ
         <!--ConfigurationView-->
         <scene sceneID="3ot-hb-j6O">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ConfigurationView" storyboardName="Configuratino" referencedIdentifier="ConfigurationView" id="oDY-kj-yo6" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="ConfigurationView" storyboardName="Configuration" referencedIdentifier="ConfigurationView" id="oDY-kj-yo6" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tKK-Zy-u6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="909" y="-519"/>
