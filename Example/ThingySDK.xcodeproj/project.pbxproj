@@ -250,16 +250,16 @@
 		3007EEFC1DA4FBD1003F844B /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				52C7C9A91FA371C300C4C06C /* Environment.storyboard */,
-				52C7C9A61FA3710800C4C06C /* Motion.storyboard */,
-				52C7C9A31FA36D5800C4C06C /* Configuration.storyboard */,
-				52C7C9A01FA36C8400C4C06C /* Sound.storyboard */,
 				52C7C99D1FA36BA300C4C06C /* About.storyboard */,
-				52C7C99A1FA36B0C00C4C06C /* UI.storyboard */,
-				52C7C9971FA36A2900C4C06C /* NewThingy.storyboard */,
 				52C7C9941FA366E700C4C06C /* Cloud.storyboard */,
+				52C7C9A31FA36D5800C4C06C /* Configuration.storyboard */,
 				52C7C9911FA3662100C4C06C /* Dfu.storyboard */,
+				52C7C9A91FA371C300C4C06C /* Environment.storyboard */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				52C7C9A61FA3710800C4C06C /* Motion.storyboard */,
+				52C7C9971FA36A2900C4C06C /* NewThingy.storyboard */,
+				52C7C9A01FA36C8400C4C06C /* Sound.storyboard */,
+				52C7C99A1FA36B0C00C4C06C /* UI.storyboard */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				30BE4C151DA5334100D9A946 /* MenuExpandableHeaderView.xib */,
 			);
