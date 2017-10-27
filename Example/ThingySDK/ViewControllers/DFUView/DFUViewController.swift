@@ -128,9 +128,9 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
             deviceName.text = targetPeripheral.name
             if let fwVersion = targetPeripheral.readFirmwareVersion() {
                 if fwVersion == "1.1.0" || fwVersion == "1.0.0" {
-                    self.loadOriginalFirmware(withSoftDeviceBootloader: true)
+                    loadOriginalFirmware(withSoftDeviceBootloader: true)
                 } else {
-                    self.loadOriginalFirmware(withSoftDeviceBootloader: false)
+                    loadOriginalFirmware(withSoftDeviceBootloader: false)
                 }
             } else {
                 
@@ -213,11 +213,11 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
     }
     
     private func getExampleMergedFirmwareURL() -> URL {
-        return Bundle.main.url(forResource: "thingy_dfu_pkg_sd_bl_app_v\(kCurrentDfuVersion)", withExtension: "zip")!
+        return Bundle.main.url(forResource: "thingy_dfu_sd_bl_app_v\(kCurrentDfuVersion).HW_1.0", withExtension: "zip")!
     }
 
     private func getExampleFirmwareURL() -> URL {
-        return Bundle.main.url(forResource: "thingy_dfu_pkg_app_v\(kCurrentDfuVersion)", withExtension: "zip")!
+        return Bundle.main.url(forResource: "thingy_dfu_pkg_app_v\(kCurrentDfuVersion).HW_1.0", withExtension: "zip")!
     }
     
     private func updateFirmwareInformation(from aFirmware: DFUFirmware?) {
