@@ -1,10 +1,10 @@
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target 'ThingySDK_Example' do
   pod 'IOSThingyLibrary', :path => '../'
   pod 'Charts', '~> 3'
-  pod 'SDCAlertView', '~> 7'
+  pod 'SDCAlertView', '~> 8'
   pod 'SWRevealViewController', '~> 2'
   pod 'Keychain', '~> 0.3'
 

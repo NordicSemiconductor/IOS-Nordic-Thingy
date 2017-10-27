@@ -195,23 +195,22 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
 
     //MARK: - Implementation
     private func showDFUAlert() {
-        guard targetPeripheral != nil && targetPeripheral!.state == .ready else {
+        guard let targetPeripheral = targetPeripheral, targetPeripheral.state == .ready else {
             return
         }
 
-        let configFirmwareVersion = targetPeripheral?.readFirmwareVersion() ?? "0.0.0"
+        let configFirmwareVersion = targetPeripheral.readFirmwareVersion() ?? "0.0.0"
         if configFirmwareVersion == "0.0.0" {
             return
         }
         if configFirmwareVersion.versionToInt().lexicographicallyPrecedes(kCurrentDfuVersion.versionToInt()) {
-            var message: String
-            message = "\r\nUpdating is recommended as it ensures full compatibilty with the Thingy app and includes all the latest features and bug fixes."
-            let dfuAlert = UIAlertController(title: "Firmware update available for \((targetPeripheral?.name)!)", message: message, preferredStyle: .alert)
+            let message = "\r\nUpdating is recommended as it ensures full compatibilty with the Thingy app and includes all the latest features and bug fixes."
+            let dfuAlert = UIAlertController(title: "Firmware update available for \(targetPeripheral.name)", message: message, preferredStyle: .alert)
             dfuAlert.addAction(UIAlertAction(title: "Update to \(kCurrentDfuVersion)", style: .default, handler: { (action) in
                 self.targetNavigationController.showDFUView()
             }))
             dfuAlert.addAction(UIAlertAction(title: "Not now", style: .cancel))
-                present(dfuAlert, animated: true)
+            present(dfuAlert, animated: true)
         }
     }
 

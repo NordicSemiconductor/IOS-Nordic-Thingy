@@ -48,8 +48,8 @@ class PopupHelper: NSObject {
     static func showTextInput(withTitle aTitle: String, subtitle aSubtitle: String? = nil, value aValue: String?, andPlaceholderValue aPlaceholderValue: String,
                               validator: ((String?) -> (Bool))? = nil, completion: ((String) -> (Void))? = nil) {
         let alert = AlertController(title: aTitle, message: aSubtitle)
-        alert.add(AlertAction(title: "Cancel", style: .preferred))
-        alert.add(AlertAction(title: "Set", style: .normal, handler: { (action) in
+        alert.addAction(AlertAction(title: "Cancel", style: .preferred))
+        alert.addAction(AlertAction(title: "Set", style: .normal, handler: { (action) in
             let value = alert.textFields![0].text!
             completion?(value)
         }))
@@ -166,14 +166,14 @@ class PopupHelper: NSObject {
         // Field top - parent top
         NSLayoutConstraint(item: fieldBorderCell, attribute: .top, relatedBy: .equal, toItem: alert.contentView, attribute: .top, multiplier: 1.0, constant: 19.0).isActive = true
         
-        alert.add(AlertAction(title: "Set", style: .normal, handler: { (action) in
+        alert.addAction(AlertAction(title: "Set", style: .normal, handler: { (action) in
             let anURL = URL(string: URL.eddystoneUrlSchemes[picker.selectedRow(inComponent: 0)] + field.text!)
             if anURL != nil {
                 completion?(anURL!)
             }
         }))
-        alert.add(AlertAction(title: "Cancel", style: .preferred))
-        alert.add(AlertAction(title: "Disable", style: .destructive, handler: { (action) in
+        alert.addAction(AlertAction(title: "Cancel", style: .preferred))
+        alert.addAction(AlertAction(title: "Disable", style: .destructive, handler: { (action) in
             completion?(URL(string:"url.disabled")!)
         }))
         alert.shouldDismissHandler = { (action) -> (Bool) in
@@ -188,8 +188,8 @@ class PopupHelper: NSObject {
     static func showIntervalInput(withTitle aTitle: String, subtitle aSubtitle: String? = nil, value aValue: Int, availableRange aRange: NSRange, unitInMs aUnit: Float,
                                 andPlaceholderValue aPlaceholderValue: String, completion: ((Int) -> (Void))? = nil) {
         let alert = AlertController(title: aTitle, message: aSubtitle)
-        alert.add(AlertAction(title: "Cancel", style: .preferred))
-        alert.add(AlertAction(title: "Set", style: .normal, handler: { (action) in
+        alert.addAction(AlertAction(title: "Cancel", style: .preferred))
+        alert.addAction(AlertAction(title: "Set", style: .normal, handler: { (action) in
             let value = alert.textFields![0].text!
             completion?(Int(value)!)
         }))

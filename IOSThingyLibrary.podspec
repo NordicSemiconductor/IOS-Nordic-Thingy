@@ -21,5 +21,5 @@ applications with ease.
 
   s.source_files = 'IOSThingyLibrary/Classes/**/*'
 
-  s.dependency 'iOSDFULibrary', '~> 3.0'
+  s.dependency 'iOSDFULibrary', '~> 4.0'
 end

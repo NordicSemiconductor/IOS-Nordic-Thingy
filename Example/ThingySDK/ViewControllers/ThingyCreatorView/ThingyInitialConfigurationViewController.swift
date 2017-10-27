@@ -195,7 +195,7 @@ class ThingyInitialConfigurationViewController: ThingyViewController, UITableVie
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 && indexPath.row == 1 {
-            return UIScreen.main.applicationFrame.size.width
+            return UIScreen.main.bounds.width
         } else {
             return tableView.rowHeight
         }
@@ -217,7 +217,7 @@ class ThingyInitialConfigurationViewController: ThingyViewController, UITableVie
     }
     
     func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral) {
-        self.thingyManager(manager, didDiscoverPeripheral: peripheral, withPairingCode: nil)
+        thingyManager(manager, didDiscoverPeripheral: peripheral, withPairingCode: nil)
     }
 
     func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral, withPairingCode: String?) {

@@ -59,16 +59,16 @@ class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, 
     @IBOutlet weak var nfcToastView: UIView!
     @IBOutlet weak var nfcToastViewButton: UIButton!
     @IBAction func nfcButtonTapped(_ sender: Any) {
-        self.cancelScanningAndPresentNFC()
+        cancelScanningAndPresentNFC()
     }
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
-        self.cancelScanning()
+        cancelScanning()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        nfcToastViewButton.layer.cornerRadius = 5
+        nfcToastViewButton.layer.cornerRadius  = 5
         nfcToastViewButton.layer.masksToBounds = true
         
         //Hide NFC View until the iOS device confirms having the capability
@@ -88,7 +88,7 @@ class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, 
         super.viewDidAppear(animated)
         thingyManager!.delegate = self
         thingyManager!.discoverDevices()
-        if self.deviceHasNFCCapabilities() {
+        if deviceHasNFCCapabilities() {
             showNFCView(animated: true)
         }
     }
@@ -109,8 +109,9 @@ class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, 
         scannedPeripheralsTableView.reloadData()
         scannedPeripheralsTableView.isHidden = false
     }
+    
     func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral) {
-        self.thingyManager(manager, didDiscoverPeripheral: peripheral, withPairingCode: nil)
+        thingyManager(manager, didDiscoverPeripheral: peripheral, withPairingCode: nil)
     }
 
     //MARK: - UITableViewDataSource
@@ -178,11 +179,7 @@ class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, 
 
     private func deviceHasNFCCapabilities() -> Bool {
         if #available(iOS 11.0, *) {
-            if NFCNDEFReaderSession.readingAvailable {
-                return true
-            } else {
-                return false
-            }
+            return NFCNDEFReaderSession.readingAvailable
         } else {
             return false
         }
