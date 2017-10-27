@@ -8,7 +8,7 @@ Thingy SDK for iOS
 ```
 target 'YourAppTargetName' do
     use_frameworks!
-    pod 'IOSThingyLibrary', '~> 1.0'
+    pod 'IOSThingyLibrary', '~> 1.3'
 end
 ```
 - Install dependencies
@@ -21,7 +21,7 @@ pod install
 **For Carthage:**
 - Create a new **Cartfile** in your project's root with the following contents
 ```
-github "NordicSemiconductor/NordicSemiconductor/IOS-Nordic-Thingy" ~> 1.0
+github "NordicSemiconductor/NordicSemiconductor/IOS-Nordic-Thingy" ~> 1.3
 ```
 
 - Build with carthage
@@ -40,10 +40,10 @@ Xcode will launch with the example app, simply build and run!
 
 ---
 ### Requirements
-**Note**: This Library is built with Swift 3.0, even though Obj-C is compatible out of the box, we prefer to put all our focus forward into Swift 3.0 and above.
+**Note**: This Library is built with Swift 4.0, even though Obj-C is compatible out of the box, we prefer to put all our focus forward into Swift 4.0 and above.
 - A Thingy Device
-- Xcode: Xcode 8 and above support Swift 3.0
-- iOS 8.0 and above
+- Xcode: Xcode 9 and above support Swift 4.0
+- iOS 9.0 and above
     - iPhone compatibility:
         - iPhone 4s and above
     - iPad compatibility:
