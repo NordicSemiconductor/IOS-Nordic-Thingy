@@ -87,7 +87,7 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
         statusLabel.text = nil
         beginAnimation()
         scanner = NFCNDEFReaderSession(delegate: self, queue: DispatchQueue.main, invalidateAfterFirstRead: true)
-        scanner!.alertMessage = "Touch your Thingy:52 with your iPhone to connect."
+        scanner!.alertMessage = "Touch your Thingy:52"
         scanner!.begin()
     }
 
@@ -155,7 +155,7 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
 
     //MARK: - Implementation
     private func didSelectPeripheral(aPeripheral: ThingyPeripheral) {
-        //Stop scanning and cnonect to the selected peripheral
+        //Stop scanning and connect to the selected peripheral
         nfcPairingCode = nil
         targetPeripheral = aPeripheral
         thingyManager!.stopScan()
@@ -188,8 +188,17 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
 
     //MARK:- NFCNDEFReaderSessionDelegate
     func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
-        let parentView = parent as! ThingyNavigationController
-        parentView.dismiss(animated: true, completion: nil)
+        guard let readerError = error as? NFCReaderError else {
+            return
+        }
+        switch readerError.code {
+        case .readerSessionInvalidationErrorFirstNDEFTagRead:
+            //Do nothing, when the Thingy is scanned the segue will be performed
+            break
+        default:
+            let parentView = parent as! ThingyNavigationController
+            parentView.dismiss(animated: true, completion: nil)
+        }
     }
 
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
