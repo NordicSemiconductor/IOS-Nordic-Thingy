@@ -23,7 +23,7 @@
   "source_files": "IOSThingyLibrary/Classes/**/*",
   "dependencies": {
     "iOSDFULibrary": [
-      "~> 3.0"
+      "~> 4.0"
     ]
   }
 }
