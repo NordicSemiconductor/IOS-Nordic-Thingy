@@ -43,7 +43,7 @@ Xcode will launch with the example app, simply build and run!
 **Note**: This Library is built with Swift 4.0, even though Obj-C is compatible out of the box, we prefer to put all our focus forward into Swift 4.0 and above.
 - A Thingy Device
 - Xcode: Xcode 9 and above support Swift 4.0
-- iOS 9.0 and above
+- iOS 8.0 and above
     - iPhone compatibility:
         - iPhone 4s and above
     - iPad compatibility:
