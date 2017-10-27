@@ -72,6 +72,15 @@
 		52C6A1741E0185D600D05300 /* ConfigurationPresetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6A1731E0185D600D05300 /* ConfigurationPresetTableViewController.swift */; };
 		52C7C98C1FA2329600C4C06C /* thingy_dfu_pkg_app_v2.1.0.HW_1.0.zip in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C98B1F9DFE0100C4C06C /* thingy_dfu_pkg_app_v2.1.0.HW_1.0.zip */; };
 		52C7C98D1FA2329800C4C06C /* thingy_dfu_sd_bl_app_v2.1.0.HW_1.0.zip in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C98A1F9DFE0100C4C06C /* thingy_dfu_sd_bl_app_v2.1.0.HW_1.0.zip */; };
+		52C7C9931FA3662100C4C06C /* Dfu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C9911FA3662100C4C06C /* Dfu.storyboard */; };
+		52C7C9961FA366E700C4C06C /* Cloud.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C9941FA366E700C4C06C /* Cloud.storyboard */; };
+		52C7C9991FA36A2900C4C06C /* NewThingy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C9971FA36A2900C4C06C /* NewThingy.storyboard */; };
+		52C7C99C1FA36B0C00C4C06C /* UI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C99A1FA36B0C00C4C06C /* UI.storyboard */; };
+		52C7C99F1FA36BA300C4C06C /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C99D1FA36BA300C4C06C /* About.storyboard */; };
+		52C7C9A21FA36C8400C4C06C /* Sound.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C9A01FA36C8400C4C06C /* Sound.storyboard */; };
+		52C7C9A51FA36D5800C4C06C /* Configuration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C9A31FA36D5800C4C06C /* Configuration.storyboard */; };
+		52C7C9A81FA3710800C4C06C /* Motion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C9A61FA3710800C4C06C /* Motion.storyboard */; };
+		52C7C9AB1FA371C300C4C06C /* Environment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C9A91FA371C300C4C06C /* Environment.storyboard */; };
 		52CA964F1EC1E62C00A2F01F /* learning_computer_8kHz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 52CA964E1EC1E62C00A2F01F /* learning_computer_8kHz.wav */; };
 		52D28DD01EB8C6F70097BDD3 /* CloudGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D28DCF1EB8C6F70097BDD3 /* CloudGuideViewController.swift */; };
 		52FB2F831E13EC920025218E /* NewThingyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB2F821E13EC920025218E /* NewThingyDelegate.swift */; };
@@ -161,6 +170,15 @@
 		52C6A1731E0185D600D05300 /* ConfigurationPresetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationPresetTableViewController.swift; sourceTree = "<group>"; };
 		52C7C98A1F9DFE0100C4C06C /* thingy_dfu_sd_bl_app_v2.1.0.HW_1.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = thingy_dfu_sd_bl_app_v2.1.0.HW_1.0.zip; sourceTree = "<group>"; };
 		52C7C98B1F9DFE0100C4C06C /* thingy_dfu_pkg_app_v2.1.0.HW_1.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = thingy_dfu_pkg_app_v2.1.0.HW_1.0.zip; sourceTree = "<group>"; };
+		52C7C9921FA3662100C4C06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThingySDK/Base.lproj/Dfu.storyboard; sourceTree = SOURCE_ROOT; };
+		52C7C9951FA366E700C4C06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThingySDK/Base.lproj/Cloud.storyboard; sourceTree = SOURCE_ROOT; };
+		52C7C9981FA36A2900C4C06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThingySDK/Base.lproj/NewThingy.storyboard; sourceTree = SOURCE_ROOT; };
+		52C7C99B1FA36B0C00C4C06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThingySDK/Base.lproj/UI.storyboard; sourceTree = SOURCE_ROOT; };
+		52C7C99E1FA36BA300C4C06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThingySDK/Base.lproj/About.storyboard; sourceTree = SOURCE_ROOT; };
+		52C7C9A11FA36C8400C4C06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThingySDK/Base.lproj/Sound.storyboard; sourceTree = SOURCE_ROOT; };
+		52C7C9A41FA36D5800C4C06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThingySDK/Base.lproj/Configuration.storyboard; sourceTree = SOURCE_ROOT; };
+		52C7C9A71FA3710800C4C06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThingySDK/Base.lproj/Motion.storyboard; sourceTree = SOURCE_ROOT; };
+		52C7C9AA1FA371C300C4C06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThingySDK/Base.lproj/Environment.storyboard; sourceTree = SOURCE_ROOT; };
 		52CA964E1EC1E62C00A2F01F /* learning_computer_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = learning_computer_8kHz.wav; sourceTree = "<group>"; };
 		52D28DCF1EB8C6F70097BDD3 /* CloudGuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudGuideViewController.swift; sourceTree = "<group>"; };
 		52FB2F821E13EC920025218E /* NewThingyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewThingyDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +250,15 @@
 		3007EEFC1DA4FBD1003F844B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				52C7C9A91FA371C300C4C06C /* Environment.storyboard */,
+				52C7C9A61FA3710800C4C06C /* Motion.storyboard */,
+				52C7C9A31FA36D5800C4C06C /* Configuration.storyboard */,
+				52C7C9A01FA36C8400C4C06C /* Sound.storyboard */,
+				52C7C99D1FA36BA300C4C06C /* About.storyboard */,
+				52C7C99A1FA36B0C00C4C06C /* UI.storyboard */,
+				52C7C9971FA36A2900C4C06C /* NewThingy.storyboard */,
+				52C7C9941FA366E700C4C06C /* Cloud.storyboard */,
+				52C7C9911FA3662100C4C06C /* Dfu.storyboard */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				30BE4C151DA5334100D9A946 /* MenuExpandableHeaderView.xib */,
@@ -685,20 +712,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52C7C9A21FA36C8400C4C06C /* Sound.storyboard in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				52C7C99F1FA36BA300C4C06C /* About.storyboard in Resources */,
 				52C7C98C1FA2329600C4C06C /* thingy_dfu_pkg_app_v2.1.0.HW_1.0.zip in Resources */,
 				52C7C98D1FA2329800C4C06C /* thingy_dfu_sd_bl_app_v2.1.0.HW_1.0.zip in Resources */,
 				30F3421B1DF5943E003E9119 /* thingy_obj.scn in Resources */,
+				52C7C9991FA36A2900C4C06C /* NewThingy.storyboard in Resources */,
 				30170AA01EBCB93100176728 /* grapevine_8kHz.wav in Resources */,
 				30F342191DF5943E003E9119 /* AO_MDL Obj_AE9A38A7-6603-4DFF-99F5-C005F8D65F58.png in Resources */,
 				30170A9F1EBCB93100176728 /* evil_laugh_8kHz.wav in Resources */,
+				52C7C9A81FA3710800C4C06C /* Motion.storyboard in Resources */,
 				52CA964F1EC1E62C00A2F01F /* learning_computer_8kHz.wav in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				52C7C9AB1FA371C300C4C06C /* Environment.storyboard in Resources */,
 				30F3421A1DF5943E003E9119 /* AO_MDL Obj_FEFAB2C1-D28B-4C56-94F9-ECD73E858414.png in Resources */,
+				52C7C9931FA3662100C4C06C /* Dfu.storyboard in Resources */,
 				30BE4C161DA5334100D9A946 /* MenuExpandableHeaderView.xib in Resources */,
 				300517841EC06B7400E3A64E /* ukulele_8kHz.wav in Resources */,
+				52C7C99C1FA36B0C00C4C06C /* UI.storyboard in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				52C7C9961FA366E700C4C06C /* Cloud.storyboard in Resources */,
 				3025576D1ED2EB0500EB7227 /* IOSThingyLibrary.podspec in Resources */,
+				52C7C9A51FA36D5800C4C06C /* Configuration.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,6 +950,78 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		52C7C9911FA3662100C4C06C /* Dfu.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52C7C9921FA3662100C4C06C /* Base */,
+			);
+			name = Dfu.storyboard;
+			sourceTree = "<group>";
+		};
+		52C7C9941FA366E700C4C06C /* Cloud.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52C7C9951FA366E700C4C06C /* Base */,
+			);
+			name = Cloud.storyboard;
+			sourceTree = "<group>";
+		};
+		52C7C9971FA36A2900C4C06C /* NewThingy.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52C7C9981FA36A2900C4C06C /* Base */,
+			);
+			name = NewThingy.storyboard;
+			sourceTree = "<group>";
+		};
+		52C7C99A1FA36B0C00C4C06C /* UI.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52C7C99B1FA36B0C00C4C06C /* Base */,
+			);
+			name = UI.storyboard;
+			sourceTree = "<group>";
+		};
+		52C7C99D1FA36BA300C4C06C /* About.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52C7C99E1FA36BA300C4C06C /* Base */,
+			);
+			name = About.storyboard;
+			sourceTree = "<group>";
+		};
+		52C7C9A01FA36C8400C4C06C /* Sound.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52C7C9A11FA36C8400C4C06C /* Base */,
+			);
+			name = Sound.storyboard;
+			sourceTree = "<group>";
+		};
+		52C7C9A31FA36D5800C4C06C /* Configuration.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52C7C9A41FA36D5800C4C06C /* Base */,
+			);
+			name = Configuration.storyboard;
+			sourceTree = "<group>";
+		};
+		52C7C9A61FA3710800C4C06C /* Motion.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52C7C9A71FA3710800C4C06C /* Base */,
+			);
+			name = Motion.storyboard;
+			sourceTree = "<group>";
+		};
+		52C7C9A91FA371C300C4C06C /* Environment.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52C7C9AA1FA371C300C4C06C /* Base */,
+			);
+			name = Environment.storyboard;
+			sourceTree = "<group>";
+		};
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
