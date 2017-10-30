@@ -65,7 +65,6 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     private var mainHeaderIsExpanded    : Bool
     private var menuPeripherals         : [ThingyPeripheral]
-    private var menuBatteryIndicators   : [UInt8]
 
     //MARK: Menu Content
     private let menuSections = [
@@ -113,7 +112,6 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: UIView implementation
     required init?(coder aDecoder: NSCoder) {
         menuPeripherals = [ThingyPeripheral]()
-        menuBatteryIndicators = [UInt8]()
         mainHeaderIsExpanded = true
         super.init(coder: aDecoder)
     }
@@ -165,16 +163,14 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
         if state == .ready {
             peripheral.beginBatteryLevelNotifications(withCompletionHandler: { (success) -> (Void) in
-                //Noop
+                if success {
+                    print("Battery notifications enabled")
+                } else {
+                    print("Battery notifications failed to start")
+                }
             }, andNotificationHandler: { (level) -> (Void) in
-                if let index = self.menuPeripherals.index(of: peripheral) {
-                    while self.menuBatteryIndicators.count < index + 1 {
-                        self.menuBatteryIndicators.append(0)
-                    }
-                    self.menuBatteryIndicators[index] = level
-                    DispatchQueue.main.async {
-                        self.menuTableView.reloadData()
-                    }
+                DispatchQueue.main.async {
+                    self.menuTableView.reloadData()
                 }
             })
         }
@@ -388,11 +384,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
                     aCell.updateCell(withTitle: "No Thingy configured", andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isTransparent: true, batteryLevel: nil)
                 } else {
                     let aPeripheral = menuPeripherals[indexPath.row]
-                    var aBatteryLevel: UInt8?
-                    if menuBatteryIndicators.count > indexPath.row {
-                        aBatteryLevel = menuBatteryIndicators[indexPath.row]
-                    }
-                    aCell.updateCell(withTitle: aPeripheral.name, andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isActive: aPeripheral == targetPeripheral, isTransparent: aPeripheral.state != .ready, batteryLevel: aBatteryLevel)
+                    aCell.updateCell(withTitle: aPeripheral.name, andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isActive: aPeripheral == targetPeripheral, isTransparent: aPeripheral.state != .ready, batteryLevel: aPeripheral.batteryLevel)
                 }
 
             case 1:
@@ -492,7 +484,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             if mainHeaderIsExpanded == false {
                 // Devices list is collapsed. Only connected ones are visible.
                 
-                // If the device was connected, the method above stated to disconnect the device and set state of
+                // If the device was connected, the method above started to disconnect the device and set state of
                 // the peripheralToRemove first to .disconnecting and immediately after that to .disconnected.
                 // Each state change will invoke the thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState)
                 // method in this class which will refresh menu peripherals list.
@@ -504,7 +496,9 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
                     // There is at least one more connected Thingy.
                     reloadPeripherals(activeOnly: !mainHeaderIsExpanded)
                     menuTableView.beginUpdates()
-                    menuTableView.deleteRows(at: [indexPath], with: .automatic)
+                    if removedPeripheralWasDisconnected {
+                        menuTableView.deleteRows(at: [indexPath], with: .automatic)
+                    }
                     menuTableView.reloadRows(at: [IndexPath(row: indexPath.row > 0 ? 0 : 1, section: indexPath.section)], with: .automatic) // The first connected Thingy is now active one
                     menuTableView.endUpdates()
                 }
@@ -519,7 +513,9 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 // Refresh the table view
                 menuTableView.beginUpdates()
-                menuTableView.deleteRows(at: [indexPath], with: .automatic)
+                if removedPeripheralWasDisconnected {
+                    menuTableView.deleteRows(at: [indexPath], with: .automatic)
+                }
                 if menuPeripherals.isEmpty {
                     menuTableView.insertRows(at: [IndexPath(row: 0, section: indexPath.section)], with: .automatic)
                 } else if targetPeripheralIndex != nil { // This is the new targetPeripheral, switched above

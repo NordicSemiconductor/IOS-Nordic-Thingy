@@ -1054,13 +1054,13 @@
 			path = "../Target Support Files/SWRevealViewController";
 			sourceTree = "<group>";
 		};
-		26226CB3BA1F85FEE8881FF97F93358D /* ThingeeService */ = {
+		26226CB3BA1F85FEE8881FF97F93358D /* ThingyService */ = {
 			isa = PBXGroup;
 			children = (
 				CF7D4DD629B580BFF42D4EC61042B97E /* ThingyService.swift */,
 				74A1187AEA439CC693ED6868DED9DF04 /* Characteristics */,
 			);
-			path = ThingeeService;
+			path = ThingyService;
 			sourceTree = "<group>";
 		};
 		2C389504A3A1F006BD7B28BDB4AA9BC6 /* Support Files */ = {
@@ -1273,6 +1273,14 @@
 			path = EnvironmentService;
 			sourceTree = "<group>";
 		};
+		52C7C9AC1FA75E9800C4C06C /* SoundService */ = {
+			isa = PBXGroup;
+			children = (
+				1805FEEF575521DCBDEFF1C36AF7E6E8 /* ThingySoundService.swift */,
+			);
+			path = SoundService;
+			sourceTree = "<group>";
+		};
 		61A33495AD9D6BFAD7B872EB72460B99 /* IOSThingyLibrary */ = {
 			isa = PBXGroup;
 			children = (
@@ -1457,14 +1465,14 @@
 		AB7B278629FC29D39C209ADA16A087F2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1805FEEF575521DCBDEFF1C36AF7E6E8 /* ThingySoundService.swift */,
+				26226CB3BA1F85FEE8881FF97F93358D /* ThingyService */,
 				8133EA43BB05B7834F811C9281B58764 /* BatteryService */,
 				8855A363C65A0966C03709FDA4EFAD40 /* ConfigurationService */,
 				52B843446D1DDEE7ABD2866382A49091 /* EnvironmentService */,
-				1CBA2B4CE5524673CD3809EC6066B905 /* JumpToBootloaderService */,
-				A9937E0E49518A06D9649552CB3A0EF2 /* MotionService */,
-				26226CB3BA1F85FEE8881FF97F93358D /* ThingeeService */,
 				692E538540E70014AB10B090707535FC /* UIService */,
+				A9937E0E49518A06D9649552CB3A0EF2 /* MotionService */,
+				52C7C9AC1FA75E9800C4C06C /* SoundService */,
+				1CBA2B4CE5524673CD3809EC6066B905 /* JumpToBootloaderService */,
 			);
 			name = Services;
 			path = IOSThingyLibrary/Classes/Services;

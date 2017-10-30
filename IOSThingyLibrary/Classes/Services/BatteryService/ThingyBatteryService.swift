@@ -43,7 +43,7 @@
 
 import CoreBluetooth
 
-public typealias batteryNotificationCallback = (_ state: UInt8) -> (Void)
+public typealias BatteryNotificationCallback = (_ state: UInt8) -> (Void)
 
 public enum ThingyBatteryError: Error {
     case charactersticNotDiscovered(characteristicName: String)

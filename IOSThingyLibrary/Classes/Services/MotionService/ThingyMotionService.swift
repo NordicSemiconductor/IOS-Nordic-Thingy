@@ -44,15 +44,15 @@
 import UIKit
 import CoreBluetooth
 
-public typealias tapNotificationCallback         = (_ direction: ThingyTapDirection, _ count: UInt8) -> (Void)
-public typealias orientationNotificationCallback = (_ orientation: ThingyOrientation) -> (Void)
-public typealias quaternionNotificationCallback  = (_ w: Float, _ x: Float, _ y: Float, _ z: Float) -> (Void)
-public typealias eulerNotificationCallback  = (_ roll: Float, _ pitch: Float,  _ yaw: Float) -> (Void)
-public typealias pedometerNotificationCallback  = (_ steps: UInt32, _ time: UInt32) -> (Void)
-public typealias rawDataNotificationCallback  = (_ accelerometerData: [Float], _ gyroscopeData: [Float], _ compassData: [Float]) -> (Void)
-public typealias headingNotificationCallback  = (_ heading: Float) -> (Void)
-public typealias gravityVectorNotificationCallback  = (_ x: Float,_  y: Float, _ z: Float) -> (Void)
-public typealias rotationMatrixNotificationCallback  = (_ matrix: [[Int16]]) -> (Void)
+public typealias TapNotificationCallback         = (_ direction: ThingyTapDirection, _ count: UInt8) -> (Void)
+public typealias OrientationNotificationCallback = (_ orientation: ThingyOrientation) -> (Void)
+public typealias QuaternionNotificationCallback  = (_ w: Float, _ x: Float, _ y: Float, _ z: Float) -> (Void)
+public typealias EulerNotificationCallback  = (_ roll: Float, _ pitch: Float,  _ yaw: Float) -> (Void)
+public typealias PedometerNotificationCallback  = (_ steps: UInt32, _ time: UInt32) -> (Void)
+public typealias RawDataNotificationCallback  = (_ accelerometerData: [Float], _ gyroscopeData: [Float], _ compassData: [Float]) -> (Void)
+public typealias HeadingNotificationCallback  = (_ heading: Float) -> (Void)
+public typealias GravityVectorNotificationCallback  = (_ x: Float,_  y: Float, _ z: Float) -> (Void)
+public typealias RotationMatrixNotificationCallback  = (_ matrix: [[Int16]]) -> (Void)
 
 public enum ThingyTapDirection: UInt8 {
     case XUp              = 0x01

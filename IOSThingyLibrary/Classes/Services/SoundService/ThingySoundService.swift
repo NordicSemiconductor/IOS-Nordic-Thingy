@@ -74,7 +74,7 @@ public enum ThingySoundError: Error {
     case valueNotSupported(description: String)
 }
 
-public typealias microphoneNotificationCallback  = (_ pcm8Data: [Int16]) -> (Void)
+public typealias MicrophoneNotificationCallback  = (_ pcm8Data: [Int16]) -> (Void)
 
 internal class ThingySoundService: ThingyService {
     internal var microphoneNotificationsEnabled: Bool {

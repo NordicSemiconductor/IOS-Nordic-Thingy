@@ -108,14 +108,14 @@
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_battery_full" translatesAutoresizingMaskIntoConstraints="NO" id="iWu-ym-VxS">
-                                                    <rect key="frame" x="343" y="8" width="24" height="24"/>
+                                                    <rect key="frame" x="333" y="8" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="pKR-Ff-Acd"/>
                                                         <constraint firstAttribute="height" constant="24" id="twz-dF-J2e"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="100%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2a-kP-6GJ">
-                                                    <rect key="frame" x="302.5" y="12" width="32.5" height="16"/>
+                                                    <rect key="frame" x="300.5" y="12" width="32.5" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <color key="highlightedColor" red="0.25882352939999997" green="0.53725490200000003" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -125,11 +125,11 @@
                                                 <constraint firstAttribute="leadingMargin" secondItem="2Ug-4P-0vb" secondAttribute="leading" id="3BO-N8-So3"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Xnw-HO-rCN" secondAttribute="trailing" constant="20" symbolic="YES" id="BNc-kg-OGM"/>
                                                 <constraint firstItem="I2a-kP-6GJ" firstAttribute="centerY" secondItem="iWu-ym-VxS" secondAttribute="centerY" id="CAQ-dH-sXK"/>
-                                                <constraint firstItem="iWu-ym-VxS" firstAttribute="leading" secondItem="I2a-kP-6GJ" secondAttribute="trailing" constant="8" id="Ib3-ZA-2HI"/>
+                                                <constraint firstItem="iWu-ym-VxS" firstAttribute="leading" secondItem="I2a-kP-6GJ" secondAttribute="trailing" id="Ib3-ZA-2HI"/>
                                                 <constraint firstAttribute="bottom" secondItem="iWu-ym-VxS" secondAttribute="bottom" constant="12" id="TAg-LV-MCK"/>
                                                 <constraint firstItem="Xnw-HO-rCN" firstAttribute="leading" secondItem="2Ug-4P-0vb" secondAttribute="trailing" constant="8" id="X1h-Fh-vZB"/>
                                                 <constraint firstAttribute="topMargin" secondItem="Xnw-HO-rCN" secondAttribute="top" id="YEB-ym-GJO"/>
-                                                <constraint firstAttribute="trailing" secondItem="iWu-ym-VxS" secondAttribute="trailing" constant="8" id="a7k-Vs-B4d"/>
+                                                <constraint firstAttribute="trailing" secondItem="iWu-ym-VxS" secondAttribute="trailing" constant="18" id="a7k-Vs-B4d"/>
                                                 <constraint firstItem="2Ug-4P-0vb" firstAttribute="top" secondItem="7Cl-Pf-Rje" secondAttribute="topMargin" constant="2" id="cOJ-UN-duM"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="2Ug-4P-0vb" secondAttribute="bottom" constant="2" id="m7n-xq-JWA"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Xnw-HO-rCN" secondAttribute="bottom" id="tBt-c7-TSR"/>
