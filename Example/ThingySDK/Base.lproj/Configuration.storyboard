@@ -103,27 +103,10 @@
                                 <action selector="menuButtonTapped:" destination="Xct-b6-LSe" id="w95-Fx-Yf8"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" width="100" id="us4-ls-8IF">
-                            <view key="customView" contentMode="scaleToFill" id="v2T-EM-OYa">
-                                <rect key="frame" x="326" y="5.5" width="33" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="IGY-4U-W1F">
-                                        <rect key="frame" x="13" y="6" width="20" height="20"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="IGY-4U-W1F" secondAttribute="trailing" id="1OM-Qk-wmj"/>
-                                    <constraint firstItem="IGY-4U-W1F" firstAttribute="top" secondItem="v2T-EM-OYa" secondAttribute="top" constant="6" id="TSj-4S-GM8"/>
-                                </constraints>
-                            </view>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="configurationMenuTable" destination="8zw-1I-2CU" id="IU8-J2-jIg"/>
-                        <outlet property="progressIndicator" destination="IGY-4U-W1F" id="WTG-eU-8JM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFM-kd-OWA" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -78,7 +78,7 @@ class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, 
         emptyView.alpha = discoveredThingies.isEmpty ? 1 : 0
         
         // Show activity indicator
-        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         activityIndicatorView.hidesWhenStopped = true
         activityIndicatorView.startAnimating()
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicatorView)
