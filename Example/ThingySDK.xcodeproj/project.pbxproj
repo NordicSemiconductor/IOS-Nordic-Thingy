@@ -68,7 +68,6 @@
 		529886541EC30BFE00E66715 /* FolderFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298864F1EC30BFE00E66715 /* FolderFilesViewController.swift */; };
 		529886551EC30BFE00E66715 /* UserFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529886501EC30BFE00E66715 /* UserFilesViewController.swift */; };
 		529EA7541E0421F900E33E2C /* PopupHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529EA7531E0421F900E33E2C /* PopupHelper.swift */; };
-		52B601029922946DD08D5DFE /* Pods_ThingySDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8519DB4CC7FCA00CA348F63B /* Pods_ThingySDK_Tests.framework */; };
 		52C6A1741E0185D600D05300 /* ConfigurationPresetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6A1731E0185D600D05300 /* ConfigurationPresetTableViewController.swift */; };
 		52C7C98C1FA2329600C4C06C /* thingy_dfu_pkg_app_v2.1.0.HW_1.0.zip in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C98B1F9DFE0100C4C06C /* thingy_dfu_pkg_app_v2.1.0.HW_1.0.zip */; };
 		52C7C98D1FA2329800C4C06C /* thingy_dfu_sd_bl_app_v2.1.0.HW_1.0.zip in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C98A1F9DFE0100C4C06C /* thingy_dfu_sd_bl_app_v2.1.0.HW_1.0.zip */; };
@@ -103,7 +102,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2385BDC36EA58473992148EA /* Pods-ThingySDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThingySDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThingySDK_Tests/Pods-ThingySDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2CB4CEBCEE5607D72F65B5B6 /* Pods_ThingySDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThingySDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		300517831EC06B7400E3A64E /* ukulele_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ukulele_8kHz.wav; sourceTree = "<group>"; };
 		3007EEFA1DA4F7CA003F844B /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 		DF8146CB02C3DB9A7FE657BA /* Pods-ThingySDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThingySDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThingySDK_Example/Pods-ThingySDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		DFF558D146FD01E03D48B56E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E548B8514F03244BA7C324AE /* Pods-ThingySDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThingySDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThingySDK_Example/Pods-ThingySDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		FDCA7EA4C54D07ED2B79BD21 /* Pods-ThingySDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThingySDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThingySDK_Tests/Pods-ThingySDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,7 +209,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52B601029922946DD08D5DFE /* Pods_ThingySDK_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,8 +600,6 @@
 			children = (
 				E548B8514F03244BA7C324AE /* Pods-ThingySDK_Example.debug.xcconfig */,
 				DF8146CB02C3DB9A7FE657BA /* Pods-ThingySDK_Example.release.xcconfig */,
-				FDCA7EA4C54D07ED2B79BD21 /* Pods-ThingySDK_Tests.debug.xcconfig */,
-				2385BDC36EA58473992148EA /* Pods-ThingySDK_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -637,12 +631,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ThingySDK_Tests" */;
 			buildPhases = (
-				7256A618B9250248B0DE4CBF /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				AF1C6B3BCEC9CFFF6948767A /* [CP] Embed Pods Frameworks */,
-				A2AF9CACE22D58172B0F7AD3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -776,59 +767,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThingySDK_Example/Pods-ThingySDK_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7256A618B9250248B0DE4CBF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ThingySDK_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A2AF9CACE22D58172B0F7AD3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThingySDK_Tests/Pods-ThingySDK_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AF1C6B3BCEC9CFFF6948767A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ThingySDK_Tests/Pods-ThingySDK_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThingySDK_Tests/Pods-ThingySDK_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C00F317CC82D7C4C2F0D3B8E /* [CP] Copy Pods Resources */ = {
@@ -1190,7 +1128,6 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDCA7EA4C54D07ED2B79BD21 /* Pods-ThingySDK_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1213,7 +1150,6 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2385BDC36EA58473992148EA /* Pods-ThingySDK_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
