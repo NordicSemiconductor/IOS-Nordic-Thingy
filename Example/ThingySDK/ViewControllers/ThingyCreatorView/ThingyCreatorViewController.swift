@@ -105,9 +105,11 @@ class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, 
     
     func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral, withPairingCode: String?) {
         hideEmptyView()
-        discoveredThingies.append(peripheral)
-        scannedPeripheralsTableView.reloadData()
-        scannedPeripheralsTableView.isHidden = false
+        if discoveredThingies.contains(peripheral) == false {
+            discoveredThingies.append(peripheral)
+            scannedPeripheralsTableView.reloadData()
+            scannedPeripheralsTableView.isHidden = false
+        }
     }
     
     func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral) {
