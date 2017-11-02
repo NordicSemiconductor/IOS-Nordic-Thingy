@@ -177,7 +177,7 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
     }
 
     private func reorderPairingCode(_ aCode: String) -> String {
-        var codeChars: [Character] = aCode.characters.reversed()
+        var codeChars: [Character] = aCode.reversed()
         codeChars.swapAt(0, 1)
         codeChars.swapAt(2, 3)
         codeChars.swapAt(4, 5)

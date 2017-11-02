@@ -229,7 +229,7 @@ class ThingyCloudViewController: SwipableTableViewController {
                                             return
                                         }
                                         
-                                        if value.characters.count == 0 {
+                                        if value.count == 0 {
                                             if self.removeToken(forPeripheral: self.targetPeripheral!) {
                                                 print("Token removed")
                                             }

@@ -107,7 +107,7 @@ class ThingyInitialConfigurationViewController: ThingyViewController, UITableVie
             self.loadingView!.message = "Cancelling connection..."
             self.thingyManager!.disconnect(fromDevice: self.targetPeripheral!)
         }))
-        present(loadingView!, animated: false) {
+        self.navigationController?.present(loadingView!, animated: false) {
             self.targetPeripheral!.discoverServices()
         }
     }

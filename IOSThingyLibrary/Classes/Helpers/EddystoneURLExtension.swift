@@ -128,7 +128,7 @@ extension URL {
             //Get rest of string up til extension code
             let extensionIndex = originalUrl.range(of: URL.eddystoneExtensions[Int(extensionCode!)])
             let domainName = originalUrl[schemeIndex!.upperBound..<extensionIndex!.lowerBound]
-            let domainNameArray = String(domainName.characters).utf8.map({ UInt8($0)})
+            let domainNameArray = domainName.utf8.map({ UInt8($0)})
             encodedUrl.append(domainNameArray, count: domainNameArray.count)
             
             //Append extension code
@@ -136,14 +136,14 @@ extension URL {
            
             //Get everything after extension
             var resourceName = originalUrl[extensionIndex!.upperBound...]
-            let resourceNameArary = String(resourceName.characters).utf8.map({ UInt8($0)})
+            let resourceNameArary = resourceName.utf8.map({ UInt8($0)})
             
             //And append resource
             encodedUrl.append(resourceNameArary, count: resourceNameArary.count)
         } else {
             //Get rest of string up til last slash
             let customDomain = originalUrl[schemeIndex!.upperBound...]
-            let customDomainArray = String(customDomain.characters).utf8.map({ UInt8($0)})
+            let customDomainArray = customDomain.utf8.map({ UInt8($0)})
             encodedUrl.append(customDomainArray, count: customDomainArray.count)
         }
         
