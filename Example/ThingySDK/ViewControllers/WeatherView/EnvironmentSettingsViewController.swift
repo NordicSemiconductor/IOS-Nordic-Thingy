@@ -45,6 +45,8 @@ import UIKit
 import IOSThingyLibrary
 
 class EnvironmentSettingsViewController: ThingyTableViewController, ConfigurationPresetDelegate {
+    
+    //MARK: - Properties
     private static let keyTemperatureUnit = "temperatureUnit"
     
     static func isFahrenheit() -> Bool {
@@ -98,9 +100,10 @@ class EnvironmentSettingsViewController: ThingyTableViewController, Configuratio
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         temperatureUnitLabel.text = temperatureUnitIsFahrenheit ? "Fahrenheit" : "Celsius"
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "airQualitySampleRate" {
             let view = segue.destination as! ConfigurationPresetTableViewController

@@ -67,21 +67,9 @@ class MenuItemTableViewCell: UITableViewCell {
         if isActive == true {
             icon.image = #imageLiteral(resourceName: "ic_developer_board_blue_24pt")
             label.textColor = UIColor.nordicBlue
-            if batteryLevelLabel.isHidden == false {
-                batteryLevelLabel.textColor = UIColor.black
-            }
-            if batteryIcon.isHidden == false {
-                batteryIcon.alpha = 1
-            }
         } else {
             icon.image = anIcon
             label.textColor = UIColor.black
-            if batteryLevelLabel.isHidden == false {
-                batteryLevelLabel.textColor = UIColor.gray
-            }
-            if batteryIcon.isHidden == false {
-                batteryIcon.alpha = 0.5
-            }
         }
         
         if isTransparent {

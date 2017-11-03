@@ -46,7 +46,7 @@ import Charts
 import IOSThingyLibrary
 
 class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentationControllerDelegate, EnvironmentControlDelegate {
-    
+
     //MARK: - Properties and data
     private var temperatureDataGraphHandler: GraphDataHandler!
     private var humidityDataGraphHandler: GraphDataHandler!

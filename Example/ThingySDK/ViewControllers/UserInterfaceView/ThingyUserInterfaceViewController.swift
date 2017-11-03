@@ -375,10 +375,11 @@ class ThingyUserInterfaceViewController: SwipableTableViewController, UICollecti
     }
 
     func showBreatheDelayLimitsAlert() {
-        let alertView = UIAlertView(title: "Invalid LED breathe delay", message: "Only values between 50 ms and 10,000 ms are accepted", delegate: nil, cancelButtonTitle: "Ok")
-        alertView.show()
-        
+        let alert = UIAlertController(title: "Invalid LED breathe delay", message: "Only values between 50 ms and 10,000 ms are accepted", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true)
     }
+    
     //MARK: - UITextFieldDelegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let screenWidth = Int(UIScreen.main.bounds.width)

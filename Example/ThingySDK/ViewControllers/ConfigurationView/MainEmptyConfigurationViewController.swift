@@ -86,14 +86,11 @@ class MainEmptyConfigurationViewController: SwipableViewController {
         if #available(iOS 11.0, *) {
             if NFCNDEFReaderSession.readingAvailable {
                 addThingyNFCButton.isHidden = false
-                print("iOS 11, device suppors reading!")
             } else {
                 addThingyNFCButton.isHidden = true
-                print("iOS 11, device does not suppor reading!")
             }
         } else {
             addThingyNFCButton.isHidden = true
-            print("iOS Version before 11, no NFC Support")
         }
     }
     
@@ -111,6 +108,14 @@ class MainEmptyConfigurationViewController: SwipableViewController {
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        let menuViewController = mainNavigationContorller.revealViewController().rearViewController as! MainMenuViewController
+        if let targetPeripheral = targetPeripheral {
+            menuViewController.thingyPeripheral(targetPeripheral, didChangeStateTo: targetPeripheral.state)
+        }
+    }
+
     //MARK: - Implementation
     private func addButtonNFCTappedHandler() {
         mainNavigationContorller.showInitialNFCConfigurationView()

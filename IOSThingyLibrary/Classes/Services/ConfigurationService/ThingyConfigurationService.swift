@@ -63,7 +63,7 @@ internal class ThingyConfigurationService: ThingyService {
     
     //MARK: - Configuration service implementation
 
-    internal func readFirmwareVersion() -> String {
+    internal func readFirmwareVersion() -> String? {
         if let firmwareVersionCharacteristic = getFirmwareVersionCharacteristic() {
             let firmwareData = firmwareVersionCharacteristic.value
             if firmwareData != nil {
@@ -73,9 +73,9 @@ internal class ThingyConfigurationService: ThingyService {
                 let versionString = "\(major).\(minor).\(patch)"
                 return versionString
             }
-            return "0.0.0"
+            return nil
         }
-        return "0.0.0"
+        return nil
     }
     
     internal func readName() -> String {
@@ -90,7 +90,7 @@ internal class ThingyConfigurationService: ThingyService {
 
     internal func set(name aName: String) throws {
         guard aName.utf16.count <= 10 else {
-            throw ThingyConfigurationError.nameTooLong(currentLength: aName.characters.count)
+            throw ThingyConfigurationError.nameTooLong(currentLength: aName.utf8.count)
         }
 
         if let nameCharacteristic = getNameCharacteristic() {
@@ -186,8 +186,8 @@ internal class ThingyConfigurationService: ThingyService {
     }
 
     internal func set(cloudToken aToken: String) throws {
-        guard aToken.characters.count <= 250 else {
-            throw ThingyConfigurationError.cloudTokenTooLong(currentLength: aToken.characters.count)
+        guard aToken.count <= 250 else {
+            throw ThingyConfigurationError.cloudTokenTooLong(currentLength: aToken.count)
         }
         
         if let cloudTokenCharacteristic = getCloudTokenCharacteristic() {

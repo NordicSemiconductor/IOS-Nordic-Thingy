@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'IOSThingyLibrary'
-  s.version          = '1.2.0'
-  s.summary          = 'A Swift 3 SDK implementation for the Nordic:Thingy32 produced by Nordic Semiconductor'
+  s.version          = '1.3.0'
+  s.summary          = 'A Swift 4 SDK implementation for the Nordic:Thingy32 produced by Nordic Semiconductor'
   s.description      = <<-DESC
 This is a mobile SDK for the Thingy:52 devices developed by Nordic Semiconductor, the Thingy
 is a development board with a vast amount of sensors, an input button and a RGB LED, fully
@@ -21,5 +21,5 @@ applications with ease.
 
   s.source_files = 'IOSThingyLibrary/Classes/**/*'
 
-  s.dependency 'iOSDFULibrary', '~> 3.0'
+  s.dependency 'iOSDFULibrary', '~> 4.0'
 end

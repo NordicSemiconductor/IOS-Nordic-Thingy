@@ -58,14 +58,14 @@ protocol TutorialPageViewControllerDelegate: class {
 
 class TutorialPageViewController: UIPageViewController {
     weak var tutorialDelegate: TutorialPageViewControllerDelegate?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if let firstPage = orderedViewControllers.first {
             scrollToViewController(firstPage)
         }
     }
-    
+
     private func notifyTutorialDelegateOfNewIndex() {
         if let firstViewController = viewControllers?.first,
             let index = orderedViewControllers.index(of: firstViewController) {

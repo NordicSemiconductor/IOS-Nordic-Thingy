@@ -56,13 +56,11 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
     private var nfcPairingCode: String!
 
     //MARK: - Outlets and Actions
-    @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var nfcIconView: UIImageView!
-    @IBOutlet weak var mockPhoneView: UIImageView!
     
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
-        let parentView = self.parent as! ThingyNavigationController
+        let parentView = parent as! ThingyNavigationController
         parentView.dismiss(animated: true, completion: nil)
     }
     
@@ -87,10 +85,10 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
     //MARK: - Implementation
     func startNFCScan() {
         statusLabel.text = nil
-        self.beginAnimation()
+        beginAnimation()
         scanner = NFCNDEFReaderSession(delegate: self, queue: DispatchQueue.main, invalidateAfterFirstRead: true)
-        scanner?.alertMessage = "Touch your Thingy peripheral with your iPhone to connect"
-        scanner?.begin()
+        scanner!.alertMessage = "Touch your Thingy:52"
+        scanner!.begin()
     }
 
     func beginAnimation() {
@@ -101,18 +99,20 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
     }
     
     func stopAnimation() {
-        self.nfcIconView.stopAnimating()
+        nfcIconView.stopAnimating()
         UIView.animate(withDuration: 0.5) {
             self.nfcIconView.alpha = 1
         }
     }
+    
     //MARK: - ThingyManagerDelegate methods
     func thingyManager(_ manager: ThingyManager, didChangeStateTo state: ThingyManagerState) {
         print("Thingy Manager state changed to: \(state)")
+        //TODO: handle turning OFF Bluetooth
     }
     
     func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral, withPairingCode pairingCode: String?) {
-        guard pairingCode != nil else {
+        guard let pairingCode = pairingCode else {
             return
         }
 
@@ -120,14 +120,14 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
             didSelectPeripheral(aPeripheral: peripheral)
         }
 
-        if discoveredThingies[pairingCode!] == nil {
-            discoveredThingies[pairingCode!] = peripheral
-            print("New Thingy discovered, pairing code = \(pairingCode!)")
+        if discoveredThingies[pairingCode] == nil {
+            discoveredThingies[pairingCode] = peripheral
+            print("New Thingy discovered, pairing code = \(pairingCode)")
         }
     }
 
     func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral) {
-        self.thingyManager(manager, didDiscoverPeripheral: peripheral, withPairingCode: nil)
+        thingyManager(manager, didDiscoverPeripheral: peripheral, withPairingCode: nil)
     }
 
     //MARK: - ThingyPeripheralDelegate
@@ -155,7 +155,7 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
 
     //MARK: - Implementation
     private func didSelectPeripheral(aPeripheral: ThingyPeripheral) {
-        //Stop scanning and cnonect to the selected peripheral
+        //Stop scanning and connect to the selected peripheral
         nfcPairingCode = nil
         targetPeripheral = aPeripheral
         thingyManager!.stopScan()
@@ -177,8 +177,7 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
     }
 
     private func reorderPairingCode(_ aCode: String) -> String {
-
-        var codeChars: [Character] = aCode.characters.reversed()
+        var codeChars: [Character] = aCode.reversed()
         codeChars.swapAt(0, 1)
         codeChars.swapAt(2, 3)
         codeChars.swapAt(4, 5)
@@ -189,7 +188,17 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
 
     //MARK:- NFCNDEFReaderSessionDelegate
     func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
-        stopAnimation()
+        guard let readerError = error as? NFCReaderError else {
+            return
+        }
+        switch readerError.code {
+        case .readerSessionInvalidationErrorFirstNDEFTagRead:
+            //Do nothing, when the Thingy is scanned the segue will be performed
+            break
+        default:
+            let parentView = parent as! ThingyNavigationController
+            parentView.dismiss(animated: true, completion: nil)
+        }
     }
 
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
@@ -200,7 +209,7 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
                     if let stringPayload = String(data:aRecord.payload, encoding:.utf8) {
                         let parts  = stringPayload.split(separator: " ")
                         if parts.count > 0 {
-                            self.nfcPairingCode = reorderPairingCode(parts.last!.lowercased())
+                            nfcPairingCode = reorderPairingCode(parts.last!.lowercased())
                         }
                         break
                     }
@@ -208,19 +217,19 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
             }
         }
 
-        if self.nfcPairingCode == nil {
-            thingyManager?.stopScan()
-            statusLabel.text = "Error:\nThe scanned NFC tag did not contain a Thingy pairing code."
-        } else {
-            statusLabel.text = "Scanned code: \(self.nfcPairingCode!)"
-            if discoveredThingies[self.nfcPairingCode!] != nil {
-                didSelectPeripheral(aPeripheral: discoveredThingies[self.nfcPairingCode!]!)
+        if let nfcPairingCode = nfcPairingCode {
+            statusLabel.text = "Scanned code: \(nfcPairingCode)"
+            if discoveredThingies[nfcPairingCode] != nil {
+                didSelectPeripheral(aPeripheral: discoveredThingies[nfcPairingCode]!)
             } else {
-                statusLabel.text = "Scanned code: \(self.nfcPairingCode!)\nWaiting for a Thingy to advertise the same code"
+                statusLabel.text = "Scanned code: \(nfcPairingCode)\nWaiting for a Thingy to advertise the same code."
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(5) , execute: {
                     self.statusLabel.text = "No Thingy peripherals advertising with that code\nEnsure Thingy is powered on and NFC capable."
                 })
             }
+        } else {
+            thingyManager!.stopScan()
+            statusLabel.text = "Error:\nThe scanned NFC tag did not contain a Thingy pairing code."
         }
     }
 }

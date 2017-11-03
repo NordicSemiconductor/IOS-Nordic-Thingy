@@ -46,7 +46,7 @@ import Foundation
 import UIKit
 
 class TutorialViewController: UIViewController {
-    
+
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -77,7 +77,7 @@ class TutorialViewController: UIViewController {
         super.viewDidLoad()
         continueButton.setTitle("CONTINUE", for: .normal)
         pageControl.isEnabled = false
-        
+
         //Jump to main view as early as possible
         let key = "AppOpenedCounter"
         let count = UserDefaults.standard.integer(forKey: key)
@@ -96,12 +96,10 @@ class TutorialViewController: UIViewController {
     }
     
     override var prefersStatusBarHidden: Bool {
-        return true
+        return false
     }
     
     private func jumpToMainScreen() {
-        // Change the status bar color back to light one
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
         performSegue(withIdentifier: "SkipTutorial", sender: nil)
     }
 }

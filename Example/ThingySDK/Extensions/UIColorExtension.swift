@@ -72,7 +72,7 @@ extension UIColor {
         var intVal = UInt32()
         Scanner(string: hex).scanHexInt32(&intVal)
         let r, g, b: UInt32
-        switch hex.characters.count {
+        switch hex.count {
         case 3: // RGB (12-bit)
             (r, g, b) = ((intVal >> 8) * 17, (intVal >> 4 & 0xF) * 17, (intVal & 0xF) * 17)
         case 6: // RGB (24-bit)

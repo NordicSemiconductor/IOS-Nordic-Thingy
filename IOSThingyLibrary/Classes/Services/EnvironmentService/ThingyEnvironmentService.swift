@@ -43,11 +43,11 @@
 
 import CoreBluetooth
 
-public typealias temperatureNotificationCallback    = (_ degreesInCelcius: Float) -> (Void)
-public typealias humidityNotificationCallback       = (_ humidityPercentage: UInt8) -> (Void)
-public typealias airQualityNotificationCallback     = (_ equivalentCrabonDioxide: UInt16,_ volatileOrganicCompounds: UInt16) -> (Void)
-public typealias lightIntensityNotificationCallback = (_ redIntensity: UInt16, _ greenIntensity: UInt16, _ blueIntensity: UInt16, _ clearIntensity: UInt16, _ color: UIColor) -> (Void)
-public typealias pressureNotificationCallback       = (_ pressureInHectoPascal: Double) -> (Void)
+public typealias TemperatureNotificationCallback    = (_ degreesInCelcius: Float) -> (Void)
+public typealias HumidityNotificationCallback       = (_ humidityPercentage: UInt8) -> (Void)
+public typealias AirQualityNotificationCallback     = (_ equivalentCrabonDioxide: UInt16,_ volatileOrganicCompounds: UInt16) -> (Void)
+public typealias LightIntensityNotificationCallback = (_ redIntensity: UInt16, _ greenIntensity: UInt16, _ blueIntensity: UInt16, _ clearIntensity: UInt16, _ color: UIColor) -> (Void)
+public typealias PressureNotificationCallback       = (_ pressureInHectoPascal: Double) -> (Void)
 
 public enum ThingyEnvironmentGasModeConfiguration: UInt8 {
     //case interval250Millisec = 0
