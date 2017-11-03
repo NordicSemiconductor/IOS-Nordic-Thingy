@@ -50,7 +50,7 @@ class UserFilesViewController: UIViewController, FilePreselectionDelegate, UITab
     var selectedPath : URL?
     var files        : [URL]!
     var documentsDirectoryPath : String?
-    
+
     //MARK: - View Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyView: UIView!
@@ -77,7 +77,6 @@ class UserFilesViewController: UIViewController, FilePreselectionDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.shared.setStatusBarStyle(.default, animated:true)
         
         let buttonEnabled = selectedPath != nil
         tabBarController!.navigationItem.rightBarButtonItem!.isEnabled = buttonEnabled
@@ -94,12 +93,10 @@ class UserFilesViewController: UIViewController, FilePreselectionDelegate, UITab
     @objc func doneButtonTapped() {
         dismiss(animated: true, completion: nil)
         fileDelegate?.onFileSelected(withURL: selectedPath!)
-        UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
     }
     
     @objc func cancelButtonTapped() {
         dismiss(animated: true, completion: nil)
-        UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
     }
     
     //MARK: - FilePreselectionDelegate

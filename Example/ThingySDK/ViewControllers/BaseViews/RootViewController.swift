@@ -78,7 +78,7 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
         menuViewController!.setThingyManager(thingyManager!)
         mainNavigationController!.setThingyManager(thingyManager!)
     }
-    
+
     override func viewWillTransition(to size: CGSize, with coordinator:
         UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)

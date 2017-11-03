@@ -48,9 +48,8 @@ class ThingyNavigationController: UINavigationController, HasThingyTarget {
     
     var thingyManager    : ThingyManager?
     var targetPeripheral : ThingyPeripheral?
-    
+
     //MARK: Implementation
-    
     public func setTargetPeripheral(_ aTargetPeripheral: ThingyPeripheral?, andManager aManager: ThingyManager?) {
         targetPeripheral = aTargetPeripheral
         thingyManager    = aManager
@@ -69,19 +68,4 @@ class ThingyNavigationController: UINavigationController, HasThingyTarget {
             }
         }
     }
-    
-    //MARK: - UIViewDelegate
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Change the status bar color to black
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        // Change the status bar color back to light one
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
-    }
-    
 }

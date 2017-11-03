@@ -65,6 +65,10 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     private var mainHeaderIsExpanded    : Bool
     private var menuPeripherals         : [ThingyPeripheral]
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     //MARK: Menu Content
     private let menuSections = [

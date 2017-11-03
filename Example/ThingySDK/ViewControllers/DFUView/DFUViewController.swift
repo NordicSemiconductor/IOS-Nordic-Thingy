@@ -242,14 +242,14 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
             totalSize += Float(sdSize)
         }
         if blSize > 0 {
-            if !type.characters.isEmpty {
+            if !type.isEmpty {
                 type.append(", ")
             }
             type.append("Bootloader")
             totalSize += Float(blSize)
         }
         if appSize > 0 {
-            if !type.characters.isEmpty {
+            if !type.isEmpty {
                 type.append(", ")
             }
             type.append("Application")

@@ -180,7 +180,7 @@ class PopupHelper: NSObject {
             if action!.title == "Cancel" {
                 return true
             }
-            return field.text != nil && field.text!.characters.count > 4
+            return field.text != nil && field.text!.count > 4
         }
         alert.present()
     }
@@ -243,7 +243,7 @@ class PopupHelper: NSObject {
     private static var globalUnit: Float? // unit in ms
     
     @objc class func intervalDidChange(textField: UITextField) {
-        if textField.text != nil && textField.text!.characters.count > 0 {
+        if textField.text != nil && textField.text!.count > 0 {
             let aValue = Int(textField.text!)
             if let aValue = aValue {
                 gloabalLabel!.text = "\(aValue) * \(globalUnit!) ms = \(Float(aValue) * globalUnit!) ms"
