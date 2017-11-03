@@ -1,3 +1,11 @@
+* **Version 1.3.0**
+    - Improvement: Thingy SDK will now return nil instead of 0.0.0 on version reading if it's not ready.
+    - Improvement: All view presentations now are done from navigation controllers instead of detached views.
+    - Improvement: Updated Pod dependencies in the Example app.
+    - Update: Removed code usages that are deprecated in Swift 4, like String.characters.
+    - Bugfix: Fixed bug causing duplicate Thingy peripherals to show during scanning.
+    - Bugfix: Fixed bug causing DFU update alerts not to show on first connection after adding a new Thingy peripheral.
+
 * **Version 1.2.0**
     - Update: NFC Pairing support in example application.
     - Update: Thingy battery service implemented in SDK and example app.

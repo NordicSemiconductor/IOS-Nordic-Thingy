@@ -49,10 +49,10 @@ class ThingyConfigurationViewController: SwipableViewController, UITableViewData
         
     //MARK: - Outlets and actions
     @IBOutlet weak var configurationMenuTable: UITableView!
-    @IBOutlet weak var progressIndicator: UIActivityIndicatorView!
     @IBAction func menuButtonTapped(_ sender: Any) {
         toggleRevealView()
     }
+    var progressIndicator: UIActivityIndicatorView!
     
     //MARK: - Configuration Properties
     var configName                         : String = ""
@@ -89,6 +89,13 @@ class ThingyConfigurationViewController: SwipableViewController, UITableViewData
         ["Eddystone URL"],
         ["Update firmware"]
     ]
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Show activity indicator
+        progressIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        progressIndicator.hidesWhenStopped = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: progressIndicator)
+    }
     
     //MARK: - ThingyPeripheralDelegate
     override func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {

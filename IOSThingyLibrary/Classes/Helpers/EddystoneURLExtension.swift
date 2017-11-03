@@ -66,7 +66,7 @@ extension URL {
         }
         
         let schemeIndex = absoluteString.range(of: URL.eddystoneUrlSchemes[Int(urlSchemeCode!)])
-        return absoluteString.substring(from: schemeIndex!.upperBound)
+        return String(absoluteString[schemeIndex!.upperBound...])
     }
 
     private func eddystoneDomainExtensionCode() -> UInt8? {
@@ -127,24 +127,23 @@ extension URL {
         if extensionCode != nil {
             //Get rest of string up til extension code
             let extensionIndex = originalUrl.range(of: URL.eddystoneExtensions[Int(extensionCode!)])
-            let domainNameRange = Range(uncheckedBounds: (lower: schemeIndex!.upperBound, upper: extensionIndex!.lowerBound))
-            let domainName = originalUrl.substring(with: domainNameRange)
-            let domainNameArray = String(domainName.characters).utf8.map({ UInt8($0)})
+            let domainName = originalUrl[schemeIndex!.upperBound..<extensionIndex!.lowerBound]
+            let domainNameArray = domainName.utf8.map({ UInt8($0)})
             encodedUrl.append(domainNameArray, count: domainNameArray.count)
             
             //Append extension code
             encodedUrl.append(extensionCode!)
            
             //Get everything after extension
-            var resourceName = originalUrl.substring(from: extensionIndex!.upperBound)
-            let resourceNameArary = String(resourceName.characters).utf8.map({ UInt8($0)})
+            var resourceName = originalUrl[extensionIndex!.upperBound...]
+            let resourceNameArary = resourceName.utf8.map({ UInt8($0)})
             
             //And append resource
             encodedUrl.append(resourceNameArary, count: resourceNameArary.count)
         } else {
             //Get rest of string up til last slash
-            let customDomain = originalUrl.substring(from: schemeIndex!.upperBound)
-            let customDomainArray = String(customDomain.characters).utf8.map({ UInt8($0)})
+            let customDomain = originalUrl[schemeIndex!.upperBound...]
+            let customDomainArray = customDomain.utf8.map({ UInt8($0)})
             encodedUrl.append(customDomainArray, count: customDomainArray.count)
         }
         

@@ -108,12 +108,16 @@ class ThingyCloudViewController: SwipableTableViewController {
         case 0:
             if cloudToken == nil {
                 tableView.deselectRow(at: indexPath, animated: true)
-            UIAlertView(title: "Cloud Token not set", message: "To enable services, please set the cloud token first", delegate: nil, cancelButtonTitle: "Ok").show()
+                let alert = UIAlertController(title: "Cloud Token not set", message: "To enable services, please set the cloud token first", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                present(alert, animated: true)
                 return
             }
             if targetPeripheral?.basePeripheral.state != .connected {
                 tableView.deselectRow(at: indexPath, animated: true)
-                UIAlertView(title: "No Thingy connected", message: "Please connect to a Thingy to enable cloud services", delegate: nil, cancelButtonTitle: "Ok").show()
+                let alert = UIAlertController(title: "No Thingy connected", message: "Please connect to a Thingy to enable cloud services", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                present(alert, animated: true)
                 return
             }
 
@@ -135,7 +139,9 @@ class ThingyCloudViewController: SwipableTableViewController {
             switch indexPath.row {
             case 0:
                 guard self.targetPeripheral != nil else {
-                    UIAlertView(title: "No Thingy connected", message: "Please connect to a Thingy to configure its token", delegate: nil, cancelButtonTitle: "Ok").show()
+                    let alert = UIAlertController(title: "No Thingy connected", message: "Please connect to a Thingy to configure its token", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    present(alert, animated: true)
                     return
                 }
                 showTokenInputPopup()
@@ -223,7 +229,7 @@ class ThingyCloudViewController: SwipableTableViewController {
                                             return
                                         }
                                         
-                                        if value.characters.count == 0 {
+                                        if value.count == 0 {
                                             if self.removeToken(forPeripheral: self.targetPeripheral!) {
                                                 print("Token removed")
                                             }
@@ -340,7 +346,9 @@ class ThingyCloudViewController: SwipableTableViewController {
     private func submitToAPI(type: String, andData someData: [String]) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         guard cloudToken != nil else {
-            UIAlertView(title: "Error", message: "Clout token not present", delegate: nil, cancelButtonTitle: "Ok").show()
+            let alert = UIAlertController(title: "Error", message: "Clout token not present", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
             print("Token not set, will skip")
             disableNotifications()
             return
@@ -389,11 +397,15 @@ class ThingyCloudViewController: SwipableTableViewController {
                         }
                     }
                     DispatchQueue.main.async {
-                        UIAlertView(title: "Error", message: errorMessages, delegate: nil, cancelButtonTitle: "Ok").show()
+                        let alert = UIAlertController(title: "Error", message: errorMessages, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default))
+                        self.present(alert, animated: true)
                     }
                 } else {
                     DispatchQueue.main.async {
-                        UIAlertView(title: "Error", message: "Something went wrong, please try again", delegate: nil, cancelButtonTitle: "Ok").show()
+                        let alert = UIAlertController(title: "Error", message: "Something went wrong, please try again", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default))
+                        self.present(alert, animated: true)
                     }
                 }
             }

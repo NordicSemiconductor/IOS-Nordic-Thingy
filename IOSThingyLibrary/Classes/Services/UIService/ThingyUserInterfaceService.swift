@@ -43,7 +43,7 @@
 
 import CoreBluetooth
 
-public typealias buttonNotificationCallback = (_ state: ThingyButtonState) -> (Void)
+public typealias ButtonNotificationCallback = (_ state: ThingyButtonState) -> (Void)
 
 public enum ThingyLEDColorPreset: UInt8 {
     case undefined  = 0

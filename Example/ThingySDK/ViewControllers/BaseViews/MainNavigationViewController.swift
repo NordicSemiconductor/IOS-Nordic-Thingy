@@ -50,7 +50,11 @@ class MainNavigationViewController: UINavigationController, ThingyPeripheralDele
     private var targetManager: ThingyManager!
     private var currentViewIdentifier: String?
     private var tmpURL: URL?
-    
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     public func thingyManager() -> ThingyManager {
         return targetManager
     }

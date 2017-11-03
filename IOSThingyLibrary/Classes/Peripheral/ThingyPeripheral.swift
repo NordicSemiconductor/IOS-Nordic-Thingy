@@ -49,14 +49,24 @@ public typealias ValueCallback      = (Data) -> (Void)
 
 public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
 
-    //Mark: - Thingy Properties
-    public internal(set) var name     : String
-    public internal(set) var isStored : Bool
+    //MARK: - Thingy public properties
+    
+    /// Thingy name. This can be set by the user.
+    public internal(set) var name         : String
+    /// A flag indicating whether the Thingy is stored in the ThingyManager.
+    public internal(set) var isStored     : Bool
+    /// Battery level value in percent. It is available on Thingies running firmware 2.0.0 or newer.
+    public internal(set) var batteryLevel : UInt8?
+    /// The CBPeripheral object.
     public let basePeripheral : CBPeripheral
+    /// Thingy state delegate.
     public weak var delegate  : ThingyPeripheralDelegate?
     
     public internal(set) var state: ThingyPeripheralState = .unavailable {
         didSet {
+            if state == .disconnected {
+                batteryLevel = nil
+            }
             delegate?.thingyPeripheral(self, didChangeStateTo: state)
             if state == .disconnected {
                 //Remove all notification handlers
@@ -72,14 +82,17 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
     
+    /// This value returns true if Thingy is connected and services has been discovered, false otherwise.
     public var ready: Bool {
         return services.count > 0
     }
     
+    /// This flag returns true if there is an ongoing Bluetooth LE opertation.
     public var busy: Bool {
         return operationCallbackHandlers.isEmpty == false
     }
     
+    //MARK: - Thingy private properties
     private var services                  : [ThingyService]
     private var operationCallbackHandlers : [CompletionCallback]
     private var valueCallbackHandlers     : Dictionary<CBUUID, ValueCallback>
@@ -94,7 +107,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
     private var soundService            : ThingySoundService?
     private var jumpToBootloaderService : ThingyJumpToBootloaderService?
 
-    //Mark: - Initialization
+    //MARK: - Initialization
     required public init(withPeripheral aPeripheral: CBPeripheral, andDelegate aDelegate: ThingyPeripheralDelegate?) {
         isStored                     = false
         delegate                     = aDelegate
@@ -110,7 +123,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
         
         //Initial state is == base peripheral CBPeripheralState value
-        state          = ThingyPeripheralState(rawValue:aPeripheral.state.rawValue)!
+        state = ThingyPeripheralState(rawValue: aPeripheral.state.rawValue)!
         super.init()
         basePeripheral.delegate = self
     }
@@ -118,11 +131,11 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
     //MARK: - Jump to bootloader service implementation
     public func jumpToBootloader() -> Bool {
         do {
-            if jumpToBootloaderService != nil {
+            if let jumpToBootloaderService = jumpToBootloaderService {
                 // Add handlers for "Start notifications" and "Send jump command"
                 operationCallbackHandlers.append(doNothing)
                 operationCallbackHandlers.append(doNothing)
-                try jumpToBootloaderService!.jumpToBootloaderMode()
+                try jumpToBootloaderService.jumpToBootloaderMode()
             } else {
                 return false
             }
@@ -136,7 +149,6 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
     }
 
     //MARK: - Configuration service implementation
-
     public func readFirmwareVersion() -> String? {
         return configurationService?.readFirmwareVersion()
     }
@@ -351,7 +363,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
 
-    public func beginButtonStateNotifications(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: buttonNotificationCallback?) {
+    public func beginButtonStateNotifications(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: ButtonNotificationCallback?) {
         // Has the service been found?
         if userInterfaceService == nil {
             aHandler?(false)
@@ -436,7 +448,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         return environmentService?.readConfiguration()
     }
     
-    public func beginTemperatureUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler : temperatureNotificationCallback?) {
+    public func beginTemperatureUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler : TemperatureNotificationCallback?) {
         // Has the service been found?
         if environmentService == nil {
             aHandler?(false)
@@ -444,7 +456,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
         // Save the notification callback. This may overwrite the old one if such existed
         valueCallbackHandlers[getTemperatureCharacteristicUUID()] = { (temperatureData) -> (Void) in
-            let digit        = Int8(truncatingBitPattern: Int(temperatureData[0]))
+            let digit        = Int8(truncatingIfNeeded: Int(temperatureData[0]))
             let remainder    = UInt8(temperatureData[1])
             var temp = Float(digit)
             temp += Float(remainder) / 100
@@ -488,7 +500,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
 
-    public func beginHumidityUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: humidityNotificationCallback?) {
+    public func beginHumidityUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: HumidityNotificationCallback?) {
         // Has the service been found?
         if environmentService == nil {
             aHandler?(false)
@@ -537,7 +549,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
     
-    public func beginAirQualityUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: airQualityNotificationCallback?) {
+    public func beginAirQualityUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: AirQualityNotificationCallback?) {
         // Has the service been found?
         if environmentService == nil {
             aHandler?(false)
@@ -589,7 +601,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
     
-    public func beginLightIntensityUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: lightIntensityNotificationCallback?) {
+    public func beginLightIntensityUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: LightIntensityNotificationCallback?) {
         // Has the service been found?
         if environmentService == nil {
             aHandler?(false)
@@ -597,7 +609,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
         // Save the notification callback. This may overwrite the old one if such existed
         valueCallbackHandlers[getLightIntensityCharacteristicUUID()] = { (data) -> (Void) in
-            
+            // This algorithm converts light intensities to RGB color. It "works" assuming the Thingy board is placed in the plastic box which is blueish.
             let clear_at_black: Float = 300.0
             let clear_at_white: Float = 400.0
             let clear_diff = clear_at_white - clear_at_black
@@ -658,7 +670,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
     
-    public func beginPressureUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: pressureNotificationCallback?) {
+    public func beginPressureUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: PressureNotificationCallback?) {
         // Has the service been found?
         if environmentService == nil {
             aHandler?(false)
@@ -743,7 +755,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         return motionService?.readConfiguration()
     }
     
-    public func beginTapUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: tapNotificationCallback?) {
+    public func beginTapUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: TapNotificationCallback?) {
         // Has the service been found?
         if motionService == nil {
             aHandler?(false)
@@ -793,7 +805,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
     
-    public func beginOrientationUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: orientationNotificationCallback?) {
+    public func beginOrientationUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: OrientationNotificationCallback?) {
         // Has the service been found?
         if motionService == nil {
             aHandler?(false)
@@ -842,7 +854,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
 
-    public func beginQuaternionUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: quaternionNotificationCallback?) {
+    public func beginQuaternionUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: QuaternionNotificationCallback?) {
         // Has the service been found?
         if motionService == nil {
             aHandler?(false)
@@ -896,7 +908,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
     
-    public func beginEulerUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: eulerNotificationCallback?) {
+    public func beginEulerUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: EulerNotificationCallback?) {
         // Has the service been found?
         if motionService == nil {
             aHandler?(false)
@@ -948,7 +960,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
 
-    public func beginPedometerUpdates(withCompletoinHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: pedometerNotificationCallback?) {
+    public func beginPedometerUpdates(withCompletoinHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: PedometerNotificationCallback?) {
         // Has the service been found?
         if motionService == nil {
             aHandler?(false)
@@ -999,7 +1011,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
 
-    public func beginRawDataUpdates(withCompletoinHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: rawDataNotificationCallback?) {
+    public func beginRawDataUpdates(withCompletoinHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: RawDataNotificationCallback?) {
         // Has the service been found?
         if motionService == nil {
             aHandler?(false)
@@ -1065,7 +1077,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
 
-    public func beginHeadingUpdates(withCompletoinHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: headingNotificationCallback?) {
+    public func beginHeadingUpdates(withCompletoinHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: HeadingNotificationCallback?) {
         // Has the service been found?
         if motionService == nil {
             aHandler?(false)
@@ -1114,7 +1126,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
 
-    public func beginGravityVectorUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: gravityVectorNotificationCallback?) {
+    public func beginGravityVectorUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: GravityVectorNotificationCallback?) {
         // Has the service been found?
         if motionService == nil {
             aHandler?(false)
@@ -1166,7 +1178,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
 
-    public func beginRotationMatrixUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler : rotationMatrixNotificationCallback?) {
+    public func beginRotationMatrixUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler : RotationMatrixNotificationCallback?) {
         // Has the service been found?
         if motionService == nil {
             aHandler?(false)
@@ -1226,7 +1238,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
     
-    //MARK: - Sound service
+    //MARK: - Sound service implementation
     public func setSoundConfiguration(speakerMode: ThingySpeakerMode, andMicrophoneMode micMode: ThingyMicrophoneMode, withCompletitionHandler aHandler: CompletionCallback?) {
         // Has the service been found?
         guard let soundService = soundService else {
@@ -1360,7 +1372,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
     
-    public func beginMicrophoneUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: microphoneNotificationCallback?) {
+    public func beginMicrophoneUpdates(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: MicrophoneNotificationCallback?) {
         // Has the service been found?
         guard let soundService = soundService else {
             aHandler?(false)
@@ -1426,8 +1438,9 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
             _ = operationCallbackHandlers.removeLast()
         }
     }
+    
     //MARK: - Battery service implementation
-    public func beginBatteryLevelNotifications(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: batteryNotificationCallback?) {
+    public func beginBatteryLevelNotifications(withCompletionHandler aHandler: CompletionCallback?, andNotificationHandler aNotificationHandler: BatteryNotificationCallback?) {
         // Has the service been found?
         if batteryService == nil {
             aHandler?(false)
@@ -1435,8 +1448,8 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
         // Save the notification callback. This may overwrite the old one if such existed
         valueCallbackHandlers[getBatteryLevelCharacteristicUUID()] = { (batteryData) -> (Void) in
-            let batteryValue    = UInt8(batteryData[0])
-            aNotificationHandler?(batteryValue)
+            self.batteryLevel = UInt8(batteryData[0])
+            aNotificationHandler?(self.batteryLevel!)
         }
         
         // Were notifications already enabled?
@@ -1476,6 +1489,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
             aHandler?(false)
             _ = operationCallbackHandlers.removeLast()
         }
+        batteryLevel = nil // invalidate Battery Level
     }
 
     //MARK: - Discovery
@@ -1584,6 +1598,10 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
             if characteristic.uuid == getDeviceNameCharacteristicUUID() {
                 if let nameData = characteristic.value {
                     name = String(data: nameData, encoding: .utf8)!
+                }
+            } else if characteristic.uuid == getBatteryLevelCharacteristicUUID() {
+                if let batteryData = characteristic.value {
+                    batteryLevel = UInt8(batteryData[0])
                 }
             }
             // When characteristic discovery and reading is complete, set the state to .ready

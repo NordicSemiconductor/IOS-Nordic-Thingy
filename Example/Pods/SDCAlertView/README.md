@@ -1,9 +1,5 @@
 # SDCAlertView
 
-![CI Status](https://travis-ci.org/sberrevoets/SDCAlertView.svg?branch=master)
-![CocoaPods](https://img.shields.io/cocoapods/v/SDCAlertView.svg)
-![Carthage](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
-
 `SDCAlertView` started out as an alert that looked identical to `UIAlertView`, but had support for a custom content view. With the introduction of `UIAlertController` in iOS 8, the project was updated to the more modern API that `UIAlertController` brought.
 
 <div align="center">
@@ -28,22 +24,20 @@
 
 # Requirements
 
- - Swift 3
- - iOS 8 or higher
-
-If you want to use the library on iOS 7, please use version 2.5.4 (the latest 2.x release).
+ - Swift 4
+ - iOS 9 or higher
 
 # Installation
 
 ## CocoaPods
-To install SDCAlertView using CocoaPods, please integrate it in your existing Podfile, or create a new Podfile:
+To install SDCAlertView using CocoaPods, integrate it in your existing Podfile, or create a new Podfile:
 
 ```ruby
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'SDCAlertView', '~> 7.1'
+  pod 'SDCAlertView'
 end
 ```
 
@@ -53,7 +47,7 @@ Then run `pod install`.
 To install with Carthage, add the following line to your `Cartfile`:
 
 ```ruby
-github "sberrevoets/SDCAlertView" ~> 7.1
+github "sberrevoets/SDCAlertView"
 ```
 
 Run `carthage update` and drag `SDCAlertView.framework` in the `Build` folder into your project.
@@ -75,8 +69,8 @@ SPM does not yet support iOS, but SDCAlertView will be available there once it d
 ## Basic
 
 ```swift
-let alert = AlertController(title: "Title", message: "This is a message", preferredStyle: .Alert)
-alert.add(AlertAction(title: "Cancel", style: .default))
+let alert = AlertController(title: "Title", message: "This is a message", preferredStyle: .alert)
+alert.add(AlertAction(title: "Cancel", style: .normal))
 alert.add(AlertAction(title: "OK", style: .preferred))
 alert.present()
 
@@ -96,9 +90,9 @@ spinner.startAnimating()
 let alert = AlertController(title: "Title", message: "Please wait...")
 alert.contentView.addSubview(spinner)
 
-spinner.centerXAnchor.constraintEqualToAnchor(alert.contentView.centerXAnchor).active = true
-spinner.topAnchor.constraintEqualToAnchor(alert.contentView.topAnchor).active = true
-spinner.bottomAnchor.constraintEqualToAnchor(alert.contentView.bottomAnchor).active = true
+spinner.centerXAnchor.constraint(equalTo: alert.contentView.centerXAnchor).isActive = true
+spinner.topAnchor.constraint(equalTo: alert.contentView.topAnchor).isActive = true
+spinner.bottomAnchor.constraint(equalTo: alert.contentView.bottomAnchor).isActive = true
 
 alert.present()
 ```
@@ -108,7 +102,7 @@ alert.present()
 ```swift
 let alert = AlertController(title: "Title", message: "This is a message")
 alert.add(AlertAction(title: "Dismiss", style: .preferred))
-alert.add(AlertAction(title: "Don't dismiss", style: .default))
+alert.add(AlertAction(title: "Don't dismiss", style: .normal))
 alert.shouldDismissHandler = { $0.title == "Dismiss" }
 alert.present()
 ```

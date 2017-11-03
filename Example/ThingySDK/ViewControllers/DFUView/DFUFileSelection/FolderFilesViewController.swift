@@ -165,6 +165,5 @@ class FolderFilesViewController: UIViewController, UITableViewDataSource, UITabl
         // Go back to DFUViewController
         fileDelegate?.onFileSelected(withURL: self.selectedPath!)
         dismiss(animated: true)
-        UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
     }
 }
