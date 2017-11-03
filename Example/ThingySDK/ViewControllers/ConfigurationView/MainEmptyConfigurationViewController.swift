@@ -111,8 +111,8 @@ class MainEmptyConfigurationViewController: SwipableViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         let menuViewController = mainNavigationContorller.revealViewController().rearViewController as! MainMenuViewController
-        if targetPeripheral != nil {
-            menuViewController.thingyPeripheral(targetPeripheral!, didChangeStateTo: targetPeripheral!.state)
+        if let targetPeripheral = targetPeripheral {
+            menuViewController.thingyPeripheral(targetPeripheral, didChangeStateTo: targetPeripheral.state)
         }
     }
 
