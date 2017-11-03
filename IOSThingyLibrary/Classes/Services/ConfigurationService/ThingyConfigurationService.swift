@@ -90,7 +90,7 @@ internal class ThingyConfigurationService: ThingyService {
 
     internal func set(name aName: String) throws {
         guard aName.utf16.count <= 10 else {
-            throw ThingyConfigurationError.nameTooLong(currentLength: aName.utf16.count)
+            throw ThingyConfigurationError.nameTooLong(currentLength: aName.utf8.count)
         }
 
         if let nameCharacteristic = getNameCharacteristic() {
