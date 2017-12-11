@@ -476,7 +476,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         // thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState)
         // which will refresh the list of menuPeripherals. Let's keep the original list here so we know which raw should be reloaded.
         let peripheralsBeforeRemoving = menuPeripherals
-        
+
         if thingyManager!.removePeripheral(peripheralToRemove) {
             // If the current active peripheral was removed, switch to the other, preferably a connected one.
             if peripheralToRemove == targetPeripheral {
@@ -513,18 +513,22 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
                 // Reload peripherals list
                 reloadPeripherals(activeOnly: !mainHeaderIsExpanded)
                 
-                // Refresh the table view
-                menuTableView.beginUpdates()
-                if removedPeripheralWasDisconnected {
-                    menuTableView.deleteRows(at: [indexPath], with: .automatic)
+                if targetPeripheral != nil {
+                    // Refresh the table view
+                    menuTableView.beginUpdates()
+                    if removedPeripheralWasDisconnected {
+                        menuTableView.deleteRows(at: [indexPath], with: .automatic)
+                    }
+                    if menuPeripherals.isEmpty {
+                        menuTableView.insertRows(at: [IndexPath(row: 0, section: indexPath.section)], with: .automatic)
+                    } else if targetPeripheralIndex != nil { // This is the new targetPeripheral, switched above
+                        menuTableView.reloadRows(at: [IndexPath(row: targetPeripheralIndex!, section: indexPath.section)], with: .automatic)
+                    }
+                    updateServicesMenu()
+                    menuTableView.endUpdates()
+                } else {
+                    menuTableView.reloadData()
                 }
-                if menuPeripherals.isEmpty {
-                    menuTableView.insertRows(at: [IndexPath(row: 0, section: indexPath.section)], with: .automatic)
-                } else if targetPeripheralIndex != nil { // This is the new targetPeripheral, switched above
-                    menuTableView.reloadRows(at: [IndexPath(row: targetPeripheralIndex!, section: indexPath.section)], with: .automatic)
-                }
-                updateServicesMenu()
-                menuTableView.endUpdates()
             }
         
             
@@ -551,7 +555,6 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         var shouldToggleRevealView = true
 
         switch indexPath.section {

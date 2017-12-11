@@ -50,6 +50,9 @@ class UserFilesViewController: UIViewController, FilePreselectionDelegate, UITab
     var selectedPath : URL?
     var files        : [URL]!
     var documentsDirectoryPath : String?
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     //MARK: - View Outlets
     @IBOutlet weak var tableView: UITableView!

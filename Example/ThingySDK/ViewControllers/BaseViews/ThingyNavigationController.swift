@@ -49,6 +49,10 @@ class ThingyNavigationController: UINavigationController, HasThingyTarget {
     var thingyManager    : ThingyManager?
     var targetPeripheral : ThingyPeripheral?
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     //MARK: Implementation
     public func setTargetPeripheral(_ aTargetPeripheral: ThingyPeripheral?, andManager aManager: ThingyManager?) {
         targetPeripheral = aTargetPeripheral
