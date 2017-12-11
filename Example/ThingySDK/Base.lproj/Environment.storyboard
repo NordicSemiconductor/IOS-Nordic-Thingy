@@ -41,7 +41,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q8U-qM-XQn">
                                 <rect key="frame" x="135" y="28" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="onTintColor" red="0.0" green="0.50196078430000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="0.0" green="0.50588235290000005" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="temperatureSwitchDidChange:" destination="igT-1S-Wra" eventType="valueChanged" id="MXc-G8-yty"/>
                                 </connections>
@@ -49,7 +49,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIF-ZA-xMt">
                                 <rect key="frame" x="135" y="68" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="onTintColor" red="0.0" green="0.50196078430000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="0.0" green="0.50588235290000005" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="pressureSwitchDidChange:" destination="igT-1S-Wra" eventType="valueChanged" id="vif-cW-2vk"/>
                                 </connections>
@@ -57,7 +57,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="exb-sP-HN4">
                                 <rect key="frame" x="135" y="108" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="onTintColor" red="0.0" green="0.50196078430000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="0.0" green="0.50588235290000005" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="humiditySwitchDidChange:" destination="igT-1S-Wra" eventType="valueChanged" id="Hnb-AF-wQD"/>
                                 </connections>
@@ -79,7 +79,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9QR-Hc-h7F">
                                 <rect key="frame" x="135" y="148" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="onTintColor" red="0.0" green="0.50196078430000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="0.0" green="0.50588235290000005" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="airQualitySwitchDidChange:" destination="igT-1S-Wra" eventType="valueChanged" id="F8x-j5-PQh"/>
                                 </connections>
@@ -94,7 +94,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wcB-VN-qIu">
                                 <rect key="frame" x="135" y="188" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="onTintColor" red="0.0" green="0.50196078430000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="0.0" green="0.50588235290000005" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="lightIntensitySwitchDidChange:" destination="igT-1S-Wra" eventType="valueChanged" id="Eag-Hf-AlR"/>
                                 </connections>
@@ -242,6 +242,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
                             <tableViewSection headerTitle="Sample Rate" id="It0-5S-aSZ">
                                 <cells>
@@ -579,7 +580,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.0" green="0.60392159219999997" blue="0.85490196939999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.0" green="0.61176470589999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -1117,5 +1118,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="OYE-Sp-oIC"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.0" green="0.60392159219999997" blue="0.85490196939999996" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

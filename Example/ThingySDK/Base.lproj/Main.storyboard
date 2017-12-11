@@ -74,7 +74,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.0" green="0.50196078431372548" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.0" green="0.50588235294117645" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RUa-mL-sVH" secondAttribute="trailing" constant="30" id="4lG-xu-4JH"/>
@@ -171,7 +171,7 @@
         <!--Root View Controller-->
         <scene sceneID="REX-Gw-NFf">
             <objects>
-                <viewController storyboardIdentifier="ThingyRootViewController" id="Qby-uu-NCy" customClass="RootViewController" customModule="ThingySDK_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThingyRootViewController" automaticallyAdjustsScrollViewInsets="NO" id="Qby-uu-NCy" customClass="RootViewController" customModule="ThingySDK_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iaX-o7-zjH"/>
                         <viewControllerLayoutGuide type="bottom" id="jhr-Qd-DMx"/>
@@ -183,12 +183,12 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <segue destination="tqi-wQ-BIW" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="M0z-KE-DxT"/>
-                        <segue destination="ZI6-Eg-kQX" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="ncg-PO-TcP"/>
+                        <segue destination="ZI6-Eg-kQX" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="bLs-Vt-RWE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJ6-DK-Tt6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-983" y="-711"/>
+            <point key="canvasLocation" x="-929" y="-713"/>
         </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="oIp-Mf-wUZ">
@@ -336,16 +336,14 @@ V2VsY29tZSB0bwMgTm9yZGljIFRoaW5neQ
         <!--Main Navigation View Controller-->
         <scene sceneID="wWu-9I-zQx">
             <objects>
-                <navigationController storyboardIdentifier="MainNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="ZI6-Eg-kQX" customClass="MainNavigationViewController" customModule="ThingySDK_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationViewController" id="ZI6-Eg-kQX" customClass="MainNavigationViewController" customModule="ThingySDK_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="NS1-xq-ttf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="NS1-xq-ttf">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.0" green="0.60392159223556519" blue="0.85490196943283081" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.0" green="0.61176470589999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="textShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -441,7 +439,7 @@ V2VsY29tZSB0bwMgTm9yZGljIFRoaW5neQ
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wv-UE-4oY">
                                 <rect key="frame" x="96" y="393.5" width="183" height="40"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.50588235294117645" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="o3k-VV-kYm"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="183" id="wZM-vI-L6d"/>
@@ -459,7 +457,7 @@ V2VsY29tZSB0bwMgTm9yZGljIFRoaW5neQ
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJB-um-glp">
                                 <rect key="frame" x="96" y="333" width="183" height="40"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.50588235294117645" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="183" id="jzl-5M-pb6"/>
                                     <constraint firstAttribute="height" constant="40" id="ogi-Qv-8tE"/>
@@ -622,5 +620,5 @@ V2VsY29tZSB0bwMgTm9yZGljIFRoaW5neQ
     <inferredMetricsTieBreakers>
         <segue reference="RBp-I5-NJQ"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.0" green="0.60392159219999997" blue="0.85490196939999996" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

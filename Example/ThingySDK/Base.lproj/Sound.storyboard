@@ -755,5 +755,5 @@
         <image name="white_shadow_left" width="30" height="10"/>
         <image name="white_shadow_right" width="30" height="10"/>
     </resources>
-    <color key="tintColor" red="0.0" green="0.60392159219999997" blue="0.85490196939999996" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

@@ -42,7 +42,7 @@
                                                         <segment title="Breathe"/>
                                                         <segment title="One Shot"/>
                                                     </segments>
-                                                    <color key="tintColor" red="0.0" green="0.50196078430000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="tintColor" red="0.0" green="0.50588235290000005" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="ledModeChanged:" destination="7uC-s1-XOg" eventType="valueChanged" id="dlI-kK-FNm"/>
                                                     </connections>
@@ -384,5 +384,5 @@
         <image name="ic_check_circle_white_48pt" width="48" height="48"/>
         <image name="ic_menu_24pt" width="24" height="24"/>
     </resources>
-    <color key="tintColor" red="0.0" green="0.60392159219999997" blue="0.85490196939999996" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

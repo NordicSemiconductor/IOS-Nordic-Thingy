@@ -30,7 +30,7 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LBO-Cx-ai2">
                                                     <rect key="frame" x="304" y="7" width="51" height="31"/>
-                                                    <color key="onTintColor" red="0.0" green="0.50196078430000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="onTintColor" red="0.0" green="0.50588235290000005" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="temperatureToggleTapped:" destination="RqN-Yx-iYV" eventType="valueChanged" id="ftt-QL-Y7L"/>
                                                     </connections>
@@ -68,7 +68,7 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SY6-ej-trU">
                                                     <rect key="frame" x="304" y="7" width="51" height="31"/>
-                                                    <color key="onTintColor" red="0.0" green="0.50196078430000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="onTintColor" red="0.0" green="0.50588235290000005" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="pressureToggleTapped:" destination="RqN-Yx-iYV" eventType="valueChanged" id="HkO-7s-Oxt"/>
                                                     </connections>
@@ -106,7 +106,7 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVC-FF-Yyv">
                                                     <rect key="frame" x="304" y="7" width="51" height="31"/>
-                                                    <color key="onTintColor" red="0.0" green="0.50196078430000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="onTintColor" red="0.0" green="0.50588235290000005" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="ButtonStateToggleTapped:" destination="RqN-Yx-iYV" eventType="valueChanged" id="mcL-2H-7g6"/>
                                                     </connections>
@@ -397,7 +397,7 @@
                                     <constraint firstAttribute="height" constant="37" id="vQg-6R-TsY"/>
                                 </constraints>
                                 <color key="pageIndicatorTintColor" red="0.72941176470000002" green="0.72941176470000002" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.60392159219999997" blue="0.85490196939999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.50588235290000005" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcq-AA-Maw">
                                 <rect key="frame" x="0.0" y="64" width="375" height="566"/>
@@ -510,5 +510,5 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <image name="ic_info_24pt" width="24" height="24"/>
         <image name="ic_menu_24pt" width="24" height="24"/>
     </resources>
-    <color key="tintColor" red="0.0" green="0.60392159219999997" blue="0.85490196939999996" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

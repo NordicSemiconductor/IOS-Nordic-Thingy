@@ -65,7 +65,7 @@
                                                     <state key="normal" title="Use NFC"/>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.41247671842575073" green="0.67241334915161133" blue="0.88797265291213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="vvu-x9-mpX" firstAttribute="centerY" secondItem="c6N-I1-DXO" secondAttribute="centerY" id="2fn-Bq-OKJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="vvu-x9-mpX" secondAttribute="trailing" constant="15" id="4Gh-1K-G04"/>
@@ -319,7 +319,7 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.30999767779999998" green="0.6037563682" blue="0.85413712259999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.0" green="0.61176470589999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -341,11 +341,11 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
             <objects>
                 <navigationController storyboardIdentifier="NfcNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="voR-bu-P9X" customClass="ThingyCreatorNavigationController" customModule="ThingySDK_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7LQ-zf-2X5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="7LQ-zf-2X5">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.3163781464" green="0.61524027589999997" blue="0.87008798119999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.0" green="0.61176470589999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -371,11 +371,11 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
                         <viewControllerLayoutGuide type="bottom" id="C3N-OP-F4f"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uaM-mu-LDg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Error title Error description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="46r-ht-a3o">
-                                <rect key="frame" x="28" y="136" width="319" height="44"/>
+                                <rect key="frame" x="28" y="20" width="319" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="IKh-WV-eMb"/>
                                 </constraints>
@@ -384,10 +384,10 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nfc_tutorial_phone" translatesAutoresizingMaskIntoConstraints="NO" id="HAD-m1-CG1" userLabel="Phone">
-                                <rect key="frame" x="81" y="257.5" width="213" height="443"/>
+                                <rect key="frame" x="81" y="141.5" width="213" height="443"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_nfc_logo" translatesAutoresizingMaskIntoConstraints="NO" id="kT3-Yw-Xgu">
-                                <rect key="frame" x="163" y="200" width="48" height="48"/>
+                                <rect key="frame" x="163" y="84" width="48" height="48"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -430,5 +430,5 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
     <inferredMetricsTieBreakers>
         <segue reference="Gvw-7F-Lau"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.0" green="0.60392159219999997" blue="0.85490196939999996" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

@@ -119,5 +119,5 @@
         <image name="ic_developer_board_24pt" width="24" height="24"/>
         <image name="ic_menu_24pt" width="24" height="24"/>
     </resources>
-    <color key="tintColor" red="0.0" green="0.60392159219999997" blue="0.85490196939999996" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
