@@ -392,12 +392,14 @@ V2VsY29tZSB0bwMgTm9yZGljIFRoaW5neQ
                             <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="Cbm-2j-Xf4">
                                 <rect key="frame" x="16" y="435.5" width="343" height="91.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTP-N9-QL4">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTP-N9-QL4">
                                         <rect key="frame" x="74.5" y="37.5" width="194" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="J3M-Ty-EfF"/>
                                         </constraints>
-                                        <state key="normal" title="www.nordicsemi.com/thingy"/>
+                                        <state key="normal" title="www.nordicsemi.com/thingy">
+                                            <color key="titleColor" red="0.0" green="0.61176470589999998" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="linkTapped:" destination="s3e-1P-9Ho" eventType="touchUpInside" id="2H4-7z-wfX"/>
                                         </connections>
