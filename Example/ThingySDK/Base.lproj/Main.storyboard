@@ -40,7 +40,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEH-I3-qxv">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.61176470588235299" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="addButtonTapped:" destination="tqi-wQ-BIW" eventType="touchUpInside" id="OTQ-lp-wIv"/>
                                                     </connections>
@@ -59,7 +59,6 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="qEH-I3-qxv" secondAttribute="trailing" id="8xb-Oz-9hz"/>
                                                 <constraint firstItem="qEH-I3-qxv" firstAttribute="top" secondItem="V4L-vo-ink" secondAttribute="top" id="ADq-B8-7fn"/>
@@ -74,8 +73,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.0" green="0.50588235294117645" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" red="0.0" green="0.61176470588235299" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RUa-mL-sVH" secondAttribute="trailing" constant="30" id="4lG-xu-4JH"/>
                                         <constraint firstItem="V4L-vo-ink" firstAttribute="top" secondItem="RUa-mL-sVH" secondAttribute="bottom" constant="17" id="9yH-Fd-0ep"/>

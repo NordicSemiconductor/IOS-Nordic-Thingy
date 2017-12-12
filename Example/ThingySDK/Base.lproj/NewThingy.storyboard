@@ -57,7 +57,7 @@
                                                 </label>
                                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvu-x9-mpX">
                                                     <rect key="frame" x="270" y="7" width="90" height="30"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="mZF-aM-H91"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="tSo-w6-DXa"/>
@@ -65,7 +65,7 @@
                                                     <state key="normal" title="Use NFC"/>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.0" green="0.61176470588235299" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="vvu-x9-mpX" firstAttribute="centerY" secondItem="c6N-I1-DXO" secondAttribute="centerY" id="2fn-Bq-OKJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="vvu-x9-mpX" secondAttribute="trailing" constant="15" id="4Gh-1K-G04"/>
