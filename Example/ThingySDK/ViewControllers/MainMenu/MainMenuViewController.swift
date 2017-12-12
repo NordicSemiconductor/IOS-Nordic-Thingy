@@ -465,6 +465,8 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             alert.addAction(UIAlertAction(title: "Forget", style: .destructive) { (action) in
                 self.removePeripheral(peripheralToRemove, at: indexPath)
             })
+            alert.popoverPresentationController?.permittedArrowDirections = [.up]
+            alert.popoverPresentationController?.sourceView = tableView.cellForRow(at: indexPath)
             present(alert, animated: true)
         }
     }

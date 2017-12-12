@@ -1,3 +1,11 @@
+* **Version 1.3.2**
+    - Bugfix: Fixed bug causing delete Thingy action sheet not to work on iPad causing a crash
+
+* **Version 1.3.1**
+    - Bugfix: Fixed bug causing app to crash when deleting the first connected Thingy
+    - Improvement: iOS 11 UI refresh
+    - Improvement: iPhone X UI adaptation
+
 * **Version 1.3.0**
     - Improvement: Thingy SDK will now return nil instead of 0.0.0 on version reading if it's not ready.
     - Improvement: All view presentations now are done from navigation controllers instead of detached views.
