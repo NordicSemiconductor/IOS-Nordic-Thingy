@@ -146,6 +146,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="pee-cV-MNZ"/>
                                                             </constraints>
+                                                            <color key="minimumTrackTintColor" red="0.2422906756401062" green="0.010412919335067272" blue="0.9983791708946228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="thumbTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <connections>
                                                                 <action selector="constantSliderDidChange:" destination="7uC-s1-XOg" eventType="valueChanged" id="TbI-sv-IY5"/>
