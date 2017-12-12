@@ -46,4 +46,7 @@ import IOSThingyLibrary
 
 class ThingyCreatorNavigationController: ThingyNavigationController {
     var newThingyDelegate: NewThingyDelegate?
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }

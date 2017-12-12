@@ -8,7 +8,7 @@ Thingy SDK for iOS
 ```
 target 'YourAppTargetName' do
     use_frameworks!
-    pod 'IOSThingyLibrary', '~> 1.3'
+    pod 'IOSThingyLibrary', '~> 1.3.1'
 end
 ```
 - Install dependencies
@@ -21,7 +21,7 @@ pod install
 **For Carthage:**
 - Create a new **Cartfile** in your project's root with the following contents
 ```
-github "NordicSemiconductor/NordicSemiconductor/IOS-Nordic-Thingy" ~> 1.3
+github "NordicSemiconductor/NordicSemiconductor/IOS-Nordic-Thingy" ~> 1.3.1
 ```
 
 - Build with carthage
