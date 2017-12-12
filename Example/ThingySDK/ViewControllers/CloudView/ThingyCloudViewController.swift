@@ -344,7 +344,9 @@ class ThingyCloudViewController: SwipableTableViewController {
     }
 
     private func submitToAPI(type: String, andData someData: [String]) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        }
         guard cloudToken != nil else {
             let alert = UIAlertController(title: "Error", message: "Clout token not present", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
@@ -381,7 +383,10 @@ class ThingyCloudViewController: SwipableTableViewController {
             
             if let httpStatus = response as? HTTPURLResponse, !(200...299 ~= httpStatus.statusCode) {
                 self.disableNotifications()
-                self.setUIState(enabled: false)
+                DispatchQueue.main.async {
+                    self.setUIState(enabled: false)
+                }
+                
                 
                 var errorMessages: String = ""
                 if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
@@ -418,9 +423,9 @@ class ThingyCloudViewController: SwipableTableViewController {
                 if data.count > 0 {
                     self.updateDownloadCount(byteCount: data.count)
                 }
+                
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
-            
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
         task.resume()
     }
@@ -542,7 +547,10 @@ class ThingyCloudViewController: SwipableTableViewController {
 
         if state == .disconnecting || state == .disconnected {
             print("Disconnected thingy")
-            setUIState(enabled: false)
+            DispatchQueue.main.async {
+                self.setUIState(enabled: false)
+            }
+            
         } else if state == .ready {
             cloudToken = loadToken(forPeripheral: targetPeripheral!)
             cloudTokenLabel.text = cloudToken ?? "None, tap to add"
@@ -551,7 +559,9 @@ class ThingyCloudViewController: SwipableTableViewController {
             self.pressureIntervalValueLabel.text = String.init(format: "%d", pressureInterval)
             if cloudToken != nil {
                 enableNotifications()
-                setUIState(enabled: true)
+                DispatchQueue.main.async {
+                    self.setUIState(enabled: true)
+                }
             }
         }
     }
