@@ -92,7 +92,7 @@ class SoundGraphDataHandler: NSObject {
     }
     
     func clearGraphData() {
-        dataSet.clear()
+        dataSet.removeAll(keepingCapacity: false)
         xPosition = 0
         targetChartView.xAxis.axisMinimum = 0
         targetChartView.xAxis.axisMaximum = Double(maximumVisiblePoints)
@@ -103,10 +103,10 @@ class SoundGraphDataHandler: NSObject {
     func addPoints(withValues values: [Double]) {
         for v in values {
             let entry = ChartDataEntry(x: xPosition, y: v)
-            _ = dataSet.addEntry(entry)
+            _ = dataSet.append(entry)
             
             if xPosition > Double(maximumVisiblePoints) {
-                _ = dataSet.removeFirst()
+                let _:ChartDataEntry = dataSet.removeFirst()
             }
             
             xPosition += 1.0

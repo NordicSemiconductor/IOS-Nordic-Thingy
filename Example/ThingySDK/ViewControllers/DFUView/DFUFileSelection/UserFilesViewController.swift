@@ -190,7 +190,7 @@ class UserFilesViewController: UIViewController, FilePreselectionDelegate, UITab
         }
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         if (indexPath as NSIndexPath).row > 0 {
             // Inbox folder can't be deleted
             let filePath = files[(indexPath as NSIndexPath).row - 1]
@@ -205,7 +205,7 @@ class UserFilesViewController: UIViewController, FilePreselectionDelegate, UITab
         return .none
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let filePath = files[(indexPath as NSIndexPath).row - 1]
             

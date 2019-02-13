@@ -175,7 +175,7 @@ class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, 
         let parentView = self.parent as! ThingyNavigationController
         parentView.dismiss(animated: true, completion: nil)
         let rootView = parentView.presentingViewController as? RootViewController
-        if let childViews = rootView?.childViewControllers {
+        if let childViews = rootView?.children {
             for aChildView in childViews {
                 if aChildView is MainNavigationViewController {
                     let mainNavigationView = (aChildView as? MainNavigationViewController)

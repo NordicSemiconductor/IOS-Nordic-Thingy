@@ -159,7 +159,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
             navigationController.setTargetPeripheral(targetPeripheral, andManager: thingyManager)
         } else if segue.identifier == "selectFile" {
             let aNavigationController = segue.destination as? UINavigationController
-            let barViewController = aNavigationController?.childViewControllerForStatusBarHidden as? UITabBarController
+            let barViewController = aNavigationController?.childForStatusBarHidden as? UITabBarController
             let userFilesVC = barViewController?.viewControllers?.first as? UserFilesViewController
             userFilesVC?.fileDelegate = self
             

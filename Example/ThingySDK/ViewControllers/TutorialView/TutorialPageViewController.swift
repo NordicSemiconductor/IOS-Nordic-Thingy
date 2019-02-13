@@ -81,7 +81,7 @@ class TutorialPageViewController: UIPageViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "\(tutorialPageName)ViewController")
     }
     
-    private func scrollToViewController(_ viewController: UIViewController, direction: UIPageViewControllerNavigationDirection = .forward) {
+    private func scrollToViewController(_ viewController: UIViewController, direction: UIPageViewController.NavigationDirection = .forward) {
         setViewControllers([viewController],
                            direction: direction,
                            animated: true,
@@ -108,7 +108,7 @@ class TutorialPageViewController: UIPageViewController {
     func scrollToViewController(index newIndex: Int) {
         if let firstViewController = viewControllers?.first,
             let currentIndex = orderedViewControllers.index(of: firstViewController) {
-            let direction: UIPageViewControllerNavigationDirection = newIndex >= currentIndex ? .forward : .reverse
+            let direction: UIPageViewController.NavigationDirection = newIndex >= currentIndex ? .forward : .reverse
             let nextViewController = orderedViewControllers[newIndex]
             scrollToViewController(nextViewController, direction: direction)
         }

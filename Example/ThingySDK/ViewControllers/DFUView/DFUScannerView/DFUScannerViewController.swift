@@ -73,7 +73,7 @@ class DFUScannerViewController: ThingyViewController, UITableViewDelegate, UITab
         scannedPeripheralsTableView.isHidden = discoveredThingies.isEmpty
         
         // Show activity indicator
-        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        let activityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
         activityIndicatorView.hidesWhenStopped = true
         activityIndicatorView.startAnimating()
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicatorView)

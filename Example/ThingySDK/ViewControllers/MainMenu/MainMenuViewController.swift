@@ -138,7 +138,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: - MenuViewController Implementation
     private func setupTargetController() {
         if targetNavigationController == nil {
-            targetNavigationController = revealViewController().frontViewController as! MainNavigationViewController
+            targetNavigationController = (revealViewController().frontViewController as! MainNavigationViewController)
         }
     }
     
@@ -345,8 +345,8 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         return ("Forget")
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        return UITableViewCellEditingStyle.delete
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return UITableViewCell.EditingStyle.delete
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -445,7 +445,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         return indexPath.section == 0 && menuPeripherals.isEmpty == false //Only devices are editable
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard indexPath.row <= menuPeripherals.count && thingyManager != nil else {
                 //Nothing to delete

@@ -96,7 +96,7 @@ class MainEmptyConfigurationViewController: SwipableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        mainNavigationContorller = navigationController as! MainNavigationViewController
+        mainNavigationContorller = (navigationController as! MainNavigationViewController)
         
         guard thingyManager!.persistentPeripheralIdentifiers() != nil else {
             return

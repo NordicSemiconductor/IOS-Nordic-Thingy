@@ -447,7 +447,7 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
         aView.layer.transform = rotation
         let currentAngle = aView.layer.value(forKeyPath: "transform.rotation.z")
         let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
-        rotateAnimation.fillMode = kCAFillModeForwards
+        rotateAnimation.fillMode = CAMediaTimingFillMode.forwards
         rotateAnimation.fromValue = currentAngle
         rotateAnimation.duration = aDuration
         aView.layer.add(rotateAnimation, forKey: nil)
