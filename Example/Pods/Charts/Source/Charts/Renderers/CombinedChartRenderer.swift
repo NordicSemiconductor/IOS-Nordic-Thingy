@@ -22,11 +22,11 @@ open class CombinedChartRenderer: DataRenderer
     /// if set to true, a grey area is drawn behind each bar that indicates the maximum value
     @objc open var drawBarShadowEnabled = false
     
-    @objc internal var _renderers = [DataRenderer]()
+    internal var _renderers = [DataRenderer]()
     
     internal var _drawOrder: [CombinedChartView.DrawOrder] = [.bar, .bubble, .line, .candle, .scatter]
     
-    @objc public init(chart: CombinedChartView?, animator: Animator, viewPortHandler: ViewPortHandler?)
+    @objc public init(chart: CombinedChartView, animator: Animator, viewPortHandler: ViewPortHandler)
     {
         super.init(animator: animator, viewPortHandler: viewPortHandler)
         
@@ -36,15 +36,11 @@ open class CombinedChartRenderer: DataRenderer
     }
     
     /// Creates the renderers needed for this combined-renderer in the required order. Also takes the DrawOrder into consideration.
-    @objc internal func createRenderers()
+    internal func createRenderers()
     {
         _renderers = [DataRenderer]()
         
-        guard let
-            chart = chart,
-            let animator = animator,
-            let viewPortHandler = self.viewPortHandler
-            else { return }
+        guard let chart = chart else { return }
 
         for order in drawOrder
         {
@@ -99,6 +95,22 @@ open class CombinedChartRenderer: DataRenderer
     
     open override func drawData(context: CGContext)
     {
+        // If we redraw the data, remove and repopulate accessible elements to update label values and frames
+        accessibleChartElements.removeAll()
+
+        if
+            let combinedChart = chart,
+            let data = combinedChart.data {
+            // Make the chart header the first element in the accessible elements array
+            let element = createAccessibleHeader(usingChart: combinedChart,
+                                                 andData: data,
+                                                 withDefaultDescription: "Combined Chart")
+            accessibleChartElements.append(element)
+        }
+
+        // TODO: Due to the potential complexity of data presented in Combined charts, a more usable way
+        // for VO accessibility would be to use axis based traversal rather than by dataset.
+        // Hence, accessibleChartElements is not populated below. (Individual renderers guard against dataSource being their respective views)
         for renderer in _renderers
         {
             renderer.drawData(context: context)
@@ -156,7 +168,7 @@ open class CombinedChartRenderer: DataRenderer
         }
     }
 
-    /// - returns: The sub-renderer object at the specified index.
+    /// - Returns: The sub-renderer object at the specified index.
     @objc open func getSubRenderer(index: Int) -> DataRenderer?
     {
         if index >= _renderers.count || index < 0
@@ -169,7 +181,7 @@ open class CombinedChartRenderer: DataRenderer
         }
     }
 
-    /// - returns: All sub-renderers.
+    /// All sub-renderers.
     @objc open var subRenderers: [DataRenderer]
     {
         get { return _renderers }
@@ -178,10 +190,10 @@ open class CombinedChartRenderer: DataRenderer
     
     // MARK: Accessors
     
-    /// - returns: `true` if drawing values above bars is enabled, `false` ifnot
+    /// `true` if drawing values above bars is enabled, `false` ifnot
     @objc open var isDrawValueAboveBarEnabled: Bool { return drawValueAboveBarEnabled }
     
-    /// - returns: `true` if drawing shadows (maxvalue) for each bar is enabled, `false` ifnot
+    /// `true` if drawing shadows (maxvalue) for each bar is enabled, `false` ifnot
     @objc open var isDrawBarShadowEnabled: Bool { return drawBarShadowEnabled }
     
     /// the order in which the provided data objects should be drawn.

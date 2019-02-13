@@ -12,6 +12,10 @@
 import Foundation
 import CoreGraphics
 
+#if !os(OSX)
+    import UIKit
+#endif
+
 @objc(ChartDescription)
 open class Description: ComponentBase
 {
@@ -30,7 +34,7 @@ open class Description: ComponentBase
     }
     
     /// The text to be shown as the description.
-    @objc open var text: String? = "Description Label"
+    @objc open var text: String?
     
     /// Custom position for the description text in pixels on the screen.
     open var position: CGPoint? = nil

@@ -175,11 +175,11 @@ public class ThingyDFUController: NSObject, DFUProgressDelegate, DFUServiceDeleg
     }
     
     private func flashPeripheral(aPeripheral: CBPeripheral) {
-        dfuInitiator = DFUServiceInitiator(centralManager: centralManager, target: aPeripheral).with(firmware: targetFirmware)
+        dfuInitiator = DFUServiceInitiator().with(firmware: targetFirmware)
         dfuInitiator.delegate = self
         dfuInitiator.progressDelegate = self
         dfuInitiator.logger = self
-        dfuController = dfuInitiator.start()
+        dfuController = dfuInitiator.start(target: aPeripheral)
     }
 
     private func didFinishFlashProcess() {

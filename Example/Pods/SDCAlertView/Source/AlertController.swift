@@ -77,6 +77,10 @@ public class AlertController: UIViewController {
     @objc
     public var preferredAction: AlertAction? {
         get {
+            if self.preferredStyle == .actionSheet {
+                return nil
+            }
+
             let index = self.actions.index { $0.style == .preferred }
             return index != nil ? self.actions[index!] : nil
         }
@@ -173,7 +177,7 @@ public class AlertController: UIViewController {
 
         case .actionSheet:
             let nibName = String(describing: ActionSheetView.self)
-            let objects = Bundle(for: ActionSheetView.self).loadNibNamed(nibName, owner: nil, options: nil)
+            let objects = Bundle.resourceBundle.loadNibNamed(nibName, owner: nil, options: nil)
             if let actionSheet = objects?.first as? ActionSheetView {
                 self.alert = actionSheet
             } else {
@@ -191,11 +195,12 @@ public class AlertController: UIViewController {
     private func commonInit() {
         self.modalPresentationStyle = .custom
         self.transitioningDelegate = self.transitionDelegate
-    }
 
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.textFields?.first?.resignFirstResponder()
+        if self.preferredStyle == .alert {
+            let command = UIKeyCommand(input: "\r", modifierFlags: [],
+                                       action: #selector(self.handleHardwareReturnKey))
+            self.addKeyCommand(command)
+        }
     }
 
     // MARK: - Public
@@ -250,6 +255,11 @@ public class AlertController: UIViewController {
         self.configureAlertView()
     }
 
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.textFields?.first?.resignFirstResponder()
+    }
+
     public override var preferredStatusBarStyle: UIStatusBarStyle {
         return self.presentingViewController?.preferredStatusBarStyle ?? .default
     }
@@ -259,6 +269,13 @@ public class AlertController: UIViewController {
     }
 
     // MARK: - Private
+
+    @objc
+    private func handleHardwareReturnKey() {
+        if let preferredAction = self.preferredAction {
+            self.alert.actionTappedHandler?(preferredAction)
+        }
+    }
 
     private func listenForKeyboardChanges() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardChange),
@@ -317,21 +334,21 @@ public class AlertController: UIViewController {
                 NSLayoutConstraint.activate([
                     self.alert.widthAnchor.constraint(equalToConstant: width * self.visualStyle.width),
                     self.alert.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-                    self.alert.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,
+                    self.alert.bottomAnchor.constraint(equalTo: self.bottomAnchor,
                                                            constant: margins.bottom),
-                    self.alert.heightAnchor.constraint(lessThanOrEqualTo: self.view.heightAnchor,
+                    self.alert.heightAnchor.constraint(lessThanOrEqualTo: self.heightAnchor,
                                                            constant: -margins.top)
                 ])
 
             case .alert:
                 self.alert.widthAnchor.constraint(equalToConstant: self.visualStyle.width).isActive = true
-                self.verticalCenter = self.alert.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+                self.verticalCenter = self.alert.centerYAnchor.constraint(equalTo: self.centerYAnchor)
                 let maximumHeightOffset = -(margins.top + margins.bottom)
 
                 NSLayoutConstraint.activate([
                     self.verticalCenter!,
                     self.alert.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-                    self.alert.heightAnchor.constraint(lessThanOrEqualTo: self.view.heightAnchor,
+                    self.alert.heightAnchor.constraint(lessThanOrEqualTo: self.heightAnchor,
                                                        multiplier: 1, constant: maximumHeightOffset),
                 ])
 
@@ -353,7 +370,7 @@ public class AlertController: UIViewController {
     }
 
     private func addChromeTapHandlerIfNecessary() {
-        if self.behaviors.contains(.dismissOnOutsideTap) {
+        if !self.behaviors.contains(.dismissOnOutsideTap) {
             return
         }
 
@@ -368,6 +385,32 @@ public class AlertController: UIViewController {
             self.dismiss() {
                 self.outsideTapHandler?()
             }
+        }
+    }
+}
+
+private extension AlertController {
+    var bottomAnchor: NSLayoutYAxisAnchor {
+        if #available(iOS 11, *) {
+            return self.view.safeAreaLayoutGuide.bottomAnchor
+        } else {
+            return self.view.bottomAnchor
+        }
+    }
+
+    var centerYAnchor: NSLayoutYAxisAnchor {
+        if #available(iOS 11, *) {
+            return self.view.safeAreaLayoutGuide.centerYAnchor
+        } else {
+            return self.view.centerYAnchor
+        }
+    }
+
+    var heightAnchor: NSLayoutDimension {
+        if #available(iOS 11, *) {
+            return self.view.safeAreaLayoutGuide.heightAnchor
+        } else {
+            return self.view.heightAnchor
         }
     }
 }
