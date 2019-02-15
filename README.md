@@ -10,7 +10,7 @@ The **Nordic Thingy:52™** is an easy-to-use prototyping platform, designed to 
 
 All sensors and actuators can be configured over-the-air using Bluetooth Low Energy. It makes it possible to create demos and prototypes without starting from scratch. It connects to Bluetooth Low Energy-enabled smart phones, tablets, laptops and similar devices, and it sends/receives data from/to its sensors/actuators to an app or cloud. It includes an NFC antenna, and has 1 button and 1 RGB LED that simplifies input and output.
 
-Read more: https://www.nordicsemi.com/eng/Products/Nordic-Thingy-52
+Read more: https://www.nordicsemi.com/Software-and-Tools/Development-Kits/Nordic-Thingy-52
 
 ## SDK and Sample application for iOS
 
@@ -57,7 +57,7 @@ Xcode will launch with the example app, simply build and run!
 ---
 ### Requirements
 **Note**: This Library is built with Swift 4.2, even though Obj-C is compatible out of the box, we prefer to put all our focus forward into Swift 4.2 and above.
-- [Nordic Thingy:52](https://www.nordicsemi.com/eng/Products/Nordic-Thingy-52)
+- [Nordic Thingy:52](https://www.nordicsemi.com/Software-and-Tools/Development-Kits/Nordic-Thingy-52)
 - Xcode: Xcode 9 and above support Swift 4.2
 - iOS 8.0 and above
     - iPhone compatibility:
