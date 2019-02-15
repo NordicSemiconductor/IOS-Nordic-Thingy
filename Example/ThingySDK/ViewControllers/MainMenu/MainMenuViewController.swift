@@ -212,9 +212,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
 
-    //MARK: -
-    //MARK: ExpandableTableHeaderViewDelegate methods
-    //MARK: -
+    //MARK: - ExpandableTableHeaderViewDelegate methods
     func canCollapse(forSection section: Int) -> Bool {
         guard section == 0 else {
             return false
@@ -338,9 +336,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         return connectedMenuPeripheralCount
     }
     
-    //MARK: -
     //MARK: UItableViewDelegate methods
-    //MARK: -
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return ("Forget")
     }
@@ -383,19 +379,25 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         switch (indexPath.section) {
             case 0:
                 if menuPeripherals.isEmpty {
-                    aCell.updateCell(withTitle: "No Thingy configured", andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isTransparent: true, batteryLevel: nil)
+                    aCell.updateCell(withTitle: "No Thingy configured", andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"),
+                                     isTransparent: true, batteryLevel: nil)
                 } else {
                     let aPeripheral = menuPeripherals[indexPath.row]
-                    aCell.updateCell(withTitle: aPeripheral.name, andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isActive: aPeripheral == targetPeripheral, isTransparent: aPeripheral.state != .ready, batteryLevel: aPeripheral.batteryLevel)
+                    aCell.updateCell(withTitle: aPeripheral.name, andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"),
+                                     isActive: aPeripheral == targetPeripheral,
+                                     isTransparent: aPeripheral.state != .ready,
+                                     batteryLevel: aPeripheral.batteryLevel)
                 }
 
             case 1:
                 if connectedPeripheralCount() > 0 {
-                    aCell.updateCell(withTitle: serviceMenuItems[indexPath.row], andIcon: serviceMenuIcons[indexPath.row], batteryLevel: nil)
+                    aCell.updateCell(withTitle: serviceMenuItems[indexPath.row], andIcon: serviceMenuIcons[indexPath.row],
+                                     batteryLevel: nil)
                 }
 
             case 2:
-                aCell.updateCell(withTitle: moreMenuItems[indexPath.row], andIcon: moreMenuIcons[indexPath.row], batteryLevel: nil)
+                aCell.updateCell(withTitle: moreMenuItems[indexPath.row], andIcon: moreMenuIcons[indexPath.row],
+                                 batteryLevel: nil)
 
             default:
                 aCell.updateCell(withTitle: "Menu", andIcon: nil, batteryLevel: nil)

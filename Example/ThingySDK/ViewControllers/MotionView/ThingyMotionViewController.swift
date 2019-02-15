@@ -192,7 +192,7 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
     
     //MARK: - Thingy API
     override func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
-        navigationItem.title = peripheral.name + " Motion"
+        navigationItem.title = "Motion"
         
         setControlButtonsState(enabled: peripheral.state == .ready)
 

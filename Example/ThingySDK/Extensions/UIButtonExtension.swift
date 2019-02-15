@@ -36,25 +36,24 @@
  OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 //
-//  ThingyPeripheralTableViewCell.swift
+//  UIButtonExtension.swift
 //
-//  Created by Mostafa Berg on 05/10/16.
+//  Created by Aleksander Nowakowski on 14/02/2019.
 //
-//
+//  This extension was inspired by https://stackoverflow.com/a/49773196/2115352
 
 import UIKit
 
-class ThingyPeripheralTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+extension UIButton {
+    
+    func setBackgroundColor(color: UIColor, forState: UIControl.State) {
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+        UIGraphicsGetCurrentContext()!.setFillColor(color.cgColor)
+        UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+        let colorImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        setBackgroundImage(colorImage, for: forState)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
 }

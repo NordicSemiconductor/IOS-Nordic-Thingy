@@ -543,7 +543,7 @@ class ThingyCloudViewController: SwipableTableViewController {
 
     //MARK: - Thingy delegate
     override func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
-        navigationItem.title = peripheral.name + " Cloud"
+        navigationItem.title = "Cloud"
 
         if state == .disconnecting || state == .disconnected {
             print("Disconnected thingy")

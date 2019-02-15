@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,10 +20,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="329" height="60"/>
                     <subviews>
                         <label opaque="NO" contentMode="left" verticalHuggingPriority="251" text="HEADER TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHg-Wr-SW9">
-                            <rect key="frame" x="12" y="8" width="112" height="44"/>
+                            <rect key="frame" x="16" y="8" width="112" height="44"/>
                             <gestureRecognizers/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                            <color key="textColor" red="0.0" green="0.50196078430000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.46666666670000001" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_drop_down_circle_24pt" translatesAutoresizingMaskIntoConstraints="NO" id="BmU-P2-kaA">
@@ -35,9 +36,7 @@
                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                     <gestureRecognizers/>
                     <constraints>
-                        <constraint firstItem="oHg-Wr-SW9" firstAttribute="leading" secondItem="j7Z-0h-4tH" secondAttribute="leading" constant="12" id="BbB-xh-ZBV"/>
                         <constraint firstAttribute="bottom" secondItem="oHg-Wr-SW9" secondAttribute="bottom" constant="8" id="O6B-j9-pdy"/>
-                        <constraint firstAttribute="trailing" secondItem="BmU-P2-kaA" secondAttribute="trailing" constant="8" id="W33-KX-Rmm"/>
                         <constraint firstItem="oHg-Wr-SW9" firstAttribute="top" secondItem="j7Z-0h-4tH" secondAttribute="top" constant="8" id="XNb-zH-ugn"/>
                         <constraint firstAttribute="bottom" secondItem="BmU-P2-kaA" secondAttribute="bottom" constant="8" id="fb2-3C-PlT"/>
                         <constraint firstItem="BmU-P2-kaA" firstAttribute="top" secondItem="j7Z-0h-4tH" secondAttribute="top" constant="8" id="phk-KN-nBq"/>
@@ -51,6 +50,8 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="j7Z-0h-4tH" secondAttribute="bottom" id="BkL-m4-XGV"/>
                 <constraint firstItem="j7Z-0h-4tH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Otk-Lo-qzK"/>
+                <constraint firstItem="oHg-Wr-SW9" firstAttribute="leading" secondItem="96a-sS-ab7" secondAttribute="leading" constant="16" id="cpu-ot-Slh"/>
+                <constraint firstItem="96a-sS-ab7" firstAttribute="trailing" secondItem="BmU-P2-kaA" secondAttribute="trailing" constant="8" id="gwd-Vr-yFy"/>
                 <constraint firstItem="j7Z-0h-4tH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ll8-gK-11u"/>
                 <constraint firstAttribute="trailing" secondItem="j7Z-0h-4tH" secondAttribute="trailing" id="n0o-WZ-Klw"/>
             </constraints>
@@ -58,6 +59,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="96a-sS-ab7"/>
             <connections>
                 <outlet property="icon" destination="BmU-P2-kaA" id="NZS-sa-rbK"/>
                 <outlet property="title" destination="oHg-Wr-SW9" id="TC2-El-RKD"/>

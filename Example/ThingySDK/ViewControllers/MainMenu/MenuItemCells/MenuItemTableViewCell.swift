@@ -51,9 +51,10 @@ class MenuItemTableViewCell: UITableViewCell {
     @IBOutlet weak var batteryLevelLabel: UILabel!
     @IBOutlet weak var batteryIcon: UIImageView!
     
-    public func updateCell(withTitle aTitle: String?, andIcon anIcon: UIImage?, isActive: Bool? = nil, isTransparent: Bool = false, batteryLevel aLevel: UInt8?) {
+    public func updateCell(withTitle aTitle: String?, andIcon anIcon: UIImage?,
+                           isActive: Bool? = nil, isTransparent: Bool = false,
+                           batteryLevel aLevel: UInt8?) {
         label.text = aTitle
-        icon.image = anIcon
         
         if aLevel == nil {
             batteryLevelLabel.isHidden = true
@@ -66,7 +67,7 @@ class MenuItemTableViewCell: UITableViewCell {
 
         if isActive == true {
             icon.image = #imageLiteral(resourceName: "ic_developer_board_blue_24pt")
-            label.textColor = UIColor.nordicBlue
+            label.textColor = UIColor.nordicLake
         } else {
             icon.image = anIcon
             label.textColor = UIColor.black

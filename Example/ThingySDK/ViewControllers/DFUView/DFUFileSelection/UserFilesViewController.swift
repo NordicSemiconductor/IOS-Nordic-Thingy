@@ -75,7 +75,9 @@ class UserFilesViewController: UIViewController, FilePreselectionDelegate, UITab
         
         // The Navigation Item buttons may be initialized just once, here.
         tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButtonTapped))
+        tabBarController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.nordicBlue
         tabBarController?.navigationItem.leftBarButtonItem  = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelButtonTapped))
+        tabBarController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.nordicBlue
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -174,7 +174,7 @@ class ThingyUserInterfaceViewController: SwipableTableViewController, UICollecti
 
     //MARK: - Thingy delegate
     override func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
-        navigationItem.title = peripheral.name + " UI"
+        navigationItem.title = "User Interface"
 
         if state == .disconnecting || state == .disconnected {
             setUIElementState(enabled: false)

@@ -99,7 +99,7 @@ class ThingyConfigurationViewController: SwipableViewController, UITableViewData
     
     //MARK: - ThingyPeripheralDelegate
     override func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
-        navigationItem.title = peripheral.name + " Configuration"
+        navigationItem.title = "Configuration"
         configName = peripheral.name
         configurationMenuTable.reloadData()
         if state == .ready {

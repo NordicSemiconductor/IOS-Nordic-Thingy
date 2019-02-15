@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,46 +14,42 @@
         <scene sceneID="cV4-HZ-lix">
             <objects>
                 <viewController storyboardIdentifier="ConfigurationView" title="Configuration" automaticallyAdjustsScrollViewInsets="NO" id="Xct-b6-LSe" customClass="ThingyConfigurationViewController" customModule="ThingySDK_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rFk-v8-UW7"/>
-                        <viewControllerLayoutGuide type="bottom" id="QQ3-6h-I73"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ew7-af-GLy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="By_Nordic" translatesAutoresizingMaskIntoConstraints="NO" id="Mej-Gz-YdT">
-                                <rect key="frame" x="127.5" y="651" width="120" height="11"/>
+                                <rect key="frame" x="127.66666666666669" y="762" width="120" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="98E-ZB-KEy"/>
                                     <constraint firstAttribute="height" constant="11" id="n0M-e4-1Vt"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="8zw-1I-2CU">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ThingyConfigurationCell" id="ZDM-ah-NUF" customClass="ThingyConfigurationItemTableViewCell" customModule="ThingySDK_Example" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZDM-ah-NUF" id="ot5-oa-yw0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Configuration Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Khk-t8-ead">
-                                                    <rect key="frame" x="50" y="14" width="142" height="16"/>
+                                                    <rect key="frame" x="42" y="14" width="142" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Configuration value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laM-zf-F1H">
-                                                    <rect key="frame" x="223" y="14" width="137" height="16"/>
+                                                    <rect key="frame" x="215.66666666666663" y="14" width="144.33333333333337" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_developer_board_24pt" translatesAutoresizingMaskIntoConstraints="NO" id="Jop-w2-2US">
-                                                    <rect key="frame" x="23" y="12" width="19" height="19"/>
+                                                    <rect key="frame" x="15" y="12" width="19" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Jop-w2-2US" secondAttribute="height" multiplier="1:1" id="PwA-pt-vEO"/>
                                                     </constraints>
@@ -63,7 +58,7 @@
                                             <constraints>
                                                 <constraint firstItem="Khk-t8-ead" firstAttribute="top" secondItem="ot5-oa-yw0" secondAttribute="topMargin" constant="3" id="3aC-qL-UAO"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Jop-w2-2US" secondAttribute="bottom" constant="2" id="4j9-dt-Uxi"/>
-                                                <constraint firstItem="Jop-w2-2US" firstAttribute="leading" secondItem="ot5-oa-yw0" secondAttribute="leadingMargin" constant="8" id="8DI-KG-iXF"/>
+                                                <constraint firstItem="Jop-w2-2US" firstAttribute="leading" secondItem="ot5-oa-yw0" secondAttribute="leadingMargin" id="8DI-KG-iXF"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Khk-t8-ead" secondAttribute="bottom" constant="3" id="96b-Me-Hfg"/>
                                                 <constraint firstItem="laM-zf-F1H" firstAttribute="leading" secondItem="Khk-t8-ead" secondAttribute="trailing" constant="31.5" id="MdQ-qg-s1J"/>
                                                 <constraint firstItem="Khk-t8-ead" firstAttribute="leading" secondItem="Jop-w2-2US" secondAttribute="trailing" constant="8" id="QTW-kv-GSA"/>
@@ -89,13 +84,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96067994830000003" green="0.96084433790000001" blue="0.96066969629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="QQ3-6h-I73" firstAttribute="top" secondItem="Mej-Gz-YdT" secondAttribute="bottom" constant="5" id="7g9-db-dwa"/>
-                            <constraint firstItem="QQ3-6h-I73" firstAttribute="top" secondItem="8zw-1I-2CU" secondAttribute="bottom" id="Aon-Qi-8qw"/>
-                            <constraint firstItem="8zw-1I-2CU" firstAttribute="leading" secondItem="ew7-af-GLy" secondAttribute="leading" id="QKP-q8-oUU"/>
-                            <constraint firstItem="Mej-Gz-YdT" firstAttribute="centerX" secondItem="ew7-af-GLy" secondAttribute="centerX" id="oG5-pU-Ba0"/>
-                            <constraint firstItem="8zw-1I-2CU" firstAttribute="top" secondItem="rFk-v8-UW7" secondAttribute="bottom" id="rBs-Lg-xvv"/>
-                            <constraint firstAttribute="trailing" secondItem="8zw-1I-2CU" secondAttribute="trailing" id="wJb-uJ-DoE"/>
+                            <constraint firstItem="BkN-iY-Kxh" firstAttribute="bottom" secondItem="Mej-Gz-YdT" secondAttribute="bottom" constant="5" id="7g9-db-dwa"/>
+                            <constraint firstAttribute="bottom" secondItem="8zw-1I-2CU" secondAttribute="bottom" id="Aon-Qi-8qw"/>
+                            <constraint firstItem="8zw-1I-2CU" firstAttribute="leading" secondItem="BkN-iY-Kxh" secondAttribute="leading" id="QKP-q8-oUU"/>
+                            <constraint firstItem="Mej-Gz-YdT" firstAttribute="centerX" secondItem="BkN-iY-Kxh" secondAttribute="centerX" id="oG5-pU-Ba0"/>
+                            <constraint firstItem="8zw-1I-2CU" firstAttribute="top" secondItem="BkN-iY-Kxh" secondAttribute="top" id="rBs-Lg-xvv"/>
+                            <constraint firstItem="BkN-iY-Kxh" firstAttribute="trailing" secondItem="8zw-1I-2CU" secondAttribute="trailing" id="wJb-uJ-DoE"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="BkN-iY-Kxh"/>
                     </view>
                     <navigationItem key="navigationItem" title="Configuration" id="qxp-nc-Dhy">
                         <barButtonItem key="leftBarButtonItem" image="ic_menu_24pt" id="WwX-z0-7kC">

@@ -344,7 +344,7 @@ class SoundViewController: SwipableTableViewController {
     override func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
         print("Sound thingy state: \(state), view loaded: \(isViewLoaded)") // TODO: remove
         
-        navigationItem.title = peripheral.name + " Sound"
+        navigationItem.title = "Sound"
         
         recordButton.isEnabled = state == .ready
         playButton.isEnabled = state == .ready
