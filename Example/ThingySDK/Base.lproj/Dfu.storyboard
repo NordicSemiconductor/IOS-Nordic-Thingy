@@ -457,6 +457,7 @@
                         <outlet property="scanBootloaderLabel" destination="UmO-p9-ZHG" id="PR2-VN-nCj"/>
                         <outlet property="speedLabel" destination="Mmy-pt-qOR" id="2bB-gR-Ltq"/>
                         <outlet property="startButton" destination="rTw-UE-nfv" id="3Zr-WN-dfo"/>
+                        <outlet property="targetCell" destination="VWs-cG-sDK" id="o4M-j9-y0I"/>
                         <outlet property="uploadingFirmwareIcon" destination="qJL-LG-v4e" id="vFz-9f-edv"/>
                         <outlet property="uploadingFirmwareLabel" destination="BPe-hw-88Q" id="ScU-ze-1qc"/>
                         <segue destination="a8Y-Jw-V1E" kind="showDetail" identifier="selectFile" id="Hlw-Uf-hgd"/>

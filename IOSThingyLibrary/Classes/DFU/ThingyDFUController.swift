@@ -179,6 +179,15 @@ public class ThingyDFUController: NSObject, DFUProgressDelegate, DFUServiceDeleg
         dfuInitiator.delegate = self
         dfuInitiator.progressDelegate = self
         dfuInitiator.logger = self
+        
+        // Starting from iOS 11 and macOS 10.13 there is a new API that removes the need of PRNs.
+        // However, some devices may still work better with them enabled! A specially those
+        // based on SDK older than 8.0 where the flash saving was slower and modern phones
+        // can send data faster then that which causes the DFU bootloader to abort with an error.
+        if #available(iOS 11.0, macOS 10.13, *) {
+            dfuInitiator.packetReceiptNotificationParameter = 0
+        }
+        
         dfuController = dfuInitiator.start(target: aPeripheral)
     }
 
@@ -238,7 +247,7 @@ public class ThingyDFUController: NSObject, DFUProgressDelegate, DFUServiceDeleg
     }
 
     //MARK: - LoggerDelegate
-    public func logWith(_ level:LogLevel, message:String) {
+    public func logWith(_ level: LogLevel, message: String) {
         // print("\(level.name()): \(message)")
     }
 
