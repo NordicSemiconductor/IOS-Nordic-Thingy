@@ -102,7 +102,9 @@ func getMTUCharacteristicUUID() -> CBUUID {
     return getUUIDString(withBaseFormat: baseUUIDFormat, andIdentifier: "0108")
 }
 
-//MARK: -
+func getNFCTagContentCharacteristicUUID() -> CBUUID {
+    return getUUIDString(withBaseFormat: baseUUIDFormat, andIdentifier: "0109")
+}
 
 //MARK: - EnvironmentService UUIDs
 func getEnvironmentServiceUUID() -> CBUUID {
@@ -132,7 +134,7 @@ func getLightIntensityCharacteristicUUID() -> CBUUID {
 func getEnvironmentConfigurationCharacteristicUUID() -> CBUUID {
     return getUUIDString(withBaseFormat: baseUUIDFormat, andIdentifier: "0206")
 }
-//MARK: -
+
 //MARK: - Battery UUIDs
 func getBatteryServiceUUID() -> CBUUID {
     return CBUUID(string: "180F")
@@ -154,7 +156,6 @@ func getLEDCharacteristicUUID() -> CBUUID {
 func getButtonCharacteristicUUID() -> CBUUID {
     return getUUIDString(withBaseFormat: baseUUIDFormat, andIdentifier: "0302")
 }
-//MARK: -
 
 //MARK: - MotionService UUIDs
 func getMotionServiceUUID() -> CBUUID {
@@ -200,7 +201,6 @@ func getHeadingCharacteristicUUID() -> CBUUID {
 func getGravityVectorCharacteristicUUID() -> CBUUID {
     return getUUIDString(withBaseFormat: baseUUIDFormat, andIdentifier: "040A")
 }
-//MARK: -
 
 //MARK: - SoundService UUIDs
 func getSoundServiceUUID() -> CBUUID {
@@ -222,8 +222,6 @@ func getSpeakerStatusCharacteristicUUID() -> CBUUID {
 func getMicrophoneCharacteristicUUID() -> CBUUID {
     return getUUIDString(withBaseFormat: baseUUIDFormat, andIdentifier: "0504")
 }
-
-//MARK: -
 
 //MARK: - UUID generation helper
 fileprivate func getUUIDString(withBaseFormat aBaseFormat: String, andIdentifier anIdentifier: String) -> CBUUID {

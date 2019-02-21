@@ -260,6 +260,19 @@ internal class ThingyConfigurationService: ThingyService {
         }
     }
     */
+    
+    internal func readNfcTagContent() -> Data? {
+        let nfcCharacteristic = getNFCTagContentCharacteristic()
+        return nfcCharacteristic?.value
+    }
+    
+    internal func set(nfcTagContent content: Data) throws {
+        if let nfcCharacteristic = getNFCTagContentCharacteristic() {
+            nfcCharacteristic.writeValue(withData: content)
+        } else {
+            throw ThingyConfigurationError.charactersticNotDiscovered(characteristicName: "NFC Tag Content")
+        }
+    }
 
     //MARK: - Convenince methods
     
@@ -293,5 +306,9 @@ internal class ThingyConfigurationService: ThingyService {
     
     private func getMTUCharacteristic() -> ThingyCharacteristic? {
         return getThingyCharacteristicFromList(withIdentifier: getMTUCharacteristicUUID())
+    }
+    
+    private func getNFCTagContentCharacteristic() -> ThingyCharacteristic? {
+        return getThingyCharacteristicFromList(withIdentifier: getNFCTagContentCharacteristicUUID())
     }
 }
