@@ -257,7 +257,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
         }
         
         firmwareType.text = type
-        firmwareSize.text = "\(totalSize / 1024.0) kB"
+        firmwareSize.text = String(format: "%.3f kB", (totalSize / 1024.0))
         firmwareFilename.text = aFirmware.fileName!
         firmwareType.alpha = 1
         firmwareSize.alpha = 1

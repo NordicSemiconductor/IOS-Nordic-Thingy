@@ -443,11 +443,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eiW-vp-Iof">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eiW-vp-Iof">
                                 <rect key="frame" x="16" y="52" width="343" height="433"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title #" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="prU-TI-UUj">
-                                <rect key="frame" x="20" y="517" width="339" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title #" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="prU-TI-UUj">
+                                <rect key="frame" x="16" y="517" width="343" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="cNh-Gj-N9F"/>
                                 </constraints>
@@ -455,6 +455,21 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="vDA-81-rOA">
+                                <rect key="frame" x="16" y="539" width="343" height="120"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="0bD-SE-ybT"/>
+                                </constraints>
+                                <string key="text">Step #
+Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -464,13 +479,18 @@
                             <constraint firstItem="eiW-vp-Iof" firstAttribute="trailing" secondItem="9GM-YZ-xqv" secondAttribute="trailingMargin" id="KrR-2D-BN4"/>
                             <constraint firstItem="eiW-vp-Iof" firstAttribute="top" secondItem="XWK-fq-Ah4" secondAttribute="top" constant="32" id="Qma-LI-GUB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eiW-vp-Iof" secondAttribute="trailing" id="dqj-7F-fa4"/>
+                            <constraint firstItem="XWK-fq-Ah4" firstAttribute="bottom" secondItem="vDA-81-rOA" secondAttribute="bottom" constant="8" id="fsx-Nk-pWg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vDA-81-rOA" secondAttribute="trailing" id="hAN-2F-WWS"/>
                             <constraint firstItem="prU-TI-UUj" firstAttribute="top" secondItem="eiW-vp-Iof" secondAttribute="bottom" constant="32" id="iTM-du-YcC"/>
+                            <constraint firstItem="vDA-81-rOA" firstAttribute="top" secondItem="prU-TI-UUj" secondAttribute="bottom" id="jjB-ZG-z4Q"/>
                             <constraint firstItem="eiW-vp-Iof" firstAttribute="centerX" secondItem="XWK-fq-Ah4" secondAttribute="centerX" id="urQ-HC-Jai"/>
-                            <constraint firstItem="prU-TI-UUj" firstAttribute="leading" secondItem="9GM-YZ-xqv" secondAttribute="leadingMargin" constant="4" id="vST-XT-f0T"/>
+                            <constraint firstItem="prU-TI-UUj" firstAttribute="leading" secondItem="9GM-YZ-xqv" secondAttribute="leadingMargin" id="vST-XT-f0T"/>
+                            <constraint firstItem="vDA-81-rOA" firstAttribute="leading" secondItem="9GM-YZ-xqv" secondAttribute="leadingMargin" id="xXn-Ln-hBA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XWK-fq-Ah4"/>
                     </view>
                     <connections>
+                        <outlet property="contentLabel" destination="vDA-81-rOA" id="cYz-KS-SAx"/>
                         <outlet property="image" destination="eiW-vp-Iof" id="4J4-6N-cTn"/>
                         <outlet property="titleLabel" destination="prU-TI-UUj" id="nOR-C7-4au"/>
                     </connections>

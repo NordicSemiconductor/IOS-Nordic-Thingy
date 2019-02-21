@@ -345,8 +345,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading firmware" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPe-hw-88Q">
-                                                    <rect key="frame" x="48" y="78" width="149" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPe-hw-88Q">
+                                                    <rect key="frame" x="48" y="78" width="78" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -515,22 +515,24 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCE-di-Hw7" userLabel="Empty View">
                                 <rect key="frame" x="120" y="293" width="135" height="86"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No devices found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVn-To-BCK">
-                                        <rect key="frame" x="0.0" y="65" width="135" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No devices found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVn-To-BCK">
+                                        <rect key="frame" x="0.6666666666666714" y="65" width="133.66666666666663" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="scanning" translatesAutoresizingMaskIntoConstraints="NO" id="BvS-Sl-ffR" userLabel="Bluetooth Icon">
-                                        <rect key="frame" x="35" y="0.0" width="64" height="64"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanning" translatesAutoresizingMaskIntoConstraints="NO" id="BvS-Sl-ffR" userLabel="Bluetooth Icon">
+                                        <rect key="frame" x="35.666666666666657" y="0.0" width="64" height="64"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="86" id="RKH-ex-6lC"/>
+                                    <constraint firstItem="BvS-Sl-ffR" firstAttribute="centerX" secondItem="mCE-di-Hw7" secondAttribute="centerX" id="Rtd-SR-fFN"/>
+                                    <constraint firstItem="yVn-To-BCK" firstAttribute="top" secondItem="BvS-Sl-ffR" secondAttribute="bottom" constant="1" id="XOv-eJ-ER9"/>
+                                    <constraint firstItem="yVn-To-BCK" firstAttribute="centerX" secondItem="mCE-di-Hw7" secondAttribute="centerX" id="gF8-Uf-bRw"/>
                                     <constraint firstAttribute="width" constant="135" id="hL6-u0-Bo4"/>
+                                    <constraint firstItem="BvS-Sl-ffR" firstAttribute="top" secondItem="mCE-di-Hw7" secondAttribute="top" id="oVN-jC-SUD"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -613,19 +615,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="83.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="filesHelp" translatesAutoresizingMaskIntoConstraints="NO" id="nJ1-on-Ffb">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filesHelp" translatesAutoresizingMaskIntoConstraints="NO" id="nJ1-on-Ffb">
                                                     <rect key="frame" x="17" y="12" width="60" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="K0J-ve-ImB"/>
+                                                        <constraint firstAttribute="height" constant="60" id="T9s-wm-WKc"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How to..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCW-hV-qQI">
-                                                    <rect key="frame" x="92" y="29" width="149" height="26"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCW-hV-qQI">
+                                                    <rect key="frame" x="92" y="29" width="75.666666666666686" height="23"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="nJ1-on-Ffb" firstAttribute="leading" secondItem="URU-5D-4CS" secondAttribute="leadingMargin" constant="2" id="5az-sR-rrf"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="QCW-hV-qQI" secondAttribute="trailing" constant="16" id="AdN-aq-ZMc"/>
+                                                <constraint firstItem="QCW-hV-qQI" firstAttribute="top" secondItem="URU-5D-4CS" secondAttribute="topMargin" constant="18" id="DSv-NZ-wP1"/>
+                                                <constraint firstItem="QCW-hV-qQI" firstAttribute="leading" secondItem="nJ1-on-Ffb" secondAttribute="trailing" constant="15" id="GIf-67-l1T"/>
+                                                <constraint firstItem="nJ1-on-Ffb" firstAttribute="top" secondItem="URU-5D-4CS" secondAttribute="topMargin" constant="1" id="wYa-lk-Sa6"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
@@ -656,22 +667,24 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfi-ir-vZT" userLabel="Empty View">
                                 <rect key="frame" x="133.66666666666666" y="242.66666666666663" width="108" height="104"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No files found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83v-BB-1iR">
-                                        <rect key="frame" x="0.0" y="83" width="108" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No files found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83v-BB-1iR">
+                                        <rect key="frame" x="0.66666666666668561" y="66.000000000000028" width="106.33333333333333" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="folderEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="0SY-BJ-70h" userLabel="Empty folder icon">
-                                        <rect key="frame" x="21" y="11" width="64" height="64"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folderEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="0SY-BJ-70h" userLabel="Empty folder icon">
+                                        <rect key="frame" x="22" y="1" width="64" height="64"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="104" id="2pu-sh-tlo"/>
+                                    <constraint firstItem="83v-BB-1iR" firstAttribute="centerX" secondItem="jfi-ir-vZT" secondAttribute="centerX" id="PgH-Ns-RwY"/>
+                                    <constraint firstItem="0SY-BJ-70h" firstAttribute="top" secondItem="jfi-ir-vZT" secondAttribute="top" constant="1" id="R8G-vf-8ew"/>
                                     <constraint firstAttribute="width" constant="108" id="SAj-Bo-jm3"/>
+                                    <constraint firstItem="0SY-BJ-70h" firstAttribute="centerX" secondItem="jfi-ir-vZT" secondAttribute="centerX" id="Xcz-Fb-NYm"/>
+                                    <constraint firstItem="83v-BB-1iR" firstAttribute="top" secondItem="0SY-BJ-70h" secondAttribute="bottom" constant="1" id="yoh-Hd-1rj"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -789,22 +802,24 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jmD-K2-OJQ" userLabel="Empty view">
                                 <rect key="frame" x="111.66666666666669" y="284" width="152" height="104"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This folder is empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N56-gD-hwI">
-                                        <rect key="frame" x="0.0" y="83" width="152" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This folder is empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N56-gD-hwI">
+                                        <rect key="frame" x="0.66666666666665719" y="65" width="150.66666666666666" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="folderEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="Wpz-tM-QYO" userLabel="Empty folder icon">
-                                        <rect key="frame" x="45" y="11" width="64" height="64"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folderEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="Wpz-tM-QYO" userLabel="Empty folder icon">
+                                        <rect key="frame" x="43.999999999999986" y="0.0" width="64" height="64"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="N56-gD-hwI" firstAttribute="centerX" secondItem="jmD-K2-OJQ" secondAttribute="centerX" id="Ax7-zn-kRn"/>
+                                    <constraint firstItem="N56-gD-hwI" firstAttribute="top" secondItem="Wpz-tM-QYO" secondAttribute="bottom" constant="1" id="IXI-K9-fKc"/>
                                     <constraint firstAttribute="height" constant="104" id="OV3-iz-NtW"/>
                                     <constraint firstAttribute="width" constant="152" id="POe-lR-hpy"/>
+                                    <constraint firstItem="Wpz-tM-QYO" firstAttribute="top" secondItem="jmD-K2-OJQ" secondAttribute="top" id="id8-ge-yCB"/>
+                                    <constraint firstItem="Wpz-tM-QYO" firstAttribute="centerX" secondItem="jmD-K2-OJQ" secondAttribute="centerX" id="ix6-Vq-KLL"/>
                                 </constraints>
                             </view>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PpI-Vx-csK">

@@ -267,10 +267,10 @@
                                                 <constraint firstItem="tZJ-QR-35J" firstAttribute="leading" secondItem="ct1-M2-wFH" secondAttribute="trailing" constant="5" id="Blt-Yk-ffS"/>
                                                 <constraint firstItem="EWK-sz-DHd" firstAttribute="leading" secondItem="d92-Z0-qEe" secondAttribute="leadingMargin" constant="8" id="Cnx-u1-QPY"/>
                                                 <constraint firstItem="tZJ-QR-35J" firstAttribute="bottom" secondItem="ct1-M2-wFH" secondAttribute="bottom" constant="-2" id="D8t-1L-7Xp"/>
-                                                <constraint firstItem="ct1-M2-wFH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ch8-YV-EyI" secondAttribute="trailing" constant="50" id="DEW-Ag-a3X"/>
+                                                <constraint firstItem="ct1-M2-wFH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ch8-YV-EyI" secondAttribute="trailing" constant="16" id="DEW-Ag-a3X"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="a2I-ot-OVD" secondAttribute="trailing" constant="120" id="Dp7-PB-O6H"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="q4y-ms-k93" secondAttribute="trailing" constant="9" id="HnU-Is-mg5"/>
-                                                <constraint firstItem="eM2-g9-XUB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eB7-GI-zdb" secondAttribute="trailing" constant="50" id="Iik-mE-oQV"/>
+                                                <constraint firstItem="eM2-g9-XUB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eB7-GI-zdb" secondAttribute="trailing" constant="16" id="Iik-mE-oQV"/>
                                                 <constraint firstItem="tKb-4u-B5p" firstAttribute="leading" secondItem="a2I-ot-OVD" secondAttribute="trailing" constant="5" id="Iqz-JM-DH8"/>
                                                 <constraint firstItem="bDE-Yb-wjk" firstAttribute="bottom" secondItem="eM2-g9-XUB" secondAttribute="bottom" constant="-2" id="JMT-WT-Taf"/>
                                                 <constraint firstItem="CxZ-47-nmW" firstAttribute="top" secondItem="mBF-Bc-8tj" secondAttribute="top" constant="2" id="Nto-Vl-M8Z"/>
@@ -298,8 +298,8 @@
                                                 <constraint firstItem="q4y-ms-k93" firstAttribute="leading" secondItem="a2I-ot-OVD" secondAttribute="trailing" constant="5" id="rO4-Vy-qXV"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Xu9-t8-LiE" secondAttribute="trailing" constant="20" symbolic="YES" id="tIh-ji-TJx"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tKb-4u-B5p" secondAttribute="trailing" constant="20" symbolic="YES" id="uPF-eH-AfL"/>
-                                                <constraint firstItem="mBF-Bc-8tj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="clG-y8-IAw" secondAttribute="trailing" constant="50" id="xJL-hv-I5G"/>
-                                                <constraint firstItem="a2I-ot-OVD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EWK-sz-DHd" secondAttribute="trailing" constant="50" id="zad-DF-G68"/>
+                                                <constraint firstItem="mBF-Bc-8tj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="clG-y8-IAw" secondAttribute="trailing" constant="16" id="xJL-hv-I5G"/>
+                                                <constraint firstItem="a2I-ot-OVD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EWK-sz-DHd" secondAttribute="trailing" constant="16" id="zad-DF-G68"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
