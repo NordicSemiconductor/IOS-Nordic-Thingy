@@ -280,6 +280,10 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
             _ = operationCallbackHandlers.removeLast()
         }
     }
+    
+    public func readMtu() -> (peripheralRequestsMtu: Bool, mtu: UInt16)? {
+        return configurationService?.readMTU()
+    }
 
     //MARK: - User Interface Service implementations
     public func readLEDState() -> (mode: ThingyLEDMode, presetColor: ThingyLEDColorPreset?, rgbColor: UIColor?, intensity: UInt8?, breatheDelay: UInt16?)? {
