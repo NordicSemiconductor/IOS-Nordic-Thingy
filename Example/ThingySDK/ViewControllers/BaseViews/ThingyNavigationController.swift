@@ -50,7 +50,7 @@ class ThingyNavigationController: UINavigationController, HasThingyTarget {
     var targetPeripheral : ThingyPeripheral?
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .default//lightContent
     }
 
     //MARK: Implementation

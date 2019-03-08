@@ -138,7 +138,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: - MenuViewController Implementation
     private func setupTargetController() {
         if targetNavigationController == nil {
-            targetNavigationController = revealViewController().frontViewController as! MainNavigationViewController
+            targetNavigationController = (revealViewController().frontViewController as! MainNavigationViewController)
         }
     }
     
@@ -212,9 +212,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
 
-    //MARK: -
-    //MARK: ExpandableTableHeaderViewDelegate methods
-    //MARK: -
+    //MARK: - ExpandableTableHeaderViewDelegate methods
     func canCollapse(forSection section: Int) -> Bool {
         guard section == 0 else {
             return false
@@ -338,15 +336,13 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         return connectedMenuPeripheralCount
     }
     
-    //MARK: -
     //MARK: UItableViewDelegate methods
-    //MARK: -
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return ("Forget")
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        return UITableViewCellEditingStyle.delete
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return UITableViewCell.EditingStyle.delete
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -383,19 +379,25 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         switch (indexPath.section) {
             case 0:
                 if menuPeripherals.isEmpty {
-                    aCell.updateCell(withTitle: "No Thingy configured", andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isTransparent: true, batteryLevel: nil)
+                    aCell.updateCell(withTitle: "No Thingy configured", andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"),
+                                     isTransparent: true, batteryLevel: nil)
                 } else {
                     let aPeripheral = menuPeripherals[indexPath.row]
-                    aCell.updateCell(withTitle: aPeripheral.name, andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"), isActive: aPeripheral == targetPeripheral, isTransparent: aPeripheral.state != .ready, batteryLevel: aPeripheral.batteryLevel)
+                    aCell.updateCell(withTitle: aPeripheral.name, andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"),
+                                     isActive: aPeripheral == targetPeripheral,
+                                     isTransparent: aPeripheral.state != .ready,
+                                     batteryLevel: aPeripheral.batteryLevel)
                 }
 
             case 1:
                 if connectedPeripheralCount() > 0 {
-                    aCell.updateCell(withTitle: serviceMenuItems[indexPath.row], andIcon: serviceMenuIcons[indexPath.row], batteryLevel: nil)
+                    aCell.updateCell(withTitle: serviceMenuItems[indexPath.row], andIcon: serviceMenuIcons[indexPath.row],
+                                     batteryLevel: nil)
                 }
 
             case 2:
-                aCell.updateCell(withTitle: moreMenuItems[indexPath.row], andIcon: moreMenuIcons[indexPath.row], batteryLevel: nil)
+                aCell.updateCell(withTitle: moreMenuItems[indexPath.row], andIcon: moreMenuIcons[indexPath.row],
+                                 batteryLevel: nil)
 
             default:
                 aCell.updateCell(withTitle: "Menu", andIcon: nil, batteryLevel: nil)
@@ -445,7 +447,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         return indexPath.section == 0 && menuPeripherals.isEmpty == false //Only devices are editable
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard indexPath.row <= menuPeripherals.count && thingyManager != nil else {
                 //Nothing to delete

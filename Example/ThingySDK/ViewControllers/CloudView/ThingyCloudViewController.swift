@@ -257,11 +257,11 @@ class ThingyCloudViewController: SwipableTableViewController {
         defaults.set(buttonStateToggle.isOn, forKey: keyButtonEnabled)
         if buttonStateToggle.isOn {
             if isNotifyingButton == false {
-                self.beginButtonNotifications()
+                beginButtonNotifications()
             }
         } else {
             if isNotifyingButton == true {
-                self.stopButtonNotifications()
+                stopButtonNotifications()
             }
         }
     }
@@ -270,11 +270,11 @@ class ThingyCloudViewController: SwipableTableViewController {
         defaults.set(pressureToggle.isOn, forKey: keyPressureEnabled)
         if pressureToggle.isOn {
             if isNotifyingPressure == false {
-                self.beginPressureNotifications()
+                beginPressureNotifications()
             }
         } else {
             if isNotifyingPressure == true {
-                self.stopPressureNotifications()
+                stopPressureNotifications()
             }
         }
     }
@@ -283,11 +283,11 @@ class ThingyCloudViewController: SwipableTableViewController {
         defaults.set(temperatureToggle.isOn, forKey: keyTemperatureEnabled)
         if temperatureToggle.isOn {
             if isNotifyingTemperature == false {
-                self.beginTemperatureNotifications()
+                beginTemperatureNotifications()
             }
         } else {
             if isNotifyingTemperature == true {
-                self.stopTemperatureNotifications()
+                stopTemperatureNotifications()
             }
         }
     }
@@ -316,13 +316,13 @@ class ThingyCloudViewController: SwipableTableViewController {
     //MARK: - Event Cloud handlers
     private func temperatureUpdated(newValue: Float) {
         let eventData = [String(newValue), "°C"]
-        temperatureValueLabel.text = String.init(format: "%.2f °C", newValue)
+        temperatureValueLabel.text = String(format: "%.2f °C", newValue)
         submitToAPI(type: "temperature_update", andData: eventData)
     }
 
     private func pressureUpdated(newValue: Double) {
         let eventData = [String(newValue)]
-        pressureValueLabel.text = String.init(format: "%.2f hPa", newValue)
+        pressureValueLabel.text = String(format: "%.2f hPa", newValue)
         submitToAPI(type: "pressure_update", andData: eventData)
     }
 
@@ -338,8 +338,8 @@ class ThingyCloudViewController: SwipableTableViewController {
 
         let buttonPressDuration = Date().timeIntervalSince(buttonPressTime!)
         buttonPressTime = nil
-        buttonStateValueLabel.text = String.init(format: "Released (%.2f Sec)", buttonPressDuration)
-        let eventData = ["pressDuration", String.init(format: "%0.2f", buttonPressDuration), "Seconds"]
+        buttonStateValueLabel.text = String(format: "Released (%.2f Sec)", buttonPressDuration)
+        let eventData = ["pressDuration", String(format: "%0.2f", buttonPressDuration), "Seconds"]
         submitToAPI(type: "button_press", andData: eventData)
     }
 
@@ -431,24 +431,24 @@ class ThingyCloudViewController: SwipableTableViewController {
     }
 
     private func updateUploadCount(byteCount: Int) {
-        self.totalUploadedBytes = self.totalUploadedBytes + UInt32(byteCount)
-        if self.totalUploadedBytes < 1024 {
-            self.totalUploadSizeLabel.text = String.init(format: "%d Bytes", self.totalUploadedBytes)
-        } else if self.totalUploadedBytes < 1024 * 1024 {
-            self.totalUploadSizeLabel.text = String.init(format: "%.2f Kb", Float(self.totalUploadedBytes) / 1024.0)
+        totalUploadedBytes = totalUploadedBytes + UInt32(byteCount)
+        if totalUploadedBytes < 1024 {
+            totalUploadSizeLabel.text = String(format: "%d Bytes", totalUploadedBytes)
+        } else if totalUploadedBytes < 1024 * 1024 {
+            totalUploadSizeLabel.text = String(format: "%.2f Kb", Float(totalUploadedBytes) / 1024.0)
         } else {
-            self.totalUploadSizeLabel.text = String.init(format: "%.2f Mb", Float(self.totalUploadedBytes) / 1024.0 * 1024.0)
+            totalUploadSizeLabel.text = String(format: "%.2f Mb", Float(totalUploadedBytes) / 1024.0 * 1024.0)
         }
     }
     
     private func updateDownloadCount(byteCount: Int) {
-        self.totalDownloadedBytes = self.totalDownloadedBytes + UInt32(byteCount)
-        if self.totalDownloadedBytes < 1024 {
-            self.totalDownloadSizeLabel.text = String.init(format: "%d Bytes", self.totalDownloadedBytes)
-        } else if self.totalUploadedBytes < 1024 * 1024 {
-            self.totalDownloadSizeLabel.text = String.init(format: "%.2f Kb", Float(self.totalDownloadedBytes) / 1024.0)
+        totalDownloadedBytes = totalDownloadedBytes + UInt32(byteCount)
+        if totalDownloadedBytes < 1024 {
+            totalDownloadSizeLabel.text = String(format: "%d Bytes", totalDownloadedBytes)
+        } else if totalUploadedBytes < 1024 * 1024 {
+            totalDownloadSizeLabel.text = String(format: "%.2f Kb", Float(totalDownloadedBytes) / 1024.0)
         } else {
-            self.totalDownloadSizeLabel.text = String.init(format: "%.2f Mb", Float(self.totalDownloadedBytes) / 1024.0 * 1024.0)
+            totalDownloadSizeLabel.text = String(format: "%.2f Mb", Float(totalDownloadedBytes) / 1024.0 * 1024.0)
         }
     }
 
@@ -543,7 +543,7 @@ class ThingyCloudViewController: SwipableTableViewController {
 
     //MARK: - Thingy delegate
     override func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
-        navigationItem.title = peripheral.name + " Cloud"
+        navigationItem.title = "Cloud"
 
         if state == .disconnecting || state == .disconnected {
             print("Disconnected thingy")
@@ -555,8 +555,8 @@ class ThingyCloudViewController: SwipableTableViewController {
             cloudToken = loadToken(forPeripheral: targetPeripheral!)
             cloudTokenLabel.text = cloudToken ?? "None, tap to add"
             let (temperatureInterval, pressureInterval, _, _, _, _, _, _) = (targetPeripheral?.readEnvironmentConfiguration())!
-            self.temperatureIntervalValueLabel.text = String.init(format:"%d", temperatureInterval)
-            self.pressureIntervalValueLabel.text = String.init(format: "%d", pressureInterval)
+            self.temperatureIntervalValueLabel.text = String(format:"%d", temperatureInterval)
+            self.pressureIntervalValueLabel.text = String(format: "%d", pressureInterval)
             if cloudToken != nil {
                 enableNotifications()
                 DispatchQueue.main.async {

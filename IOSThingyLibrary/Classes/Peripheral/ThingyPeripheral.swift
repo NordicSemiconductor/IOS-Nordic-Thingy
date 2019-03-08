@@ -280,6 +280,32 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
             _ = operationCallbackHandlers.removeLast()
         }
     }
+    
+    public func readMtu() -> (peripheralRequestsMtu: Bool, mtu: UInt16)? {
+        return configurationService?.readMTU()
+    }
+    
+    public func readNfcTagContent() -> Data? {
+        return configurationService?.readNfcTagContent()
+    }
+    
+    public func set(nfcTagContent content: Data, withCompletionHandler aHandler: CompletionCallback?) {
+        // Has the service been found?
+        if configurationService == nil {
+            aHandler?(false)
+            return
+        }
+        // Save he completion callback
+        operationCallbackHandlers.append(aHandler ?? doNothing)
+        // and try to write data
+        do {
+            try configurationService!.set(nfcTagContent: content)
+        } catch {
+            print(error)
+            aHandler?(false)
+            _ = operationCallbackHandlers.removeLast()
+        }
+    }
 
     //MARK: - User Interface Service implementations
     public func readLEDState() -> (mode: ThingyLEDMode, presetColor: ThingyLEDColorPreset?, rgbColor: UIColor?, intensity: UInt8?, breatheDelay: UInt16?)? {

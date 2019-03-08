@@ -23,6 +23,20 @@ open class PieChartData: ChartData
         super.init(dataSets: dataSets)
     }
 
+    /// All DataSet objects this ChartData object holds.
+    @objc open override var dataSets: [IChartDataSet]
+    {
+        get
+        {
+            assert(super.dataSets.count <= 1, "Found multiple data sets while pie chart only allows one")
+            return super.dataSets
+        }
+        set
+        {
+            super.dataSets = newValue
+        }
+    }
+
     @objc var dataSet: IPieChartDataSet?
     {
         get
@@ -31,9 +45,9 @@ open class PieChartData: ChartData
         }
         set
         {
-            if newValue != nil
+            if let newValue = newValue
             {
-                dataSets = [newValue!]
+                dataSets = [newValue]
             }
             else
             {
@@ -60,7 +74,7 @@ open class PieChartData: ChartData
         
         if ignorecase
         {
-            if (label.caseInsensitiveCompare(dataSets[0].label!) == ComparisonResult.orderedSame)
+            if let label = dataSets[0].label, label.caseInsensitiveCompare(label) == .orderedSame
             {
                 return dataSets[0]
             }
@@ -88,7 +102,7 @@ open class PieChartData: ChartData
     /// Removes the DataSet at the given index in the DataSet array from the data object.
     /// Also recalculates all minimum and maximum values.
     ///
-    /// - returns: `true` if a DataSet was removed, `false` ifno DataSet could be removed.
+    /// - Returns: `true` if a DataSet was removed, `false` ifno DataSet could be removed.
     open override func removeDataSetByIndex(_ index: Int) -> Bool
     {
         if index >= _dataSets.count || index < 0
@@ -99,7 +113,7 @@ open class PieChartData: ChartData
         return false
     }
     
-    /// - returns: The total y-value sum across all DataSet objects the this object represents.
+    /// The total y-value sum across all DataSet objects the this object represents.
     @objc open var yValueSum: Double
     {
         guard let dataSet = dataSet else { return 0.0 }

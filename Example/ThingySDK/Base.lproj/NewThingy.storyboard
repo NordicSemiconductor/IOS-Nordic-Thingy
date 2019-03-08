@@ -1,89 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </array>
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Add-->
         <scene sceneID="Lzf-ep-2rp">
             <objects>
                 <viewController title="Add" automaticallyAdjustsScrollViewInsets="NO" id="B3E-VF-7Mu" customClass="ThingyCreatorViewController" customModule="ThingySDK_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="M5l-JT-EtY"/>
-                        <viewControllerLayoutGuide type="bottom" id="R0G-7E-LbU"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zRz-OS-8wd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="-1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lKd-kc-wac">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Kyu-Bw-zdd" userLabel="Footer">
-                                    <rect key="frame" x="0.0" y="116" width="375" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="116" width="375" height="0.33333333333333331"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" red="0.78431372549019607" green="0.7803921568627451" blue="0.80000000000000004" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NFCItemCell" id="3qh-zz-YDf">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NFCItemCell" id="3qh-zz-YDf">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3qh-zz-YDf" id="c6N-I1-DXO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new Thingy using NFC ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgr-c8-I94">
-                                                    <rect key="frame" x="14" y="12.5" width="222" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new Thingy using NFC?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgr-c8-I94">
+                                                    <rect key="frame" x="14" y="12" width="217" height="20"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvu-x9-mpX">
-                                                    <rect key="frame" x="270" y="7" width="90" height="30"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="mZF-aM-H91"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="tSo-w6-DXa"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Use NFC"/>
-                                                </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.0" green="0.61176470588235299" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="vvu-x9-mpX" firstAttribute="centerY" secondItem="c6N-I1-DXO" secondAttribute="centerY" id="2fn-Bq-OKJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="vvu-x9-mpX" secondAttribute="trailing" constant="15" id="4Gh-1K-G04"/>
                                                 <constraint firstItem="jgr-c8-I94" firstAttribute="leading" secondItem="c6N-I1-DXO" secondAttribute="leading" constant="14" id="FAm-S6-6oJ"/>
-                                                <constraint firstItem="vvu-x9-mpX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jgr-c8-I94" secondAttribute="trailing" constant="16" id="njF-al-hML"/>
                                                 <constraint firstItem="jgr-c8-I94" firstAttribute="centerY" secondItem="c6N-I1-DXO" secondAttribute="centerY" id="yJb-3H-6mY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.66274509803921566" blue="0.80784313730000001" alpha="0.10183074034334764" colorSpace="calibratedRGB"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ThingyItemCell" textLabel="B2T-Yx-yQD" imageView="F9x-oc-8G3" style="IBUITableViewCellStyleDefault" id="X7e-iC-43X">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X7e-iC-43X" id="uFL-Wv-3OG">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B2T-Yx-yQD">
-                                                    <rect key="frame" x="54" y="0.0" width="286" height="43.5"/>
+                                                    <rect key="frame" x="54" y="0.0" width="286" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -92,6 +67,7 @@
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="ic_developer_board_24pt" id="F9x-oc-8G3">
                                                     <rect key="frame" x="15" y="9" width="24" height="24"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -103,61 +79,82 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUA-tt-fpe" userLabel="Empty View">
-                                <rect key="frame" x="78" y="166" width="220" height="330"/>
+                                <rect key="frame" x="37.666666666666657" y="274.33333333333331" width="300" height="257.99999999999994"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanning" translatesAutoresizingMaskIntoConstraints="NO" id="mQb-Zc-R0s" userLabel="Bluetooth Icon">
-                                        <rect key="frame" x="78" y="0.0" width="64" height="64"/>
+                                        <rect key="frame" x="118" y="0.0" width="64" height="64"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No devices found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2d0-pC-P14">
-                                        <rect key="frame" x="43" y="64" width="134" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1. Make sure it's switched on. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xir-os-Sbp">
+                                        <rect key="frame" x="0.0" y="112" width="197" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpT-og-pXS">
-                                        <rect key="frame" x="0.0" y="151" width="220" height="179"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CAN'T SEE YOUR THINGY:52?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV5-9m-9rg">
+                                        <rect key="frame" x="41" y="72" width="217" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <string key="text">1. Make sure it's switched on. 
-Remove the black rubber cover and toggle the switch.
-
-2. Make sure it's charged. 
-Connect it to a PC or a charger using a micro USB cable.
-
-3. Make sure it's awake. 
-Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" red="0.20105752470985916" green="0.20105752470985916" blue="0.20105752470985916" alpha="0.60363800965665226" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.46666666670000001" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Can't see your Thingy:52?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV5-9m-9rg">
-                                        <rect key="frame" x="-1" y="126" width="221" height="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2. Make sure it's charged." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-l5-oaN">
+                                        <rect key="frame" x="8.5265128291212022e-14" y="160.99999999999994" width="170" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="0.60363800965665226" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3. Make sure it's awake. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amL-Ok-5q9">
+                                        <rect key="frame" x="8.5265128291212022e-14" y="209.99999999999994" width="161" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remove the black rubber cover and toggle the switch." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSr-wQ-7gE">
+                                        <rect key="frame" x="8.5265128291212022e-14" y="130.99999999999994" width="283" height="14"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connect it to a PC or a charger using a micro USB cable." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGn-wa-fk2">
+                                        <rect key="frame" x="8.5265128291212022e-14" y="179.99999999999994" width="297" height="14"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Press the N logo at the top or shake the Thingy:52 to wake it up." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpT-og-pXS">
+                                        <rect key="frame" x="8.5265128291212022e-14" y="228.99999999999994" width="297" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="2d0-pC-P14" firstAttribute="top" secondItem="mQb-Zc-R0s" secondAttribute="bottom" id="0hj-Tr-dhH"/>
-                                    <constraint firstAttribute="height" constant="330" id="6XI-Fj-Hem"/>
+                                    <constraint firstAttribute="height" constant="258" id="6XI-Fj-Hem"/>
                                     <constraint firstItem="mQb-Zc-R0s" firstAttribute="centerX" secondItem="pUA-tt-fpe" secondAttribute="centerX" id="Fxg-nc-bJJ"/>
                                     <constraint firstItem="mQb-Zc-R0s" firstAttribute="top" secondItem="pUA-tt-fpe" secondAttribute="top" id="gCf-7u-lnG"/>
-                                    <constraint firstAttribute="width" constant="220" id="jQ3-Xa-C4g"/>
-                                    <constraint firstItem="2d0-pC-P14" firstAttribute="centerX" secondItem="pUA-tt-fpe" secondAttribute="centerX" id="kwO-I1-nzQ"/>
+                                    <constraint firstAttribute="width" constant="300" id="jQ3-Xa-C4g"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="R0G-7E-LbU" firstAttribute="top" secondItem="lKd-kc-wac" secondAttribute="bottom" id="7i0-I4-RHi"/>
+                            <constraint firstAttribute="bottom" secondItem="lKd-kc-wac" secondAttribute="bottom" id="7i0-I4-RHi"/>
                             <constraint firstItem="pUA-tt-fpe" firstAttribute="centerY" secondItem="zRz-OS-8wd" secondAttribute="centerY" multiplier="1.2" priority="750" id="89t-dH-k5T"/>
-                            <constraint firstItem="lKd-kc-wac" firstAttribute="top" secondItem="M5l-JT-EtY" secondAttribute="bottom" id="R65-w1-YMj"/>
-                            <constraint firstAttribute="trailing" secondItem="lKd-kc-wac" secondAttribute="trailing" id="dge-vG-nTH"/>
-                            <constraint firstItem="lKd-kc-wac" firstAttribute="leading" secondItem="zRz-OS-8wd" secondAttribute="leading" id="qIE-br-JZd"/>
-                            <constraint firstItem="R0G-7E-LbU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pUA-tt-fpe" secondAttribute="bottom" constant="16" id="uGu-dW-JrP"/>
-                            <constraint firstItem="pUA-tt-fpe" firstAttribute="centerX" secondItem="zRz-OS-8wd" secondAttribute="centerX" id="uNA-Ph-CbK"/>
+                            <constraint firstItem="pUA-tt-fpe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ULD-zo-uNi" secondAttribute="top" constant="8" id="NHm-x1-jQr"/>
+                            <constraint firstItem="lKd-kc-wac" firstAttribute="top" secondItem="ULD-zo-uNi" secondAttribute="top" id="R65-w1-YMj"/>
+                            <constraint firstItem="ULD-zo-uNi" firstAttribute="trailing" secondItem="lKd-kc-wac" secondAttribute="trailing" id="dge-vG-nTH"/>
+                            <constraint firstItem="lKd-kc-wac" firstAttribute="leading" secondItem="ULD-zo-uNi" secondAttribute="leading" id="qIE-br-JZd"/>
+                            <constraint firstItem="ULD-zo-uNi" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pUA-tt-fpe" secondAttribute="bottom" constant="16" id="uGu-dW-JrP"/>
+                            <constraint firstItem="pUA-tt-fpe" firstAttribute="centerX" secondItem="ULD-zo-uNi" secondAttribute="centerX" id="uNA-Ph-CbK"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="ULD-zo-uNi"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Thingy" id="AZU-HW-6vH">
                         <barButtonItem key="backBarButtonItem" title="Back" id="KQA-dt-W9o"/>
@@ -171,7 +168,7 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
                                 <rect key="frame" x="329" y="0.0" width="30" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="SmU-Wb-zUl">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SmU-Wb-zUl">
                                         <rect key="frame" x="10" y="12" width="20" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
@@ -192,29 +189,25 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7v-4F-FZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2237.5999999999999" y="-412.44377811094455"/>
+            <point key="canvasLocation" x="2237.5999999999999" y="-413.05418719211826"/>
         </scene>
         <!--Initial Configuration-->
         <scene sceneID="srS-bb-Rv9">
             <objects>
                 <viewController title="Initial Configuration" automaticallyAdjustsScrollViewInsets="NO" id="iZk-Gi-BXA" customClass="ThingyInitialConfigurationViewController" customModule="ThingySDK_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="b8G-sH-bDr"/>
-                        <viewControllerLayoutGuide type="bottom" id="IdF-T9-J2m"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TBA-6x-Gk4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="s5e-5i-3Bq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ThingyConfigurationCell" id="YZn-nD-2Wf" customClass="ThingyConfigurationItemTableViewCell" customModule="ThingySDK_Example" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YZn-nD-2Wf" id="e8r-Y0-p5e">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Configuration Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lr-MX-Dk2">
@@ -224,7 +217,7 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Configuration value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqp-Kb-Pla">
-                                                    <rect key="frame" x="215" y="14" width="145" height="16"/>
+                                                    <rect key="frame" x="215.66666666666666" y="14" width="89.333333333333343" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -255,28 +248,6 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
                                             <outlet property="valueLabel" destination="zqp-Kb-Pla" id="v4h-r0-maQ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ThingyConfigurationMapCell" rowHeight="178" id="qkg-Kj-b0e" customClass="ThingyConfigurationMapTableViewCell" customModule="ThingySDK_Example" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="99.5" width="375" height="178"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qkg-Kj-b0e" id="eHH-aW-IcU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="177.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ht0-Et-ZbR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="177"/>
-                                                </mapView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Ht0-Et-ZbR" firstAttribute="top" secondItem="eHH-aW-IcU" secondAttribute="top" id="FKU-WC-IoX"/>
-                                                <constraint firstItem="Ht0-Et-ZbR" firstAttribute="leading" secondItem="eHH-aW-IcU" secondAttribute="leading" id="UGE-Rs-YXG"/>
-                                                <constraint firstAttribute="bottom" secondItem="Ht0-Et-ZbR" secondAttribute="bottom" id="mMA-FU-KdI"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ht0-Et-ZbR" secondAttribute="trailing" id="qeh-4T-azR"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="mapViewCell" destination="Ht0-Et-ZbR" id="GWU-vE-XLC"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </prototypes>
                                 <sections/>
                                 <connections>
@@ -287,11 +258,12 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="s5e-5i-3Bq" firstAttribute="top" secondItem="b8G-sH-bDr" secondAttribute="bottom" id="dhV-yr-0wn"/>
-                            <constraint firstAttribute="trailing" secondItem="s5e-5i-3Bq" secondAttribute="trailing" id="lIW-EK-cyo"/>
-                            <constraint firstItem="IdF-T9-J2m" firstAttribute="top" secondItem="s5e-5i-3Bq" secondAttribute="bottom" id="p1R-32-6rh"/>
-                            <constraint firstItem="s5e-5i-3Bq" firstAttribute="leading" secondItem="TBA-6x-Gk4" secondAttribute="leading" id="t7s-1m-sO1"/>
+                            <constraint firstItem="s5e-5i-3Bq" firstAttribute="top" secondItem="jXZ-sf-bdk" secondAttribute="top" id="dhV-yr-0wn"/>
+                            <constraint firstItem="jXZ-sf-bdk" firstAttribute="trailing" secondItem="s5e-5i-3Bq" secondAttribute="trailing" id="lIW-EK-cyo"/>
+                            <constraint firstAttribute="bottom" secondItem="s5e-5i-3Bq" secondAttribute="bottom" id="p1R-32-6rh"/>
+                            <constraint firstItem="s5e-5i-3Bq" firstAttribute="leading" secondItem="jXZ-sf-bdk" secondAttribute="leading" id="t7s-1m-sO1"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="jXZ-sf-bdk"/>
                     </view>
                     <navigationItem key="navigationItem" title="Configure Thingy" id="32Q-o2-fD8">
                         <barButtonItem key="backBarButtonItem" title="Back" id="9zD-oh-Qvx"/>
@@ -316,15 +288,14 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
                 <navigationController storyboardIdentifier="ScannerNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="5Po-mT-uXY" customClass="ThingyCreatorNavigationController" customModule="ThingySDK_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="OTf-ld-qa0">
-                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.0" green="0.61176470589999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
+                        <color key="tintColor" red="0.0" green="0.66274509800000003" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="0.0" green="0.66274509803921566" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="0.0" green="0.66274509803921566" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -342,15 +313,14 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
                 <navigationController storyboardIdentifier="NfcNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="voR-bu-P9X" customClass="ThingyCreatorNavigationController" customModule="ThingySDK_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="7LQ-zf-2X5">
-                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.0" green="0.61176470589999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
+                        <color key="tintColor" red="0.0" green="0.66274509800000003" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="0.0" green="0.66274509800000003" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="0.0" green="0.66274509800000003" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -366,12 +336,8 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
         <scene sceneID="tr9-Ek-AjX">
             <objects>
                 <viewController title="Add" automaticallyAdjustsScrollViewInsets="NO" id="4DI-Gm-EgY" customClass="ThingyNFCCreatorViewController" customModule="ThingySDK_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PXU-VJ-Zjx"/>
-                        <viewControllerLayoutGuide type="bottom" id="C3N-OP-F4f"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uaM-mu-LDg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Error title Error description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="46r-ht-a3o">
@@ -384,22 +350,23 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nfc_tutorial_phone" translatesAutoresizingMaskIntoConstraints="NO" id="HAD-m1-CG1" userLabel="Phone">
-                                <rect key="frame" x="81" y="141.5" width="213" height="443"/>
+                                <rect key="frame" x="45.666666666666657" y="158" width="284" height="591"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_nfc_logo" translatesAutoresizingMaskIntoConstraints="NO" id="kT3-Yw-Xgu">
-                                <rect key="frame" x="163" y="84" width="48" height="48"/>
+                                <rect key="frame" x="155.66666666666666" y="84" width="64" height="64"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="46r-ht-a3o" firstAttribute="leading" secondItem="uaM-mu-LDg" secondAttribute="leadingMargin" constant="12" id="7ZS-jb-Bqe"/>
-                            <constraint firstItem="kT3-Yw-Xgu" firstAttribute="centerX" secondItem="uaM-mu-LDg" secondAttribute="centerX" id="EKH-LI-r97"/>
-                            <constraint firstItem="HAD-m1-CG1" firstAttribute="centerX" secondItem="uaM-mu-LDg" secondAttribute="centerX" id="JeI-Ua-X5R"/>
+                            <constraint firstItem="kT3-Yw-Xgu" firstAttribute="centerX" secondItem="CLh-uc-Efv" secondAttribute="centerX" id="EKH-LI-r97"/>
+                            <constraint firstItem="HAD-m1-CG1" firstAttribute="centerX" secondItem="CLh-uc-Efv" secondAttribute="centerX" id="JeI-Ua-X5R"/>
                             <constraint firstAttribute="trailingMargin" secondItem="46r-ht-a3o" secondAttribute="trailing" constant="12" id="LCW-4J-y4o"/>
-                            <constraint firstItem="46r-ht-a3o" firstAttribute="top" secondItem="PXU-VJ-Zjx" secondAttribute="bottom" constant="20" id="UVL-IG-YfX"/>
+                            <constraint firstItem="46r-ht-a3o" firstAttribute="top" secondItem="CLh-uc-Efv" secondAttribute="top" constant="20" id="UVL-IG-YfX"/>
                             <constraint firstItem="HAD-m1-CG1" firstAttribute="top" secondItem="kT3-Yw-Xgu" secondAttribute="bottom" constant="10" id="YeL-yb-O4U"/>
                             <constraint firstItem="kT3-Yw-Xgu" firstAttribute="top" secondItem="46r-ht-a3o" secondAttribute="bottom" constant="20" id="vhJ-Lf-vz7"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="CLh-uc-Efv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Thingy" id="64e-2O-zxz">
                         <barButtonItem key="backBarButtonItem" title="Back" id="DR2-Ga-lnt"/>
@@ -422,9 +389,9 @@ Press the N logo at the top or shake the Thingy:52 to wake it up.</string>
     </scenes>
     <resources>
         <image name="ic_developer_board_24pt" width="24" height="24"/>
-        <image name="ic_nfc_logo" width="48" height="48"/>
+        <image name="ic_nfc_logo" width="64" height="64"/>
         <image name="ic_settings_24pt" width="24" height="24"/>
-        <image name="nfc_tutorial_phone" width="213" height="443"/>
+        <image name="nfc_tutorial_phone" width="284.66665649414062" height="591"/>
         <image name="scanning" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -99,6 +99,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
 
     //DFU Status section outlets
     @IBOutlet weak var firmwareTypeControl: UISegmentedControl!
+    @IBOutlet weak var targetCell: UITableViewCell!
     @IBOutlet weak var abortButton: UIButton!
     @IBOutlet weak var dfuActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var progressIndicator: UIProgressView!
@@ -159,7 +160,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
             navigationController.setTargetPeripheral(targetPeripheral, andManager: thingyManager)
         } else if segue.identifier == "selectFile" {
             let aNavigationController = segue.destination as? UINavigationController
-            let barViewController = aNavigationController?.childViewControllerForStatusBarHidden as? UITabBarController
+            let barViewController = aNavigationController?.childForStatusBarHidden as? UITabBarController
             let userFilesVC = barViewController?.viewControllers?.first as? UserFilesViewController
             userFilesVC?.fileDelegate = self
             
@@ -257,7 +258,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
         }
         
         firmwareType.text = type
-        firmwareSize.text = "\(totalSize / 1024.0) kB"
+        firmwareSize.text = String(format: "%.3f kB", (totalSize / 1024.0))
         firmwareFilename.text = aFirmware.fileName!
         firmwareType.alpha = 1
         firmwareSize.alpha = 1
@@ -295,6 +296,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
         startButton.isEnabled         = false
         abortButton.isHidden          = false
         firmwareTypeControl.isEnabled = false
+        targetCell.accessoryType      = .none
         errorHelpButton.isHidden      = true
         bootloaderStepIcon.alpha      = 0.2
         bootloaderStepLabel.alpha     = 1.0 // Show it initially
@@ -341,6 +343,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
         startButton.isEnabled = true
         abortButton.isHidden = true
         firmwareTypeControl.isEnabled = true
+        targetCell.accessoryType      = .disclosureIndicator
         progressIndicator.setProgress(0, animated: true)
         changeAlpha(of: completedLabel, to: 1)
         changeAlpha(of: completedIcon, to: 1)
@@ -372,6 +375,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
         startButton.isEnabled = true
         abortButton.isHidden = true
         firmwareTypeControl.isEnabled = true
+        targetCell.accessoryType      = .disclosureIndicator
         completedLabel.text = "Error: \(aMessage)"
         changeAlpha(of: completedIcon, to: 0)
         changeAlpha(of: errorIcon, to: 1)
@@ -404,6 +408,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
         startButton.isEnabled = true
         abortButton.isHidden = true
         firmwareTypeControl.isEnabled = true
+        targetCell.accessoryType      = .disclosureIndicator
         completedLabel.text = "Upload aborted"
         changeAlpha(of: completedIcon, to: 0)
         changeAlpha(of: errorIcon, to: 1)

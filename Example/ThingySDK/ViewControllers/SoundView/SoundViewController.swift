@@ -177,7 +177,13 @@ class SoundViewController: SwipableTableViewController {
         volumeControl.addGestureRecognizer(volumeSliderTapRecognizer)
         recordingSession = AVAudioSession.sharedInstance()
         do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            if #available(iOS 10.0, *) {
+                try recordingSession.setCategory(.playAndRecord, mode: .default)
+            } else {
+                // Workaround until https://forums.swift.org/t/using-methods-marked-unavailable-in-swift-4-2/14949 isn't fixed
+                // See: https://stackoverflow.com/a/52396244/2115352
+                recordingSession.perform(NSSelectorFromString("setCategory:error:"), with: AVAudioSession.Category.playAndRecord)
+            }
             try recordingSession.setPreferredSampleRate(8000) // 8 kHz
             try recordingSession.setPreferredOutputNumberOfChannels(1)
             try recordingSession.setActive(true)
@@ -338,7 +344,7 @@ class SoundViewController: SwipableTableViewController {
     override func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
         print("Sound thingy state: \(state), view loaded: \(isViewLoaded)") // TODO: remove
         
-        navigationItem.title = peripheral.name + " Sound"
+        navigationItem.title = "Sound"
         
         recordButton.isEnabled = state == .ready
         playButton.isEnabled = state == .ready

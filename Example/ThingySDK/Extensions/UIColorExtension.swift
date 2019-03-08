@@ -44,21 +44,32 @@
 import UIKit
 
 extension UIColor {
-    public static var nordicBlue: UIColor {
-        return UIColor(red: 0/255, green: 156/255, blue: 222/255, alpha: 1)
-    }
     
-    public static var nordicYellow: UIColor {
-        return UIColor(red: 204/255, green: 204/255, blue: 0/255, alpha: 1)
-    }
+    static let nordicBlue = #colorLiteral(red: 0, green: 0.7181802392, blue: 0.8448022008, alpha: 1)
     
-    public static var nordicGray: UIColor {
-        return UIColor(red: 147/255, green: 149/255, blue: 151/255, alpha: 1)
-    }
+    static let nordicSky = #colorLiteral(red: 0.4773202538, green: 0.8505803943, blue: 0.9124827981, alpha: 1)
     
-    public static var error: UIColor {
-        return UIColor(red: 255/255, green: 190/255, blue: 190/255, alpha: 1)
-    }
+    static let nordicLake = #colorLiteral(red: 0, green: 0.5483048558, blue: 0.8252354264, alpha: 1)
+    
+    static let nordicLakeDark = #colorLiteral(red: 0, green: 0.4745001793, blue: 0.7173394561, alpha: 1)
+    
+    static let nordicBlueslate = #colorLiteral(red: 0, green: 0.2858072221, blue: 0.6897063851, alpha: 1)
+    
+    static let nordicLightGray = #colorLiteral(red: 0.8790807724, green: 0.9051030278, blue: 0.9087315202, alpha: 1)
+    
+    static let nordicMediumGray = #colorLiteral(red: 0.5353743434, green: 0.5965531468, blue: 0.6396299005, alpha: 1)
+    
+    static let nordicDarkGray = #colorLiteral(red: 0.2590435743, green: 0.3151275516, blue: 0.353839159, alpha: 1)
+    
+    static let nordicGrass = #colorLiteral(red: 0.8486783504, green: 0.8850693107, blue: 0, alpha: 1)
+    
+    static let nordicSun = #colorLiteral(red: 1, green: 0.8319787979, blue: 0, alpha: 1)
+    
+    static let nordicRed = #colorLiteral(red: 0.9567440152, green: 0.2853084803, blue: 0.3770255744, alpha: 1)
+    
+    static let nordicFall = #colorLiteral(red: 0.9759463668, green: 0.5845184922, blue: 0.1595045924, alpha: 1)
+    
+    static let error = nordicRed
     
     public static var random: UIColor {
         let randomRed:   CGFloat = CGFloat(arc4random()) / CGFloat(UInt32.max)

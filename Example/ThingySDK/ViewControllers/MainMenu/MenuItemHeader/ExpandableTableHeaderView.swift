@@ -99,7 +99,7 @@ class ExpandableTableHeaderView: UITableViewHeaderFooterView {
         //Get current rotation value
         let currentAngle = icon.layer.value(forKeyPath: "transform.rotation.z")
         let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
-        rotateAnimation.fillMode = kCAFillModeForwards
+        rotateAnimation.fillMode = CAMediaTimingFillMode.forwards
         rotateAnimation.fromValue = currentAngle
 
         if isOpen {

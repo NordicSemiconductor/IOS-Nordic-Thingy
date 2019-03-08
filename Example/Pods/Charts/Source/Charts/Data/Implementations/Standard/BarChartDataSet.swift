@@ -15,7 +15,7 @@ import CoreGraphics
 
 open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, IBarChartDataSet
 {
-    fileprivate func initialize()
+    private func initialize()
     {
         self.highlightColor = NSUIColor.black
         
@@ -39,14 +39,14 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, IBarChartDat
     
     /// the maximum number of bars that are stacked upon each other, this value
     /// is calculated from the Entries that are added to the DataSet
-    fileprivate var _stackSize = 1
+    private var _stackSize = 1
     
     /// the overall entry count, including counting each stack-value individually
-    fileprivate var _entryCountStacks = 0
+    private var _entryCountStacks = 0
     
     /// Calculates the total number of entries this DataSet represents, including
     /// stacks. All values belonging to a stack are calculated separately.
-    fileprivate func calcEntryCountIncludingStacks(entries: [BarChartDataEntry])
+    private func calcEntryCountIncludingStacks(entries: [BarChartDataEntry])
     {
         _entryCountStacks = 0
         
@@ -64,7 +64,7 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, IBarChartDat
     }
     
     /// calculates the maximum stacksize that occurs in the Entries array of this DataSet
-    fileprivate func calcStackSize(entries: [BarChartDataEntry])
+    private func calcStackSize(entries: [BarChartDataEntry])
     {
         for i in 0 ..< entries.count
         {
@@ -114,26 +114,26 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, IBarChartDat
         }
     }
     
-    /// - returns: The maximum number of bars that can be stacked upon another in this DataSet.
+    /// The maximum number of bars that can be stacked upon another in this DataSet.
     open var stackSize: Int
     {
         return _stackSize
     }
     
-    /// - returns: `true` if this DataSet is stacked (stacksize > 1) or not.
+    /// `true` if this DataSet is stacked (stacksize > 1) or not.
     open var isStacked: Bool
     {
         return _stackSize > 1 ? true : false
     }
     
-    /// - returns: The overall entry count, including counting each stack-value individually
+    /// The overall entry count, including counting each stack-value individually
     @objc open var entryCountStacks: Int
     {
         return _entryCountStacks
     }
     
     /// array of labels used to describe the different values of the stacked bars
-    open var stackLabels: [String] = ["Stack"]
+    open var stackLabels: [String] = []
     
     // MARK: - Styling functions and accessors
     
@@ -151,14 +151,16 @@ open class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet, IBarChartDat
     
     // MARK: - NSCopying
     
-    open override func copyWithZone(_ zone: NSZone?) -> AnyObject
+    open override func copy(with zone: NSZone? = nil) -> Any
     {
-        let copy = super.copyWithZone(zone) as! BarChartDataSet
+        let copy = super.copy(with: zone) as! BarChartDataSet
         copy._stackSize = _stackSize
         copy._entryCountStacks = _entryCountStacks
         copy.stackLabels = stackLabels
 
         copy.barShadowColor = barShadowColor
+        copy.barBorderWidth = barBorderWidth
+        copy.barBorderColor = barBorderColor
         copy.highlightAlpha = highlightAlpha
         return copy
     }

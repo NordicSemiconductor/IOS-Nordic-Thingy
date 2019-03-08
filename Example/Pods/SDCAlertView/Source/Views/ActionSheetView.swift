@@ -1,14 +1,13 @@
 final class ActionSheetView: UIView, AlertControllerViewRepresentable {
-
     @IBOutlet var titleLabel: AlertLabel!
     @IBOutlet var messageLabel: AlertLabel!
     @IBOutlet var actionsCollectionView: ActionsCollectionView!
     @IBOutlet var contentView: UIView!
     @IBOutlet private var primaryView: UIView!
+    @IBOutlet private var labelsContainer: UIView!
     @IBOutlet private var cancelActionView: UIView!
     @IBOutlet private var cancelLabel: UILabel!
     @IBOutlet private var cancelButton: UIButton!
-    @IBOutlet private var contentViewConstraints: [NSLayoutConstraint]!
     @IBOutlet private var collectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private var cancelHeightConstraint: NSLayoutConstraint!
     @IBOutlet private var titleWidthConstraint: NSLayoutConstraint!
@@ -32,38 +31,15 @@ final class ActionSheetView: UIView, AlertControllerViewRepresentable {
 
     func prepareLayout() {
         self.assignCancelAction()
-
-        self.actionsCollectionView.actions = self.actions
-        self.actionsCollectionView.visualStyle = self.visualStyle
-
-        self.collectionViewHeightConstraint.constant = self.actionsCollectionView.displayHeight
-        self.collectionViewHeightConstraint.isActive = true
-
-        self.primaryView.layer.cornerRadius = self.visualStyle.cornerRadius
-        self.primaryView.layer.masksToBounds = true
-        self.cancelActionView.layer.cornerRadius = self.visualStyle.cornerRadius
-        self.cancelActionView.layer.masksToBounds = true
-
-        if let cancelAction = self.cancelAction {
-            self.cancelButton.setupAccessibility(using: cancelAction)
-        }
+        self.prepareCollectionView()
+        self.createCornerRadius()
+        self.setUpCancelButton()
+        self.setUpContentView()
 
         if let backgroundColor = self.visualStyle.backgroundColor {
             self.primaryView.backgroundColor = backgroundColor
             self.cancelActionView.backgroundColor = backgroundColor
         }
-
-        self.cancelLabel.font = self.visualStyle.font(for: self.cancelAction)
-        self.cancelLabel.textColor = self.visualStyle.textColor(for: self.cancelAction) ?? self.tintColor
-        self.cancelLabel.attributedText = self.cancelAction?.attributedTitle
-
-        let cancelButtonBackground = UIImage.image(with: self.visualStyle.actionHighlightColor)
-        self.cancelButton.setBackgroundImage(cancelButtonBackground, for: .highlighted)
-        self.cancelHeightConstraint.constant = self.visualStyle.actionViewSize.height
-
-        let showContentView = self.contentView.subviews.count > 0
-        self.contentView.isHidden = !showContentView
-        self.contentViewConstraints.forEach { $0.isActive = showContentView }
     }
 
     func addDragTapBehavior() {
@@ -79,7 +55,7 @@ final class ActionSheetView: UIView, AlertControllerViewRepresentable {
         self.cancelButton.isHighlighted = cancelIsSelected
 
         if cancelIsSelected && sender.state == .ended {
-            self.cancelButton.sendActions(for: .touchUpInside)
+            self.cancelButton.sendActions(for: UIControl.Event.touchUpInside)
         }
     }
 
@@ -96,6 +72,8 @@ final class ActionSheetView: UIView, AlertControllerViewRepresentable {
         self.actionTappedHandler?(action)
     }
 
+    // MARK: - Private
+
     private func assignCancelAction() {
         if let cancelActionIndex = self.actions.index(where: { $0.style == .preferred }) {
             self.cancelAction = self.actions[cancelActionIndex]
@@ -105,22 +83,62 @@ final class ActionSheetView: UIView, AlertControllerViewRepresentable {
             self.actions.removeFirst()
         }
     }
+
+    private func prepareCollectionView() {
+        self.actionsCollectionView.actions = self.actions
+        self.actionsCollectionView.visualStyle = self.visualStyle
+
+        self.collectionViewHeightConstraint.constant = self.actionsCollectionView.displayHeight
+        self.collectionViewHeightConstraint.isActive = true
+    }
+
+    private func createCornerRadius() {
+        self.primaryView.layer.cornerRadius = self.visualStyle.cornerRadius
+        self.primaryView.layer.masksToBounds = true
+        self.cancelActionView.layer.cornerRadius = self.visualStyle.cornerRadius
+        self.cancelActionView.layer.masksToBounds = true
+    }
+
+    private func setUpCancelButton() {
+        if let cancelAction = self.cancelAction {
+            self.cancelButton.setupAccessibility(using: cancelAction)
+        }
+
+        self.cancelLabel.font = self.visualStyle.font(for: self.cancelAction)
+        self.cancelLabel.textColor = self.visualStyle.textColor(for: self.cancelAction) ?? self.tintColor
+        self.cancelLabel.attributedText = self.cancelAction?.attributedTitle
+
+        let cancelButtonBackground = UIImage.image(with: self.visualStyle.actionHighlightColor)
+        self.cancelButton.setBackgroundImage(cancelButtonBackground, for: .highlighted)
+        self.cancelHeightConstraint.constant = self.visualStyle.actionViewSize.height
+    }
+
+    private func setUpContentView() {
+        let noTextProvided = self.title?.string.isEmpty != false && self.message?.string.isEmpty != false
+        let contentViewProvided = self.contentView.subviews.count > 0
+
+        if self.message == nil {
+            self.messageLabel.removeFromSuperview()
+        }
+        self.labelsContainer.isHidden = noTextProvided || contentViewProvided
+        self.contentView.isHidden = !contentViewProvided
+    }
 }
 
 private extension UIImage {
+    static func image(with color: UIColor) -> UIImage? {
+        defer { UIGraphicsEndImageContext() }
 
-    class func image(with color: UIColor) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
 
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
 
-        let context = UIGraphicsGetCurrentContext()!
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+
         color.setFill()
         context.fill(rect)
-
-        let image = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-
-        return image
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
 }

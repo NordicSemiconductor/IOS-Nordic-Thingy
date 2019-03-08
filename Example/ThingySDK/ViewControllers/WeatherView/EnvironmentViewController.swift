@@ -119,7 +119,7 @@ class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentat
         humidityDataGraphHandler.scrollGraphButton = scrollHumidityGraphButton
         humidityDataGraphHandler.clearGraphButton = clearHumidityGraphButton
         
-        pressureDataGraphHandler = GraphDataHandler(withGraphView: pressureGraphView, noDataText: "No pressure data present", minValue: 950, maxValue: 1050, numberOfDataSets: 1, dataSetNames: ["Pressure (hPa)"], dataSetColors: [UIColor.nordicYellow])
+        pressureDataGraphHandler = GraphDataHandler(withGraphView: pressureGraphView, noDataText: "No pressure data present", minValue: 950, maxValue: 1050, numberOfDataSets: 1, dataSetNames: ["Pressure (hPa)"], dataSetColors: [UIColor.nordicSun])
         pressureDataGraphHandler.scrollGraphButton = scrollPressureGraphButton
         pressureDataGraphHandler.clearGraphButton = clearPressureGraphButton
     }
@@ -191,7 +191,7 @@ class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentat
     override func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
         print("Env thingy state: \(state), view loaded: \(isViewLoaded)") // TODO: remove
         
-        navigationItem.title = peripheral.name + " Environment"
+        navigationItem.title = "Environment"
         
         settingsButton.isEnabled = peripheral.state == .ready
         controlButton.isEnabled = peripheral.state == .ready

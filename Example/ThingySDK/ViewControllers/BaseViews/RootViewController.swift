@@ -172,13 +172,12 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
             case .pad:
                 rearViewRevealWidth = targetSize.width * 0.35
             default:
-                if(targetSize.width > targetSize.height) {
-                    rearViewRevealWidth = targetSize.width * 0.35
+                if (targetSize.width > targetSize.height) {
+                    rearViewRevealWidth = targetSize.width * 0.4 // 0.35 -> 0.4 as notch takes some space as well
                 } else {
                     rearViewRevealWidth = targetSize.width * 0.85
                 }
-            
         }
-
     }
+    
 }

@@ -75,7 +75,9 @@ class UserFilesViewController: UIViewController, FilePreselectionDelegate, UITab
         
         // The Navigation Item buttons may be initialized just once, here.
         tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButtonTapped))
+        tabBarController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.nordicBlue
         tabBarController?.navigationItem.leftBarButtonItem  = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelButtonTapped))
+        tabBarController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.nordicBlue
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -190,7 +192,7 @@ class UserFilesViewController: UIViewController, FilePreselectionDelegate, UITab
         }
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         if (indexPath as NSIndexPath).row > 0 {
             // Inbox folder can't be deleted
             let filePath = files[(indexPath as NSIndexPath).row - 1]
@@ -205,7 +207,7 @@ class UserFilesViewController: UIViewController, FilePreselectionDelegate, UITab
         return .none
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let filePath = files[(indexPath as NSIndexPath).row - 1]
             

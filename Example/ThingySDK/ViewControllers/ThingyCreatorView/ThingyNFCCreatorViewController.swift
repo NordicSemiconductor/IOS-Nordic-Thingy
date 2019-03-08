@@ -196,8 +196,8 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
             //Do nothing, when the Thingy is scanned the segue will be performed
             break
         default:
-            let parentView = parent as! ThingyNavigationController
-            parentView.dismiss(animated: true, completion: nil)
+            let parentView = parent as? ThingyNavigationController
+            parentView?.dismiss(animated: true, completion: nil)
         }
     }
 

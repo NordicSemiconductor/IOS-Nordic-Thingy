@@ -43,8 +43,10 @@
 //  This extension was inspired by http://stackoverflow.com/questions/27932408/compare-two-version-strings-in-swift/27932531
 
 extension String {
+    
     func versionToInt() -> [Int] {
         return self.components(separatedBy: ".")
             .map { Int.init($0) ?? 0 }
     }
+    
 }

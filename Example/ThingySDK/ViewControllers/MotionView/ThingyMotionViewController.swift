@@ -192,7 +192,7 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
     
     //MARK: - Thingy API
     override func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
-        navigationItem.title = peripheral.name + " Motion"
+        navigationItem.title = "Motion"
         
         setControlButtonsState(enabled: peripheral.state == .ready)
 
@@ -251,7 +251,7 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
             targetPeripheral?.beginHeadingUpdates(withCompletoinHandler: { (success) -> (Void) in
                 print("Start heading updates: \(success)")
             }, andNotificationHandler: { (heading) -> (Void) in
-                self.headingAnglesLabel.text = String.init(format:"%.2f °", heading)
+                self.headingAnglesLabel.text = String(format:"%.1f°", heading)
                 if heading > 0 && heading < 90 {
                     self.headingTextLabel.text = "NE"
                 } else if heading < 180 && heading > 90 {
@@ -284,7 +284,7 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
             targetPeripheral?.beginPedometerUpdates(withCompletoinHandler: { (success) -> (Void) in
                 print("Pedometer updates enabled: \(success)")
             }, andNotificationHandler: { (step, time) -> (Void) in
-                self.stepCountLabel.text         = String.init(format: "%d", step)
+                self.stepCountLabel.text         = String(format: "%d", step)
                 let formattedTime                = self.formatMillisecondsToReadableTime(time: time)
                 self.stepCountDurationLabel.text = formattedTime
             })
@@ -364,7 +364,7 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
                     directionString = "N/A"
                 }
                 
-                self.tapCountLabel.text = String.init(format:"%d", tapCount)
+                self.tapCountLabel.text = String(format:"%d", tapCount)
                 self.tapDirectionLabel.text = directionString
             })
         } else {
@@ -447,7 +447,7 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
         aView.layer.transform = rotation
         let currentAngle = aView.layer.value(forKeyPath: "transform.rotation.z")
         let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
-        rotateAnimation.fillMode = kCAFillModeForwards
+        rotateAnimation.fillMode = CAMediaTimingFillMode.forwards
         rotateAnimation.fromValue = currentAngle
         rotateAnimation.duration = aDuration
         aView.layer.add(rotateAnimation, forKey: nil)

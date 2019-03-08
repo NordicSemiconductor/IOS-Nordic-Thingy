@@ -299,7 +299,7 @@ fileprivate class ThingyPeripheralDatabase: NSObject {
         if storedPeripheralIdentifiers == nil {
             let storedData = UserDefaults.standard.array(forKey: storedPeripheralIdentifiersKey)
             if storedData != nil {
-                storedPeripheralIdentifiers = storedData as! [String]
+                storedPeripheralIdentifiers = (storedData as! [String])
             } else {
                 storedPeripheralIdentifiers = []
             }

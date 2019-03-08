@@ -92,14 +92,14 @@ class ThingyConfigurationViewController: SwipableViewController, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         // Show activity indicator
-        progressIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        progressIndicator = UIActivityIndicatorView(style: .white)
         progressIndicator.hidesWhenStopped = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: progressIndicator)
     }
     
     //MARK: - ThingyPeripheralDelegate
     override func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
-        navigationItem.title = peripheral.name + " Configuration"
+        navigationItem.title = "Configuration"
         configName = peripheral.name
         configurationMenuTable.reloadData()
         if state == .ready {
@@ -359,7 +359,7 @@ class ThingyConfigurationViewController: SwipableViewController, UITableViewData
                 //3200 units is the max value possible on the Thingy (4000 ms).
                 let maxVal = min(Int(self.configConnectionSupervisionTimeout * 4 / (self.configConnectionSlaveLatency + 1)) , 3200)
                 PopupHelper.showIntervalInput(withTitle: "Max interval",
-                                              subtitle: "Range: 7.5 ms -> 4000 ms\nin units of 1.25 ms\n(input range: 6 -> 3200 units)\nCurrent value constraints:\n\(minVal) to \(maxVal)",
+                                              subtitle: "Range: 7.5 ms -> 4000 ms\nin units of 1.25 ms\n(input range: 6 -> 3200 units)\nCurrent value constraints:\n\(minVal!) to \(maxVal)",
                                               value: Int(configConnectionMax), availableRange: NSMakeRange(minVal, maxVal - minVal + 1), unitInMs: 1.25,
                                               andPlaceholderValue: "Max Connection Interval",
                                               completion: {

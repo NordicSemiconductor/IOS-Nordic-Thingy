@@ -97,7 +97,7 @@ class MainNavigationViewController: UINavigationController, ThingyPeripheralDele
     
     public func showDFUView(withURL url: URL? = nil) {
         if let url = url, currentViewIdentifier == "show_dfu_view" {
-            let dfuViewController = childViewControllers.first as? DFUViewController
+            let dfuViewController = children.first as? DFUViewController
             dfuViewController?.onFileSelected(withURL: url)
         } else {
             // Save the URL, it will be used in prepare(for segue, sender) method

@@ -10,6 +10,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 @objc(ChartDataApproximator)
 open class DataApproximator: NSObject
@@ -51,10 +52,11 @@ open class DataApproximator: NSObject
 
     /// apply the Douglas-Peucker-Reduction to an array of `CGPoint`s with a given tolerance
     ///
-    /// - parameter points:
-    /// - parameter tolerance:
-    /// - parameter start:
-    /// - parameter end:
+    /// - Parameters:
+    ///   - points:
+    ///   - tolerance:
+    ///   - start:
+    ///   - end:
     open class func reduceWithDouglasPeuker(
         points: [CGPoint],
         tolerance: CGFloat,
@@ -95,7 +97,7 @@ open class DataApproximator: NSObject
         } // else don't keep the point...
     }
     
-    fileprivate class Line
+    private class Line
     {
         var sxey: CGFloat
         var exsy: CGFloat

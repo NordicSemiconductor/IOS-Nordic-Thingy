@@ -79,9 +79,11 @@ class MainEmptyConfigurationViewController: SwipableViewController {
         //Rounded corners
         addThingyNFCButton.layer.cornerRadius = 4
         addThingyNFCButton.layer.masksToBounds = true
+        addThingyNFCButton.setBackgroundColor(color: UIColor.nordicLakeDark, forState: .highlighted)
 
         addThingyButton.layer.cornerRadius = 4
         addThingyButton.layer.masksToBounds = true
+        addThingyButton.setBackgroundColor(color: UIColor.nordicLakeDark, forState: .highlighted)
         
         if #available(iOS 11.0, *) {
             if NFCNDEFReaderSession.readingAvailable {
@@ -96,7 +98,7 @@ class MainEmptyConfigurationViewController: SwipableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        mainNavigationContorller = navigationController as! MainNavigationViewController
+        mainNavigationContorller = (navigationController as! MainNavigationViewController)
         
         guard thingyManager!.persistentPeripheralIdentifiers() != nil else {
             return
