@@ -24,7 +24,7 @@ The sample app may also be downloaded from iTunes: https://itunes.apple.com/us/a
 ```
 target 'YourAppTargetName' do
     use_frameworks!
-    pod 'IOSThingyLibrary', '~> 1.3.2'
+    pod 'IOSThingyLibrary', '~> 1.4.0'
 end
 ```
 - Install dependencies
@@ -37,7 +37,7 @@ pod install
 **For Carthage:**
 - Create a new **Cartfile** in your project's root with the following contents
 ```
-github "NordicSemiconductor/NordicSemiconductor/IOS-Nordic-Thingy" ~> 1.3.2
+github "NordicSemiconductor/NordicSemiconductor/IOS-Nordic-Thingy" ~> 1.4.0
 ```
 
 - Build with carthage
