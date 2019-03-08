@@ -112,7 +112,7 @@
 		301157FA1DD61B8F00137C41 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		30170A9C1EBCB93100176728 /* evil_laugh_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = evil_laugh_8kHz.wav; sourceTree = "<group>"; };
 		30170A9D1EBCB93100176728 /* grapevine_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grapevine_8kHz.wav; sourceTree = "<group>"; };
-		3025576C1ED2EB0500EB7227 /* IOSThingyLibrary.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = IOSThingyLibrary.podspec; path = ../IOSThingyLibrary.podspec; sourceTree = "<group>"; };
+		3025576C1ED2EB0500EB7227 /* IOSThingyLibrary.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = IOSThingyLibrary.podspec; path = ../IOSThingyLibrary.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3029F9A61DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyConfigurationItemTableViewCell.swift; sourceTree = "<group>"; };
 		3039CCB11DD0D07000DA1C55 /* MotionModelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionModelScene.swift; sourceTree = "<group>"; };
 		308D1A911DE84A2B009138DE /* MainEmptyConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainEmptyConfigurationViewController.swift; sourceTree = "<group>"; };
