@@ -16,7 +16,7 @@ applications with ease.
   s.author           = { 'Mostafa Berg' => 'mostafa.berg@nordicsemi.no' , 'Aleksander Nowakowski' => 'aleksander.nowakowski@nordicsemi.no'}
   s.source           = { :git => 'https://github.com/NordicSemiconductor/IOS-Nordic-Thingy.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/nordictweets'
-  s.swift_version = '4.2'
+  s.swift_versions   = ['4.2']
 
   s.ios.deployment_target = '9.0'
 
