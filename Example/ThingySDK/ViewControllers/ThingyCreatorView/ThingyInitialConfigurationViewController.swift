@@ -84,9 +84,9 @@ class ThingyInitialConfigurationViewController: ThingyViewController, UITableVie
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if settingsHasBeenSaved == false {
-            //If the user hasen't saved the peripheral, it'll
-            //disconnect at this stage since it's not configured
-            //and should resume advertising
+            // If the user hasen't saved the peripheral, it'll
+            // disconnect at this stage since it's not configured
+            // and should resume advertising
             if targetPeripheral != nil {
                 thingyManager!.disconnect(fromDevice: targetPeripheral!)
             }

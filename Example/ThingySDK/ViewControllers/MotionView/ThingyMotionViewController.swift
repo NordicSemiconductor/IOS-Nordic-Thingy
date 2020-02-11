@@ -211,12 +211,23 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
     
     //MARK: - Implementation
     private func initGraphViews() {
-        gravityVectorGraphHandler = GraphDataHandler(withGraphView: gravityVectorChartView, noDataText: "No Gravity data",
-                                                     minValue: -10, maxValue: 10, numberOfDataSets: 3,
+        gravityVectorGraphHandler = GraphDataHandler(withGraphView: gravityVectorChartView,
+                                                     noDataText: "No Gravity data",
+                                                     minValue: -10, maxValue: 10,
+                                                     numberOfDataSets: 3,
                                                      dataSetNames: ["X-Axis", "Y-Axis", "Z-Axis"],
-                                                     dataSetColors: [UIColor.red, UIColor.green, UIColor.blue], andMaxVisibleEntries: 10)
+                                                     dataSetColors: [UIColor.nordicRed,
+                                                                     UIColor.nordicGrass,
+                                                                     UIColor.nordicLake],
+                                                     andMaxVisibleEntries: 10)
         gravityVectorGraphHandler.scrollGraphButton = scrollGravityVectorGraphButton
         gravityVectorGraphHandler.clearGraphButton = clearGravityVectorGraphButton
+        
+        if #available(iOS 13.0, *) {
+            gravityVectorChartView.xAxis.labelTextColor = UIColor.label
+            gravityVectorChartView.getAxis(.left).labelTextColor = UIColor.label
+            gravityVectorChartView.legend.textColor = UIColor.label
+        }
     }
 
     private func cleanupData() {
@@ -300,7 +311,8 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
             targetPeripheral?.beginQuaternionUpdates(withCompletionHandler: { (success) -> (Void) in
                 print("Quaternion updates enabled: \(success)")
             }, andNotificationHandler: { (w, x, y, z) -> (Void) in
-                self.sceneView.setThingyQuaternion(x: x, y: y, z: z, w: w, andUpdateInterval: TimeInterval(updateInterval))
+                self.sceneView.setThingyQuaternion(x: x, y: y, z: z, w: w,
+                                                   andUpdateInterval: TimeInterval(updateInterval))
             })
         } else {
             stopQuaternionNotifications()
@@ -408,7 +420,8 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
     private func stopQuaternionNotifications() {
         targetPeripheral?.stopQuaternionUpdates(withCompletionHandler: { (success) -> (Void) in
             print("Quaternion updates disabled: \(success)")
-            self.sceneView.setThingyQuaternion(x: 0, y: 0, z: 0, w: 1, andUpdateInterval: 1) //Slowly animate 3d model back to identity
+            // Slowly animate 3d model back to identity
+            self.sceneView.setThingyQuaternion(x: 0, y: 0, z: 0, w: 1, andUpdateInterval: 1)
         })
     }
     private func stopGravityVectorNotifications() {
@@ -441,7 +454,7 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
         })
     }
     
-    private func rotateView(aView: UIView, withAngle anAngle: Double, andDuration aDuration: Double){
+    private func rotateView(aView: UIView, withAngle anAngle: Double, andDuration aDuration: Double) {
         let radians = anAngle * .pi / 180
         let rotation = CATransform3DMakeRotation(CGFloat(radians), 0, 0, 1)
         aView.layer.transform = rotation

@@ -35,11 +35,6 @@
  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
  OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-//
-//  UIColorExtension.swift
-//
-//  Created by Mostafa Berg on 05/10/16.
-//
 
 import UIKit
 
@@ -71,14 +66,7 @@ extension UIColor {
     
     static let error = nordicRed
     
-    public static var random: UIColor {
-        let randomRed:   CGFloat = CGFloat(arc4random()) / CGFloat(UInt32.max)
-        let randomGreen: CGFloat = CGFloat(arc4random()) / CGFloat(UInt32.max)
-        let randomBlue:  CGFloat = CGFloat(arc4random()) / CGFloat(UInt32.max)
-        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
-    }
-    
-    public convenience init(hexString: String, alpha: Double = 1.0) {
+    convenience init(hexString: String, alpha: Double = 1.0) {
         let hex = hexString.trimmingCharacters(in: NSCharacterSet.alphanumerics.inverted)
         var intVal = UInt32()
         Scanner(string: hex).scanHexInt32(&intVal)
@@ -92,6 +80,23 @@ extension UIColor {
             (r, g, b) = (1, 1, 0)
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(255 * alpha) / 255)
+    }
+    
+    static func dynamicColor(light: UIColor, dark: UIColor) -> UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor { (traitCollection) -> UIColor in
+                return traitCollection.userInterfaceStyle == .light ? light : dark
+            }
+        } else {
+            return light
+        }
+    }
+    
+    static var random: UIColor {
+        let randomRed:   CGFloat = CGFloat(arc4random()) / CGFloat(UInt32.max)
+        let randomGreen: CGFloat = CGFloat(arc4random()) / CGFloat(UInt32.max)
+        let randomBlue:  CGFloat = CGFloat(arc4random()) / CGFloat(UInt32.max)
+        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
     }
     
     var hexString: String {

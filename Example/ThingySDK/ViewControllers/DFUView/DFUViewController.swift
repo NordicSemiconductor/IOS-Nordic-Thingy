@@ -119,24 +119,10 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadOriginalFirmware(withSoftDeviceBootloader: false)
-        selectedFirmware = originalFirmware
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if let targetPeripheral = targetPeripheral {
-            deviceName.text = targetPeripheral.name
-            if let fwVersion = targetPeripheral.readFirmwareVersion() {
-                if fwVersion == "1.1.0" || fwVersion == "1.0.0" {
-                    loadOriginalFirmware(withSoftDeviceBootloader: true)
-                } else {
-                    loadOriginalFirmware(withSoftDeviceBootloader: false)
-                }
-            } else {
-                
-            }
-        }
         
         // Reset the flag
         changingTarget = false
@@ -160,7 +146,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
             navigationController.setTargetPeripheral(targetPeripheral, andManager: thingyManager)
         } else if segue.identifier == "selectFile" {
             let aNavigationController = segue.destination as? UINavigationController
-            let barViewController = aNavigationController?.childForStatusBarHidden as? UITabBarController
+            let barViewController = aNavigationController?.topViewController as? UITabBarController
             let userFilesVC = barViewController?.viewControllers?.first as? UserFilesViewController
             userFilesVC?.fileDelegate = self
             
@@ -188,6 +174,20 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
                 // The device switched to DFU mode, update it's name
                 deviceName.text = new!.name
             }
+        }
+    }
+    
+    override func targetPeripheralDidChange(new: ThingyPeripheral?) {
+        if let targetPeripheral = new {
+            deviceName.text = targetPeripheral.name
+            if let fwVersion = targetPeripheral.readFirmwareVersion() {
+                if fwVersion == "1.1.0" || fwVersion == "1.0.0" {
+                    loadOriginalFirmware(withSoftDeviceBootloader: true)
+                } else {
+                    loadOriginalFirmware(withSoftDeviceBootloader: false)
+                }
+            }
+            startButton.isEnabled = selectedFirmware != nil
         }
     }
     
@@ -305,7 +305,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
         uploadingFirmwareIcon.alpha   = 0.2
         uploadingFirmwareLabel.alpha  = 0.2
         speedLabel.alpha              = 0.2
-        speedLabel.text               = "0 kB/s"
+        speedLabel.text               = "0 KB/s"
         progressIndicator.alpha       = 0.2
         completedIcon.alpha           = 0.2
         errorIcon.alpha               = 0.0 // Not visible
@@ -365,7 +365,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
             self.errorIcon.alpha               = 0.0
             self.completedLabel.alpha          = 0.2
         }) { (completed) in
-            self.speedLabel.text               = "0 kB/s"
+            self.speedLabel.text               = "0 KB/s"
             self.completedLabel.text           = "Completed"
         }
     }
@@ -428,7 +428,7 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
         } else {
             uploadingFirmwareLabel.text = "Uploading firmware"
         }
-        speedLabel.text = String(format: "%0.1f kB/s", aSpeed / 1024.0)
+        speedLabel.text = String(format: "%0.1f KB/s", aSpeed / 1024.0)
         progressIndicator.setProgress(Float(aCompletion) / 100.0, animated: true)
         uploadingFirmwareIcon.alpha = 0.2 + 0.8 * CGFloat(aCompletion) / 100.0
     }

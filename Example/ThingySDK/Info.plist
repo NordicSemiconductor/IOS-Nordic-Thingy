@@ -44,11 +44,11 @@
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<false/>
 	<key>NFCReaderUsageDescription</key>
-	<string>The app will pair your Thingy device using NFC</string>
+	<string>The app will pair your Thingy device using NFC.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>The app will comunicate with your Thingy device over Bluetooth low energy</string>
+	<string>The app will comunicate with your Thingy device over Bluetooth low energy.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>The app may stream microphone data to your Thingy</string>
+	<string>The app may stream microphone data to your Thingy.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
@@ -77,5 +77,7 @@
 	<false/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>The app will comunicate with your Thingy device over Bluetooth Low Energy.</string>
 </dict>
 </plist>

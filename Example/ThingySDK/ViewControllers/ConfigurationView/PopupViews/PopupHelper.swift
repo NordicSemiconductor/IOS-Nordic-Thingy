@@ -43,11 +43,27 @@
 
 import SDCAlertView
 
+@available(iOS 13.0, *)
+class ModernViewStyle: AlertVisualStyle {
+    
+    override init(alertStyle: AlertControllerStyle) {
+        super.init(alertStyle: .alert)
+
+        backgroundColor = .secondarySystemBackground
+        textFieldBorderColor = .red
+        textFieldMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+}
+
 class PopupHelper: NSObject {
     
     static func showTextInput(withTitle aTitle: String, subtitle aSubtitle: String? = nil, value aValue: String?, andPlaceholderValue aPlaceholderValue: String,
                               validator: ((String?) -> (Bool))? = nil, completion: ((String) -> (Void))? = nil) {
         let alert = AlertController(title: aTitle, message: aSubtitle)
+        if #available(iOS 13.0, *) {
+            alert.visualStyle = ModernViewStyle(alertStyle: .alert)
+        }
         alert.addAction(AlertAction(title: "Cancel", style: .preferred))
         alert.addAction(AlertAction(title: "Set", style: .normal, handler: { (action) in
             let value = alert.textFields![0].text!
@@ -56,6 +72,10 @@ class PopupHelper: NSObject {
         //  alert.behaviors = AlertBehaviors.AutomaticallyFocusTextField
         alert.addTextField { (textField) in
             textField.placeholder = aPlaceholderValue
+            if #available(iOS 13.0, *) {
+                textField.backgroundColor = .tertiarySystemBackground
+                textField.borderStyle = .line
+            }
             textField.text = aValue
         }
         alert.shouldDismissHandler = { (action) -> (Bool) in
@@ -75,6 +95,9 @@ class PopupHelper: NSObject {
     
     static func showEddystoneUrlInput(currentUrl anUrl: URL?, completion: ((URL) -> (Void))? = nil) {
         let alert = AlertController(title: "Eddystone URL", message: nil)
+        if #available(iOS 13.0, *) {
+            alert.visualStyle = ModernViewStyle(alertStyle: .alert)
+        }
         
         class UrlShemePicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
             func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -116,10 +139,15 @@ class PopupHelper: NSObject {
         // |-----------------------------|
         let fieldBorderCell = UIView()
         fieldBorderCell.translatesAutoresizingMaskIntoConstraints = false
-        fieldBorderCell.backgroundColor = UIColor.black
         let fieldCell = UIView()
         fieldCell.translatesAutoresizingMaskIntoConstraints = false
-        fieldCell.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+            fieldCell.backgroundColor = UIColor.tertiarySystemBackground
+            fieldBorderCell.backgroundColor = UIColor.label
+        } else {
+            fieldCell.backgroundColor = UIColor.white
+            fieldBorderCell.backgroundColor = UIColor.black
+        }
         fieldBorderCell.addSubview(fieldCell)
         
         // Add padding 0.5 pt - this will make a thin black border
@@ -134,7 +162,12 @@ class PopupHelper: NSObject {
         field.translatesAutoresizingMaskIntoConstraints = false
         field.placeholder = "URL"
         field.keyboardType = .URL
-        field.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+            field.backgroundColor = UIColor.tertiarySystemBackground
+        } else {
+            field.backgroundColor = UIColor.white
+        }
+        field.borderStyle = .none
         field.font = UIFont.systemFont(ofSize: 13.0)
         field.text = anUrl?.eddystoneUrlSufix
         fieldCell.addSubview(field)
@@ -188,6 +221,9 @@ class PopupHelper: NSObject {
     static func showIntervalInput(withTitle aTitle: String, subtitle aSubtitle: String? = nil, value aValue: Int, availableRange aRange: NSRange, unitInMs aUnit: Float,
                                 andPlaceholderValue aPlaceholderValue: String, completion: ((Int) -> (Void))? = nil) {
         let alert = AlertController(title: aTitle, message: aSubtitle)
+        if #available(iOS 13.0, *) {
+            alert.visualStyle = ModernViewStyle(alertStyle: .alert)
+        }
         alert.addAction(AlertAction(title: "Cancel", style: .preferred))
         alert.addAction(AlertAction(title: "Set", style: .normal, handler: { (action) in
             let value = alert.textFields![0].text!
@@ -215,7 +251,11 @@ class PopupHelper: NSObject {
         alert.addTextField { (textField) in
             textField.placeholder = aPlaceholderValue
             textField.keyboardType = .numberPad
-            textField.text = "\(aValue)"            
+            textField.text = "\(aValue)"
+            if #available(iOS 13.0, *) {
+                textField.backgroundColor = .tertiarySystemBackground
+                textField.borderStyle = .line
+            }
             if aUnit != 1.0 {
                 textField.addTarget(self, action: #selector(intervalDidChange(textField:)), for: .editingChanged)
             }

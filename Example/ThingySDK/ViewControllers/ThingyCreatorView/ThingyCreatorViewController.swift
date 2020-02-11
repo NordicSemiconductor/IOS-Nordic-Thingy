@@ -138,7 +138,7 @@ class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, 
                 return
             }
         }
-        //When connecting stop the ability to start scanning until the state of the peripheral changes
+        // When connecting stop the ability to start scanning until the state of the peripheral changes
         var offsetIndex = indexPath.row
         if shouldShowNFCCell {
             offsetIndex = offsetIndex - 1
@@ -205,7 +205,7 @@ class ThingyCreatorViewController: ThingyViewController, ThingyManagerDelegate, 
         scannedPeripheralsTableView.reloadData()
     }
     private func didSelectPeripheral(aPeripheral: ThingyPeripheral) {
-        //Stop scanning and cnonect to the selected peripheral
+        // Stop scanning and cnonect to the selected peripheral
         thingyManager!.stopScan()
         connectToPeripheral(aPeripheral)
     }

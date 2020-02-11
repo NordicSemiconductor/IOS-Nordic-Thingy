@@ -44,8 +44,7 @@
 import UIKit
 import Charts
 
-class SoundGraphDataHandler: NSObject {
-    
+class SoundGraphDataHandler: NSObject {    
     let maximumVisiblePoints    : Int
     let targetChartView : LineChartView
     let lineChartData   : LineChartData
@@ -58,7 +57,11 @@ class SoundGraphDataHandler: NSObject {
         lineChartData        = LineChartData()
         
         dataSet = LineChartDataSet()
-        dataSet.setColor(UIColor.black)
+        if #available(iOS 13.0, *) {
+            dataSet.setColor(UIColor.label)
+        } else {
+            dataSet.setColor(UIColor.black)
+        }
         dataSet.lineWidth             = 2
         dataSet.mode                  = .cubicBezier
         dataSet.lineCapType           = .round
@@ -113,7 +116,7 @@ class SoundGraphDataHandler: NSObject {
         }
         
         if xPosition >= targetChartView.xAxis.axisMaximum {
-            //We have more points to display, start incrementing the max value
+            // We have more points to display, start incrementing the max value
             targetChartView.xAxis.axisMaximum = xPosition
             targetChartView.xAxis.axisMinimum = xPosition - Double(maximumVisiblePoints)
             targetChartView.moveViewToX(xPosition)

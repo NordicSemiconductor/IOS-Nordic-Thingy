@@ -70,7 +70,11 @@ class MenuItemTableViewCell: UITableViewCell {
             label.textColor = UIColor.nordicLake
         } else {
             icon.image = anIcon
-            label.textColor = UIColor.black
+            if #available(iOS 13.0, *) {
+                label.textColor = UIColor.label
+            } else {
+                label.textColor = UIColor.black
+            }
         }
         
         if isTransparent {

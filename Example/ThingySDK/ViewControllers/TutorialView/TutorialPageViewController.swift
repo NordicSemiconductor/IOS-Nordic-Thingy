@@ -68,7 +68,7 @@ class TutorialPageViewController: UIPageViewController {
 
     private func notifyTutorialDelegateOfNewIndex() {
         if let firstViewController = viewControllers?.first,
-            let index = orderedViewControllers.index(of: firstViewController) {
+            let index = orderedViewControllers.firstIndex(of: firstViewController) {
             tutorialDelegate?.tutorialPageViewController(self, didUpdatePageIndex: index)
         }
     }
@@ -107,7 +107,7 @@ class TutorialPageViewController: UIPageViewController {
      */
     func scrollToViewController(index newIndex: Int) {
         if let firstViewController = viewControllers?.first,
-            let currentIndex = orderedViewControllers.index(of: firstViewController) {
+            let currentIndex = orderedViewControllers.firstIndex(of: firstViewController) {
             let direction: UIPageViewController.NavigationDirection = newIndex >= currentIndex ? .forward : .reverse
             let nextViewController = orderedViewControllers[newIndex]
             scrollToViewController(nextViewController, direction: direction)
@@ -119,7 +119,7 @@ extension TutorialPageViewController: UIPageViewControllerDataSource {
    
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
+        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
             return nil
         }
         
@@ -140,7 +140,7 @@ extension TutorialPageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
+        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
             return nil
         }
         

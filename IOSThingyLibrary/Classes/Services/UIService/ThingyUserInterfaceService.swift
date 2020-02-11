@@ -89,7 +89,7 @@ internal class ThingyUserInterfaceService: ThingyService {
     internal func turnOffLED() throws {
         let ledBytes = [UInt8](arrayLiteral: ThingyLEDMode.off.rawValue)
         if let ledCharacteristic = getLEDCharacteristic() {
-            ledCharacteristic.writeValue(withData: Data(bytes: ledBytes))
+            ledCharacteristic.writeValue(withData: Data(ledBytes))
         } else {
             throw ThingyUserInterfaceError.charactersticNotDiscovered(characteristicName: "LED")
         }
@@ -99,7 +99,7 @@ internal class ThingyUserInterfaceService: ThingyService {
         let colorIntensities = self.getColorIntensities(forColor: aColor)
         let ledBytes = [UInt8](arrayLiteral: ThingyLEDMode.constant.rawValue, colorIntensities[0], colorIntensities[1], colorIntensities[2])
         if let ledCharacteristic = getLEDCharacteristic() {
-            ledCharacteristic.writeValue(withData: Data(bytes: ledBytes))
+            ledCharacteristic.writeValue(withData: Data(ledBytes))
         } else {
             throw ThingyUserInterfaceError.charactersticNotDiscovered(characteristicName: "LED")
         }
@@ -108,7 +108,7 @@ internal class ThingyUserInterfaceService: ThingyService {
     internal func setOneShotLED(withPresetColor aPresetColor: ThingyLEDColorPreset, andIntensity anIntensityPercentage: UInt8) throws {
         let ledBytes = [UInt8](arrayLiteral: ThingyLEDMode.oneShot.rawValue, aPresetColor.rawValue, anIntensityPercentage)
         if let ledCharacteristic = getLEDCharacteristic() {
-            ledCharacteristic.writeValue(withData: Data(bytes: ledBytes))
+            ledCharacteristic.writeValue(withData: Data(ledBytes))
         } else {
             throw ThingyUserInterfaceError.charactersticNotDiscovered(characteristicName: "LED")
         }
@@ -119,7 +119,7 @@ internal class ThingyUserInterfaceService: ThingyService {
         let ledBytes = [UInt8](arrayLiteral: ThingyLEDMode.breathe.rawValue, aPresetColor.rawValue, anIntensity, delayBytes[0], delayBytes[1])
 
         if let ledCharacteristic = getLEDCharacteristic() {
-            ledCharacteristic.writeValue(withData: Data(bytes: ledBytes))
+            ledCharacteristic.writeValue(withData: Data(ledBytes))
         } else {
             throw ThingyUserInterfaceError.charactersticNotDiscovered(characteristicName: "LED")
         }
@@ -127,34 +127,35 @@ internal class ThingyUserInterfaceService: ThingyService {
     
     internal func readLEDState() throws -> (mode: ThingyLEDMode, presetColor: ThingyLEDColorPreset?, rgbColor: UIColor?, intensity: UInt8?, breatheDelay: UInt16?)? {
         if let ledCharacteristic = getLEDCharacteristic() {
-            let data = ledCharacteristic.value
-            if data == nil || (data!.count != 4 && data!.count != 5) {
-                //Return default values since data is either empty or in a wrond format
+            guard let data = ledCharacteristic.value, data.count == 4 || data.count == 5 else {
+                //Return default values since data is either empty or in a wrong format
                 return (ThingyLEDMode.breathe, ThingyLEDColorPreset.blue, UIColor.blue, UInt8(100), UInt16(3500))
-            } else {
-                let ledBytes = data?.toArray(type: UInt8.self)
-                let ledMode = ThingyLEDMode(rawValue: ledBytes![0])!
-                var presetColor: ThingyLEDColorPreset?
-                var rgbColor: UIColor?
-                var intensity: UInt8?
-                var breatheDelay: UInt16?
-                
-                switch ledMode {
-                case .breathe:
-                    presetColor = ThingyLEDColorPreset(rawValue: ledBytes![1])!
-                    intensity   = ledBytes![2]
-                    breatheDelay = UInt16(ledBytes![4]) * 256 + UInt16(ledBytes![3])
-                case .constant:
-                    rgbColor = UIColor(red: CGFloat(ledBytes![1]) / 255, green: CGFloat(ledBytes![2]) / 255, blue: CGFloat(ledBytes![3]) / 255, alpha: 1)
-                case .oneShot:
-                    presetColor = ThingyLEDColorPreset(rawValue: ledBytes![1])!
-                    intensity   = ledBytes![2]
-                case .off:
-                    break
-                }
-                
-                return (ledMode, presetColor, rgbColor, intensity, breatheDelay)
             }
+            let ledMode = ThingyLEDMode(rawValue: data.asValue(offset: 0))!
+            var presetColor: ThingyLEDColorPreset?
+            var rgbColor: UIColor?
+            var intensity: UInt8?
+            var breatheDelay: UInt16?
+            
+            switch ledMode {
+            case .breathe:
+                let delay: UInt16 = data.asValue(offset: 3)
+                breatheDelay = delay
+                fallthrough
+            case .oneShot:
+                presetColor = ThingyLEDColorPreset(rawValue: data.asValue(offset: 1))!
+                let i: UInt8 = data.asValue(offset: 2)
+                intensity = i
+            case .constant:
+                rgbColor = UIColor(red:   CGFloat(data.asValue(offset: 1) as UInt8) / 255,
+                                   green: CGFloat(data.asValue(offset: 2) as UInt8) / 255,
+                                   blue:  CGFloat(data.asValue(offset: 3) as UInt8) / 255,
+                                   alpha: 1)
+            case .off:
+                break
+            }
+            
+            return (ledMode, presetColor, rgbColor, intensity, breatheDelay)
         } else {
             throw ThingyUserInterfaceError.charactersticNotDiscovered(characteristicName: "LED")
         }
@@ -187,7 +188,7 @@ internal class ThingyUserInterfaceService: ThingyService {
     }
     
     private func getColorIntensities(forColor aColor: UIColor) -> [UInt8] {
-        var components = aColor.cgColor.components!
+        let components = aColor.cgColor.components!
         var intensities: [UInt8] = []
         
         if components.count == 2 {

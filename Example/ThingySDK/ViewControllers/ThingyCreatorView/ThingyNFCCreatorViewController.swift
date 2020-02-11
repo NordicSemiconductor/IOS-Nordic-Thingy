@@ -88,6 +88,7 @@ class ThingyNFCCreatorViewController: ThingyViewController, ThingyManagerDelegat
         beginAnimation()
         scanner = NFCNDEFReaderSession(delegate: self, queue: DispatchQueue.main, invalidateAfterFirstRead: true)
         scanner!.alertMessage = "Touch your Thingy:52"
+        
         scanner!.begin()
     }
 

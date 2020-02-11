@@ -53,6 +53,11 @@ class ThingyTableViewController: UITableViewController, HasThingyTarget {
                 targetPeripheralWillChange(old: targetPeripheral!, new: newValue)
             }
         }
+        didSet {
+            if isViewLoaded {
+                targetPeripheralDidChange(new: targetPeripheral)
+            }
+        }
     }
     
     //MARK: UIViewController lifecycle
@@ -60,6 +65,7 @@ class ThingyTableViewController: UITableViewController, HasThingyTarget {
         super.viewDidAppear(animated)
         // Notify the UI about the initial state when view is loaded
         if let peripheral = targetPeripheral {
+            targetPeripheralDidChange(new: peripheral)
             thingyPeripheral(peripheral, didChangeStateTo: peripheral.state)
         }
     }
@@ -89,6 +95,10 @@ class ThingyTableViewController: UITableViewController, HasThingyTarget {
     }
     
     func targetPeripheralWillChange(old: ThingyPeripheral, new: ThingyPeripheral?) {
+        // empty default implementation
+    }
+    
+    func targetPeripheralDidChange(new: ThingyPeripheral?) {
         // empty default implementation
     }
 }

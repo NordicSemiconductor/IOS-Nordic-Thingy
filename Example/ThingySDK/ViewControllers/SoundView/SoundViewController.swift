@@ -168,8 +168,10 @@ class SoundViewController: SwipableTableViewController {
         microphoneBackground.layer.cornerRadius = microphoneBackground.bounds.size.width / 2
         microphonePulse.layer.cornerRadius = microphonePulse.bounds.size.width / 2
         thingyPulse.layer.cornerRadius = thingyPulse.bounds.size.width / 2
-        soundGraphHandler = SoundGraphDataHandler(withGraphView: soundGraph, andMaxVisibleEntries: 50) // The greater value the more UI is lagging
-        volumeSliderTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapSlider(recognizer:)))
+        soundGraphHandler = SoundGraphDataHandler(withGraphView: soundGraph,
+                                                  andMaxVisibleEntries: 50) // The greater value the more UI is lagging
+        volumeSliderTapRecognizer = UITapGestureRecognizer(target: self,
+                                                           action: #selector(didTapSlider(recognizer:)))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -180,9 +182,10 @@ class SoundViewController: SwipableTableViewController {
             if #available(iOS 10.0, *) {
                 try recordingSession.setCategory(.playAndRecord, mode: .default)
             } else {
-                // Workaround until https://forums.swift.org/t/using-methods-marked-unavailable-in-swift-4-2/14949 isn't fixed
+                // Workaround, until https://forums.swift.org/t/using-methods-marked-unavailable-in-swift-4-2/14949 isn't fixed
                 // See: https://stackoverflow.com/a/52396244/2115352
-                recordingSession.perform(NSSelectorFromString("setCategory:error:"), with: AVAudioSession.Category.playAndRecord)
+                recordingSession.perform(NSSelectorFromString("setCategory:error:"),
+                                         with: AVAudioSession.Category.playAndRecord)
             }
             try recordingSession.setPreferredSampleRate(8000) // 8 kHz
             try recordingSession.setPreferredOutputNumberOfChannels(1)
@@ -191,8 +194,9 @@ class SoundViewController: SwipableTableViewController {
             print("Failed to start Record session")
         }
         
-        // As the sound quality is perfect only on iPhone 7 and iPhone 7 Plus (or newer devices)
-        // let's show a message to the user explaining it. It will only be shown once unless user clicks the (i) icon.
+        // As the sound quality is perfect only on iPhone 7 and iPhone 7 Plus
+        // (or newer devices) let's show a message to the user explaining it.
+        // It will only be shown once unless user clicks the (i) icon.
         let key = "SoundInfoShown"
         let infoShown = UserDefaults.standard.bool(forKey: key)
         if infoShown == false {

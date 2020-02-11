@@ -91,7 +91,9 @@ class EnvironmentSettingsViewController: ThingyTableViewController, Configuratio
     override func viewDidLoad() {
         super.viewDidLoad()
         // Environment service must exist if Settings screen is opened
-        (tempInterval, pressureInterval, humidityInterval, lightIntensityInterval, airQualityInterval, redCalibration, greenCalibration, blueCalibration) = targetPeripheral!.readEnvironmentConfiguration()!
+        (tempInterval, pressureInterval, humidityInterval,
+         lightIntensityInterval, airQualityInterval,
+         redCalibration, greenCalibration, blueCalibration) = targetPeripheral!.readEnvironmentConfiguration()!
         temperatureIntervalLabel.text = "\(tempInterval) ms"
         pressureIntervalLabel.text = "\(pressureInterval) ms"
         humidityIntervalLabel.text = "\(humidityInterval) ms"
@@ -159,7 +161,7 @@ class EnvironmentSettingsViewController: ThingyTableViewController, Configuratio
                                                 self.humidityInterval = UInt16(value)
                                                 self.humidityIntervalLabel.text = "\(value) ms"
                                               })
-            case 3: // Light intensity
+            case 4: // Light intensity
                 PopupHelper.showIntervalInput(withTitle: "Light intensity interval", subtitle: "Range: 200 ms - 60000 ms",
                                               value: Int(lightIntensityInterval), availableRange: NSMakeRange(200, 60000 - 200 + 1), unitInMs: 1.0,
                                               andPlaceholderValue: "Interval",

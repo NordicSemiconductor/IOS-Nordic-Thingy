@@ -64,7 +64,7 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
     //MARK: - UI View Controller methods    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Set the rear view width to almost whole screen width
         updateRearViewSize(targetSize: UIScreen.main.bounds.size)
         rearViewRevealDisplacement = 0

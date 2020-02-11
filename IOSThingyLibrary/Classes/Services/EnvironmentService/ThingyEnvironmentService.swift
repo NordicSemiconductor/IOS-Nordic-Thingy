@@ -185,7 +185,7 @@ internal class ThingyEnvironmentService: ThingyService {
                 dataArray.append(blueCalibration)
             }
             
-            let data = Data(bytes: dataArray)
+            let data = Data(dataArray)
             configurationCharacteristic.writeValue(withData: data)
         } else {
             throw ThingyEnvironmentError.charactersticNotDiscovered(characteristicName: "Environment Configuration")

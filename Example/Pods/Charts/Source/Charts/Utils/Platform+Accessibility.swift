@@ -1,6 +1,9 @@
 import Foundation
 
 #if os(iOS) || os(tvOS)
+#if canImport(UIKit)
+    import UIKit
+#endif
 
 internal func accessibilityPostLayoutChangedNotification(withElement element: Any? = nil)
 {
@@ -83,13 +86,18 @@ extension NSUIView
     open override func index(ofAccessibilityElement element: Any) -> Int
     {
         guard let axElement = element as? NSUIAccessibilityElement else { return NSNotFound }
-        return (accessibilityChildren() as? [NSUIAccessibilityElement])?.index(of: axElement) ?? NSNotFound
+        return (accessibilityChildren() as? [NSUIAccessibilityElement])?
+            .firstIndex(of: axElement) ?? NSNotFound
     }
 }
 
 #endif
 
 #if os(OSX)
+
+#if canImport(AppKit)
+import AppKit
+#endif
 
 internal func accessibilityPostLayoutChangedNotification(withElement element: Any? = nil)
 {

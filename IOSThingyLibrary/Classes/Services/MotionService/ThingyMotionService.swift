@@ -271,7 +271,7 @@ internal class ThingyMotionService: ThingyService {
             dataArray.append(UInt8(motionProcessingFrequency >> 8))
             dataArray.append(UInt8(wakeOnMotion ? 0x01 : 0x00))
             
-            let data = Data(bytes: dataArray)            
+            let data = Data(dataArray)            
             configurationCharacteristic.writeValue(withData: data)
         } else {
             throw ThingyMotionError.charactersticNotDiscovered(characteristicName: "Configuration")
