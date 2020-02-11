@@ -61,7 +61,11 @@ class ColorCollectionViewCell: UICollectionViewCell {
     func setupWithColor(aColor: UIColor, andChecked isChecked: Bool) {
         colorView.layer.cornerRadius = colorView.frame.width / 2
         colorView.layer.borderWidth = 0.5
-        colorView.layer.borderColor = UIColor(hexString: "C8C7CB").cgColor
+        if #available(iOS 13.0, *) {
+            colorView.layer.borderColor = UIColor.separator.cgColor
+        } else {
+            colorView.layer.borderColor = UIColor(hexString: "C8C7CB").cgColor
+        }
         colorView.layer.masksToBounds = true
         colorView.backgroundColor = aColor
         

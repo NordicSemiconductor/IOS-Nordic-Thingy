@@ -466,13 +466,15 @@ class ThingyConfigurationViewController: SwipableViewController, UITableViewData
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let aCell = tableView.dequeueReusableCell(withIdentifier: "ThingyConfigurationCell", for: indexPath) as! ThingyConfigurationItemTableViewCell
+        let aCell = tableView.dequeueReusableCell(withIdentifier: "ThingyConfigurationCell", for: indexPath)
         
         let configurationTitle = menuConfigurationItems[indexPath.section][indexPath.row]
         let configurationValue = defaultConfigurationFor(indexPath: indexPath) ?? "Not set"
         let configurationIcon  = menuConfigurationIcons[indexPath.section][indexPath.row]
-
-        aCell.populateWithConfigurationInfo(title: configurationTitle, value: configurationValue, andIcon: configurationIcon)
+        
+        aCell.textLabel?.text = configurationTitle
+        aCell.imageView?.image = configurationIcon
+        aCell.detailTextLabel?.text = configurationValue        
         return aCell
     }
     
