@@ -54,7 +54,7 @@ class AboutViewController: SwipableTableViewController {
             URL(string: "https://cocoapods.org/pods/IOSThingyLibrary")!
         ],
         [
-            URL(string: "https://www.nordicsemi.com/About-us/Privacy-Policy")!
+            URL(string: "https://www.nordicsemi.com/Privacy")!
         ],
         [
             URL(string: "https://github.com/danielgindi/Charts")!,
