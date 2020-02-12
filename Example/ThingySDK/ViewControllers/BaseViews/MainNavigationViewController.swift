@@ -100,8 +100,8 @@ class MainNavigationViewController: UINavigationController, ThingyPeripheralDele
         }
     }
 
-    //We will always default to show the environment view
-    //If this changes, this is an easier way to do so
+    // We will always default to show the environment view
+    // If this changes, this is an easier way to do so
     public func showDefaultView() {
         showEnvironmentView()
     }

@@ -289,7 +289,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mC2-g0-pHe">
-                                <rect key="frame" x="64.666666666666671" y="368" width="245.66666666666663" height="25"/>
+                                <rect key="frame" x="64.666666666666686" y="368" width="245.66666666666663" height="25"/>
                                 <string key="text" base64-UTF8="YES">
 V2VsY29tZSB0bwMgTm9yZGljIFRoaW5neQ
 </string>
@@ -480,7 +480,7 @@ V2VsY29tZSB0bwMgTm9yZGljIFRoaW5neQ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dCp-vH-jZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1094" y="-1473"/>
+            <point key="canvasLocation" x="1093.5999999999999" y="-1473.3990147783252"/>
         </scene>
         <!--Dfu-->
         <scene sceneID="XE0-uQ-0In">
