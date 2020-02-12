@@ -109,3 +109,23 @@ extension UIColor {
     }
     
 }
+
+extension UIImageView {
+    
+    // This hack fixes the issue on iOS 12 where tint isn't drawn initially.
+    // Inspired by: https://stackoverflow.com/a/50135807/2115352
+    // There is still an issue with overrding methods in extension
+    // (https://stackoverflow.com/questions/38213286/overriding-methods-in-swift-extensions),
+    // but that it works and we will not add any more methods like this.
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        
+        if #available(iOS 12.0, *) {
+            if #available(iOS 13.0, *) {
+                // do nothing
+            } else {
+                tintColorDidChange()
+            }
+        }
+    }
+}
