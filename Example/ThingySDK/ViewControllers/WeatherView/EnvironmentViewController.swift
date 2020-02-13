@@ -78,8 +78,6 @@ class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentat
     
     //MARK: - Actions
     @IBAction func menuButtonTapped(_ sender: UIBarButtonItem) {
-        // User tapped menu button, disable menu tooltip if it's never been seen before
-        setSeenMenuTooltip()
         toggleRevealView()
     }
 
@@ -162,21 +160,10 @@ class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentat
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if defaults.bool(forKey: kViewedMenuTooltip) == false {
-            performSegue(withIdentifier: "showMenuTip", sender: navigationItem.leftBarButtonItem)
-            setSeenMenuTooltip()
-        } else if defaults.bool(forKey: kViewedSensorsTooltip) == false {
+        if defaults.bool(forKey: kViewedSensorsTooltip) == false {
             performSegue(withIdentifier: "showServicesTip", sender: controlButton)
             setSeenSensorsTooltip()
         }
-    }
-    
-    private func setSeenMenuTooltip() {
-        guard defaults.bool(forKey: kViewedMenuTooltip) == false else {
-            return
-        }
-        defaults.set(true, forKey: kViewedMenuTooltip)
-        defaults.synchronize()
     }
     
     private func setSeenSensorsTooltip() {
@@ -207,11 +194,7 @@ class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentat
             settingsViewController!.setTargetPeripheral(targetPeripheral, andManager: thingyManager)
         } else if segue.identifier == "showServicesTip" {
             // Show user tip to enable/disable services
-            segue.destination.popoverPresentationController?.sourceView = sender as? UIView
-            segue.destination.popoverPresentationController?.delegate = self
-        } else if segue.identifier == "showMenuTip" {
-            // Show user tip to enable/disable services
-            segue.destination.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
+            // segue.destination.popoverPresentationController?.sourceView = sender as? UIView
             segue.destination.popoverPresentationController?.delegate = self
         }
     }

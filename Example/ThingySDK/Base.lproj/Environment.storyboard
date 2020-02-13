@@ -954,11 +954,8 @@
                         <outlet property="temperatureGraphView" destination="Rkx-Co-wfQ" id="GlT-tD-muO"/>
                         <outlet property="temperatureLabel" destination="SZY-QV-bYD" id="9ei-Uc-EKw"/>
                         <outlet property="totalVolatileOrganicCompoundsLabel" destination="yWi-AY-TdL" id="I6H-Hn-Npa"/>
-                        <segue destination="hbL-y9-Gnh" kind="popoverPresentation" identifier="showMenuTip" popoverAnchorBarButtonItem="2Tj-S9-mkJ" id="a6F-AJ-7u7">
-                            <popoverArrowDirection key="popoverArrowDirection" down="YES" right="YES"/>
-                        </segue>
                         <segue destination="EpI-Ch-6YD" kind="popoverPresentation" identifier="showServicesTip" popoverAnchorView="qS0-U0-1Ce" id="UKj-j6-BHL">
-                            <popoverArrowDirection key="popoverArrowDirection" left="YES"/>
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
                 </tableViewController>
@@ -990,6 +987,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o0x-dN-JUd"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Zk2-rJ-6Dg"/>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="60"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -998,42 +996,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJ5-AW-7pv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2047" y="1961"/>
-        </scene>
-        <!--Service Tips-->
-        <scene sceneID="QtJ-Ng-ria">
-            <objects>
-                <viewController title="Service Tips" id="hbL-y9-Gnh" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="H4l-E0-dEd">
-                        <rect key="frame" x="0.0" y="0.0" width="350" height="70"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the menu button to navigate to other services." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ca-qJ-cm1">
-                                <rect key="frame" x="16" y="0.0" width="318" height="62"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="3z6-Lp-d7s" firstAttribute="bottom" secondItem="7Ca-qJ-cm1" secondAttribute="bottom" constant="8" id="Dwm-Ib-kCS"/>
-                            <constraint firstItem="7Ca-qJ-cm1" firstAttribute="leading" secondItem="H4l-E0-dEd" secondAttribute="leadingMargin" id="dri-uL-hOM"/>
-                            <constraint firstItem="7Ca-qJ-cm1" firstAttribute="trailing" secondItem="H4l-E0-dEd" secondAttribute="trailingMargin" id="lce-OF-nB3"/>
-                            <constraint firstItem="7Ca-qJ-cm1" firstAttribute="top" secondItem="3z6-Lp-d7s" secondAttribute="top" id="zwh-im-G2u"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="3z6-Lp-d7s"/>
-                    </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="300" height="70"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="350" height="70"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hEv-8g-Ic8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2026" y="1750"/>
+            <point key="canvasLocation" x="2046" y="1768"/>
         </scene>
     </scenes>
     <resources>

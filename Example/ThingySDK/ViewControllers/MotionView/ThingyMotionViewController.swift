@@ -125,7 +125,7 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if defaults.bool(forKey: kViewedMenuTooltip) == true && defaults.bool(forKey: kViewedSensorsTooltip) == false {
+        if defaults.bool(forKey: kViewedSensorsTooltip) == false {
             setSeenSensorsTooltip()
             performSegue(withIdentifier: "showServicesTip", sender: nil)
         }

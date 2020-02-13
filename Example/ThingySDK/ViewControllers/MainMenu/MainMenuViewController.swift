@@ -177,7 +177,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
                 }
             }, andNotificationHandler: { (level) -> (Void) in
                 DispatchQueue.main.async {
-                    self.menuTableView.reloadData()
+                    self.menuTableView?.reloadData()
                 }
             })
         }

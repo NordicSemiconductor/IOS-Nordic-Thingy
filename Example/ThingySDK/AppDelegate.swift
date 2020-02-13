@@ -45,7 +45,6 @@ import UIKit
 import CoreBluetooth
 import IOSThingyLibrary
 
-let kViewedMenuTooltip      = "viewed_menu_tooltip"
 let kViewedSensorsTooltip   = "viewed_sensors_tooltip"
 let kCurrentDfuVersion      = "2.2.0"
 
@@ -57,7 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Register tooltip data
         UserDefaults.standard.register(defaults: [
-            kViewedMenuTooltip : false,
             kViewedSensorsTooltip : false
         ])
 
