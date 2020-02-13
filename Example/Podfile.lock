@@ -1,25 +1,25 @@
 PODS:
-  - Charts (3.2.2):
-    - Charts/Core (= 3.2.2)
-  - Charts/Core (3.2.2)
-  - iOSDFULibrary (4.3.0):
-    - ZIPFoundation (~> 0.9.8)
+  - Charts (3.4.0):
+    - Charts/Core (= 3.4.0)
+  - Charts/Core (3.4.0)
+  - iOSDFULibrary (4.6.1):
+    - ZIPFoundation (= 0.9.9)
   - IOSThingyLibrary (1.4.0):
-    - iOSDFULibrary (~> 4.3)
+    - iOSDFULibrary (~> 4)
   - Keychain (0.3.1)
-  - SDCAlertView (9.0.1)
+  - SDCAlertView (10.0)
   - SWRevealViewController (2.3.0)
-  - ZIPFoundation (0.9.8)
+  - ZIPFoundation (0.9.9)
 
 DEPENDENCIES:
   - Charts (~> 3)
   - IOSThingyLibrary (from `../`)
   - Keychain (~> 0.3)
-  - SDCAlertView (~> 9)
+  - SDCAlertView (~> 10.0)
   - SWRevealViewController (~> 2)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Charts
     - iOSDFULibrary
     - Keychain
@@ -32,14 +32,14 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
-  iOSDFULibrary: 41a38d1d2550bf2b0c81e7ccd006af3a96c8149b
-  IOSThingyLibrary: 4ed492f8a96806ae5509ebdc3d738c4cbe19d796
+  Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
+  iOSDFULibrary: 3053cf01eaabec37dc7372fb77ae4a218b577c55
+  IOSThingyLibrary: 47d84e2d812061cc459e3b7aa724d367748b1b31
   Keychain: ef812eafcf6593fe4409b07cfecc00b95fb373ed
-  SDCAlertView: f24c447279278dca39d41562b414276980b066d8
+  SDCAlertView: 5fbc48cae6d7bf9781097e3f27883924ef3b922c
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
-  ZIPFoundation: b1f07e4409baf1641f3fe5948b2a1c3f5c500cb1
+  ZIPFoundation: 89df685c971926b0323087952320bdfee9f0b6ef
 
-PODFILE CHECKSUM: a81065703bc318faa46035153965233fed7ee83f
+PODFILE CHECKSUM: 7dfdab508872509ec2ac6ec24cd6346a2f8fb602
 
-COCOAPODS: 1.7.0.beta.1
+COCOAPODS: 1.8.4

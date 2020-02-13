@@ -53,6 +53,11 @@ class ThingyViewController: UIViewController, HasThingyTarget {
                 targetPeripheralWillChange(old: targetPeripheral!, new: newValue)
             }
         }
+        didSet {
+            if isViewLoaded {
+                targetPeripheralDidChange(new: targetPeripheral)
+            }
+        }
     }
     
     //MARK: UIViewController lifecycle
@@ -60,6 +65,7 @@ class ThingyViewController: UIViewController, HasThingyTarget {
         super.viewDidAppear(animated)
         // Notify the UI about the initial state when view is loaded
         if let peripheral = targetPeripheral {
+            targetPeripheralDidChange(new: peripheral)
             thingyPeripheral(peripheral, didChangeStateTo: peripheral.state)
         }
     }
@@ -82,8 +88,9 @@ class ThingyViewController: UIViewController, HasThingyTarget {
         }
     }
     
-    /// This method is called every time the active Thingy device changes its state and, additionally,
-    /// every time the view is loaded (in viewDidLoad()). This should enable notifications if required if state = .ready.
+    /// This method is called every time the active Thingy device changes its
+    /// state and, additionally, every time the view is loaded (in viewDidLoad()).
+    /// This should enable notifications if required if state = .ready.
     func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
         // empty default implementation
     }
@@ -91,4 +98,7 @@ class ThingyViewController: UIViewController, HasThingyTarget {
     func targetPeripheralWillChange(old: ThingyPeripheral, new: ThingyPeripheral?) {
         // empty default implementation
     }
-}
+    
+    func targetPeripheralDidChange(new: ThingyPeripheral?) {
+        // empty default implementation
+    }}

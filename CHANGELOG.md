@@ -1,3 +1,10 @@
+* **Version 1.5.0**
+    - New feature: Dark Theme (iOS 13 and newer).
+    - Update: Migration to Swift 5.1.
+    - Improvement: Updated Pod dependencies in the Example app.
+    - Improvement: DFU Library version 4.6.1.
+    - Bugfix: Crashes related to iOS 13 have been fixed.
+    
 * **Version 1.4.0**
     - Update: Updated bundled Thingy FW to 2.2.0.
     - New feature: Option to set Thingy NFC content (library only).

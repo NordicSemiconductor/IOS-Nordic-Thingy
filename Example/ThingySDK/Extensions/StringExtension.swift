@@ -35,13 +35,9 @@
  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
  OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-//
-//  UIColorExtension.swift
-//
-//  Created by Mostafa Berg on 18/05/17.
-//
-//  This extension was inspired by http://stackoverflow.com/questions/27932408/compare-two-version-strings-in-swift/27932531
 
+// This extension was inspired by
+// http://stackoverflow.com/questions/27932408/compare-two-version-strings-in-swift/27932531
 extension String {
     
     func versionToInt() -> [Int] {

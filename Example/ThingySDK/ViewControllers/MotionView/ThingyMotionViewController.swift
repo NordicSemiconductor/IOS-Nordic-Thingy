@@ -125,7 +125,7 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if defaults.bool(forKey: kViewedMenuTooltip) == true && defaults.bool(forKey: kViewedSensorsTooltip) == false {
+        if defaults.bool(forKey: kViewedSensorsTooltip) == false {
             setSeenSensorsTooltip()
             performSegue(withIdentifier: "showServicesTip", sender: nil)
         }
@@ -141,19 +141,19 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
 
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //segue for the popover configuration window
+        // Segue for the popover configuration window
         if segue.identifier == "show3DControl" {
             let controller = segue.destination as! Thingy3DControlViewController
             controller.delegate = self
             controller.quaternionEnabled    = defaults.bool(forKey: keyQuaternionEnabled)
-            controller.popoverPresentationController!.sourceRect = (sender as! UIButton).bounds
-            controller.popoverPresentationController!.delegate = self
+            controller.popoverPresentationController?.sourceView = sender as! UIButton
+            controller.popoverPresentationController?.delegate = self
         } else if segue.identifier == "showGravityVectorControl" {
             let controller = segue.destination as! ThingyGravityVectorControlViewController
             controller.delegate = self
             controller.gravityVectorEnabled = defaults.bool(forKey: keyGravityVectorEnabled)
-            controller.popoverPresentationController!.sourceRect = (sender as! UIButton).bounds
-            controller.popoverPresentationController!.delegate = self
+            controller.popoverPresentationController?.sourceView = sender as! UIButton
+            controller.popoverPresentationController?.delegate = self
         } else if segue.identifier == "showMotionControl" {
             let controller = segue.destination as! ThingyMotionControlViewController
             controller.delegate = self
@@ -161,19 +161,18 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
             controller.pedometerEnabled     = defaults.bool(forKey: keyPedometerEnabled)
             controller.orientationEnabled   = defaults.bool(forKey: keyOrientationEnabled)
             controller.tapEnabled           = defaults.bool(forKey: keyTapEnabled)
-            controller.popoverPresentationController!.sourceRect = (sender as! UIButton).bounds
-            controller.popoverPresentationController!.delegate = self 
+            controller.popoverPresentationController?.sourceView = sender as! UIButton
+            controller.popoverPresentationController?.delegate = self
         } else if segue.identifier == "showInfo" {
-            segue.destination.popoverPresentationController!.sourceRect = (sender as! UIButton).bounds
-            segue.destination.popoverPresentationController!.delegate = self
+            segue.destination.popoverPresentationController?.sourceView = sender as! UIButton
+            segue.destination.popoverPresentationController?.delegate = self
         } else if segue.identifier == "showSettings" {
             settingsViewController = segue.destination as? ThingyNavigationController
-            settingsViewController!.setTargetPeripheral(targetPeripheral, andManager: thingyManager)
+            settingsViewController?.setTargetPeripheral(targetPeripheral, andManager: thingyManager)
         } else if segue.identifier == "showServicesTip" {
-            //Show user tip to enable/disable services
-            let toolTipView = segue.destination as UIViewController
-            toolTipView.popoverPresentationController!.sourceRect = control3DMotion.bounds
-            toolTipView.popoverPresentationController!.delegate = self
+            // Show user tip to enable/disable services
+            segue.destination.popoverPresentationController?.sourceView = control3DMotion
+            segue.destination.popoverPresentationController?.delegate = self
         }
     }
     
@@ -211,12 +210,23 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
     
     //MARK: - Implementation
     private func initGraphViews() {
-        gravityVectorGraphHandler = GraphDataHandler(withGraphView: gravityVectorChartView, noDataText: "No Gravity data",
-                                                     minValue: -10, maxValue: 10, numberOfDataSets: 3,
+        gravityVectorGraphHandler = GraphDataHandler(withGraphView: gravityVectorChartView,
+                                                     noDataText: "No Gravity data",
+                                                     minValue: -10, maxValue: 10,
+                                                     numberOfDataSets: 3,
                                                      dataSetNames: ["X-Axis", "Y-Axis", "Z-Axis"],
-                                                     dataSetColors: [UIColor.red, UIColor.green, UIColor.blue], andMaxVisibleEntries: 10)
+                                                     dataSetColors: [UIColor.nordicRed,
+                                                                     UIColor.nordicGrass,
+                                                                     UIColor.nordicLake],
+                                                     andMaxVisibleEntries: 10)
         gravityVectorGraphHandler.scrollGraphButton = scrollGravityVectorGraphButton
         gravityVectorGraphHandler.clearGraphButton = clearGravityVectorGraphButton
+        
+        if #available(iOS 13.0, *) {
+            gravityVectorChartView.xAxis.labelTextColor = UIColor.label
+            gravityVectorChartView.getAxis(.left).labelTextColor = UIColor.label
+            gravityVectorChartView.legend.textColor = UIColor.label
+        }
     }
 
     private func cleanupData() {
@@ -300,7 +310,8 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
             targetPeripheral?.beginQuaternionUpdates(withCompletionHandler: { (success) -> (Void) in
                 print("Quaternion updates enabled: \(success)")
             }, andNotificationHandler: { (w, x, y, z) -> (Void) in
-                self.sceneView.setThingyQuaternion(x: x, y: y, z: z, w: w, andUpdateInterval: TimeInterval(updateInterval))
+                self.sceneView.setThingyQuaternion(x: x, y: y, z: z, w: w,
+                                                   andUpdateInterval: TimeInterval(updateInterval))
             })
         } else {
             stopQuaternionNotifications()
@@ -408,7 +419,8 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
     private func stopQuaternionNotifications() {
         targetPeripheral?.stopQuaternionUpdates(withCompletionHandler: { (success) -> (Void) in
             print("Quaternion updates disabled: \(success)")
-            self.sceneView.setThingyQuaternion(x: 0, y: 0, z: 0, w: 1, andUpdateInterval: 1) //Slowly animate 3d model back to identity
+            // Slowly animate 3d model back to identity
+            self.sceneView.setThingyQuaternion(x: 0, y: 0, z: 0, w: 1, andUpdateInterval: 1)
         })
     }
     private func stopGravityVectorNotifications() {
@@ -441,7 +453,7 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
         })
     }
     
-    private func rotateView(aView: UIView, withAngle anAngle: Double, andDuration aDuration: Double){
+    private func rotateView(aView: UIView, withAngle anAngle: Double, andDuration aDuration: Double) {
         let radians = anAngle * .pi / 180
         let rotation = CATransform3DMakeRotation(CGFloat(radians), 0, 0, 1)
         aView.layer.transform = rotation

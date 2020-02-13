@@ -112,6 +112,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     @IBOutlet weak var menuTableView: UITableView!
+    @IBOutlet weak var titleView: UIView!
     
     //MARK: UIView implementation
     required init?(coder aDecoder: NSCoder) {
@@ -122,6 +123,8 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleView.backgroundColor = UIColor.dynamicColor(light: .nordicBlue, dark: .black)
         
         let sectionView = UINib(nibName: "MenuExpandableHeaderView", bundle: nil)
         menuTableView.register(sectionView, forHeaderFooterViewReuseIdentifier: tableHeaderIdentifier)
@@ -174,7 +177,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
                 }
             }, andNotificationHandler: { (level) -> (Void) in
                 DispatchQueue.main.async {
-                    self.menuTableView.reloadData()
+                    self.menuTableView?.reloadData()
                 }
             })
         }
@@ -391,12 +394,14 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
 
             case 1:
                 if connectedPeripheralCount() > 0 {
-                    aCell.updateCell(withTitle: serviceMenuItems[indexPath.row], andIcon: serviceMenuIcons[indexPath.row],
+                    aCell.updateCell(withTitle: serviceMenuItems[indexPath.row],
+                                     andIcon: serviceMenuIcons[indexPath.row],
                                      batteryLevel: nil)
                 }
 
             case 2:
-                aCell.updateCell(withTitle: moreMenuItems[indexPath.row], andIcon: moreMenuIcons[indexPath.row],
+                aCell.updateCell(withTitle: moreMenuItems[indexPath.row],
+                                 andIcon: moreMenuIcons[indexPath.row],
                                  batteryLevel: nil)
 
             default:
@@ -512,7 +517,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
                 // Devices list is expended. All configured devices are visible.
                 // Get the row number of the new targetPeripheral before the list of peripherals is reloaded
                 let targetPeripheralIndex = targetPeripheral != nil ? peripheralsBeforeRemoving
-                    .index(of: targetPeripheral!) : nil
+                    .firstIndex(of: targetPeripheral!) : nil
                 
                 // Reload peripherals list
                 reloadPeripherals(activeOnly: !mainHeaderIsExpanded)

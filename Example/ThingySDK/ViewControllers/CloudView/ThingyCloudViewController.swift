@@ -365,7 +365,7 @@ class ThingyCloudViewController: SwipableTableViewController {
         var i = 1
         for anArgument in someData {
             postString = postString.appendingFormat("\"value%d\":\"%@\"", i, anArgument)
-            if someData.index(of: anArgument)! < someData.endIndex - 1 {
+            if someData.firstIndex(of: anArgument)! < someData.endIndex - 1 {
                 postString.append(",")
             }
             i = i + 1
@@ -390,7 +390,7 @@ class ThingyCloudViewController: SwipableTableViewController {
                 
                 var errorMessages: String = ""
                 if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    if let root = json?["errors"] {
+                    if let root = json["errors"] {
                         if let errorArray = root as? NSArray {
                             for anError in errorArray {
                                 if let errorObject = anError as? NSDictionary {
@@ -435,9 +435,9 @@ class ThingyCloudViewController: SwipableTableViewController {
         if totalUploadedBytes < 1024 {
             totalUploadSizeLabel.text = String(format: "%d Bytes", totalUploadedBytes)
         } else if totalUploadedBytes < 1024 * 1024 {
-            totalUploadSizeLabel.text = String(format: "%.2f Kb", Float(totalUploadedBytes) / 1024.0)
+            totalUploadSizeLabel.text = String(format: "%.2f KB", Float(totalUploadedBytes) / 1024.0)
         } else {
-            totalUploadSizeLabel.text = String(format: "%.2f Mb", Float(totalUploadedBytes) / 1024.0 * 1024.0)
+            totalUploadSizeLabel.text = String(format: "%.2f MB", Float(totalUploadedBytes) / 1024.0 * 1024.0)
         }
     }
     
@@ -446,9 +446,9 @@ class ThingyCloudViewController: SwipableTableViewController {
         if totalDownloadedBytes < 1024 {
             totalDownloadSizeLabel.text = String(format: "%d Bytes", totalDownloadedBytes)
         } else if totalUploadedBytes < 1024 * 1024 {
-            totalDownloadSizeLabel.text = String(format: "%.2f Kb", Float(totalDownloadedBytes) / 1024.0)
+            totalDownloadSizeLabel.text = String(format: "%.2f KB", Float(totalDownloadedBytes) / 1024.0)
         } else {
-            totalDownloadSizeLabel.text = String(format: "%.2f Mb", Float(totalDownloadedBytes) / 1024.0 * 1024.0)
+            totalDownloadSizeLabel.text = String(format: "%.2f MB", Float(totalDownloadedBytes) / 1024.0 * 1024.0)
         }
     }
 

@@ -35,15 +35,10 @@
  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
  OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-//
-//  UIButtonExtension.swift
-//
-//  Created by Aleksander Nowakowski on 14/02/2019.
-//
-//  This extension was inspired by https://stackoverflow.com/a/49773196/2115352
 
 import UIKit
 
+// This extension was inspired by https://stackoverflow.com/a/49773196/2115352
 extension UIButton {
     
     func setBackgroundColor(color: UIColor, forState: UIControl.State) {

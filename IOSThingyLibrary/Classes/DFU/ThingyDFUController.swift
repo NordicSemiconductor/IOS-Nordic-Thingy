@@ -146,7 +146,7 @@ public class ThingyDFUController: NSObject, DFUProgressDelegate, DFUServiceDeleg
         if dfuControlPointCharacteristic != nil {
             //We are overriding our own control point characteristic since the peripheral didn't have it's own and it's immutable, this has the same effect
             targetPeripheral.basePeripheral.setNotifyValue(true, for: dfuControlPointCharacteristic!)
-            targetPeripheral.basePeripheral.writeValue(Data(bytes: [0x01]), for: dfuControlPointCharacteristic!, type: CBCharacteristicWriteType.withResponse)
+            targetPeripheral.basePeripheral.writeValue(Data([0x01]), for: dfuControlPointCharacteristic!, type: CBCharacteristicWriteType.withResponse)
             bootloaderState = .jumpToBootloaderCommandSent
         } else {
             targetPeripheral.delegate = self

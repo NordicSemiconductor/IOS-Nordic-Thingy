@@ -12,8 +12,12 @@
 import Foundation
 import CoreGraphics
 
-#if !os(OSX)
+#if canImport(UIKit)
     import UIKit
+#endif
+
+#if canImport(Cocoa)
+import Cocoa
 #endif
 
 

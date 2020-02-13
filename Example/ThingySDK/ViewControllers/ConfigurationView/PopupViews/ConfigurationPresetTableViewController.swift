@@ -60,7 +60,7 @@ class ConfigurationPresetTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         // keys, value and selectedKey must be defined here. If they are not, crash asap
-        selectedIndex = keys!.index(where: { (key) -> Bool in
+        selectedIndex = keys!.firstIndex(where: { (key) -> Bool in
             return key == selectedKey!
         }) ?? 0
     }

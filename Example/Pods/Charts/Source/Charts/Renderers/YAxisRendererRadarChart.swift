@@ -12,8 +12,12 @@
 import Foundation
 import CoreGraphics
 
-#if !os(OSX)
+#if canImport(UIKit)
     import UIKit
+#endif
+
+#if canImport(Cocoa)
+import Cocoa
 #endif
 
 open class YAxisRendererRadarChart: YAxisRenderer
@@ -213,7 +217,7 @@ open class YAxisRendererRadarChart: YAxisRenderer
             let data = chart.data
             else { return }
         
-        var limitLines = yAxis.limitLines
+        let limitLines = yAxis.limitLines
         
         if limitLines.count == 0
         {

@@ -48,14 +48,23 @@ class MotionModelScene: SCNView {
     private var thingyNode : SCNNode?
 
     func start() {
-        thingyNode = scene?.rootNode.childNode(withName: "ThingyModel", recursively: false)
+        thingyNode = scene?.rootNode.childNode(withName: "ThingyModel",
+                                               recursively: false)
+        if #available(iOS 13.0, *) {
+            backgroundColor = UIColor.secondarySystemBackground
+        } else {
+            backgroundColor = UIColor.white
+        }
+        scene?.background.contents = nil
     }
 
-    func setThingyQuaternion(x: Float, y: Float, z: Float, w: Float, andUpdateInterval interval: TimeInterval) {
-        //Due to 3D model and hardware differences, the following changes are needed for proper presentation:
-        //X => Y
-        //Y => -Z
-        //Z => -X
+    func setThingyQuaternion(x: Float, y: Float, z: Float, w: Float,
+                             andUpdateInterval interval: TimeInterval) {
+        // Due to 3D model and hardware differences, the following changes
+        // are needed for proper presentation:
+        // X => Y
+        // Y => -Z
+        // Z => -X
         SCNTransaction.animationDuration = interval
         let quaternion = SCNQuaternion(y, -z, -x, w)
         thingyNode?.orientation = quaternion

@@ -105,7 +105,7 @@ internal class ThingyConfigurationService: ThingyService {
         if let advertisingParametersCharacteristic = getAdvertisingParametersCharacteristic() {
             let parameterdata = advertisingParametersCharacteristic.value
             if parameterdata != nil {
-                var byteArray = [UInt8](parameterdata!)
+                let byteArray = [UInt8](parameterdata!)
                 let interval: UInt16 = UInt16(byteArray[0]) | UInt16(byteArray[1]) << 8
                 let timeout = byteArray[2]
                 return (interval, timeout)
@@ -131,7 +131,7 @@ internal class ThingyConfigurationService: ThingyService {
             dataArray.append(uInt8Value0)
             dataArray.append(aTimeout)
             
-            let data = Data(bytes: dataArray)
+            let data = Data(dataArray)
             advertisingParamsCharacteristic.writeValue(withData: data)
         } else {
             throw ThingyConfigurationError.charactersticNotDiscovered(characteristicName: "Advertising Parameters")
@@ -167,7 +167,7 @@ internal class ThingyConfigurationService: ThingyService {
             dataArray.append(UInt8(aSupervisionTimeout & 0x00FF))
             dataArray.append(UInt8(aSupervisionTimeout >> 8))
             
-            let data = Data(bytes: dataArray)
+            let data = Data(dataArray)
             connectionParamsCharacteristic.writeValue(withData: data)
         } else {
             throw ThingyConfigurationError.charactersticNotDiscovered(characteristicName: "Connection Parameters")

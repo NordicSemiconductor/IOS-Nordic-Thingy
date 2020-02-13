@@ -888,12 +888,11 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
         // Save the notification callback. This may overwrite the old one if such existed
         valueCallbackHandlers[getQuaternionCharacteristicUUID()] = { (quaternionData) -> (Void) in
-            let quaternionArray = quaternionData.toArray(type: Int32.self)
-            let w = Float(quaternionArray[0]) / Float(1 << 30)
-            let x = Float(quaternionArray[1]) / Float(1 << 30)
-            let y = Float(quaternionArray[2]) / Float(1 << 30)
-            let z = Float(quaternionArray[3]) / Float(1 << 30)
-            aNotificationHandler?(w,x,y,z)
+            let w = Float(quaternionData.asValue(offset: 0) as Int32) / Float(1 << 30)
+            let x = Float(quaternionData.asValue(offset: 4) as Int32) / Float(1 << 30)
+            let y = Float(quaternionData.asValue(offset: 8) as Int32) / Float(1 << 30)
+            let z = Float(quaternionData.asValue(offset: 12) as Int32) / Float(1 << 30)
+            aNotificationHandler?(w, x, y, z)
         }
         // Were notifications already enabled?
         if motionService!.quaternionNotificationsEnabled {
@@ -942,10 +941,9 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
         // Save the notification callback. This may overwrite the old one if such existed
         valueCallbackHandlers[getEulerCharacteristicUUID()] = { (eulerData) -> (Void) in
-            let eulerArray = eulerData.toArray(type: Int32.self)
-            let roll  = Float(eulerArray[0]) / Float((1 << 16))
-            let pitch = Float(eulerArray[1]) / Float((1 << 16))
-            let yaw   = Float(eulerArray[2]) / Float((1 << 16))
+            let roll  = Float(eulerData.asValue(offset: 0) as UInt32) / Float((1 << 16))
+            let pitch = Float(eulerData.asValue(offset: 4) as UInt32) / Float((1 << 16))
+            let yaw   = Float(eulerData.asValue(offset: 8) as UInt32) / Float((1 << 16))
             aNotificationHandler?(roll, pitch, yaw)
         }
         // Were notifications already enabled?
@@ -994,9 +992,8 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
         // Save the notification callback. This may overwrite the old one if such existed
         valueCallbackHandlers[getPedometerCharacteristicUUID()] = { (pedometerData) -> (Void) in
-            let pedometerArray = pedometerData.toArray(type: UInt32.self)
-            let steps     = pedometerArray[0]
-            let timestamp = pedometerArray[1]
+            let steps     = pedometerData.asValue(offset: 0) as UInt32
+            let timestamp = pedometerData.asValue(offset: 4) as UInt32
             aNotificationHandler?(steps, timestamp)
         }
         // Were notifications already enabled?
@@ -1045,23 +1042,21 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
         // Save the notification callback. This may overwrite the old one if such existed
         valueCallbackHandlers[getRawDataCharacteristicUUID()] = { (rawData) -> (Void) in
-            let rawDataArray = rawData.toArray(type: Int16.self)
-            
             var accelerometerData = [Float]()
             var gyroscopeData     = [Float]()
             var compassData       = [Float]()
             //Accelerometer
-            accelerometerData.append(Float(rawDataArray[0]) / Float(2 << 14))
-            accelerometerData.append(Float(rawDataArray[1]) / Float(2 << 14))
-            accelerometerData.append(Float(rawDataArray[2]) / Float(2 << 14))
+            accelerometerData.append(Float(rawData.asValue(offset: 0) as UInt16) / Float(2 << 14))
+            accelerometerData.append(Float(rawData.asValue(offset: 2) as UInt16) / Float(2 << 14))
+            accelerometerData.append(Float(rawData.asValue(offset: 4) as UInt16) / Float(2 << 14))
             //Gyroscope
-            gyroscopeData.append(Float(rawDataArray[3]) / Float(2 << 14))
-            gyroscopeData.append(Float(rawDataArray[4]) / Float(2 << 14))
-            gyroscopeData.append(Float(rawDataArray[5]) / Float(2 << 14))
+            gyroscopeData.append(Float(rawData.asValue(offset: 6) as UInt16) / Float(2 << 14))
+            gyroscopeData.append(Float(rawData.asValue(offset: 8) as UInt16) / Float(2 << 14))
+            gyroscopeData.append(Float(rawData.asValue(offset: 10) as UInt16) / Float(2 << 14))
             //Compass
-            compassData.append(Float(rawDataArray[6]) / Float(2 << 14))
-            compassData.append(Float(rawDataArray[7]) / Float(2 << 14))
-            compassData.append(Float(rawDataArray[8]) / Float(2 << 14))
+            compassData.append(Float(rawData.asValue(offset: 12) as UInt16) / Float(2 << 14))
+            compassData.append(Float(rawData.asValue(offset: 14) as UInt16) / Float(2 << 14))
+            compassData.append(Float(rawData.asValue(offset: 16) as UInt16) / Float(2 << 14))
             
             aNotificationHandler?(accelerometerData, gyroscopeData, compassData)
         }
@@ -1111,7 +1106,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
         // Save the notification callback. This may overwrite the old one if such existed
         valueCallbackHandlers[getHeadingCharacteristicUUID()] = { (headingData) -> (Void) in
-            let headingValue = Float(headingData.toArray(type: Int32.self)[0]) / Float(1 << 16)
+            let headingValue = Float(headingData.asValue(offset: 0) as UInt32) / Float(1 << 16)
             aNotificationHandler?(headingValue)
         }
         // Were notifications already enabled?
@@ -1160,10 +1155,9 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
         // Save the notification callback. This may overwrite the old one if such existed
         valueCallbackHandlers[getGravityVectorCharacteristicUUID()] = { (gravityVectorData) -> (Void) in
-            let gravityVectorArray = gravityVectorData.toArray(type: UInt32.self)
-            let x = Float(bitPattern: gravityVectorArray[0])
-            let y = Float(bitPattern: gravityVectorArray[1])
-            let z = Float(bitPattern: gravityVectorArray[2])
+            let x = Float(bitPattern: gravityVectorData.asValue(offset: 0) as UInt32)
+            let y = Float(bitPattern: gravityVectorData.asValue(offset: 4) as UInt32)
+            let z = Float(bitPattern: gravityVectorData.asValue(offset: 8) as UInt32)
             aNotificationHandler?(x, y, z)
         }
         // Were notifications already enabled?
@@ -1212,12 +1206,17 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
         // Save the notification callback. This may overwrite the old one if such existed
         valueCallbackHandlers[getRotationMatrixCharacteristicUUID()] = { (rotationMatrixData) -> (Void) in
-            let rotationMatrixArray = rotationMatrixData.toArray(type: Int16.self)
             var rotationMatrix = [[Int16]]()
             
-            let row0 : [Int16] = [rotationMatrixArray[0], rotationMatrixArray[1], rotationMatrixArray[2]]
-            let row1 : [Int16] = [rotationMatrixArray[3], rotationMatrixArray[4], rotationMatrixArray[5]]
-            let row2 : [Int16] = [rotationMatrixArray[6], rotationMatrixArray[7], rotationMatrixArray[8]]
+            let row0 : [Int16] = [rotationMatrixData.asValue(offset: 0),
+                                  rotationMatrixData.asValue(offset: 2),
+                                  rotationMatrixData.asValue(offset: 4)]
+            let row1 : [Int16] = [rotationMatrixData.asValue(offset: 6),
+                                  rotationMatrixData.asValue(offset: 8),
+                                  rotationMatrixData.asValue(offset: 10)]
+            let row2 : [Int16] = [rotationMatrixData.asValue(offset: 12),
+                                  rotationMatrixData.asValue(offset: 14),
+                                  rotationMatrixData.asValue(offset: 16)]
             
             rotationMatrix.append(row0)
             rotationMatrix.append(row1)
@@ -1232,8 +1231,7 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
         // If not, save the completion callback
         operationCallbackHandlers.append(aHandler ?? doNothing)
-        // and try to enable notifications
-        
+        // and try to enable notifications        
         do {
             try motionService!.beginRotationMatrixNotifications()
         } catch {

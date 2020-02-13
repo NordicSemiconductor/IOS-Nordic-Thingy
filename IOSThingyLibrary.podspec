@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name             = 'IOSThingyLibrary'
-  s.version          = '1.4.0'
-  s.summary          = 'A Swift 4.2 SDK implementation for the Nordic:Thingy52 produced by Nordic Semiconductor'
+  s.version          = '1.5.0'
+  s.summary          = 'A Swift 5 SDK implementation for the Nordic Thingy:52 produced by Nordic Semiconductor'
   s.description      = <<-DESC
-This is a mobile SDK for the Thingy:52 devices developed by Nordic Semiconductor, the Thingy
-is a development board with a vast amount of sensors, an input button and a RGB LED, fully
-customizable thanks to its Bluetooth API that requires no firmware programming knowledge.
+This is a mobile SDK for the Thingy:52 devices developed by Nordic Semiconductor. Thingy:52
+is a development board with a vast amount of sensors, an input button and an RGB LED, fully
+customizable thanks to its Bluetooth LE API that requires no firmware programming knowledge.
 This SDK takes it a step further by allowing developers create their own Thingy:52 compatible
 applications with ease.
 			DESC
@@ -13,14 +13,14 @@ applications with ease.
   s.homepage         = 'https://www.nordicsemi.com'
   # s.screenshots     = 'https://developer.nordicsemi.com/thingy/screenshots'
   s.license          = { :type => 'Nordic 5-Clause', :file => 'LICENSE' }
-  s.author           = { 'Mostafa Berg' => 'mostafa.berg@nordicsemi.no' , 'Aleksander Nowakowski' => 'aleksander.nowakowski@nordicsemi.no'}
+  s.author           = { 'Aleksander Nowakowski' => 'aleksander.nowakowski@nordicsemi.no'}
   s.source           = { :git => 'https://github.com/NordicSemiconductor/IOS-Nordic-Thingy.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/nordictweets'
-  s.swift_version = '4.2'
+  s.swift_versions = ['4.2', '5.0']
 
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'IOSThingyLibrary/Classes/**/*'
 
-  s.dependency 'iOSDFULibrary', '~> 4.3'
+  s.dependency 'iOSDFULibrary', '~> 4'
 end

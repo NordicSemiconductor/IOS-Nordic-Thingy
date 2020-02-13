@@ -62,6 +62,7 @@ class MainEmptyConfigurationViewController: SwipableViewController {
     @IBAction func addButtonTapped(_ sender: AnyObject) {
         addButonTappedHandler()
     }
+    
     @IBAction func linkTapped(_ sender: UIButton) {
         let url = URL(string: "https://www.nordicsemi.com/thingy")!
         if #available(iOS 10.0, *) {
@@ -76,7 +77,7 @@ class MainEmptyConfigurationViewController: SwipableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //Rounded corners
+        // Rounded corners
         addThingyNFCButton.layer.cornerRadius = 4
         addThingyNFCButton.layer.masksToBounds = true
         addThingyNFCButton.setBackgroundColor(color: UIColor.nordicLakeDark, forState: .highlighted)
@@ -96,6 +97,13 @@ class MainEmptyConfigurationViewController: SwipableViewController {
         }
     }
     
+    override func targetPeripheralDidChange(new: ThingyPeripheral?) {
+        if let _ = new {
+            // A Thingy has been added.
+            mainNavigationContorller.showDefaultView()
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         mainNavigationContorller = (navigationController as! MainNavigationViewController)
@@ -105,7 +113,7 @@ class MainEmptyConfigurationViewController: SwipableViewController {
         }
         
         if thingyManager!.persistentPeripheralIdentifiers()!.count > 0 {
-            //We have stored peripherals
+            // We have stored peripherals
             mainNavigationContorller.showDefaultView()
         }
     }

@@ -12,10 +12,6 @@
 import Foundation
 import CoreGraphics
 
-#if !os(OSX)
-    import UIKit
-#endif
-
 @objc(ChartLegend)
 open class Legend: ComponentBase
 {
@@ -271,11 +267,7 @@ open class Legend: ComponentBase
                     }
                     
                     width += size.width
-                    
-                    if i < entryCount - 1
-                    {
-                        maxHeight += labelLineHeight + yEntrySpace
-                    }
+                    maxHeight += labelLineHeight + yEntrySpace
                 }
                 else
                 {

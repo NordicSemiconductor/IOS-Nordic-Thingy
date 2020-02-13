@@ -78,8 +78,6 @@ class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentat
     
     //MARK: - Actions
     @IBAction func menuButtonTapped(_ sender: UIBarButtonItem) {
-        //User tapped menu button, disable menu tooltip if it's never been seen before
-        setSeenMenuTooltip()
         toggleRevealView()
     }
 
@@ -109,19 +107,49 @@ class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentat
         // Initial setup for the 'color' icon
         lightIntensityIcon.layer.cornerRadius = lightIntensityIcon.frame.width / 2;
         lightIntensityIcon.layer.masksToBounds = true
-        lightIntensityIcon.backgroundColor = UIColor.black
         
-        temperatureDataGraphHandler = GraphDataHandler(withGraphView: temperatureGraphView, noDataText: "No temperature data present", minValue: -10, maxValue: 40, numberOfDataSets: 1, dataSetNames: ["Temperature"], dataSetColors: [UIColor.blue])
+        temperatureDataGraphHandler = GraphDataHandler(withGraphView: temperatureGraphView,
+                                                       noDataText: "No temperature data present",
+                                                       minValue: -10, maxValue: 40,
+                                                       numberOfDataSets: 1,
+                                                       dataSetNames: ["Temperature"],
+                                                       dataSetColors: [UIColor.nordicLake])
         temperatureDataGraphHandler.scrollGraphButton = scrollTemperatureGraphButton
         temperatureDataGraphHandler.clearGraphButton = clearTemperatureGraphButton
+        
+        pressureDataGraphHandler = GraphDataHandler(withGraphView: pressureGraphView,
+                                                    noDataText: "No pressure data present",
+                                                    minValue: 930, maxValue: 1050,
+                                                    numberOfDataSets: 1,
+                                                    dataSetNames: ["Pressure (hPa)"],
+                                                    dataSetColors: [UIColor.nordicRed])
+        pressureDataGraphHandler.scrollGraphButton = scrollPressureGraphButton
+        pressureDataGraphHandler.clearGraphButton = clearPressureGraphButton
 
-        humidityDataGraphHandler = GraphDataHandler(withGraphView: humidityGraphView, noDataText: "No humidity data present", minValue: 0, maxValue: 110, numberOfDataSets: 1, dataSetNames: ["Humidity (%)"], dataSetColors: [UIColor.nordicBlue])
+        humidityDataGraphHandler = GraphDataHandler(withGraphView: humidityGraphView,
+                                                    noDataText: "No humidity data present",
+                                                    minValue: 0, maxValue: 100,
+                                                    numberOfDataSets: 1,
+                                                    dataSetNames: ["Humidity (%)"],
+                                                    dataSetColors: [UIColor.nordicFall])
         humidityDataGraphHandler.scrollGraphButton = scrollHumidityGraphButton
         humidityDataGraphHandler.clearGraphButton = clearHumidityGraphButton
         
-        pressureDataGraphHandler = GraphDataHandler(withGraphView: pressureGraphView, noDataText: "No pressure data present", minValue: 950, maxValue: 1050, numberOfDataSets: 1, dataSetNames: ["Pressure (hPa)"], dataSetColors: [UIColor.nordicSun])
-        pressureDataGraphHandler.scrollGraphButton = scrollPressureGraphButton
-        pressureDataGraphHandler.clearGraphButton = clearPressureGraphButton
+        if #available(iOS 13.0, *) {
+            lightIntensityIcon.backgroundColor = UIColor.label
+            
+            temperatureGraphView.getAxis(.left).labelTextColor = .label
+            temperatureGraphView.xAxis.labelTextColor = .label
+            temperatureGraphView.legend.textColor = .label
+            
+            pressureGraphView.getAxis(.left).labelTextColor = .label
+            pressureGraphView.xAxis.labelTextColor = .label
+            pressureGraphView.legend.textColor = .label
+            
+            humidityGraphView.getAxis(.left).labelTextColor = .label
+            humidityGraphView.xAxis.labelTextColor = .label
+            humidityGraphView.legend.textColor = .label
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -132,21 +160,10 @@ class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentat
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if defaults.bool(forKey: kViewedMenuTooltip) == false {
-            performSegue(withIdentifier: "showMenuTip", sender: nil)
-            setSeenMenuTooltip()
-        } else if defaults.bool(forKey: kViewedSensorsTooltip) == false {
-            performSegue(withIdentifier: "showServicesTip", sender: nil)
+        if defaults.bool(forKey: kViewedSensorsTooltip) == false {
+            performSegue(withIdentifier: "showServicesTip", sender: controlButton)
             setSeenSensorsTooltip()
         }
-    }
-    
-    private func setSeenMenuTooltip() {
-        guard defaults.bool(forKey: kViewedMenuTooltip) == false else {
-            return
-        }
-        defaults.set(true, forKey: kViewedMenuTooltip)
-        defaults.synchronize()
     }
     
     private func setSeenSensorsTooltip() {
@@ -158,39 +175,32 @@ class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentat
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //segue for the popover configuration window
+        // Segue for the popover configuration window
         if segue.identifier == "showControl" {
             let controller = segue.destination as! EnvironmentControlViewController
-            // TODO: write it
             controller.delegate = self
             controller.tempEnabled = defaults.bool(forKey: keyTemperatureEnabled)
             controller.pressureEnabled = defaults.bool(forKey: keyPressureEnabled)
             controller.humidityEnabled = defaults.bool(forKey: keyHumidityEnabled)
             controller.airQualityEnabled = defaults.bool(forKey: keyAirQualityEnabled)
             controller.lightIntensityEnabled = defaults.bool(forKey: keyLightIntensityEnabled)
-            controller.popoverPresentationController!.sourceRect = (sender as! UIButton).bounds
+            controller.popoverPresentationController!.sourceView = sender as? UIView
             controller.popoverPresentationController!.delegate = self
         } else if segue.identifier == "showInfo" {
-            segue.destination.popoverPresentationController!.sourceRect = (sender as! UIButton).bounds
+            segue.destination.popoverPresentationController!.sourceView = sender as? UIView
             segue.destination.popoverPresentationController!.delegate = self
         } else if segue.identifier == "showSettings" {
             settingsViewController = segue.destination as? ThingyNavigationController
             settingsViewController!.setTargetPeripheral(targetPeripheral, andManager: thingyManager)
         } else if segue.identifier == "showServicesTip" {
-            //Show user tip to enable/disable services
-            let toolTipView = segue.destination as UIViewController
-            toolTipView.popoverPresentationController!.delegate = self
-        } else if segue.identifier == "showMenuTip" {
-            //Show user tip to enable/disable services
-            let toolTipView = segue.destination as UIViewController
-            toolTipView.popoverPresentationController!.delegate = self
+            // Show user tip to enable/disable services
+            // segue.destination.popoverPresentationController?.sourceView = sender as? UIView
+            segue.destination.popoverPresentationController?.delegate = self
         }
     }
     
     //MARK: - Thingy API
     override func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
-        print("Env thingy state: \(state), view loaded: \(isViewLoaded)") // TODO: remove
-        
         navigationItem.title = "Environment"
         
         settingsButton.isEnabled = peripheral.state == .ready

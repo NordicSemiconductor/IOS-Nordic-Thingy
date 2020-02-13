@@ -84,7 +84,7 @@ public class ThingyManager: NSObject, CBCentralManagerDelegate, CBPeripheralDele
     }
 
     public func removePeripheral(_ aPeripheral: ThingyPeripheral) -> Bool {
-        let indexToRemove = peripherals.index(of: aPeripheral)
+        let indexToRemove = peripherals.firstIndex(of: aPeripheral)
         if indexToRemove != nil {
             if aPeripheral.state != .disconnected {
                 disconnect(fromDevice: aPeripheral)
@@ -332,7 +332,7 @@ fileprivate class ThingyPeripheralDatabase: NSObject {
     
     public func removePeripheral(withUuidString aString: String) -> Bool {
         if storedPeripheralIdentifiers.contains(aString) {
-            let index = storedPeripheralIdentifiers.index(of: aString)!
+            let index = storedPeripheralIdentifiers.firstIndex(of: aString)!
             storedPeripheralIdentifiers.remove(at: index)
             return true
         } else {

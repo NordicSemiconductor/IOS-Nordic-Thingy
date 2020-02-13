@@ -45,7 +45,6 @@ import UIKit
 import CoreBluetooth
 import IOSThingyLibrary
 
-let kViewedMenuTooltip      = "viewed_menu_tooltip"
 let kViewedSensorsTooltip   = "viewed_sensors_tooltip"
 let kCurrentDfuVersion      = "2.2.0"
 
@@ -55,27 +54,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        //Register tooltip data
-        UserDefaults.standard.register(defaults: [kViewedMenuTooltip : false, kViewedSensorsTooltip : false])
+        // Register tooltip data
+        UserDefaults.standard.register(defaults: [
+            kViewedSensorsTooltip : false
+        ])
 
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) { }
-
-    func applicationDidEnterBackground(_ application: UIApplication) { }
-
-    func applicationWillEnterForeground(_ application: UIApplication) { }
-
-    func applicationDidBecomeActive(_ application: UIApplication) { }
-
-    func applicationWillTerminate(_ application: UIApplication) { }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
         let rootViewController = self.window?.rootViewController as? RootViewController
         let mainNavigationViewController = rootViewController?.frontViewController as? MainNavigationViewController
         mainNavigationViewController?.showDFUView(withURL: url)
-
         return true
     }
 }

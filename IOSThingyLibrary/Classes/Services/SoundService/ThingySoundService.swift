@@ -127,7 +127,7 @@ internal class ThingySoundService: ThingyService {
             bytes.append(speakerMode.rawValue)
             bytes.append(microphoneMode.rawValue)
             
-            let data = Data(bytes: bytes)
+            let data = Data(bytes)
             configCharacteristic.writeValue(withData: data)
         } else {
             throw ThingySoundError.charactersticNotDiscovered(characteristicName: "Sound Configuration")
@@ -171,7 +171,7 @@ internal class ThingySoundService: ThingyService {
             stopStream()
             // Write sample id to the Speaker characteristic
             let bytes = [soundEffect.rawValue]
-            let data = Data(bytes: bytes)
+            let data = Data(bytes)
             speakerCharacteristic.writeValue(withData: data, type: .withoutResponse)
         } else {
             throw ThingySoundError.charactersticNotDiscovered(characteristicName: "Speaker")
@@ -187,7 +187,7 @@ internal class ThingySoundService: ThingyService {
             dataArray.append(UInt8(duration & 0x00FF))
             dataArray.append(UInt8(duration >> 8))
             dataArray.append(volume)
-            let data = Data(bytes: dataArray)
+            let data = Data(dataArray)
             speakerCharacteristic.writeValue(withData: data, type: .withoutResponse)
         } else {
             throw ThingySoundError.charactersticNotDiscovered(characteristicName: "Speaker")

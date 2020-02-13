@@ -17,7 +17,6 @@
 		30170A9F1EBCB93100176728 /* evil_laugh_8kHz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 30170A9C1EBCB93100176728 /* evil_laugh_8kHz.wav */; };
 		30170AA01EBCB93100176728 /* grapevine_8kHz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 30170A9D1EBCB93100176728 /* grapevine_8kHz.wav */; };
 		3025576D1ED2EB0500EB7227 /* IOSThingyLibrary.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3025576C1ED2EB0500EB7227 /* IOSThingyLibrary.podspec */; };
-		3029F9A71DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3029F9A61DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift */; };
 		3039CCB21DD0D07000DA1C55 /* MotionModelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3039CCB11DD0D07000DA1C55 /* MotionModelScene.swift */; };
 		308D1A921DE84A2B009138DE /* MainEmptyConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D1A911DE84A2B009138DE /* MainEmptyConfigurationViewController.swift */; };
 		308D1A951DE851DD009138DE /* SetRootViewSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D1A941DE851DD009138DE /* SetRootViewSegue.swift */; };
@@ -67,6 +66,7 @@
 		529886541EC30BFE00E66715 /* FolderFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298864F1EC30BFE00E66715 /* FolderFilesViewController.swift */; };
 		529886551EC30BFE00E66715 /* UserFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529886501EC30BFE00E66715 /* UserFilesViewController.swift */; };
 		529EA7541E0421F900E33E2C /* PopupHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529EA7531E0421F900E33E2C /* PopupHelper.swift */; };
+		52B5372423F576AC00372948 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B5372323F576AC00372948 /* AppInfo.swift */; };
 		52C6A1741E0185D600D05300 /* ConfigurationPresetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6A1731E0185D600D05300 /* ConfigurationPresetTableViewController.swift */; };
 		52C7C9931FA3662100C4C06C /* Dfu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C9911FA3662100C4C06C /* Dfu.storyboard */; };
 		52C7C9961FA366E700C4C06C /* Cloud.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C9941FA366E700C4C06C /* Cloud.storyboard */; };
@@ -113,7 +113,6 @@
 		30170A9C1EBCB93100176728 /* evil_laugh_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = evil_laugh_8kHz.wav; sourceTree = "<group>"; };
 		30170A9D1EBCB93100176728 /* grapevine_8kHz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grapevine_8kHz.wav; sourceTree = "<group>"; };
 		3025576C1ED2EB0500EB7227 /* IOSThingyLibrary.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = IOSThingyLibrary.podspec; path = ../IOSThingyLibrary.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		3029F9A61DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingyConfigurationItemTableViewCell.swift; sourceTree = "<group>"; };
 		3039CCB11DD0D07000DA1C55 /* MotionModelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionModelScene.swift; sourceTree = "<group>"; };
 		308D1A911DE84A2B009138DE /* MainEmptyConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainEmptyConfigurationViewController.swift; sourceTree = "<group>"; };
 		308D1A941DE851DD009138DE /* SetRootViewSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetRootViewSegue.swift; sourceTree = "<group>"; };
@@ -164,6 +163,7 @@
 		5298864F1EC30BFE00E66715 /* FolderFilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderFilesViewController.swift; sourceTree = "<group>"; };
 		529886501EC30BFE00E66715 /* UserFilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFilesViewController.swift; sourceTree = "<group>"; };
 		529EA7531E0421F900E33E2C /* PopupHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupHelper.swift; sourceTree = "<group>"; };
+		52B5372323F576AC00372948 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		52C6A1731E0185D600D05300 /* ConfigurationPresetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationPresetTableViewController.swift; sourceTree = "<group>"; };
 		52C7C9921FA3662100C4C06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThingySDK/Base.lproj/Dfu.storyboard; sourceTree = SOURCE_ROOT; };
 		52C7C9951FA366E700C4C06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThingySDK/Base.lproj/Cloud.storyboard; sourceTree = SOURCE_ROOT; };
@@ -284,14 +284,6 @@
 			path = AudioSamples;
 			sourceTree = "<group>";
 		};
-		3029F9A51DAF9E7F00998C27 /* ConfigurationCell */ = {
-			isa = PBXGroup;
-			children = (
-				3029F9A61DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift */,
-			);
-			path = ConfigurationCell;
-			sourceTree = "<group>";
-		};
 		308D1A931DE8517A009138DE /* Segues */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,7 +307,6 @@
 			isa = PBXGroup;
 			children = (
 				30D82A651DBE274F005FD71C /* PopupViews */,
-				3029F9A51DAF9E7F00998C27 /* ConfigurationCell */,
 				309E4E471DA68F1E00C90FDF /* ThingyConfigurationViewController.swift */,
 				308D1A911DE84A2B009138DE /* MainEmptyConfigurationViewController.swift */,
 			);
@@ -430,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				30EB9C961EBCB9E000218D29 /* AboutViewController.swift */,
+				52B5372323F576AC00372948 /* AppInfo.swift */,
 			);
 			path = AboutView;
 			sourceTree = "<group>";
@@ -651,7 +643,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
@@ -683,6 +675,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -815,7 +808,6 @@
 				30098B1E1F3359FC00F20A83 /* ThingyNFCCreatorViewController.swift in Sources */,
 				309AE7F51E9BAF88003FEB8F /* CloudGuidePageViewController.swift in Sources */,
 				309E4E481DA68F1E00C90FDF /* ThingyConfigurationViewController.swift in Sources */,
-				3029F9A71DAF9E9100998C27 /* ThingyConfigurationItemTableViewCell.swift in Sources */,
 				5218BD7A1E77FC2500BAB1A2 /* ColorCollectionViewCell.swift in Sources */,
 				309E4E531DA68F9400C90FDF /* ThingyUserInterfaceViewController.swift in Sources */,
 				309E4E581DA6900700C90FDF /* RootViewController.swift in Sources */,
@@ -837,6 +829,7 @@
 				5271A3FB1DEEF7380025E6B7 /* ThingyViewController.swift in Sources */,
 				5271A3FD1DEEF7800025E6B7 /* ThingyTableViewController.swift in Sources */,
 				52921BC41DEDDB3F0050DC17 /* SwipableTableViewController.swift in Sources */,
+				52B5372423F576AC00372948 /* AppInfo.swift in Sources */,
 				529886541EC30BFE00E66715 /* FolderFilesViewController.swift in Sources */,
 				30BD60751E1D27EB00A91368 /* ThingyMotionControlDelegate.swift in Sources */,
 				309E4E4F1DA68F6900C90FDF /* ThingyMotionViewController.swift in Sources */,
@@ -969,6 +962,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1018,7 +1012,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1026,6 +1020,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1067,7 +1062,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1080,14 +1075,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ThingySDK_Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P3R8YQEV4L;
 				INFOPLIST_FILE = ThingySDK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.5.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = no.nordicsemi.ios.thingy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1100,14 +1097,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ThingySDK_Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P3R8YQEV4L;
 				INFOPLIST_FILE = ThingySDK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.5.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = no.nordicsemi.ios.thingy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

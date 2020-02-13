@@ -135,7 +135,7 @@ extension URL {
             encodedUrl.append(extensionCode!)
            
             //Get everything after extension
-            var resourceName = originalUrl[extensionIndex!.upperBound...]
+            let resourceName = originalUrl[extensionIndex!.upperBound...]
             let resourceNameArary = resourceName.utf8.map({ UInt8($0)})
             
             //And append resource

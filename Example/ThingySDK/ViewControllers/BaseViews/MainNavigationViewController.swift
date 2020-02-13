@@ -54,6 +54,21 @@ class MainNavigationViewController: UINavigationController, ThingyPeripheralDele
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.backgroundColor = UIColor.dynamicColor(light: .nordicBlue, dark: .black)
+            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            navigationBar.standardAppearance = navBarAppearance
+            navigationBar.scrollEdgeAppearance = navBarAppearance
+        } else {
+            // Fallback on earlier versions
+        }
+    }
 
     public func thingyManager() -> ThingyManager {
         return targetManager
@@ -85,8 +100,8 @@ class MainNavigationViewController: UINavigationController, ThingyPeripheralDele
         }
     }
 
-    //We will always default to show the environment view
-    //If this changes, this is an easier way to do so
+    // We will always default to show the environment view
+    // If this changes, this is an easier way to do so
     public func showDefaultView() {
         showEnvironmentView()
     }

@@ -91,36 +91,38 @@ class GraphDataHandler: NSObject, IAxisValueFormatter, ChartViewDelegate, UIGest
             let firstEntry = ChartDataEntry(x: 0, y: 0)
             var entries    = [ChartDataEntry]()
             entries.append(firstEntry)
-            let aDataSet = LineChartDataSet(values: entries, label: aDataSetNameList[i])
+            let aDataSet = LineChartDataSet(entries: entries, label: aDataSetNameList[i])
             aDataSet.setColor(aColorSet[i])
             aDataSet.lineWidth = 3
             aDataSet.lineCapType = .round
             aDataSet.drawCircleHoleEnabled = false
+            aDataSet.circleColors = [aColorSet[i]]
+            aDataSet.drawValuesEnabled = false
             aDataSet.circleRadius = 2
             aDataSet.axisDependency = .left
-            aDataSet.highlightEnabled = true
+            aDataSet.highlightEnabled = false
             lineChartData.addDataSet(aDataSet)
         }
         
         targetChartView.data = lineChartData
+        targetChartView.dragEnabled = true
+        targetChartView.setScaleEnabled(false)
         targetChartView.noDataText = aNoDataTextString
         targetChartView.chartDescription?.text = ""
-        targetChartView.rightAxis.drawLabelsEnabled = false
         targetChartView.xAxis.drawGridLinesEnabled = false
         targetChartView.xAxis.labelPosition = .bottom
-        targetChartView.leftAxis.drawGridLinesEnabled = false
-        targetChartView.dragEnabled = true
         targetChartView.xAxis.granularityEnabled = true
         targetChartView.xAxis.granularity = 1
         targetChartView.xAxis.decimals = 0
+        targetChartView.xAxis.axisMinimum = Double(0)
+        targetChartView.xAxis.axisMaximum = Double(maximumVisiblePoints)
         targetChartView.leftAxis.granularityEnabled = true
         targetChartView.leftAxis.granularity = 1
         targetChartView.leftAxis.decimals = 1
-        targetChartView.xAxis.axisMinimum = Double(0)
-        targetChartView.xAxis.axisMaximum = Double(maximumVisiblePoints)
         targetChartView.leftAxis.axisMinimum = aMinValue
         targetChartView.leftAxis.axisMaximum = aMaxValue
-        targetChartView.setScaleEnabled(false)
+        targetChartView.leftAxis.drawGridLinesEnabled = false
+        targetChartView.rightAxis.drawLabelsEnabled = false
         super.init()
         targetChartView.xAxis.valueFormatter = self
         targetChartView.delegate = self

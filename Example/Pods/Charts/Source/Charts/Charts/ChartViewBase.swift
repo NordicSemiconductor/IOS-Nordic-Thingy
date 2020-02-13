@@ -13,8 +13,12 @@
 import Foundation
 import CoreGraphics
 
-#if !os(OSX)
+#if canImport(UIKit)
     import UIKit
+#endif
+
+#if canImport(Cocoa)
+import Cocoa
 #endif
 
 @objc
@@ -38,6 +42,9 @@ public protocol ChartViewDelegate
     
     // Callbacks when the chart is moved / translated via drag gesture.
     @objc optional func chartTranslated(_ chartView: ChartViewBase, dX: CGFloat, dY: CGFloat)
+
+    // Callbacks when Animator stops animating
+    @objc optional func chartView(_ chartView: ChartViewBase, animatorDidStop animator: Animator)
 }
 
 open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
@@ -88,7 +95,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     @objc open var noDataText = "No chart data available."
     
     /// Font to be used for the no data text.
-    @objc open var noDataFont: NSUIFont! = NSUIFont(name: "HelveticaNeue", size: 12.0)
+    @objc open var noDataFont = NSUIFont.systemFont(ofSize: 12)
     
     /// color of the no data text
     @objc open var noDataTextColor: NSUIColor = NSUIColor.black
@@ -171,7 +178,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     internal func initialize()
     {
         #if os(iOS)
-            self.backgroundColor = NSUIColor.clear
+        self.backgroundColor = NSUIColor.clear
         #endif
 
         _animator = Animator()
@@ -406,7 +413,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     /// - Returns: `true` if there are values to highlight, `false` ifthere are no values to highlight.
     @objc open func valuesToHighlight() -> Bool
     {
-        return _indicesToHighlight.count > 0
+        return !_indicesToHighlight.isEmpty
     }
 
     /// Highlights the values at the given indices in the given DataSets. Provide
@@ -921,7 +928,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     
     @objc open func removeViewportJob(_ job: ViewPortJob)
     {
-        if let index = _viewportJobs.index(where: { $0 === job })
+        if let index = _viewportJobs.firstIndex(where: { $0 === job })
         {
             _viewportJobs.remove(at: index)
         }
@@ -996,7 +1003,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     
     open func animatorStopped(_ chartAnimator: Animator)
     {
-        
+        delegate?.chartView?(self, animatorDidStop: chartAnimator)
     }
     
     // MARK: - Touches

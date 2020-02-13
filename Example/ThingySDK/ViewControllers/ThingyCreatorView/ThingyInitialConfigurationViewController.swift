@@ -75,7 +75,6 @@ class ThingyInitialConfigurationViewController: ThingyViewController, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         thingyManager!.delegate = self
-        navigationItem.title = targetPeripheral!.name
         // Wait until Thingy is ready
         saveButton.isEnabled = false
         showLoadingAlert() //Show a blocking alert until Thingy services are discovered
@@ -84,9 +83,9 @@ class ThingyInitialConfigurationViewController: ThingyViewController, UITableVie
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if settingsHasBeenSaved == false {
-            //If the user hasen't saved the peripheral, it'll
-            //disconnect at this stage since it's not configured
-            //and should resume advertising
+            // If the user hasen't saved the peripheral, it'll
+            // disconnect at this stage since it's not configured
+            // and should resume advertising
             if targetPeripheral != nil {
                 thingyManager!.disconnect(fromDevice: targetPeripheral!)
             }
@@ -183,13 +182,15 @@ class ThingyInitialConfigurationViewController: ThingyViewController, UITableVie
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let aCell = tableView.dequeueReusableCell(withIdentifier: "ThingyConfigurationCell", for: indexPath) as! ThingyConfigurationItemTableViewCell
+        let aCell = tableView.dequeueReusableCell(withIdentifier: "ThingyConfigurationCell", for: indexPath)
         
         let configurationTitle = menuConfigurationItems[indexPath.section][indexPath.row]
         let configurationValue = defaultConfigurationForIndexPath(indexPath: indexPath)
         let configurationIcon  = menuConfigurationIcons[indexPath.section][indexPath.row]
         
-        aCell.populateWithConfigurationInfo(title: configurationTitle, value: configurationValue, andIcon: configurationIcon)
+        aCell.textLabel?.text = configurationTitle
+        aCell.imageView?.image = configurationIcon
+        aCell.detailTextLabel?.text = configurationValue
         return aCell
     }
     

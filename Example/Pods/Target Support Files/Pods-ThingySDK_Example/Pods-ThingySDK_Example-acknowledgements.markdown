@@ -191,7 +191,7 @@ Apache License
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright 2016 Daniel Cohen Gindi & Philipp Jahoda
+   Copyright 2016-2019 Daniel Cohen Gindi & Philipp Jahoda
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -345,7 +345,7 @@ SOFTWARE.
 
 BSD 3-Clause License
 
-Copyright (c) 2016, Nordic Semiconductor
+Copyright (c) 2019, Nordic Semiconductor
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

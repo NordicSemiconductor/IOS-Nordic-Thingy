@@ -63,7 +63,7 @@ internal class ThingyJumpToBootloaderService : ThingyService {
     internal func jumpToBootloaderMode() throws {
         if let bootloaderCharacteristic = getJumpToBootloaderCharacteristic() {
             bootloaderCharacteristic.startNotifications()
-            bootloaderCharacteristic.writeValue(withData: Data(bytes: [JumpToBootloaderOperatoinCodes.JumpToBootloader.rawValue]))
+            bootloaderCharacteristic.writeValue(withData: Data([JumpToBootloaderOperatoinCodes.JumpToBootloader.rawValue]))
         } else {
             throw ThingyBootloaderError.charactersticNotDiscovered(characteristicName: "Jump to bootloader")
         }
