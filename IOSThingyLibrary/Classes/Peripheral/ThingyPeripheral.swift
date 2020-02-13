@@ -888,10 +888,10 @@ public class ThingyPeripheral: NSObject, CBPeripheralDelegate {
         }
         // Save the notification callback. This may overwrite the old one if such existed
         valueCallbackHandlers[getQuaternionCharacteristicUUID()] = { (quaternionData) -> (Void) in
-            let w = Float(quaternionData.asValue(offset: 0) as UInt32) / Float(1 << 30)
-            let x = Float(quaternionData.asValue(offset: 4) as UInt32) / Float(1 << 30)
-            let y = Float(quaternionData.asValue(offset: 8) as UInt32) / Float(1 << 30)
-            let z = Float(quaternionData.asValue(offset: 12) as UInt32) / Float(1 << 30)
+            let w = Float(quaternionData.asValue(offset: 0) as Int32) / Float(1 << 30)
+            let x = Float(quaternionData.asValue(offset: 4) as Int32) / Float(1 << 30)
+            let y = Float(quaternionData.asValue(offset: 8) as Int32) / Float(1 << 30)
+            let z = Float(quaternionData.asValue(offset: 12) as Int32) / Float(1 << 30)
             aNotificationHandler?(w, x, y, z)
         }
         // Were notifications already enabled?

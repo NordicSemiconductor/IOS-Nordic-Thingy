@@ -100,13 +100,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" sceneName="thingy_obj.scn" translatesAutoresizingMaskIntoConstraints="NO" id="Cpf-It-rDz" customClass="MotionModelScene" customModule="ThingySDK_Example" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="188"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="188"/>
                                                 </sceneKitView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="Cpf-It-rDz" secondAttribute="bottom" id="KEH-Kz-j5k"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Cpf-It-rDz" secondAttribute="trailing" id="Q2e-O0-71q"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="Cpf-It-rDz" secondAttribute="leading" id="ocf-xr-KxC"/>
+                                                <constraint firstAttribute="trailing" secondItem="Cpf-It-rDz" secondAttribute="trailing" id="Q2e-O0-71q"/>
+                                                <constraint firstAttribute="leading" secondItem="Cpf-It-rDz" secondAttribute="leading" id="ocf-xr-KxC"/>
                                                 <constraint firstAttribute="top" secondItem="Cpf-It-rDz" secondAttribute="top" id="qdm-6I-Ked"/>
                                             </constraints>
                                         </tableViewCellContentView>
