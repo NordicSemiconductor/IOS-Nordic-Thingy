@@ -66,6 +66,7 @@
 		529886541EC30BFE00E66715 /* FolderFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298864F1EC30BFE00E66715 /* FolderFilesViewController.swift */; };
 		529886551EC30BFE00E66715 /* UserFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529886501EC30BFE00E66715 /* UserFilesViewController.swift */; };
 		529EA7541E0421F900E33E2C /* PopupHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529EA7531E0421F900E33E2C /* PopupHelper.swift */; };
+		52B5372423F576AC00372948 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B5372323F576AC00372948 /* AppInfo.swift */; };
 		52C6A1741E0185D600D05300 /* ConfigurationPresetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6A1731E0185D600D05300 /* ConfigurationPresetTableViewController.swift */; };
 		52C7C9931FA3662100C4C06C /* Dfu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C9911FA3662100C4C06C /* Dfu.storyboard */; };
 		52C7C9961FA366E700C4C06C /* Cloud.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C7C9941FA366E700C4C06C /* Cloud.storyboard */; };
@@ -162,6 +163,7 @@
 		5298864F1EC30BFE00E66715 /* FolderFilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderFilesViewController.swift; sourceTree = "<group>"; };
 		529886501EC30BFE00E66715 /* UserFilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFilesViewController.swift; sourceTree = "<group>"; };
 		529EA7531E0421F900E33E2C /* PopupHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupHelper.swift; sourceTree = "<group>"; };
+		52B5372323F576AC00372948 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		52C6A1731E0185D600D05300 /* ConfigurationPresetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationPresetTableViewController.swift; sourceTree = "<group>"; };
 		52C7C9921FA3662100C4C06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThingySDK/Base.lproj/Dfu.storyboard; sourceTree = SOURCE_ROOT; };
 		52C7C9951FA366E700C4C06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ThingySDK/Base.lproj/Cloud.storyboard; sourceTree = SOURCE_ROOT; };
@@ -419,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				30EB9C961EBCB9E000218D29 /* AboutViewController.swift */,
+				52B5372323F576AC00372948 /* AppInfo.swift */,
 			);
 			path = AboutView;
 			sourceTree = "<group>";
@@ -826,6 +829,7 @@
 				5271A3FB1DEEF7380025E6B7 /* ThingyViewController.swift in Sources */,
 				5271A3FD1DEEF7800025E6B7 /* ThingyTableViewController.swift in Sources */,
 				52921BC41DEDDB3F0050DC17 /* SwipableTableViewController.swift in Sources */,
+				52B5372423F576AC00372948 /* AppInfo.swift in Sources */,
 				529886541EC30BFE00E66715 /* FolderFilesViewController.swift in Sources */,
 				30BD60751E1D27EB00A91368 /* ThingyMotionControlDelegate.swift in Sources */,
 				309E4E4F1DA68F6900C90FDF /* ThingyMotionViewController.swift in Sources */,

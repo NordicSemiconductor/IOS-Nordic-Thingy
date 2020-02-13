@@ -45,6 +45,13 @@ import UIKit
 
 class AboutViewController: SwipableTableViewController {
 
+    @IBOutlet weak var applicationVersion: UILabel!
+    @IBOutlet weak var buildNumber: UILabel!
+    
+    @IBAction func menuButtonTapped(_ sender: Any) {
+        toggleRevealView()
+    }
+    
     private var aboutURLList: [[URL]] = [
         [
             URL(string:"https://www.nordicsemi.com/thingy")!
@@ -60,19 +67,40 @@ class AboutViewController: SwipableTableViewController {
             URL(string: "https://github.com/danielgindi/Charts")!,
             URL(string: "https://github.com/sberrevoets/SDCAlertView")!,
             URL(string: "https://github.com/John-Lluch/SWRevealViewController")!,
-            URL(string: "https://github.com/pkrll/Keychain")!
+            URL(string: "https://github.com/pkrll/Keychain")!,
+            URL(string: "https://github.com/NordicSemiconductor/IOS-Pods-DFU-Library")!,
+            URL(string: "https://github.com/weichsel/ZIPFoundation")!
         ]
     ]
-    @IBAction func menuButtonTapped(_ sender: Any) {
-        toggleRevealView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Load versions.
+        applicationVersion.text = AppInfo.version
+        buildNumber.text = AppInfo.buildNumber
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section < aboutURLList.count {
-            if indexPath.row < aboutURLList[indexPath.section].count {
-                UIApplication.shared.openURL(aboutURLList[indexPath.section][indexPath.row])
-            }
+        
+        if let url = aboutURLList[indexPath] {
+            UIApplication.shared.openURL(url)
         }
     }
+}
+
+private extension Array where Element == [URL] {
+    
+    subscript(indexPath: IndexPath) -> URL? {
+        guard indexPath.section - 1 >= 0 && indexPath.section - 1 < count else {
+            return nil
+        }
+        let urls = self[indexPath.section - 1]
+        guard indexPath.row >= 0 && indexPath.row < urls.count else {
+            return nil
+        }
+        return urls[indexPath.row]
+    }
+    
 }
