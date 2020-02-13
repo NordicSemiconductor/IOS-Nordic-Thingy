@@ -282,14 +282,14 @@
                                     <constraint firstAttribute="width" constant="181" id="lTd-C3-wrv"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture and view sensor data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWt-n9-y8m">
-                                <rect key="frame" x="85.666666666666686" y="413" width="204" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture and view sensor data" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWt-n9-y8m">
+                                <rect key="frame" x="24" y="413.33333333333331" width="327" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mC2-g0-pHe">
-                                <rect key="frame" x="64.666666666666686" y="368" width="245.66666666666663" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mC2-g0-pHe">
+                                <rect key="frame" x="8" y="368" width="359" height="25.333333333333314"/>
                                 <string key="text" base64-UTF8="YES">
 V2VsY29tZSB0bwMgTm9yZGljIFRoaW5neQ
 </string>
@@ -300,9 +300,13 @@ V2VsY29tZSB0bwMgTm9yZGljIFRoaW5neQ
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="eiQ-1d-Idc" firstAttribute="trailing" secondItem="mC2-g0-pHe" secondAttribute="trailing" constant="8" id="2lD-rM-EZs"/>
+                            <constraint firstItem="YWt-n9-y8m" firstAttribute="leading" secondItem="eiQ-1d-Idc" secondAttribute="leading" constant="24" id="X9y-KA-N2j"/>
                             <constraint firstItem="mC2-g0-pHe" firstAttribute="centerX" secondItem="eiQ-1d-Idc" secondAttribute="centerX" id="bX1-dK-0K6"/>
                             <constraint firstItem="x0q-8E-hUg" firstAttribute="centerY" secondItem="8lt-j7-wNR" secondAttribute="centerY" multiplier="0.6" id="c32-Ps-P0j"/>
                             <constraint firstItem="mC2-g0-pHe" firstAttribute="top" secondItem="x0q-8E-hUg" secondAttribute="bottom" constant="40" id="cXM-tF-YxB"/>
+                            <constraint firstItem="mC2-g0-pHe" firstAttribute="leading" secondItem="eiQ-1d-Idc" secondAttribute="leading" constant="8" id="ctW-Ir-61K"/>
+                            <constraint firstItem="eiQ-1d-Idc" firstAttribute="trailing" secondItem="YWt-n9-y8m" secondAttribute="trailing" constant="24" id="pPm-Pp-OJL"/>
                             <constraint firstItem="x0q-8E-hUg" firstAttribute="centerX" secondItem="eiQ-1d-Idc" secondAttribute="centerX" id="pp7-DA-uxZ"/>
                             <constraint firstItem="YWt-n9-y8m" firstAttribute="top" secondItem="mC2-g0-pHe" secondAttribute="bottom" constant="20" id="t3Z-SU-UUT"/>
                             <constraint firstItem="YWt-n9-y8m" firstAttribute="centerX" secondItem="eiQ-1d-Idc" secondAttribute="centerX" id="zDz-3p-gCX"/>

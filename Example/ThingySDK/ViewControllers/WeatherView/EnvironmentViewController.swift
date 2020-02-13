@@ -163,10 +163,10 @@ class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentat
         super.viewDidAppear(animated)
 
         if defaults.bool(forKey: kViewedMenuTooltip) == false {
-            performSegue(withIdentifier: "showMenuTip", sender: nil)
+            performSegue(withIdentifier: "showMenuTip", sender: navigationItem.leftBarButtonItem)
             setSeenMenuTooltip()
         } else if defaults.bool(forKey: kViewedSensorsTooltip) == false {
-            performSegue(withIdentifier: "showServicesTip", sender: nil)
+            performSegue(withIdentifier: "showServicesTip", sender: controlButton)
             setSeenSensorsTooltip()
         }
     }
@@ -197,29 +197,27 @@ class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentat
             controller.humidityEnabled = defaults.bool(forKey: keyHumidityEnabled)
             controller.airQualityEnabled = defaults.bool(forKey: keyAirQualityEnabled)
             controller.lightIntensityEnabled = defaults.bool(forKey: keyLightIntensityEnabled)
-            controller.popoverPresentationController!.sourceRect = (sender as! UIButton).bounds
+            controller.popoverPresentationController!.sourceView = sender as? UIView
             controller.popoverPresentationController!.delegate = self
         } else if segue.identifier == "showInfo" {
-            segue.destination.popoverPresentationController!.sourceRect = (sender as! UIButton).bounds
+            segue.destination.popoverPresentationController!.sourceView = sender as? UIView
             segue.destination.popoverPresentationController!.delegate = self
         } else if segue.identifier == "showSettings" {
             settingsViewController = segue.destination as? ThingyNavigationController
             settingsViewController!.setTargetPeripheral(targetPeripheral, andManager: thingyManager)
         } else if segue.identifier == "showServicesTip" {
             // Show user tip to enable/disable services
-            let toolTipView = segue.destination as UIViewController
-            toolTipView.popoverPresentationController!.delegate = self
+            segue.destination.popoverPresentationController?.sourceView = sender as? UIView
+            segue.destination.popoverPresentationController?.delegate = self
         } else if segue.identifier == "showMenuTip" {
             // Show user tip to enable/disable services
-            let toolTipView = segue.destination as UIViewController
-            toolTipView.popoverPresentationController!.delegate = self
+            segue.destination.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
+            segue.destination.popoverPresentationController?.delegate = self
         }
     }
     
     //MARK: - Thingy API
     override func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
-        print("Env thingy state: \(state), view loaded: \(isViewLoaded)") // TODO: remove
-        
         navigationItem.title = "Environment"
         
         settingsButton.isEnabled = peripheral.state == .ready

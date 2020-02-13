@@ -141,19 +141,19 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
 
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //segue for the popover configuration window
+        // Segue for the popover configuration window
         if segue.identifier == "show3DControl" {
             let controller = segue.destination as! Thingy3DControlViewController
             controller.delegate = self
             controller.quaternionEnabled    = defaults.bool(forKey: keyQuaternionEnabled)
-            controller.popoverPresentationController!.sourceRect = (sender as! UIButton).bounds
-            controller.popoverPresentationController!.delegate = self
+            controller.popoverPresentationController?.sourceView = sender as! UIButton
+            controller.popoverPresentationController?.delegate = self
         } else if segue.identifier == "showGravityVectorControl" {
             let controller = segue.destination as! ThingyGravityVectorControlViewController
             controller.delegate = self
             controller.gravityVectorEnabled = defaults.bool(forKey: keyGravityVectorEnabled)
-            controller.popoverPresentationController!.sourceRect = (sender as! UIButton).bounds
-            controller.popoverPresentationController!.delegate = self
+            controller.popoverPresentationController?.sourceView = sender as! UIButton
+            controller.popoverPresentationController?.delegate = self
         } else if segue.identifier == "showMotionControl" {
             let controller = segue.destination as! ThingyMotionControlViewController
             controller.delegate = self
@@ -161,19 +161,18 @@ class ThingyMotionViewController: SwipableTableViewController, ThingyMotionContr
             controller.pedometerEnabled     = defaults.bool(forKey: keyPedometerEnabled)
             controller.orientationEnabled   = defaults.bool(forKey: keyOrientationEnabled)
             controller.tapEnabled           = defaults.bool(forKey: keyTapEnabled)
-            controller.popoverPresentationController!.sourceRect = (sender as! UIButton).bounds
-            controller.popoverPresentationController!.delegate = self 
+            controller.popoverPresentationController?.sourceView = sender as! UIButton
+            controller.popoverPresentationController?.delegate = self
         } else if segue.identifier == "showInfo" {
-            segue.destination.popoverPresentationController!.sourceRect = (sender as! UIButton).bounds
-            segue.destination.popoverPresentationController!.delegate = self
+            segue.destination.popoverPresentationController?.sourceView = sender as! UIButton
+            segue.destination.popoverPresentationController?.delegate = self
         } else if segue.identifier == "showSettings" {
             settingsViewController = segue.destination as? ThingyNavigationController
-            settingsViewController!.setTargetPeripheral(targetPeripheral, andManager: thingyManager)
+            settingsViewController?.setTargetPeripheral(targetPeripheral, andManager: thingyManager)
         } else if segue.identifier == "showServicesTip" {
-            //Show user tip to enable/disable services
-            let toolTipView = segue.destination as UIViewController
-            toolTipView.popoverPresentationController!.sourceRect = control3DMotion.bounds
-            toolTipView.popoverPresentationController!.delegate = self
+            // Show user tip to enable/disable services
+            segue.destination.popoverPresentationController?.sourceView = control3DMotion
+            segue.destination.popoverPresentationController?.delegate = self
         }
     }
     

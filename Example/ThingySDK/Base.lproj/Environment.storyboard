@@ -955,10 +955,10 @@
                         <outlet property="temperatureLabel" destination="SZY-QV-bYD" id="9ei-Uc-EKw"/>
                         <outlet property="totalVolatileOrganicCompoundsLabel" destination="yWi-AY-TdL" id="I6H-Hn-Npa"/>
                         <segue destination="hbL-y9-Gnh" kind="popoverPresentation" identifier="showMenuTip" popoverAnchorBarButtonItem="2Tj-S9-mkJ" id="a6F-AJ-7u7">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                            <popoverArrowDirection key="popoverArrowDirection" down="YES" right="YES"/>
                         </segue>
                         <segue destination="EpI-Ch-6YD" kind="popoverPresentation" identifier="showServicesTip" popoverAnchorView="qS0-U0-1Ce" id="UKj-j6-BHL">
-                            <popoverArrowDirection key="popoverArrowDirection" right="YES"/>
+                            <popoverArrowDirection key="popoverArrowDirection" left="YES"/>
                         </segue>
                     </connections>
                 </tableViewController>
