@@ -37,7 +37,7 @@ pod install
 **For Carthage:**
 - Create a new **Cartfile** in your project's root with the following contents
 ```
-github "NordicSemiconductor/NordicSemiconductor/IOS-Nordic-Thingy" ~> 1.5.0
+github "NordicSemiconductor/IOS-Nordic-Thingy"
 ```
 
 - Build with carthage
