@@ -7,7 +7,7 @@
 //
 import Foundation
 
-public enum KeychainProtocolType: Int {
+public enum KeychainProtocolType: String{
 
   case ftp
   case ftps

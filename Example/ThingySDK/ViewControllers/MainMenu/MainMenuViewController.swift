@@ -204,7 +204,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         
         if let configFirmwareVersion = targetPeripheral.readFirmwareVersion() {
             if configFirmwareVersion.versionToInt().lexicographicallyPrecedes(kCurrentDfuVersion.versionToInt()) {
-                let message = "\r\nUpdating is recommended as it ensures full compatibilty with the Thingy app and includes all the latest features and bug fixes."
+                let message = "\r\nUpdating is recommended as it ensures full compatibilty with the Thingy:52 app and includes all the latest features and bug fixes."
                 let dfuAlert = UIAlertController(title: "Firmware update available for \(targetPeripheral.name)", message: message, preferredStyle: .alert)
                 dfuAlert.addAction(UIAlertAction(title: "Update to \(kCurrentDfuVersion)", style: .default, handler: { (action) in
                     self.targetNavigationController.showDFUView()
