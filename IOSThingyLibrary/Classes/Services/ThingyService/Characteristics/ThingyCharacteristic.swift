@@ -63,7 +63,7 @@ internal class ThingyCharacteristic: NSObject {
     //MARK: - Implementation
     internal func writeValue(withData data: Data?, type: CBCharacteristicWriteType = .withResponse) {
         if data != nil {
-            characteristic.service.peripheral.writeValue(data!, for: characteristic, type: type)
+            characteristic.service?.peripheral?.writeValue(data!, for: characteristic, type: type)
         } else {
             print("Warning: No data to write to characteristic, ignoring call")
         }
@@ -78,11 +78,11 @@ internal class ThingyCharacteristic: NSObject {
     }
 
     internal func startNotifications() {
-        characteristic.service.peripheral.setNotifyValue(true, for: characteristic)
+        characteristic.service?.peripheral?.setNotifyValue(true, for: characteristic)
     }
 
     internal func stopNotifications() {
-        characteristic.service.peripheral.setNotifyValue(false, for: characteristic)
+        characteristic.service?.peripheral?.setNotifyValue(false, for: characteristic)
     }
     
     //MARK: - Convenience

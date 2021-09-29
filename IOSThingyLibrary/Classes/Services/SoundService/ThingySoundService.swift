@@ -226,7 +226,10 @@ internal class ThingySoundService: ThingyService {
         let mtu: Int
         if #available(iOS 9.0, *) {
             // Either MTU or DLE will be used
-            mtu = baseService.peripheral.maximumWriteValueLength(for: .withoutResponse)
+            guard let _mtu = baseService.peripheral?.maximumWriteValueLength(for: .withoutResponse) else {
+                return
+            }
+            mtu = _mtu
         } else {
             // MTU and DLE are not supported
             mtu = 20
