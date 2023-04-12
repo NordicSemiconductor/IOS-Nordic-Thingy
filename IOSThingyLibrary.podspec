@@ -19,7 +19,7 @@ applications with ease.
   s.social_media_url = 'https://twitter.com/nordictweets'
   s.swift_versions = ['4.2', '5.0']
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '12.0'
 
   s.source_files = 'IOSThingyLibrary/Classes/**/*'
 

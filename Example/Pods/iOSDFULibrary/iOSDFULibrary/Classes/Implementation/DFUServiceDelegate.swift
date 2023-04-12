@@ -30,6 +30,24 @@
 
 import Foundation
 
+internal enum DFURemoteError : Int {
+    case legacy                      = 0
+    case secure                      = 10
+    case secureExtended              = 20
+    case buttonless                  = 90
+    case experimentalButtonless      = 9000
+    
+    /// Returns a representative ``DFUError``
+    ///
+    /// The only available codes that this method is called with are
+    /// hardcoded in the library (ButtonlessDFU, DFUControlPoint,
+    /// SecureDFUControlPoint). But, we have seen crashes so,
+    /// we are returning ``DFUError.unsupportedResponse`` if a code is not found.
+    func with(code: UInt8) -> DFUError {
+        return DFUError(rawValue: Int(code) + rawValue) ?? .unsupportedResponse
+    }
+}
+
 @objc public enum DFUError : Int {
     // Legacy DFU errors.
     case remoteLegacyDFUSuccess               = 1
@@ -52,6 +70,7 @@ import Foundation
     
     // This error will no longer be reported.
     case remoteSecureDFUExtendedError         = 21 // 10 + 11
+    
     // Instead, one of the extended errors below will used.
     case remoteExtendedErrorWrongCommandFormat   = 22 // 20 + 0x02
     case remoteExtendedErrorUnknownCommand       = 23 // 20 + 0x03
@@ -74,9 +93,12 @@ import Foundation
     
     // Buttonless DFU errors (received value + 90 as they overlap legacy
     // and secure DFU errors).
-    case remoteButtonlessDFUSuccess            = 91 // 90 + 1
-    case remoteButtonlessDFUOpCodeNotSupported = 92 // 90 + 2
-    case remoteButtonlessDFUOperationFailed    = 94 // 90 + 4
+    case remoteButtonlessDFUSuccess                     = 91 // 90 + 1
+    case remoteButtonlessDFUOpCodeNotSupported          = 92 // 90 + 2
+    case remoteButtonlessDFUOperationFailed             = 94 // 90 + 4
+    case remoteButtonlessDFUInvalidAdvertisementName    = 95 // 90 + 5
+    case remoteButtonlessDFUBusy                        = 96 // 90 + 6
+    case remoteButtonlessDFUNotBonded                   = 97 // 90 + 7
     
     /// Providing the DFUFirmware is required.
     case fileNotSpecified                     = 101
@@ -109,6 +131,9 @@ import Foundation
     /// Error raised when the CRC reported by the remote device does not match.
     /// Service has done 3 attempts to send the data.
     case crcError                             = 309
+    /// The service went into an invalid state. The service will try to close
+    /// without crashing. Recovery to a know state is not possible.
+    case invalidInternalState                 = 500
     
     /// Returns whether the error has been returned by the remote device or
     /// occurred locally.
@@ -138,8 +163,11 @@ import Foundation
     case disconnecting
     case completed
     case aborted
+}
+
+extension DFUState : CustomStringConvertible {
     
-    public func description() -> String {
+    public var description: String {
         switch self {
         case .connecting:      return "Connecting"
         case .starting:        return "Starting"
@@ -151,6 +179,7 @@ import Foundation
         case .aborted:         return "Aborted"
         }
     }
+    
 }
 
 /**
