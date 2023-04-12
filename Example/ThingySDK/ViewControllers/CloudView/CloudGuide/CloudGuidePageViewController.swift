@@ -42,7 +42,7 @@
 
 import UIKit
 
-protocol CloudGuidePageViewControllerDelegate: class {
+protocol CloudGuidePageViewControllerDelegate: AnyObject {
     
     /**
      Called when the current index is updated.

@@ -44,7 +44,7 @@
 import Foundation
 import UIKit
 
-protocol TutorialPageViewControllerDelegate: class {
+protocol TutorialPageViewControllerDelegate: AnyObject {
     
     /**
      Called when the current index is updated.

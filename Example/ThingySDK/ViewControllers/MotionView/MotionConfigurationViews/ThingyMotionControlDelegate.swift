@@ -41,7 +41,7 @@
 //  Created by Mostafa Berg on 04/01/2017.
 //
 
-protocol ThingyMotionControlDelegate: class {
+protocol ThingyMotionControlDelegate: AnyObject {
     func gravityVectorNotificationsDidChangeTo(enabled: Bool)
     func headingNotificationsDidChangeTo(enabled: Bool)
     func pedometerNotificationsDidChangeTo(enabled: Bool)

@@ -43,7 +43,7 @@
 
 import UIKit
 
-protocol EnvironmentControlDelegate: class {
+protocol EnvironmentControlDelegate: AnyObject {
     func temperatureNotificationsDidChangeTo(enabled : Bool)
     func pressureNotificationsDidChangeTo(enabled : Bool)
     func humidityNotificationsDidChangeTo(enabled : Bool)
