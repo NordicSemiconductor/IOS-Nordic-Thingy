@@ -223,14 +223,8 @@ internal class ThingySoundService: ThingyService {
         var number = 0
         
         // Get the maximum length of the packet that can be written to Speaker characteristic
-        let mtu: Int
-        if #available(iOS 9.0, *) {
-            // Either MTU or DLE will be used
-            mtu = baseService.peripheral.maximumWriteValueLength(for: .withoutResponse)
-        } else {
-            // MTU and DLE are not supported
-            mtu = 20
-        }
+        // Either MTU or DLE will be used or MTU and DLE are not supported
+        let mtu = baseService.peripheral?.maximumWriteValueLength(for: .withoutResponse) ?? 20
         
         // Divide the stream on mtu-length packets and send some first, then schedule sending more after a delay
         for i in stride(from: 0, to: count, by: mtu) {
