@@ -245,9 +245,11 @@ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-## Keychain
+## KeychainSwift
 
-Copyright (c) 2016 Ardalan Samimi <ardalan.samimi@gmail.com>
+The MIT License
+
+Copyright (c) 2015 - 2021 Evgenii Neumerzhitckii
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

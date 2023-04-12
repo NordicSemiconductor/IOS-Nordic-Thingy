@@ -7,7 +7,7 @@ PODS:
     - ZIPFoundation (= 0.9.11)
   - IOSThingyLibrary (1.5.3):
     - iOSDFULibrary (~> 4.13.0)
-  - Keychain (0.3.1)
+  - KeychainSwift (20.0.0)
   - SDCAlertView (10.0)
   - SwiftAlgorithms (1.0.0)
   - SWRevealViewController (2.3.0)
@@ -16,7 +16,7 @@ PODS:
 DEPENDENCIES:
   - Charts (~> 4)
   - IOSThingyLibrary (from `../`)
-  - Keychain (~> 0.3)
+  - KeychainSwift (~> 20.0)
   - SDCAlertView (~> 10.0)
   - SWRevealViewController (~> 2)
 
@@ -24,7 +24,7 @@ SPEC REPOS:
   trunk:
     - Charts
     - iOSDFULibrary
-    - Keychain
+    - KeychainSwift
     - SDCAlertView
     - SwiftAlgorithms
     - SWRevealViewController
@@ -38,12 +38,12 @@ SPEC CHECKSUMS:
   Charts: 354f86803d11d9c35de280587fef50d1af063978
   iOSDFULibrary: 3b9de67ed4bfb901b5f09c2fea843f65e152612d
   IOSThingyLibrary: 21a720666ffa4a1ff0ee21b65ce4468d895b6dac
-  Keychain: ef812eafcf6593fe4409b07cfecc00b95fb373ed
+  KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
   SDCAlertView: 5fbc48cae6d7bf9781097e3f27883924ef3b922c
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: 6c4842f3baf20ed2f3e73dc36c15524122ec0e4a
+PODFILE CHECKSUM: fac701842b90db6e5395a503c3600752fd3dfb19
 
 COCOAPODS: 1.12.0

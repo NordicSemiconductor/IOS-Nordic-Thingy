@@ -43,7 +43,7 @@
 
 import UIKit
 import IOSThingyLibrary
-import Keychain
+import KeychainSwift
 
 class ThingyCloudViewController: SwipableTableViewController {
 
@@ -69,11 +69,12 @@ class ThingyCloudViewController: SwipableTableViewController {
         }
     }
     
-    private var totalUploadedBytes      : UInt32 = 0
-    private var totalDownloadedBytes    : UInt32 = 0
-    private var cloudToken              : String!
-    private var buttonPressTime         : Date?
-    private var endPoint                : String = "https://maker.ifttt.com/trigger/{0}/with/key/{1}"
+    private var totalUploadedBytes: UInt32 = 0
+    private var totalDownloadedBytes: UInt32 = 0
+    private var cloudToken: String!
+    private var buttonPressTime: Date?
+    private var endPoint = "https://maker.ifttt.com/trigger/{0}/with/key/{1}"
+    private lazy var keychain = KeychainSwift()
 
     //MARK: - Outlets and actions
     @IBOutlet weak var temperatureToggle: UISwitch!
@@ -196,7 +197,7 @@ class ThingyCloudViewController: SwipableTableViewController {
 
     func loadToken(forPeripheral aPeripheral: ThingyPeripheral) -> String? {
         let uuid = aPeripheral.basePeripheral.identifier.uuidString
-        if let token = Keychain.load(uuid) {
+        if let token = keychain.get(uuid) {
             print("Token loaded for \(uuid)")
             return token
         } else {
@@ -207,12 +208,12 @@ class ThingyCloudViewController: SwipableTableViewController {
 
     func removeToken(forPeripheral aPeriphreal: ThingyPeripheral) -> Bool {
         let uuid = aPeriphreal.basePeripheral.identifier.uuidString
-        return Keychain.delete(uuid)
+        return keychain.delete(uuid)
     }
 
     func setToken(aToken: String, forPeripheral aPeripheral: ThingyPeripheral) -> Bool {
         let uuid = aPeripheral.basePeripheral.identifier.uuidString
-        return Keychain.save(aToken, forKey: uuid)
+        return keychain.set(aToken, forKey: uuid)
     }
     
     func showTokenInputPopup() {

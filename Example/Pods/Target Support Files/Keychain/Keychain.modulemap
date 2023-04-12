@@ -1,6 +1,0 @@
-framework module Keychain {
-  umbrella header "Keychain-umbrella.h"
-
-  export *
-  module * { export * }
-}

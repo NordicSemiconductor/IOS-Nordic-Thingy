@@ -6,5 +6,5 @@ target 'ThingySDK_Example' do
   pod 'Charts', '~> 4'
   pod 'SDCAlertView', '~> 10.0'
   pod 'SWRevealViewController', '~> 2'
-  pod 'Keychain', '~> 0.3'
+  pod 'KeychainSwift', '~> 20.0'
 end
