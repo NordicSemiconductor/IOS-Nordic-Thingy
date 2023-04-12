@@ -85,7 +85,7 @@ class AboutViewController: SwipableTableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if let url = aboutURLList[indexPath] {
-            UIApplication.shared.openURL(url)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 }
