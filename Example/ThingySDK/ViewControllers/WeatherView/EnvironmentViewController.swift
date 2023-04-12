@@ -237,10 +237,10 @@ class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentat
                 if EnvironmentSettingsViewController.isFahrenheit() {
                     let degreesInFahrenheit = degreesInCelsius * 9.0 / 5.0 + 32.0
                     self.temperatureLabel.text = "\(degreesInFahrenheit)°F"
-                    _ = self.temperatureDataGraphHandler.addPoints(withValues: [Double(degreesInFahrenheit)])
+                    self.temperatureDataGraphHandler.addPoints(withValues: [Double(degreesInFahrenheit)])
                 } else {
                     self.temperatureLabel.text = "\(degreesInCelsius)°C"
-                    _ = self.temperatureDataGraphHandler.addPoints(withValues: [Double(degreesInCelsius)])
+                    self.temperatureDataGraphHandler.addPoints(withValues: [Double(degreesInCelsius)])
                 }
             })
         } else {
@@ -255,7 +255,7 @@ class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentat
                 print("Pressure notifications enabled")
             }, andNotificationHandler: { (value) -> (Void) in
                 self.pressureLabel.text = "\(value) hPa"
-                _ = self.pressureDataGraphHandler.addPoints(withValues: [Double(value)])
+                self.pressureDataGraphHandler.addPoints(withValues: [Double(value)])
             })
         } else {
             stopPressureUpdates()
@@ -269,7 +269,7 @@ class EnvironmentViewController: SwipableTableViewController, UIPopoverPresentat
                 print("Humidity notifications enabled")
             }, andNotificationHandler: { (value) -> (Void) in
                 self.humidityLabel.text = "\(value)%"
-                _ = self.humidityDataGraphHandler.addPoints(withValues: [Double(value)])
+                self.humidityDataGraphHandler.addPoints(withValues: [Double(value)])
             })
         } else {
             stopHumidityUpdates()
