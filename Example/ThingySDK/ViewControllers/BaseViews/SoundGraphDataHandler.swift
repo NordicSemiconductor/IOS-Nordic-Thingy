@@ -70,11 +70,11 @@ class SoundGraphDataHandler: NSObject {
         dataSet.drawCircleHoleEnabled = false
         dataSet.drawValuesEnabled     = false
         dataSet.highlightEnabled      = false
-        lineChartData.addDataSet(dataSet)
+        lineChartData.append(dataSet)
         
         targetChartView.data = lineChartData
         targetChartView.noDataText                   = ""
-        targetChartView.chartDescription?.text       = ""
+        targetChartView.chartDescription.text       = ""
         targetChartView.legend.enabled               = false
         targetChartView.rightAxis.enabled            = false // no horizontal grid lines
         targetChartView.rightAxis.drawLabelsEnabled  = false
@@ -105,8 +105,7 @@ class SoundGraphDataHandler: NSObject {
     
     func addPoints(withValues values: [Double]) {
         for v in values {
-            let entry = ChartDataEntry(x: xPosition, y: v)
-            _ = dataSet.append(entry)
+            dataSet.append(ChartDataEntry(x: xPosition, y: v))
             
             if xPosition > Double(maximumVisiblePoints) {
                 let _:ChartDataEntry = dataSet.removeFirst()

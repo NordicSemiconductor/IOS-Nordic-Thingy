@@ -44,7 +44,7 @@
 import UIKit
 import Charts
 
-class GraphDataHandler: NSObject, IAxisValueFormatter, ChartViewDelegate, UIGestureRecognizerDelegate {
+class GraphDataHandler: NSObject, AxisValueFormatter, ChartViewDelegate, UIGestureRecognizerDelegate {
 
     let maximumVisiblePoints    : Int
     let targetChartView         : LineChartView
@@ -101,14 +101,14 @@ class GraphDataHandler: NSObject, IAxisValueFormatter, ChartViewDelegate, UIGest
             aDataSet.circleRadius = 2
             aDataSet.axisDependency = .left
             aDataSet.highlightEnabled = false
-            lineChartData.addDataSet(aDataSet)
+            lineChartData.append(aDataSet)
         }
         
         targetChartView.data = lineChartData
         targetChartView.dragEnabled = true
         targetChartView.setScaleEnabled(false)
         targetChartView.noDataText = aNoDataTextString
-        targetChartView.chartDescription?.text = ""
+        targetChartView.chartDescription.text = ""
         targetChartView.xAxis.drawGridLinesEnabled = false
         targetChartView.xAxis.labelPosition = .bottom
         targetChartView.xAxis.granularityEnabled = true
@@ -240,12 +240,12 @@ class GraphDataHandler: NSObject, IAxisValueFormatter, ChartViewDelegate, UIGest
             dateFormatter.dateStyle = .medium
             dateFormatter.timeStyle = .medium
             let descriptionString = String(format: "Value: %.2f, Time: %@", entry.y, dateFormatter.string(from: timestamp))
-            targetChartView.chartDescription?.text = descriptionString
+            targetChartView.chartDescription.text = descriptionString
         }
     }
 
     func chartValueNothingSelected(_ chartView: ChartViewBase) {
-        targetChartView.chartDescription?.text = nil
+        targetChartView.chartDescription.text = nil
     }
 
 }
