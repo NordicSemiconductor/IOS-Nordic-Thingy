@@ -205,12 +205,16 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
     
     //MARK: - Implementation
     private func loadOriginalFirmware(withSoftDeviceBootloader: Bool) {
-        if withSoftDeviceBootloader {
-            originalFirmware = DFUFirmware(urlToZipFile: getExampleMergedFirmwareURL())
-        } else {
-            originalFirmware = DFUFirmware(urlToZipFile: getExampleFirmwareURL())
+        do {
+            if withSoftDeviceBootloader {
+                originalFirmware = try DFUFirmware(urlToZipFile: getExampleMergedFirmwareURL())
+            } else {
+                originalFirmware = try DFUFirmware(urlToZipFile: getExampleFirmwareURL())
+            }
+            selectedFirmware = originalFirmware
+        } catch {
+            dfuDidFail(withError: error, andMessage: "Unable to load file as valid DFU Firmware.")
         }
-        selectedFirmware = originalFirmware
     }
     
     private func getExampleMergedFirmwareURL() -> URL {
@@ -274,15 +278,19 @@ class DFUViewController: SwipableTableViewController, ThingyDFUDelegate, NewThin
     
     //MARK: - FileSelectionDelegate
     func onFileSelected(withURL aFileURL: URL) {
-        selectedFileURL = aFileURL
-        selectedFirmware = DFUFirmware(urlToZipFile: aFileURL)
-        
-        // This method may be called before the view has been created (when file opened from an e-mail)
-        if isViewLoaded {
-            // If the device and firmware is set, we can enable Start button
-            startButton.isEnabled = targetPeripheral != nil && selectedFirmware != nil
-            firmwareTypeControl.selectedSegmentIndex = 0
-            updateFirmwareInformation(from: selectedFirmware)
+        do {
+            selectedFileURL = aFileURL
+            selectedFirmware = try DFUFirmware(urlToZipFile: aFileURL)
+            
+            // This method may be called before the view has been created (when file opened from an e-mail)
+            if isViewLoaded {
+                // If the device and firmware is set, we can enable Start button
+                startButton.isEnabled = targetPeripheral != nil && selectedFirmware != nil
+                firmwareTypeControl.selectedSegmentIndex = 0
+                updateFirmwareInformation(from: selectedFirmware)
+            }
+        } catch {
+            dfuDidFail(withError: error, andMessage: "Unable to load file as valid DFU Firmware.")
         }
     }
     
