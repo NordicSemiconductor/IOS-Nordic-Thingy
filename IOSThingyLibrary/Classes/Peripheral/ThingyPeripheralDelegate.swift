@@ -42,6 +42,6 @@
 //
 //
 
-public protocol ThingyPeripheralDelegate : class {
+public protocol ThingyPeripheralDelegate: AnyObject {
     func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState)
 }
