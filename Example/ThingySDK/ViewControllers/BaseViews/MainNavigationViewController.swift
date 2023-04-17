@@ -47,7 +47,7 @@ import IOSThingyLibrary
 
 class MainNavigationViewController: UINavigationController, ThingyPeripheralDelegate {
     
-    private var targetManager: ThingyManager!
+    private weak var targetManager: ThingyManager!
     private var currentViewIdentifier: String?
     private var tmpURL: URL?
 

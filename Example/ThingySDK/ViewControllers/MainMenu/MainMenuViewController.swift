@@ -54,7 +54,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: Properties
     public  var targetNavigationController : MainNavigationViewController!
     public  var newThingyDelegate          : NewThingyDelegate?
-    private var thingyManager              : ThingyManager?
+    private weak var thingyManager         : ThingyManager?
     private var targetPeripheral           : ThingyPeripheral? {
         get {
             return newThingyDelegate?.targetPeripheral
@@ -153,11 +153,11 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
 
         menuPeripherals.removeAll()
         if activeOnly {
-            if let activePeripherals = thingyManager!.activePeripherals() {
+            if let activePeripherals = thingyManager?.activePeripherals() {
                 menuPeripherals = activePeripherals
             }
         } else {
-            if let storedPeripherals = thingyManager!.storedPeripherals() {
+            if let storedPeripherals = thingyManager?.storedPeripherals() {
                 menuPeripherals = storedPeripherals
             }
         }
@@ -486,10 +486,10 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         // which will refresh the list of menuPeripherals. Let's keep the original list here so we know which raw should be reloaded.
         let peripheralsBeforeRemoving = menuPeripherals
 
-        if thingyManager!.removePeripheral(peripheralToRemove) {
+        if thingyManager?.removePeripheral(peripheralToRemove) ?? false {
             // If the current active peripheral was removed, switch to the other, preferably a connected one.
             if peripheralToRemove == targetPeripheral {
-                targetPeripheral = thingyManager!.activePeripherals()?.first ?? thingyManager!.storedPeripherals()?.first
+                targetPeripheral = thingyManager?.activePeripherals()?.first ?? thingyManager?.storedPeripherals()?.first
             }
             
             if mainHeaderIsExpanded == false {
@@ -539,9 +539,8 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
                     menuTableView.reloadData()
                 }
             }
-        
             
-            if let thingyManager = thingyManager {
+            if let thingyManager {
                 if thingyManager.removePeripheral(peripheralToRemove) {
                     print("Peripheral removed")
                 } else {
@@ -571,12 +570,12 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             if menuPeripherals.count > indexPath.row {
                 let peripheral = menuPeripherals[indexPath.row]
                 if peripheral.state == .disconnected || peripheral.state == .disconnecting {
-                    thingyManager!.connect(toDevice: peripheral)
+                    thingyManager?.connect(toDevice: peripheral)
                     targetPeripheral = peripheral
                 } else {
                     if peripheral == targetPeripheral {
-                        thingyManager!.disconnect(fromDevice: peripheral)
-                        targetPeripheral = thingyManager!.activePeripherals()?.first
+                        thingyManager?.disconnect(fromDevice: peripheral)
+                        targetPeripheral = thingyManager?.activePeripherals()?.first
                         shouldToggleRevealView = false
                     } else {
                         targetPeripheral = peripheral
