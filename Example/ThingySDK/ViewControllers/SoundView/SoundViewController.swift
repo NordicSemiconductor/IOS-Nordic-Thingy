@@ -451,43 +451,44 @@ class SoundViewController: SwipableTableViewController {
         // is the lowest available) so conversino will be done later.
         let format = AVAudioFormat(commonFormat: .pcmFormatInt16, sampleRate: 8000, channels: 1, interleaved: true)
         
-        engine = AVAudioEngine()
-        let inputNode = engine!.inputNode
+        let newEngine = AVAudioEngine()
+        engine = newEngine
+        let inputNode = newEngine.inputNode
         if inputNode.outputFormat(forBus: 0).sampleRate == 0 {
             // On iOS 8 the 8 KHz sampling is not supported
             return false
         }
         let mixer = AVAudioMixerNode()
-        engine!.attach(mixer)
-        engine!.connect(inputNode, to: mixer, format: inputNode.outputFormat(forBus: 0))
-        engine!.connect(mixer, to: engine!.mainMixerNode, format: format)
-        engine!.mainMixerNode.volume = 0
+        newEngine.attach(mixer)
+        newEngine.connect(inputNode, to: mixer, format: inputNode.outputFormat(forBus: 0))
+        newEngine.connect(mixer, to: newEngine.mainMixerNode, format: format)
+        newEngine.mainMixerNode.volume = 0
         
         // Install a tap to get bytes while they are recorded. Buffer size 800 is the lowest possible and covers 1/10 second.
-        mixer.installTap(onBus: 0, bufferSize: 800, format: mixer.outputFormat(forBus: 0)) {
+        mixer.installTap(onBus: 0, bufferSize: 800, format: mixer.outputFormat(forBus: 0)) { [weak self]
             (buffer: AVAudioPCMBuffer!, time: AVAudioTime!) -> Void in
             let rawData = buffer.int16ChannelData![0]
             
             var graphData = [Double]()
             // Unfortunatelly we can't show all samples on the graph, it would be too slow.
             // We show only every n-th sample from whole 800 samples in the buffer.
-            for i in stride(from: 0, to: buffer.frameLength, by: 800 / self.soundGraphHandler.maximumVisiblePoints) {
+            for i in stride(from: 0, to: buffer.frameLength, by: 800 / (self?.soundGraphHandler.maximumVisiblePoints ?? 100)) {
                 graphData.append(Double(rawData[Int(i)]) / Double(Int16.max))
             }
-            DispatchQueue.main.async {
-                guard self.engine != nil && self.engine!.isRunning else {
-                    return
+            
+            if newEngine.isRunning {
+                DispatchQueue.main.async {
+                    self?.soundGraphHandler?.addPoints(withValues: graphData)
                 }
-                self.soundGraphHandler.addPoints(withValues: graphData)
             }
                 
             let data = Data(bytes: rawData, count: Int(buffer.frameLength * 2))
-            self.targetPeripheral?.play(pcm16bit: data)
+            self?.targetPeripheral?.play(pcm16bit: data)
         }
         
         do {
-            engine!.prepare()
-            try engine!.start()
+            newEngine.prepare()
+            try newEngine.start()
         } catch {
             print("AVAudioEngine.start() error: \(error.localizedDescription)")
             return false
@@ -508,32 +509,37 @@ class SoundViewController: SwipableTableViewController {
         // Later on we will have to devide all values by Int16.max to get values from -1.0 to 1.0
         let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: 16000, channels: 1, interleaved: true)
         
-        engine = AVAudioEngine()
-        player = AVAudioPlayerNode()
-        engine!.attach(player!)
-        engine!.connect(player!, to: engine!.mainMixerNode, format: format)
-        engine!.mainMixerNode.volume = 1.0
+        let newEngine = AVAudioEngine()
+        engine = newEngine
+        let newPlayer = AVAudioPlayerNode()
+        player = newPlayer
+        newEngine.attach(newPlayer)
+        newEngine.connect(newPlayer, to: newEngine.mainMixerNode, format: format)
+        newEngine.mainMixerNode.volume = 1.0
         
         do {
-            engine!.prepare()
-            try engine!.start()
+            newEngine.prepare()
+            try newEngine.start()
         } catch {
             print("AVAudioEngine.start() error: \(error.localizedDescription)")
         }
-        player!.play()
+        newPlayer.play()
     }
     
     private func schedule(pcm16Data: [Int16]) {
-        guard let engine = engine, engine.isRunning else {
+        guard let engine, engine.isRunning else {
             // Streaming has been already stopped
             return
         }
         
-        let buffer = AVAudioPCMBuffer(pcmFormat: engine.mainMixerNode.inputFormat(forBus: 0), frameCapacity: AVAudioFrameCount(pcm16Data.count))!
+        guard let buffer = AVAudioPCMBuffer(pcmFormat: engine.mainMixerNode.inputFormat(forBus: 0),
+                                            frameCapacity: AVAudioFrameCount(pcm16Data.count)) else {
+            return
+        }
         buffer.frameLength = buffer.frameCapacity
         
         var graphData = [Double]()
-        for i in 0 ..< pcm16Data.count {
+        for i in 0..<pcm16Data.count {
             buffer.floatChannelData![0 /* channel 1 */][i] = Float32(pcm16Data[i]) / Float32(Int16.max) // TODO: 32 - increases volume, this should be done on Thingy
             // print("Value \(i): \(pcm16Data[i]) => \(buffer.floatChannelData![0][i])")
             
@@ -543,14 +549,14 @@ class SoundViewController: SwipableTableViewController {
                 graphData.append((Double((buffer.floatChannelData![0][i]))))
             }
         }
-        DispatchQueue.main.async {
-            guard self.engine != nil && self.engine!.isRunning else {
-                return
+        
+        if engine.isRunning {
+            DispatchQueue.main.async {
+                self.soundGraphHandler.addPoints(withValues: graphData)
             }
-            self.soundGraphHandler.addPoints(withValues: graphData)
         }
         
-        player!.scheduleBuffer(buffer, completionHandler: nil)
+        player?.scheduleBuffer(buffer, completionHandler: nil)
     }
     
     private func stopPlaying() {
