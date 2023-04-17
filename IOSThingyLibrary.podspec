@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'IOSThingyLibrary'
-  s.version          = '1.5.3'
+  s.version          = '1.5.4'
   s.summary          = 'A Swift 5 SDK implementation for the Nordic Thingy:52 produced by Nordic Semiconductor'
   s.description      = <<-DESC
 This is a mobile SDK for the Thingy:52 devices developed by Nordic Semiconductor. Thingy:52
