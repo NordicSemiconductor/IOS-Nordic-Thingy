@@ -65,14 +65,10 @@ class MainEmptyConfigurationViewController: SwipableViewController {
     
     @IBAction func linkTapped(_ sender: UIButton) {
         let url = URL(string: "https://www.nordicsemi.com/thingy")!
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
+        UIApplication.shared.open(url)
     }
     
-    private var mainNavigationContorller: MainNavigationViewController?
+    private var mainNavigationController: MainNavigationViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,15 +82,7 @@ class MainEmptyConfigurationViewController: SwipableViewController {
         addThingyButton.layer.masksToBounds = true
         addThingyButton.setBackgroundColor(color: UIColor.nordicLakeDark, forState: .highlighted)
         
-        if #available(iOS 11.0, *) {
-            if NFCNDEFReaderSession.readingAvailable {
-                addThingyNFCButton.isHidden = false
-            } else {
-                addThingyNFCButton.isHidden = true
-            }
-        } else {
-            addThingyNFCButton.isHidden = true
-        }
+        addThingyNFCButton.isHidden = !NFCNDEFReaderSession.readingAvailable
     }
     
     override func targetPeripheralDidChange(new: ThingyPeripheral?) {

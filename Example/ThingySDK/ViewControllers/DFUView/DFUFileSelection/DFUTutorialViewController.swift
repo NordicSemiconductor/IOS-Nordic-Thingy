@@ -47,11 +47,7 @@ class DFUTutorialViewController: UIViewController {
 
     @IBAction func linkTapped(_ sender: UIButton) {
         let url = URL(string: "https://github.com/NordicSemiconductor/pc-nrfutil")!
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
+        UIApplication.shared.open(url)
     }
 
 }

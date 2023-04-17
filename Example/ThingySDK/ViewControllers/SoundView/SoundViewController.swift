@@ -179,14 +179,7 @@ class SoundViewController: SwipableTableViewController {
         volumeControl.addGestureRecognizer(volumeSliderTapRecognizer)
         recordingSession = AVAudioSession.sharedInstance()
         do {
-            if #available(iOS 10.0, *) {
-                try recordingSession.setCategory(.playAndRecord, mode: .default)
-            } else {
-                // Workaround, until https://forums.swift.org/t/using-methods-marked-unavailable-in-swift-4-2/14949 isn't fixed
-                // See: https://stackoverflow.com/a/52396244/2115352
-                recordingSession.perform(NSSelectorFromString("setCategory:error:"),
-                                         with: AVAudioSession.Category.playAndRecord)
-            }
+            try recordingSession.setCategory(.playAndRecord, mode: .default)
             try recordingSession.setPreferredSampleRate(8000) // 8 kHz
             try recordingSession.setPreferredOutputNumberOfChannels(1)
             try recordingSession.setActive(true)

@@ -348,18 +348,12 @@ class ThingyConfigurationViewController: SwipableViewController, UITableViewData
                                                 })
                                               })
             case 1: // Max connection interval
-                var minVal: Int!
-                if #available(iOS 11.0, *) {
-                    //12 units is the smallest possible value on iOS >= 11 (15 ms).
-                    minVal = Int(max(self.configConnectionMin, 12))
-                } else {
-                    //24 units is the smallest possible value on iOS <= 10 (30 ms).
-                    minVal = Int(max(self.configConnectionMin, 24))
-                }
+                //12 units is the smallest possible value on iOS >= 11 (15 ms).
+                let minVal = Int(max(self.configConnectionMin, 12))
                 //3200 units is the max value possible on the Thingy (4000 ms).
                 let maxVal = min(Int(self.configConnectionSupervisionTimeout * 4 / (self.configConnectionSlaveLatency + 1)) , 3200)
                 PopupHelper.showIntervalInput(withTitle: "Max interval",
-                                              subtitle: "Range: 7.5 ms -> 4000 ms\nin units of 1.25 ms\n(input range: 6 -> 3200 units)\nCurrent value constraints:\n\(minVal!) to \(maxVal)",
+                                              subtitle: "Range: 7.5 ms -> 4000 ms\nin units of 1.25 ms\n(input range: 6 -> 3200 units)\nCurrent value constraints:\n\(minVal) to \(maxVal)",
                                               value: Int(configConnectionMax), availableRange: NSMakeRange(minVal, maxVal - minVal + 1), unitInMs: 1.25,
                                               andPlaceholderValue: "Max Connection Interval",
                                               completion: {
