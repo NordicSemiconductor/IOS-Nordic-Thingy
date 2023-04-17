@@ -216,6 +216,7 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     //MARK: - ExpandableTableHeaderViewDelegate methods
+    
     func canCollapse(forSection section: Int) -> Bool {
         guard section == 0 else {
             return false
@@ -339,9 +340,10 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         return connectedMenuPeripheralCount
     }
     
-    //MARK: UItableViewDelegate methods
+    //MARK: UITableViewDelegate methods
+    
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return ("Forget")
+        return "Forget"
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
@@ -350,7 +352,6 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(section) {
-            
         case 0:
             if mainHeaderIsExpanded {
                 let count = menuPeripherals.count
@@ -359,7 +360,6 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
                 let count = connectedPeripheralCount()
                 return max(count, 1) // 1 for 'No devices'
             }
-        
         case 1:
             let connectedPeripherals = connectedPeripheralCount()
             if connectedPeripherals == 0 {
@@ -367,10 +367,8 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             } else {
                 return serviceMenuItems.count
             }
-            
         case 2:
             return moreMenuItems.count
-        
         default:
             return 0
         }
@@ -380,34 +378,30 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         let aCell = tableView.dequeueReusableCell(withIdentifier: tableCellIdentifier) as! MenuItemTableViewCell
 
         switch (indexPath.section) {
-            case 0:
-                if menuPeripherals.isEmpty {
-                    aCell.updateCell(withTitle: "No Thingy configured", andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"),
-                                     isTransparent: true, batteryLevel: nil)
-                } else {
-                    let aPeripheral = menuPeripherals[indexPath.row]
-                    aCell.updateCell(withTitle: aPeripheral.name, andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"),
-                                     isActive: aPeripheral == targetPeripheral,
-                                     isTransparent: aPeripheral.state != .ready,
-                                     batteryLevel: aPeripheral.batteryLevel)
-                }
-
-            case 1:
-                if connectedPeripheralCount() > 0 {
-                    aCell.updateCell(withTitle: serviceMenuItems[indexPath.row],
-                                     andIcon: serviceMenuIcons[indexPath.row],
-                                     batteryLevel: nil)
-                }
-
-            case 2:
-                aCell.updateCell(withTitle: moreMenuItems[indexPath.row],
-                                 andIcon: moreMenuIcons[indexPath.row],
+        case 0:
+            if menuPeripherals.isEmpty {
+                aCell.updateCell(withTitle: "No Thingy configured", andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"),
+                                 isTransparent: true, batteryLevel: nil)
+            } else {
+                let aPeripheral = menuPeripherals[indexPath.row]
+                aCell.updateCell(withTitle: aPeripheral.name, andIcon: #imageLiteral(resourceName: "ic_developer_board_24pt"),
+                                 isActive: aPeripheral == targetPeripheral,
+                                 isTransparent: aPeripheral.state != .ready,
+                                 batteryLevel: aPeripheral.batteryLevel)
+            }
+        case 1:
+            if connectedPeripheralCount() > 0 {
+                aCell.updateCell(withTitle: serviceMenuItems[indexPath.row],
+                                 andIcon: serviceMenuIcons[indexPath.row],
                                  batteryLevel: nil)
-
-            default:
-                aCell.updateCell(withTitle: "Menu", andIcon: nil, batteryLevel: nil)
+            }
+        case 2:
+            aCell.updateCell(withTitle: moreMenuItems[indexPath.row],
+                             andIcon: moreMenuIcons[indexPath.row],
+                             batteryLevel: nil)
+        default:
+            aCell.updateCell(withTitle: "Menu", andIcon: nil, batteryLevel: nil)
         }
-
         return aCell
     }
 
@@ -437,7 +431,6 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         headerView.tag      = section + 1
         headerView.delegate = self
         headerView.section  = section
-
         return headerView
     }
 
@@ -449,7 +442,8 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.section == 0 && menuPeripherals.isEmpty == false //Only devices are editable
+        // Only devices are editable
+        return indexPath.section == 0 && menuPeripherals.isEmpty == false
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -588,30 +582,30 @@ class MainMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         case 1:
             if connectedPeripheralCount() > 0 {
                 switch(indexPath.row){
-                    case 0:
-                        targetNavigationController.showEnvironmentView()
-                    case 1:
-                        targetNavigationController.showUIView()
-                    case 2:
-                        targetNavigationController.showMotionView()
-                    case 3:
-                        targetNavigationController.showSoundView()
-                    case 4:
-                        targetNavigationController.showCloudView()
-                    case 5:
-                        targetNavigationController.showConfigurationView()
-                    default:
-                        print("Unknown Selection")
+                case 0:
+                    targetNavigationController.showEnvironmentView()
+                case 1:
+                    targetNavigationController.showUIView()
+                case 2:
+                    targetNavigationController.showMotionView()
+                case 3:
+                    targetNavigationController.showSoundView()
+                case 4:
+                    targetNavigationController.showCloudView()
+                case 5:
+                    targetNavigationController.showConfigurationView()
+                default:
+                    print("Unknown Selection")
                 }
             }
         case 2:
             switch(indexPath.row) {
-                case 0:
-                    targetNavigationController.showDFUView()
-                case 1:
-                    targetNavigationController.showAboutView()
-                default:
-                    print("Unkown Selection")
+            case 0:
+                targetNavigationController.showDFUView()
+            case 1:
+                targetNavigationController.showAboutView()
+            default:
+                print("Unkown Selection")
             }
         default:
             print("Unkown selection")
