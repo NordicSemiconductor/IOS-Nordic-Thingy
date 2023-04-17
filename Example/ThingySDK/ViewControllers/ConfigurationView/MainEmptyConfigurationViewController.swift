@@ -100,12 +100,12 @@ class MainEmptyConfigurationViewController: SwipableViewController {
     override func targetPeripheralDidChange(new: ThingyPeripheral?) {
         guard new != nil else { return }
         // A Thingy has been added.
-        mainNavigationContorller?.showDefaultView()
+        mainNavigationController?.showDefaultView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        mainNavigationContorller = navigationController as? MainNavigationViewController
+        mainNavigationController = navigationController as? MainNavigationViewController
         
         guard thingyManager!.persistentPeripheralIdentifiers() != nil else {
             return
@@ -113,23 +113,23 @@ class MainEmptyConfigurationViewController: SwipableViewController {
         
         if thingyManager!.persistentPeripheralIdentifiers()!.count > 0 {
             // We have stored peripherals
-            mainNavigationContorller?.showDefaultView()
+            mainNavigationController?.showDefaultView()
         }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        let menuViewController = mainNavigationContorller?.revealViewController().rearViewController as? MainMenuViewController
+        let menuViewController = mainNavigationController?.revealViewController().rearViewController as? MainMenuViewController
         guard let targetPeripheral, let menuViewController else { return }
         menuViewController.thingyPeripheral(targetPeripheral, didChangeStateTo: targetPeripheral.state)
     }
 
     //MARK: - Implementation
     private func addButtonNFCTappedHandler() {
-        mainNavigationContorller?.showInitialNFCConfigurationView()
+        mainNavigationController?.showInitialNFCConfigurationView()
     }
 
     private func addButonTappedHandler() {
-        mainNavigationContorller?.showInitialConfigurationView()
+        mainNavigationController?.showInitialConfigurationView()
     }
 }
