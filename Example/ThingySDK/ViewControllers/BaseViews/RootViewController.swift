@@ -49,10 +49,12 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
 
     private var menuViewController       : MainMenuViewController!
     private var mainNavigationController : MainNavigationViewController!
-    private var thingyManager            : ThingyManager?
     private var alert                    : UIAlertController?
     
+    private lazy var thingyManager = ThingyManager(withDelegate: self)
+    
     //MARK: - NewThingyDelegate properties
+    
     var targetPeripheral: ThingyPeripheral? {
         didSet {
             // When a new peripheral has been added, set it as a current one and update its state
@@ -73,10 +75,8 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
         menuViewController.newThingyDelegate = self
         mainNavigationController = (frontViewController as! MainNavigationViewController)
         
-        thingyManager = ThingyManager(withDelegate: self)
-        
-        menuViewController!.setThingyManager(thingyManager!)
-        mainNavigationController!.setThingyManager(thingyManager!)
+        menuViewController!.setThingyManager(thingyManager)
+        mainNavigationController!.setThingyManager(thingyManager)
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator:
@@ -108,7 +108,7 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
             if state != .disconnecting {
                 alert!.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
                     self.alert!.message = "Cancelling connection..."
-                    self.thingyManager!.disconnect(fromDevice: peripheral)
+                    self?.thingyManager.disconnect(fromDevice: peripheral)
                 }))
             }
             present(alert!, animated: true)
@@ -122,8 +122,8 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
             alert?.message = "Disconnected"
             alert?.dismiss(animated: true) {
                 // The "Empty view" can't be shown until the alert controller is shown, so show it here.
-                if self.thingyManager!.hasStoredPeripherals() == false {
-                    self.mainNavigationController.showEmptyView()
+                if self?.thingyManager.hasStoredPeripherals() == false {
+                    self?.mainNavigationController.showEmptyView()
                 }
             }
             alert = nil
@@ -158,11 +158,9 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
     
     // MARK: - Private methods
     private func assignSelfAsPeripheralsDelegate() {
-        let storedPeripherals = thingyManager!.storedPeripherals()
-        if storedPeripherals != nil {
-            for peripheral in storedPeripherals! {
-                peripheral.delegate = self
-            }
+        guard let storedPeripherals = thingyManager.storedPeripherals() else { return }
+        storedPeripherals.forEach { peripheral in
+            peripheral.delegate = self
         }
     }
     
