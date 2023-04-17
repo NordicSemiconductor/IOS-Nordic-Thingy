@@ -72,7 +72,7 @@ class MainEmptyConfigurationViewController: SwipableViewController {
         }
     }
     
-    private var mainNavigationContorller: MainNavigationViewController!
+    private var mainNavigationContorller: MainNavigationViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,15 +98,14 @@ class MainEmptyConfigurationViewController: SwipableViewController {
     }
     
     override func targetPeripheralDidChange(new: ThingyPeripheral?) {
-        if let _ = new {
-            // A Thingy has been added.
-            mainNavigationContorller.showDefaultView()
-        }
+        guard new != nil else { return }
+        // A Thingy has been added.
+        mainNavigationContorller?.showDefaultView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        mainNavigationContorller = (navigationController as! MainNavigationViewController)
+        mainNavigationContorller = navigationController as? MainNavigationViewController
         
         guard thingyManager!.persistentPeripheralIdentifiers() != nil else {
             return
@@ -114,24 +113,23 @@ class MainEmptyConfigurationViewController: SwipableViewController {
         
         if thingyManager!.persistentPeripheralIdentifiers()!.count > 0 {
             // We have stored peripherals
-            mainNavigationContorller.showDefaultView()
+            mainNavigationContorller?.showDefaultView()
         }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        let menuViewController = mainNavigationContorller.revealViewController().rearViewController as! MainMenuViewController
-        if let targetPeripheral = targetPeripheral {
-            menuViewController.thingyPeripheral(targetPeripheral, didChangeStateTo: targetPeripheral.state)
-        }
+        let menuViewController = mainNavigationContorller?.revealViewController().rearViewController as? MainMenuViewController
+        guard let targetPeripheral, let menuViewController else { return }
+        menuViewController.thingyPeripheral(targetPeripheral, didChangeStateTo: targetPeripheral.state)
     }
 
     //MARK: - Implementation
     private func addButtonNFCTappedHandler() {
-        mainNavigationContorller.showInitialNFCConfigurationView()
+        mainNavigationContorller?.showInitialNFCConfigurationView()
     }
 
     private func addButonTappedHandler() {
-        mainNavigationContorller.showInitialConfigurationView()
+        mainNavigationContorller?.showInitialConfigurationView()
     }
 }
