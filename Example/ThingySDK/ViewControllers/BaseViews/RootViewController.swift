@@ -64,6 +64,7 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
     }
     
     //MARK: - UI View Controller methods    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,6 +87,7 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
     }
 
     //MARK: - Thingy Manager Delegate
+    
     func thingyManager(_ manager: ThingyManager, didChangeStateTo state: ThingyManagerState) {
         switch state {
             case .idle:
@@ -97,21 +99,26 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
     }
     
     func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral) {
+        // No-op.
     }
-    func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral, withPairingCode: String?) {   
+    
+    func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral, withPairingCode: String?) {
+        // No-op.
     }
     
     // MARK: - Thingy Peripheral Delegate
+    
     func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
         if alert == nil && state != .ready && state != .disconnected && state != .dfuInProgress {
-            alert = UIAlertController(title: "Status", message: "Please wait...", preferredStyle: .alert)
+            let newAlert = UIAlertController(title: "Status", message: "Please wait...", preferredStyle: .alert)
+            alert = newAlert
             if state != .disconnecting {
-                alert!.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-                    self.alert!.message = "Cancelling connection..."
-                    self?.thingyManager.disconnect(fromDevice: peripheral)
+                newAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak thingyManager] (action) in
+                    newAlert.message = "Cancelling connection..."
+                    thingyManager?.disconnect(fromDevice: peripheral)
                 }))
             }
-            present(alert!, animated: true)
+            present(newAlert, animated: true)
         }
         switch state {
         case .ready:
@@ -120,7 +127,7 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
             alert = nil
         case .disconnected:
             alert?.message = "Disconnected"
-            alert?.dismiss(animated: true) {
+            alert?.dismiss(animated: true) { [weak self] in
                 // The "Empty view" can't be shown until the alert controller is shown, so show it here.
                 if self?.thingyManager.hasStoredPeripherals() == false {
                     self?.mainNavigationController.showEmptyView()
@@ -128,35 +135,37 @@ class RootViewController: SWRevealViewController, ThingyManagerDelegate, ThingyP
             }
             alert = nil
         case .connecting:
-            alert!.message = "Connecting..."
+            alert?.message = "Connecting..."
         case .connected:
-            alert!.message = "Connected"
+            alert?.message = "Connected"
         case .discoveringServices:
-            alert!.message = "Discovering services..."
+            alert?.message = "Discovering services..."
         case .discoveringCharacteristics:
-            alert!.message = "Reading device configuration..."
+            alert?.message = "Reading device configuration..."
         case .disconnecting:
-            alert!.message = "Disconnecting..."
+            alert?.message = "Disconnecting..."
         case .failedToConnect:
-            alert!.message = "Failed to connect"
-            alert!.dismiss(animated: true)
+            alert?.message = "Failed to connect"
+            alert?.dismiss(animated: true)
             alert = nil
         case .notSupported:
-            alert!.message = "Device not supported"
-            alert!.dismiss(animated: true)
+            alert?.message = "Device not supported"
+            alert?.dismiss(animated: true)
             alert = nil
         case .unavailable:
-            alert!.message = "Device unavailable"
-            alert!.dismiss(animated: true)
+            alert?.message = "Device unavailable"
+            alert?.dismiss(animated: true)
             alert = nil
         default:
             break
         }
+        
         menuViewController.thingyPeripheral(peripheral, didChangeStateTo: state)
         mainNavigationController.thingyPeripheral(peripheral, didChangeStateTo: state)
     }
     
-    // MARK: - Private methods
+    // MARK: - Private
+    
     private func assignSelfAsPeripheralsDelegate() {
         guard let storedPeripherals = thingyManager.storedPeripherals() else { return }
         storedPeripherals.forEach { peripheral in
